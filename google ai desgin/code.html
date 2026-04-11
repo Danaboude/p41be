@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>P41 | Industrial Intelligence Redefined</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#2a303f",
+                        "background": "#faf9ff",
+                        "inverse-primary": "#69d8cf",
+                        "surface-container-low": "#f1f3ff",
+                        "surface": "#faf9ff",
+                        "inverse-on-surface": "#edf0ff",
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "tertiary-container": "#b0c1b9",
+                        "secondary-container": "#a7eafd",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#226b7c",
+                        "secondary-fixed": "#acecff",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#dde2f6",
+                        "surface-container-high": "#e2e8fc",
+                        "on-primary-container": "#005651",
+                        "tertiary": "#52625c",
+                        "primary": "#006a64",
+                        "surface-variant": "#dde2f6",
+                        "tertiary-fixed": "#d5e7de",
+                        "on-tertiary-fixed-variant": "#3a4a44",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#5fcfc6",
+                        "on-surface-variant": "#3d4948",
+                        "primary-fixed-dim": "#69d8cf",
+                        "surface-tint": "#006a64",
+                        "on-tertiary-container": "#40504a",
+                        "on-surface": "#151b2a",
+                        "on-background": "#151b2a",
+                        "surface-dim": "#d4d9ed",
+                        "primary-fixed": "#87f5eb",
+                        "outline-variant": "#bcc9c7",
+                        "surface-bright": "#faf9ff",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#8ed0e3",
+                        "on-primary-fixed-variant": "#00504b",
+                        "surface-container": "#e9edff",
+                        "on-primary-fixed": "#00201e",
+                        "outline": "#6d7a78",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#0f1e1a",
+                        "on-secondary-fixed": "#001f26",
+                        "tertiary-fixed-dim": "#b9cac3",
+                        "secondary": "#1c6777"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .premium-gradient-btn {
+            background: linear-gradient(135deg, #006a64 0%, #5fcfc6 100%);
+        }
+        .glass-nav {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+<div class="text-2xl font-black tracking-tighter text-slate-900 dark:text-white font-headline">P41</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-teal-600 dark:text-teal-400 border-b-2 border-teal-600 dark:border-teal-400 pb-1 font-headline font-bold tracking-tight hover:text-teal-500 transition-colors duration-300" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-400 font-label hover:text-teal-500 transition-colors duration-300" href="#">Consultancy</a>
+<a class="text-slate-600 dark:text-slate-400 font-label hover:text-teal-500 transition-colors duration-300" href="#">Academy</a>
+<a class="text-slate-600 dark:text-slate-400 font-label hover:text-teal-500 transition-colors duration-300" href="#">Blog</a>
+<a class="text-slate-600 dark:text-slate-400 font-label hover:text-teal-500 transition-colors duration-300" href="#">About</a>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-slate-600 cursor-pointer hover:text-primary transition-colors">search</span>
+<button class="premium-gradient-btn text-white font-label font-bold px-6 py-2.5 rounded-full active:scale-95 transition-transform">
+                Request a Demo
+            </button>
+</div>
+</nav>
+<main class="pt-20">
+<section class="relative min-h-[921px] flex items-center overflow-hidden px-8">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-20 grayscale hover:grayscale-0 transition-all duration-1000" data-alt="ultra-modern automated factory floor with robotic arms and clean teal lighting, cinematic wide shot, industrial futuristic atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4Ly9yZV5asCWcPD0F-6CGhJIk4urOWMxTciBZYJUDuwj8rpA1hlq-ymhrn9qNSqDgnQ_gnifxDpHkQvt0WQXxzp1CHbax08imCZg8lQgkQk7pKiupFYAHbqj8iIr0qX6biMLwXrQbcCTDaY4VjiqZ27fCL0cT0jwbXY7h8_NFmE5AhLOLbzC-3ozwOwGxIzfmq7zums0l7PlL3mNF0K6CwYYojwahCyxrAtOMPH10hQNlgFJcKHbe8nS68C_9zghd8hP1lcSVmoac"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-5xl">
+<div class="inline-flex items-center gap-2 bg-secondary-container px-3 py-1 rounded mb-6">
+<span class="material-symbols-outlined text-on-secondary-container text-sm">precision_manufacturing</span>
+<span class="text-on-secondary-container font-label text-xs font-bold tracking-widest uppercase">Industry 4.0 Leader</span>
+</div>
+<h1 class="text-7xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-8 text-on-surface">
+                    Industrial Intelligence.<br/><span class="text-primary">Redefined.</span>
+</h1>
+<p class="text-xl md:text-2xl text-on-surface-variant max-w-2xl mb-12 leading-relaxed">
+                    Optimizing time, eliminating error, and perfecting flow. We bridge the gap between heavy industrial heritage and futuristic digital management.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="premium-gradient-btn text-white font-label font-bold px-10 py-5 rounded-full text-lg shadow-xl shadow-primary/20 active:scale-95 transition-transform">
+                        Get Started
+                    </button>
+<button class="bg-surface-container-high text-on-surface font-label font-bold px-10 py-5 rounded-full text-lg hover:bg-surface-container-highest transition-colors active:scale-95">
+                        Our Methods
+                    </button>
+</div>
+</div>
+</section>
+<section class="bg-surface py-32 px-8">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div class="max-w-2xl">
+<h2 class="text-4xl font-bold tracking-tight mb-4 font-headline">Core Services</h2>
+<p class="text-lg text-on-surface-variant">Tailored solutions for the modern industrial landscape, from strategic board-level shifts to hands-on floor optimization.</p>
+</div>
+<div class="h-[2px] flex-grow bg-outline-variant/30 mb-4 hidden md:block"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-1">
+<div class="group bg-surface-container-low p-12 transition-all hover:bg-primary hover:text-white">
+<span class="material-symbols-outlined text-5xl mb-8 text-primary group-hover:text-white transition-colors" data-weight="fill">settings_suggest</span>
+<h3 class="text-2xl font-bold mb-4 font-headline">Consultancy</h3>
+<p class="opacity-80 leading-relaxed mb-8">Strategic navigation through the digital transformation of your production assets and supply chain logistics.</p>
+<a class="inline-flex items-center gap-2 font-label font-bold group-hover:underline underline-offset-8" href="#">Explore Service <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+<div class="group bg-surface-container-high p-12 transition-all hover:bg-primary hover:text-white">
+<span class="material-symbols-outlined text-5xl mb-8 text-primary group-hover:text-white transition-colors" data-weight="fill">hub</span>
+<h3 class="text-2xl font-bold mb-4 font-headline">Workshops</h3>
+<p class="opacity-80 leading-relaxed mb-8">Immersive, collaborative sessions designed to solve immediate bottlenecks using our proprietary sprint methodology.</p>
+<a class="inline-flex items-center gap-2 font-label font-bold group-hover:underline underline-offset-8" href="#">Book a Session <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+<div class="group bg-surface-container-low p-12 transition-all hover:bg-primary hover:text-white">
+<span class="material-symbols-outlined text-5xl mb-8 text-primary group-hover:text-white transition-colors" data-weight="fill">school</span>
+<h3 class="text-2xl font-bold mb-4 font-headline">Online Training</h3>
+<p class="opacity-80 leading-relaxed mb-8">Scale your organization's IQ with on-demand modules covering Lean 4.0, IoT integration, and predictive maintenance.</p>
+<a class="inline-flex items-center gap-2 font-label font-bold group-hover:underline underline-offset-8" href="#">Start Learning <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-inverse-surface text-inverse-on-surface py-32 px-8 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
+<img class="w-full h-full object-cover" data-alt="abstract architectural blueprint lines on dark background, technical drawing aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY6HV3f0BfjEuuzHqtoSfqOZTzntXSJ7c2XIKCHcn8iHm9kSAfEU8S8dLyWI1wIOhJ_JytUcpfPIFYr5G7SdONKV5ddF5Jcyw61mP1QwBnKUbsvM5bteYmqqdIixt6Isa1Q8fCWsrS_KNXZcrtcyqZhC0oK_gdGWt6qY4yZAyY4nHkUiyzZp7dpe7c5LI-VLQSN8f_B0bNeVv43B1NxAc7tebu9GOFEJHWznRcHneR5SHNM3oiLvo3wEmfwkyWDlv8mEIDN4TzO4TP"/>
+</div>
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div>
+<h2 class="text-5xl font-black tracking-tighter mb-8 font-headline leading-tight">The Architectural Engine:<br/><span class="text-primary-container">Why P41?</span></h2>
+<div class="space-y-12">
+<div class="flex gap-6">
+<div class="w-12 h-12 rounded bg-primary/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary-container">history_edu</span>
+</div>
+<div>
+<h4 class="text-xl font-bold mb-2 font-headline">Deep Experience</h4>
+<p class="text-slate-400">Decades of combined expertise on factory floors across three continents. We know what fails before it happens.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="w-12 h-12 rounded bg-primary/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary-container">architecture</span>
+</div>
+<div>
+<h4 class="text-xl font-bold mb-2 font-headline">Novel Methods</h4>
+<p class="text-slate-400">Moving beyond the standard Agile. We apply high-performance physics-based modeling to industrial human workflows.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="w-12 h-12 rounded bg-primary/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary-container">database</span>
+</div>
+<div>
+<h4 class="text-xl font-bold mb-2 font-headline">Gathering Knowledge</h4>
+<p class="text-slate-400">We don't just optimize; we build a living knowledge base for your company to evolve independently.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-slate-800/50 backdrop-blur p-8 flex flex-col justify-between h-64 border-l-4 border-primary">
+<span class="text-6xl font-black font-label text-primary">25+</span>
+<span class="font-label text-sm uppercase tracking-widest text-slate-400">Years Experience</span>
+</div>
+<div class="bg-slate-800/50 backdrop-blur p-8 flex flex-col justify-between h-64 mt-12">
+<span class="text-6xl font-black font-label text-primary-container">40%</span>
+<span class="font-label text-sm uppercase tracking-widest text-slate-400">Avg. Waste Reduction</span>
+</div>
+<div class="bg-slate-800/50 backdrop-blur p-8 flex flex-col justify-between h-64 -mt-12">
+<span class="text-6xl font-black font-label text-primary-container">150+</span>
+<span class="font-label text-sm uppercase tracking-widest text-slate-400">Active Facilities</span>
+</div>
+<div class="bg-primary p-8 flex flex-col justify-between h-64">
+<span class="text-6xl font-black font-label text-white">12B</span>
+<span class="font-label text-sm uppercase tracking-widest text-white/80">Data Points Analyzed</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-wrap items-center justify-center gap-12 md:gap-24 opacity-40 grayscale mb-32">
+<img class="h-8" data-alt="clean minimal vector logo of a global manufacturing brand" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnULFbCsxJfTyKD6RB7VvZxd_kIn34s_u5ML4eRIHEDYguyOinqUzcEe91Fj_eDjA3a6mwCXinW1Mrjd9pDofoRp68GlTC229VVO3wRSolRNKP7oOrMblj2SwaL5haa_wZnxAPcYC4UlODnsaDxqv8Z69MHNLjWJIW7kdEjeBDHWPXDu9lA6ik1-rkqoi6xv2-FRoHsi4FAwVRZjXf0uGq8Fw-N9G_npwdZF3PvCnWtER-lOIimIU-tdV_5ntCDmtG-f8BZ3i4RvmD"/>
+<img class="h-10" data-alt="clean minimal vector logo of a logistics technology company" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBD2yImAWvyR74m7y5ZBpH4mF8nOIalTP0_zd3Kvsfh5jcmCRZOC3_84wFx4xqoT6xlJRR9IhngF19X1XFwgeOaE6PsYp5LAsoTNL82FUopx4eiCMp67kCwCoRJyg1mQS_Raoyzy0J-aVyXDyMBGDoZgY9IPWY98NYHD7RrMF_vURDwrkRgszkqhEWG2GA4QQnePaD_9z-yzxeBuJi1pyf0bbaZQXxT7_2t5XXAdj0_SHpYZJtHH_6_8RIH83kzr7TXnK-FJaVN6Ef"/>
+<img class="h-9" data-alt="clean minimal vector logo of an industrial automation firm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWyPmbqSr5FIte57J2wVE80Wp9ppgrxUcJScdVsMZ8KMaj7cUc0yIlCJCWvYdT5v7zQpNAF_RS_JdHKyv3_h9KndcVUQSIDBPt6W2exh8e1IOHAYF-BnQk1vhxPUcND-TVIcUIwEJ7Rml0Z-ygZgWVWg6g0BFtAIcr1M6mE0gPDD5iUN6Vbwg4xZvsA0XQr6KdFvzG6_8mPJ6Ytvu7Ii8lj2borzcOIOyv7I35UfN0AdNr5A-xYmWD7E5bW7_TjrZ6G1myudxPbhnl"/>
+<img class="h-8" data-alt="clean minimal vector logo of a precision engineering company" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKW8DSxiJE4okCGVnh4HfgaEBbC-OllVnnYJl-R4Oa5KJII8nBlvQKfLG0VVkC8D0S92aBwFEQQH9gRaMmwB-7-r10H4Bv2ukLuQYUxnPgxK_61ocvl07pdMJChMcfLrfxmubHCt2k2EMYqySTSmeByfsclD5q98JOwbgEKPILY4Qkzge4n06gtHtkia-89MCZwYIA1m5ENq2ovn9pKdX8M8gK3RDVFucIe-wYXeT8Y-R10XvN_JxJ6O_vFKuTrYd75gTeAHsNeZIl"/>
+<img class="h-11" data-alt="clean minimal vector logo of a smart factory solution provider" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxmFkSxatcP7K34rOWE4uBpDtsXPCBvnu0HkIG9fSUFRgvhqp2UUJTk7ggewsICNVmXI-z9h8-j34Ow7O27likyjuq-7e-GQg0DvRnOVg6_pjoR0cWUitEHPuaBSM8tHYH0j74YPHXkPNSAo9XMrHIlrjSmVPHm9nvNKcccRBTeNeWcCt573EcIPlEVh00TMQMKKSdj_2382Z7qRvnTGrz3xH5DHQd4Ng3Jgma9tE4Gge9-3qnVvqUSfN4uc7W90-G-xYBP-Ozu1TL"/>
+</div>
+<div class="bg-surface-container-low p-2 lg:p-4">
+<div class="grid grid-cols-1 lg:grid-cols-5 gap-4">
+<div class="lg:col-span-3 h-[500px] relative group overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="professional woman in clean industrial setting speaking thoughtfully, high production value video still" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqp7Y1WDtmaIfrPPNybKlQQj3JEj3R71SLm1dtMV9MnEcg_kChxz9UH1AIOQOmVzjkbfQMiC3IG95bNv-tIM_Pem9yEnfydCklt3OyjKqQ9Fs7lSMOHB4yPU89Muaha1HNGyJwNOyvzysMMdy01ttJuAWYW04dw3JOAzcJa3luVJaHQaruBeF70cnqoM8222RhOuw8-na0DieDGo0KaIdoIiu-YFsqGMfYsNrbDr0HqREtXYWc2iNJBOEl2AGpsdpQJm4KT9kNIt1F"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<div class="w-20 h-20 rounded-full bg-primary flex items-center justify-center text-white cursor-pointer hover:scale-110 transition-transform shadow-2xl">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-8 left-8 text-white">
+<p class="text-2xl font-bold font-headline max-w-md">"P41 transformed our production floor in less than six months."</p>
+<p class="font-label text-sm uppercase mt-4 tracking-widest">Director of Operations, Global Auto-Parts</p>
+</div>
+</div>
+<div class="lg:col-span-2 space-y-4">
+<div class="bg-white p-10 h-1/2 flex flex-col justify-center">
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="text-on-surface-variant italic leading-relaxed">"The level of technical depth P41 brings to the table is unmatched. They didn't just give us a report; they gave us a future."</p>
+<p class="mt-6 font-bold font-headline">Marcus Chen, CTO</p>
+</div>
+<div class="bg-primary text-white p-10 h-1/2 flex flex-col justify-center">
+<h4 class="text-4xl font-black font-label mb-2">98%</h4>
+<p class="text-white/80">Client retention rate across our 5-year consultancy cycles.</p>
+<a class="mt-8 font-label font-bold flex items-center gap-2 hover:underline" href="#">Read Success Stories <span class="material-symbols-outlined">chevron_right</span></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 bg-surface px-8">
+<div class="max-w-7xl mx-auto">
+<div class="flex justify-between items-end mb-16">
+<h2 class="text-4xl font-bold tracking-tight font-headline">Industrial Insights</h2>
+<a class="text-primary font-label font-bold flex items-center gap-2 hover:underline" href="#">All Articles <span class="material-symbols-outlined">open_in_new</span></a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="group cursor-pointer">
+<div class="aspect-video mb-6 overflow-hidden bg-slate-200">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="close-up of industrial sensors blinking in a dark server room, technical aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS1yphVSXISypHOYod9E_i4GcXWAKjAws1pX7_DP5v5VfVPIc92-EkzFoaj14g7bvDvqKG9dR9qW33M2yFzfr_94hlPR7hXDM7A-GRC9AuRH74QZMS3vgXJDOo2bDoZCTSsQMFRiSbHLKSsOq7_r70IzmCuIjWmHJIWYopBIafcAXIE2oXKta9BmwFeYCxQpjQUPTwVr8oeEzvhh9CqonnHeMw_lSBHjhVC6Kh7RSVN_en8QFkfJmR2J8fJTtq7iD1KiIS5z9GYty3"/>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="bg-surface-container-high text-xs font-label px-2 py-1 uppercase tracking-tighter">Technology</span>
+<span class="text-xs font-label text-slate-400 self-center">5 Min Read</span>
+</div>
+<h3 class="text-xl font-bold font-headline mb-4 group-hover:text-primary transition-colors">The Predictive Maintenance Revolution in 2024</h3>
+<p class="text-on-surface-variant line-clamp-2">How AI-driven sensors are saving billions in downtime for European manufacturers.</p>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-video mb-6 overflow-hidden bg-slate-200">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="team of engineers looking at holographic data projection in a high-tech lab" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn6ZeMszefF-6TbQ0fcSEjkKSm-VN4qiLVBXYyWn81bbXfmDTue52hZ9TJ8oRm8Ke3Fvn8r6mF2c86uwQ0Dz35iQJjyPxS4hD1mOoR30owa5bwnGFUOQivWAKCrKOdYCV7OjFkTL89D78KcA3y08uHGDbpbb3CdE9ZZ_Q0Q0b7NlWLqELMCD3Csw09terssdxPaS7-WnXGwO3xKdA1AiB9cQphmwrTulLnmQWRMKdWgIkGWXpTkicWh03i2HUREhrPCb7RL1DMIfS8"/>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="bg-surface-container-high text-xs font-label px-2 py-1 uppercase tracking-tighter">Consultancy</span>
+<span class="text-xs font-label text-slate-400 self-center">8 Min Read</span>
+</div>
+<h3 class="text-xl font-bold font-headline mb-4 group-hover:text-primary transition-colors">Bridging the Talent Gap in Industry 4.0</h3>
+<p class="text-on-surface-variant line-clamp-2">Strategic hiring and upskilling models for the next generation of industrial leadership.</p>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-video mb-6 overflow-hidden bg-slate-200">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="aerial view of a smart warehouse with automated guided vehicles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdPYL9fVXF4xvX66Px90f2DZcN1HKWbggJCXMZVbrFpVwCRqKfORgComu7oqUETvo3fnycBdqRBZIClq0VvPAPGr4KInOXBFHKp8fh7SYFINE8QnK36JYuSvW2Nxl8EOjFEe4A2z3pbi4KM7UGVyxmm_PYomHMBEdrXaznb1zVSTCxtSxJguuQyHQhWcnYw-D8uX45oeMha6n9YH3mWsdSJOP-klYngLWcVnCh7w6bmDizFgvtuM9m90erA8ZI83M4KIuk0gpnhnQq"/>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="bg-surface-container-high text-xs font-label px-2 py-1 uppercase tracking-tighter">Academy</span>
+<span class="text-xs font-label text-slate-400 self-center">12 Min Read</span>
+</div>
+<h3 class="text-xl font-bold font-headline mb-4 group-hover:text-primary transition-colors">The Lean 4.0 Framework: A New Era</h3>
+<p class="text-on-surface-variant line-clamp-2">Revisiting Toyota's principles in a world dominated by real-time data flows.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 bg-surface px-8 relative overflow-hidden">
+<div class="max-w-4xl mx-auto text-center relative z-10">
+<h2 class="text-5xl font-black tracking-tighter mb-6 font-headline">Ready to Evolve?</h2>
+<p class="text-xl text-on-surface-variant mb-12">Contact our consultants for a complimentary efficiency audit of your current operations.</p>
+<form class="bg-surface-container-low p-12 text-left space-y-8 shadow-2xl">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-2">
+<label class="font-label text-sm uppercase tracking-widest text-slate-500">Full Name</label>
+<input class="w-full bg-transparent border-none border-b-2 border-outline-variant focus:ring-0 focus:border-primary transition-colors py-4" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label text-sm uppercase tracking-widest text-slate-500">Business Email</label>
+<input class="w-full bg-transparent border-none border-b-2 border-outline-variant focus:ring-0 focus:border-primary transition-colors py-4" placeholder="john@enterprise.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label text-sm uppercase tracking-widest text-slate-500">Project Inquiry</label>
+<textarea class="w-full bg-transparent border-none border-b-2 border-outline-variant focus:ring-0 focus:border-primary transition-colors py-4" placeholder="Tell us about your industrial challenges..." rows="4"></textarea>
+</div>
+<button class="w-full premium-gradient-btn text-white font-label font-bold py-6 text-xl rounded-full active:scale-[0.98] transition-transform">
+                        Send Inquiry
+                    </button>
+</form>
+</div>
+<div class="absolute inset-x-0 bottom-0 h-64 bg-primary opacity-5 skew-y-3 translate-y-32"></div>
+</section>
+</main>
+<footer class="bg-slate-900 dark:bg-black text-white w-full py-20 px-8">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-1">
+<div class="text-2xl font-bold mb-6 font-headline">P41</div>
+<p class="text-slate-400 font-body leading-relaxed mb-8">Industrial Intelligence for the next generation of global manufacturing. Redefining flow, error, and time.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-slate-400 hover:text-teal-400 cursor-pointer">language</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-teal-400 cursor-pointer">share</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-teal-400 cursor-pointer">mail</span>
+</div>
+</div>
+<div>
+<h5 class="font-label font-bold uppercase tracking-widest text-teal-400 mb-8">Navigation</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-400 font-label hover:text-teal-300 underline-offset-4 transition-opacity" href="#">Consultancy</a></li>
+<li><a class="text-slate-400 font-label hover:text-teal-300 underline-offset-4 transition-opacity" href="#">Academy</a></li>
+<li><a class="text-slate-400 font-label hover:text-teal-300 underline-offset-4 transition-opacity" href="#">Blog</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label font-bold uppercase tracking-widest text-teal-400 mb-8">Company</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-400 font-label hover:text-teal-300 underline-offset-4 transition-opacity" href="#">About</a></li>
+<li><a class="text-slate-400 font-label hover:text-teal-300 underline-offset-4 transition-opacity" href="#">Contact</a></li>
+<li><a class="text-slate-400 font-label hover:text-teal-300 underline-offset-4 transition-opacity" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label font-bold uppercase tracking-widest text-teal-400 mb-8">Newsletter</h5>
+<p class="text-slate-400 text-sm mb-6">Receive our monthly 'State of Industry' report directly in your inbox.</p>
+<div class="flex">
+<input class="bg-slate-800 border-none rounded-l text-white w-full focus:ring-1 focus:ring-teal-400" placeholder="Email Address" type="text"/>
+<button class="bg-teal-700 px-4 rounded-r hover:bg-teal-600 transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-20 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-slate-500 text-sm">© 2024 P41 Industrial Intelligence. All rights reserved.</p>
+<div class="flex gap-8 text-sm text-slate-500">
+<a class="hover:text-white" href="#">Cookie Settings</a>
+<a class="hover:text-white" href="#">Security</a>
+<a class="hover:text-white" href="#">Accessibility</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

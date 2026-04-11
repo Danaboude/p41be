@@ -1,0 +1,12 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+section {
+  @apply relative;
+}
+
+input:focus, textarea:focus {
+  @apply outline-none;
+}

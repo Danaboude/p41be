@@ -1,0 +1,28 @@
+<nav class="glass-nav px-8 py-4 flex justify-between items-center max-w-full mx-auto animate-fade-in">
+  <div class="flex items-center gap-2 cursor-pointer group">
+    <img src="logo.jpg" alt="P41 Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+  </div>
+
+  <div class="hidden md:flex items-center gap-8">
+    <a href="#"
+      class="text-primary border-b-2 border-primary pb-1 font-headline font-bold tracking-tight hover:opacity-80 transition-all">{{
+      t().nav.home }}</a>
+    <a href="#" class="text-on-surface-variant font-label hover:text-primary transition-all">{{ t().nav.consultancy
+      }}</a>
+    <a href="#" class="text-on-surface-variant font-label hover:text-primary transition-all">{{ t().nav.academy }}</a>
+    <a href="#" class="text-on-surface-variant font-label hover:text-primary transition-all">{{ t().nav.blog }}</a>
+    <a href="#" class="text-on-surface-variant font-label hover:text-primary transition-all">{{ t().nav.about }}</a>
+  </div>
+
+  <div class="flex items-center gap-6">
+    <button (click)="switchLang()"
+      class="text-sm font-label font-bold text-on-surface-variant hover:text-primary transition-all uppercase tracking-widest">
+      {{ currentLang() }}
+    </button>
+    <span
+      class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-all">search</span>
+    <button class="premium-gradient-btn">
+      {{ t().nav.demo }}
+    </button>
+  </div>
+</nav>
