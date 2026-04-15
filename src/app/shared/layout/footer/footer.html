@@ -4,34 +4,41 @@
       <div class="col-span-1 md:col-span-1">
         <div class="flex items-center gap-3 mb-6 group cursor-pointer">
           <div class="bg-white p-1 rounded-sm">
-            <img src="logo.jpg" alt="P41 Logo" class="h-10 w-auto">
+            <img [src]="isAcademy() ? 'logo-Y.jpg' : 'logo.jpg'" alt="P41 Logo" class="h-10 w-auto">
           </div>
         </div>
         <p class="text-on-surface-variant opacity-80 font-body leading-relaxed mb-8">
           {{ t().footer.desc }}
         </p>
         <div class="flex gap-4">
-          <span
-            class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-all">language</span>
-          <span
-            class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-all">share</span>
-          <span
-            class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-all">mail</span>
+          <span [class]="isAcademy()
+            ? 'material-symbols-outlined text-on-surface-variant hover:text-[#D4A843] cursor-pointer transition-all'
+            : 'material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-all'">language</span>
+          <span [class]="isAcademy()
+            ? 'material-symbols-outlined text-on-surface-variant hover:text-[#D4A843] cursor-pointer transition-all'
+            : 'material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-all'">share</span>
+          <span [class]="isAcademy()
+            ? 'material-symbols-outlined text-on-surface-variant hover:text-[#D4A843] cursor-pointer transition-all'
+            : 'material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-all'">mail</span>
         </div>
       </div>
       <div>
-        <h5 class="font-label font-bold uppercase tracking-widest text-primary mb-8">{{ t().footer.nav }}</h5>
+        <h5 [class]="isAcademy()
+          ? 'font-label font-bold uppercase tracking-widest text-[#D4A843] mb-8'
+          : 'font-label font-bold uppercase tracking-widest text-primary mb-8'">{{ t().footer.nav }}</h5>
         <ul class="space-y-4">
           <li><a href="#" class="text-on-surface-variant hover:text-primary transition-all font-label">{{
               t().nav.consultancy }}</a></li>
-          <li><a href="#" class="text-on-surface-variant hover:text-primary transition-all font-label">{{
+          <li><a href="/academy" class="text-on-surface-variant hover:text-primary transition-all font-label">{{
               t().nav.academy }}</a></li>
           <li><a href="#" class="text-on-surface-variant hover:text-primary transition-all font-label">{{ t().nav.blog
               }}</a></li>
         </ul>
       </div>
       <div>
-        <h5 class="font-label font-bold uppercase tracking-widest text-primary mb-8">{{ t().footer.company }}</h5>
+        <h5 [class]="isAcademy()
+          ? 'font-label font-bold uppercase tracking-widest text-[#D4A843] mb-8'
+          : 'font-label font-bold uppercase tracking-widest text-primary mb-8'">{{ t().footer.company }}</h5>
         <ul class="space-y-4">
           <li><a href="#" class="text-on-surface-variant hover:text-primary transition-all font-label">{{ t().nav.about
               }}</a></li>
@@ -41,13 +48,17 @@
         </ul>
       </div>
       <div>
-        <h5 class="font-label font-bold uppercase tracking-widest text-primary mb-8">{{ t().footer.newsletter }}</h5>
+        <h5 [class]="isAcademy()
+          ? 'font-label font-bold uppercase tracking-widest text-[#D4A843] mb-8'
+          : 'font-label font-bold uppercase tracking-widest text-primary mb-8'">{{ t().footer.newsletter }}</h5>
         <p class="text-on-surface-variant text-sm mb-6">{{ t().footer.newsletter_desc }}</p>
         <div class="flex">
           <input type="text"
             class="bg-surface/5 border-none rounded-l-lg text-white w-full focus:ring-1 focus:ring-primary px-4"
             placeholder="Email Address">
-          <button class="bg-primary px-4 rounded-r-lg hover:opacity-90 transition-colors">
+          <button [class]="isAcademy()
+            ? 'bg-[#D4A843] px-4 rounded-r-lg hover:opacity-90 transition-colors'
+            : 'bg-primary px-4 rounded-r-lg hover:opacity-90 transition-colors'">
             <span class="material-symbols-outlined text-white">chevron_right</span>
           </button>
         </div>
@@ -64,3 +75,4 @@
     </div>
   </div>
 </footer>
+

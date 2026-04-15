@@ -1,0 +1,265 @@
+<main class="animate-fade-in" *ngIf="course">
+
+  <!-- Hero Banner -->
+  <section class="relative min-h-[55vh] flex items-end overflow-hidden">
+    <div class="absolute inset-0">
+      <img [src]="course.image" [alt]="course.title" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-inverse-surface via-inverse-surface/70 to-inverse-surface/30"></div>
+    </div>
+
+    <div class="relative z-10 max-w-6xl mx-auto w-full px-6 md:px-12 pb-16 pt-32">
+      <!-- Back link -->
+      <a routerLink="/academy" class="inline-flex items-center gap-2 text-[#E8C840]/80 hover:text-[#E8C840] font-label text-sm mb-8 transition-colors group">
+        <span class="material-symbols-outlined text-base group-hover:-translate-x-1 transition-transform">arrow_back</span>
+        Back to Academy
+      </a>
+
+      <!-- Tags -->
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span *ngFor="let tag of course.tags"
+              class="bg-[#D4A843]/20 backdrop-blur-sm text-[#E8C840] px-3 py-1 rounded-full text-xs font-label font-bold border border-[#D4A843]/30">
+          {{ tag }}
+        </span>
+        <span class="bg-white/10 backdrop-blur-sm text-white/80 px-3 py-1 rounded-full text-xs font-label font-bold border border-white/10">{{ course.level }}</span>
+      </div>
+
+      <!-- Title -->
+      <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-4 animate-slide-up tracking-tighter">
+        {{ course.title }}
+      </h1>
+      <p class="text-xl md:text-2xl text-white/60 font-label mb-8">{{ course.subtitle }}</p>
+
+      <!-- Meta -->
+      <div class="flex flex-wrap items-center gap-6 text-white/60 font-label text-sm">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-full bg-[#D4A843] flex items-center justify-center text-white text-xs font-bold">I</div>
+          <span class="text-white/80 font-bold">{{ course.instructor }}</span>
+        </div>
+        <span class="flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm text-[#D4A843]">schedule</span>
+          {{ course.duration }}
+        </span>
+        <span class="flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm text-[#D4A843]">menu_book</span>
+          {{ course.modules.length }} Modules
+        </span>
+        <span class="flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm text-[#D4A843]">group</span>
+          {{ course.students }} Students
+        </span>
+        <div class="flex items-center gap-1">
+          <span *ngFor="let s of getStars(course.rating)" class="material-symbols-outlined star-gold !text-[14px]">star</span>
+          <span class="ml-1">{{ course.rating }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-16 px-6 md:px-12 bg-surface">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+        <!-- Left Column: Course Content -->
+        <div class="lg:col-span-2 space-y-16">
+
+          <!-- About -->
+          <div>
+            <h2 class="text-2xl font-black mb-6 tracking-tight">About This Course</h2>
+            <div class="space-y-4">
+              <p *ngFor="let para of course.longDescription"
+                 class="text-on-surface-variant text-base leading-relaxed">
+                {{ para }}
+              </p>
+            </div>
+          </div>
+
+          <!-- What You'll Learn -->
+          <div>
+            <h2 class="text-2xl font-black mb-6 tracking-tight">What You'll Learn</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div *ngFor="let item of course.whatYouLearn"
+                   class="flex gap-3 items-start">
+                <span class="material-symbols-outlined text-[#D4A843] text-lg mt-0.5 shrink-0" style="font-variation-settings:'FILL' 1">check_circle</span>
+                <span class="text-on-surface-variant text-sm leading-relaxed">{{ item }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course Modules -->
+          <div>
+            <div class="flex items-baseline justify-between mb-6">
+              <h2 class="text-2xl font-black tracking-tight">Course Modules</h2>
+              <span class="text-on-surface-variant/60 font-label text-sm">{{ course.modules.length }} modules · {{ getTotalDuration() }} total</span>
+            </div>
+
+            <div class="space-y-3">
+              <div *ngFor="let mod of course.modules; let i = index"
+                   class="module-item"
+                   [class.expanded]="expandedModule === i">
+                <div class="module-header" (click)="toggleModule(i)">
+                  <div class="flex items-center gap-4">
+                    <div class="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-black font-label"
+                         [class]="expandedModule === i ? 'bg-[#D4A843] text-white' : 'bg-surface-container-high text-on-surface-variant'">
+                      {{ i + 1 }}
+                    </div>
+                    <div>
+                      <p class="font-bold text-sm" [class]="expandedModule === i ? 'text-[#D4A843]' : 'text-on-surface'">{{ mod.title }}</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="text-on-surface-variant/60 text-xs font-label">{{ mod.duration }}</span>
+                    <span class="material-symbols-outlined text-on-surface-variant/40 text-base module-chevron">expand_more</span>
+                  </div>
+                </div>
+                <div class="module-body">
+                  <p class="text-on-surface-variant text-sm leading-relaxed">{{ mod.description }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Prerequisites -->
+          <div>
+            <h2 class="text-2xl font-black mb-6 tracking-tight">Prerequisites</h2>
+            <div class="space-y-3">
+              <div *ngFor="let prereq of course.prerequisites"
+                   class="flex gap-3 items-start">
+                <span class="material-symbols-outlined text-on-surface-variant/50 text-lg mt-0.5 shrink-0">info</span>
+                <span class="text-on-surface-variant text-sm leading-relaxed">{{ prereq }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Sticky Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-28 bg-white rounded-2xl border border-outline-variant/10 overflow-hidden shadow-2xl">
+            <!-- Image -->
+            <div class="aspect-video overflow-hidden">
+              <img [src]="course.image" [alt]="course.title" class="w-full h-full object-cover">
+            </div>
+
+            <div class="p-6 space-y-6">
+              <!-- Price -->
+              <div class="flex items-baseline gap-3">
+                <span class="text-4xl font-black text-[#D4A843]">{{ course.price }}</span>
+                <span class="text-on-surface-variant font-label text-sm">one-time</span>
+              </div>
+
+              <!-- CTA -->
+              <button class="academy-btn block w-full text-center !py-4 text-lg">
+                Enroll Now
+              </button>
+              <button class="block w-full text-center py-3 rounded-full border border-outline-variant/20 text-on-surface-variant font-label font-bold text-sm hover:bg-surface-container-low transition-all">
+                Download Curriculum PDF
+              </button>
+
+              <!-- Quick Info -->
+              <div class="space-y-4 pt-4 border-t border-outline-variant/10">
+                <div class="flex items-center justify-between text-sm">
+                  <span class="text-on-surface-variant font-label flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[14px] text-[#D4A843]">schedule</span> Duration
+                  </span>
+                  <span class="text-on-surface font-bold">{{ course.duration }}</span>
+                </div>
+                <div class="flex items-center justify-between text-sm">
+                  <span class="text-on-surface-variant font-label flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[14px] text-[#D4A843]">menu_book</span> Modules
+                  </span>
+                  <span class="text-on-surface font-bold">{{ course.modules.length }}</span>
+                </div>
+                <div class="flex items-center justify-between text-sm">
+                  <span class="text-on-surface-variant font-label flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[14px] text-[#D4A843]">timer</span> Total Hours
+                  </span>
+                  <span class="text-on-surface font-bold">{{ getTotalDuration() }}</span>
+                </div>
+                <div class="flex items-center justify-between text-sm">
+                  <span class="text-on-surface-variant font-label flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[14px] text-[#D4A843]">signal_cellular_alt</span> Level
+                  </span>
+                  <span class="text-on-surface font-bold">{{ course.level }}</span>
+                </div>
+                <div class="flex items-center justify-between text-sm">
+                  <span class="text-on-surface-variant font-label flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[14px] text-[#D4A843]">all_inclusive</span> Access
+                  </span>
+                  <span class="text-on-surface font-bold">Lifetime</span>
+                </div>
+                <div class="flex items-center justify-between text-sm">
+                  <span class="text-on-surface-variant font-label flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[14px] text-[#D4A843]">workspace_premium</span> Certificate
+                  </span>
+                  <span class="text-on-surface font-bold">Included</span>
+                </div>
+              </div>
+
+              <!-- Instructor -->
+              <div class="pt-4 border-t border-outline-variant/10">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-[#D4A843]/30">
+                    <img src="ives-microfoon-334x500-1.jpg" alt="Ives De Saeger" class="w-full h-full object-cover">
+                  </div>
+                  <div>
+                    <p class="font-bold text-sm">{{ course.instructor }}</p>
+                    <p class="text-on-surface-variant text-xs font-label">Founder & Lead Instructor</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Courses -->
+  <section class="section-padding bg-surface-container-low/50 border-t border-outline-variant/10">
+    <div class="max-w-6xl mx-auto">
+      <h3 class="text-3xl font-black mb-12 tracking-tight">More <span class="text-[#D4A843] italic">Courses</span></h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a *ngFor="let related of otherCourses"
+           [routerLink]="['/academy', related.id]"
+           class="related-card group block">
+          <div class="aspect-video overflow-hidden">
+            <img [src]="related.image" [alt]="related.title" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          </div>
+          <div class="p-5">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span *ngFor="let tag of related.tags" class="academy-tag !text-[8px]">{{ tag }}</span>
+            </div>
+            <h4 class="text-lg font-black group-hover:text-[#D4A843] transition-colors mb-1">{{ related.title }}</h4>
+            <p class="text-on-surface-variant text-xs font-label mb-4">{{ related.subtitle }}</p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-1">
+                <span *ngFor="let s of getStars(related.rating)" class="material-symbols-outlined star-gold !text-[12px]">star</span>
+              </div>
+              <span class="text-sm font-black text-[#D4A843]">{{ related.price }}</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Back to Academy -->
+      <div class="mt-12 text-center">
+        <a routerLink="/academy" class="academy-btn inline-flex items-center gap-2 !px-8 !py-4">
+          <span class="material-symbols-outlined text-sm">school</span>
+          View All Courses
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 404 fallback -->
+<div *ngIf="!course" class="min-h-[70vh] flex items-center justify-center text-center px-6 animate-fade-in">
+  <div>
+    <span class="material-symbols-outlined text-8xl text-[#D4A843]/20 mb-6 block">school</span>
+    <h1 class="text-4xl font-black mb-4">Course Not Found</h1>
+    <p class="text-on-surface-variant mb-8">The course you're looking for doesn't exist.</p>
+    <a routerLink="/academy" class="academy-btn !px-8 !py-3">Back to Academy</a>
+  </div>
+</div>

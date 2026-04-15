@@ -35,6 +35,12 @@
     from { opacity: 0; transform: scale(0.95); }
     to { opacity: 1; transform: scale(1); }
   }
+
+  /* Infinite horizontal marquee for video carousel */
+  @keyframes scroll-marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
 }
 
 @layer base {
@@ -55,7 +61,81 @@
   }
 
   .glass-nav {
-    @apply bg-white/80 backdrop-blur-xl border-b border-outline-variant/10 sticky top-0 z-50;
+    /* The sticky/z-index is on :host — here only visual styles */
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    box-shadow: 0 4px 40px rgba(33, 85, 157, 0.06), inset 0 0 0 1px rgba(255,255,255,0.5);
+  }
+
+  /* Sticky host background to block page content behind header */
+  app-header {
+    background: rgba(250, 249, 255, 0.6);
+    backdrop-filter: blur(2px);
+  }
+
+  /* Horizontal Scroll Utilities */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .testimonial-card {
+    @apply min-w-[320px] md:min-w-[400px] bg-white p-8 rounded-2xl border border-outline-variant/10 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 cursor-pointer relative overflow-hidden;
+  }
+
+  .video-card {
+    @apply min-w-[280px] md:min-w-[350px] aspect-video rounded-2xl overflow-hidden bg-surface-container-low border border-outline-variant/10 shadow-lg hover:scale-105 transition-all duration-500 cursor-pointer relative;
+  }
+
+  .play-button-overlay {
+    @apply absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-all duration-300;
+  }
+
+  /* Infinite auto-scroll marquee carousel */
+  .video-marquee-viewport {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .video-marquee-track {
+    display: flex;
+    gap: 1.5rem; /* gap-6 = 24px */
+    width: max-content;
+    animation: scroll-marquee 36s linear infinite;
+    will-change: transform;
+  }
+
+  .video-marquee-track.paused {
+    animation-play-state: paused;
+  }
+
+  /* Each video card inside the marquee */
+  .video-marquee-card {
+    flex-shrink: 0;
+    width: 360px;
+    aspect-ratio: 16/9;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease;
+  }
+
+  .video-marquee-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(33,85,157,0.25);
+  }
+
+  @media (max-width: 768px) {
+    .video-marquee-card { width: 280px; }
+    .video-marquee-track { animation-duration: 28s; }
   }
 
   .section-padding {

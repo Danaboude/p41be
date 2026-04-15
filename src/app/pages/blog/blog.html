@@ -1,0 +1,102 @@
+<main class="animate-fade-in">
+  <!-- Hero Section -->
+  <section class="relative min-h-[40vh] flex items-center overflow-hidden section-padding bg-surface-container-lowest">
+    <div class="absolute inset-0 z-0">
+      <img src="hero_backgournd.jpg" class="w-full h-full object-cover opacity-10 grayscale" alt="Industrial background">
+      <div class="absolute inset-0 bg-gradient-to-b from-surface via-surface/80 to-transparent"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto w-full relative z-10 text-center">
+      <div class="animate-slide-up">
+        <div class="inline-flex items-center gap-2 bg-primary/10 px-4 py-1.5 rounded-sm mb-8">
+          <span class="material-symbols-outlined text-primary text-sm">edit_note</span>
+          <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">Insights & Wisdom</span>
+        </div>
+        
+        <h1 class="text-6xl md:text-7xl font-black leading-[0.9] mb-8">
+          Our <span class="text-primary italic">Blog</span>
+        </h1>
+        
+        <p class="text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+          Get weekly inspiration for free! Explore our latest thoughts on industrial excellence.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog List Grid -->
+  <section class="section-padding bg-surface relative overflow-hidden">
+    <!-- Decorative background elements -->
+    <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-5">
+      <div class="absolute -top-24 -left-24 w-96 h-96 bg-primary rounded-full blur-[120px]"></div>
+      <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-primary rounded-full blur-[120px]"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+      <!-- Blog Posts Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div *ngFor="let blog of blogs; let i = index" 
+             class="group bg-white rounded-3xl overflow-hidden border border-outline-variant/10 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full animate-slide-up"
+             [style.animation-delay]="i * 100 + 'ms'">
+          
+          <!-- Image Container -->
+          <div class="relative aspect-[16/10] overflow-hidden">
+            <img [src]="blog.image" [alt]="blog.title" 
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest text-primary shadow-sm">
+              Article
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="p-8 flex flex-col flex-1">
+            <div class="flex items-center gap-4 mb-4 text-xs font-label text-on-surface-variant/60 font-bold tracking-wide">
+              <span class="flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm">calendar_today</span>
+                {{ blog.date }}
+              </span>
+              <span class="flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm">schedule</span>
+                {{ blog.readTime }}
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-black mb-4 group-hover:text-primary transition-colors duration-300 leading-tight">
+              {{ blog.title }}
+            </h3>
+            
+            <p class="text-on-surface-variant text-sm leading-relaxed mb-8 line-clamp-3">
+              {{ blog.excerpt }}
+            </p>
+
+            <div class="mt-auto">
+              <a [routerLink]="['/blog', blog.id]" 
+                 class="inline-flex items-center gap-2 font-label font-bold text-sm text-primary group/btn hover:gap-3 transition-all">
+                Read More
+                <span class="material-symbols-outlined text-base group-hover/btn:translate-x-1 transition-transform">arrow_right_alt</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section from home page or similar -->
+  <section class="section-padding bg-surface-container-low overflow-hidden relative border-t border-outline-variant/10">
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-8">Want more industrial wisdom?</h2>
+      <p class="text-lg text-on-surface-variant mb-12">
+        Subscribe to our newsletter to receive the latest insights directly in your inbox.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+        <input type="email" placeholder="Your work email" class="flex-1 px-6 py-4 rounded-full border border-outline-variant bg-white focus:ring-2 focus:ring-primary focus:outline-none transition-all">
+        <button class="premium-gradient-btn !px-8 !py-4 whitespace-nowrap shadow-lg shadow-primary/20">
+          Subscribe Now
+        </button>
+      </div>
+    </div>
+  </section>
+</main>

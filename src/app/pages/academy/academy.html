@@ -1,0 +1,307 @@
+<main class="animate-fade-in">
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[95vh] flex items-center overflow-hidden section-padding">
+    <div class="absolute inset-0 z-0">
+      <img src="hero_backgournd.jpg" class="w-full h-full object-cover opacity-10 grayscale" alt="Academy background">
+      <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent"></div>
+    </div>
+
+    <!-- Decorative gold glows -->
+    <div class="gold-glow w-[600px] h-[600px] -top-40 -right-40 opacity-40"></div>
+
+    <div class="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="animate-slide-up">
+        <div class="inline-flex items-center gap-2 bg-[#D4A843]/10 border border-[#D4A843]/20 px-4 py-1.5 rounded-sm mb-8">
+          <span class="material-symbols-outlined text-[#D4A843] text-sm">school</span>
+          <span class="text-[#B8922E] font-label text-xs font-bold tracking-widest uppercase">P41 Academy</span>
+        </div>
+
+        <h1 class="text-6xl md:text-8xl font-black leading-[0.9] mb-8">
+          Master the Art of<br/>
+          <span class="text-[#D4A843] italic">Industrial Excellence</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-on-surface-variant max-w-xl mb-12 leading-relaxed">
+          Expert-led courses designed by Ives De Saeger. From Lean fundamentals to advanced Industry 4.0 strategies — learn at your own pace.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-6">
+          <button class="academy-btn !px-10 !py-5 text-lg">Browse Courses</button>
+          <button class="bg-surface-container-high text-on-surface font-label font-bold px-10 py-5 rounded-full text-lg hover:bg-surface-container-highest transition-all active:scale-95">
+            View Curriculum
+          </button>
+        </div>
+
+        <!-- Quick stats -->
+        <div class="flex flex-wrap gap-10 mt-16">
+          <div>
+            <p class="text-3xl font-black text-[#D4A843]">6+</p>
+            <p class="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mt-1">Courses</p>
+          </div>
+          <div>
+            <p class="text-3xl font-black text-[#D4A843]">1.3K+</p>
+            <p class="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mt-1">Students</p>
+          </div>
+          <div>
+            <p class="text-3xl font-black text-[#D4A843]">4.8</p>
+            <p class="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mt-1">Avg Rating</p>
+          </div>
+          <div>
+            <p class="text-3xl font-black text-[#D4A843]">25+</p>
+            <p class="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mt-1">Years Expertise</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Course Card -->
+      <div class="featured-card animate-scale-in hidden lg:block">
+        <div class="relative aspect-[4/3] overflow-hidden">
+          <img [src]="featuredCourse.image" [alt]="featuredCourse.title"
+               class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+          <div class="absolute top-4 left-4 flex gap-2">
+            <span class="bg-[#D4A843] text-white px-3 py-1 rounded-full text-xs font-label font-bold">Featured</span>
+            <span class="bg-white/90 text-on-surface px-3 py-1 rounded-full text-xs font-label font-bold">{{ featuredCourse.level }}</span>
+          </div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <h3 class="text-2xl font-black mb-2 text-white">{{ featuredCourse.title }}</h3>
+            <p class="text-white/70 text-sm font-label">{{ featuredCourse.subtitle }}</p>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-1">
+              <span *ngFor="let s of getStars(featuredCourse.rating)"
+                    class="material-symbols-outlined star-gold text-sm">star</span>
+              <span class="text-on-surface-variant text-xs font-label ml-1">{{ featuredCourse.rating }}</span>
+            </div>
+            <span class="text-2xl font-black text-[#D4A843]">{{ featuredCourse.price }}</span>
+          </div>
+          <a [routerLink]="['/academy', featuredCourse.id]" class="academy-btn block text-center w-full !py-3">
+            Enroll Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- All Courses Section -->
+  <section class="section-padding bg-surface-container-low">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+        <div class="max-w-2xl animate-slide-up">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">All <span class="text-[#D4A843] italic">Courses</span></h2>
+          <p class="text-lg text-on-surface-variant leading-relaxed">
+            Comprehensive programs built from 25+ years of factory-floor experience. Each course features real-world case studies and actionable frameworks.
+          </p>
+        </div>
+        <div class="h-[1px] flex-grow bg-outline-variant/20 mb-4 hidden md:block"></div>
+      </div>
+
+      <!-- Course Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a *ngFor="let course of courses"
+           [routerLink]="['/academy', course.id]"
+           class="course-card group cursor-pointer block">
+
+          <!-- Image -->
+          <div class="course-card-image">
+            <img [src]="course.image" [alt]="course.title"
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent pointer-events-none"></div>
+          </div>
+
+          <!-- Content -->
+          <div class="p-6">
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span *ngFor="let tag of course.tags" class="academy-tag">{{ tag }}</span>
+            </div>
+
+            <!-- Title -->
+            <h4 class="text-xl font-black mb-1 group-hover:text-[#D4A843] transition-colors">{{ course.title }}</h4>
+            <p class="text-on-surface-variant text-sm font-label mb-4">{{ course.subtitle }}</p>
+
+            <!-- Description -->
+            <p class="text-on-surface-variant/60 text-sm leading-relaxed mb-6 line-clamp-2">{{ course.description }}</p>
+
+            <!-- Stats -->
+            <div class="stats-strip">
+              <div>
+                <span class="material-symbols-outlined text-[14px] text-[#D4A843]">schedule</span>
+                {{ course.duration }}
+              </div>
+              <div>
+                <span class="material-symbols-outlined text-[14px] text-[#D4A843]">menu_book</span>
+                {{ course.modules }} Modules
+              </div>
+              <div>
+                <span class="material-symbols-outlined text-[14px] text-[#D4A843]">group</span>
+                {{ course.students }}
+              </div>
+            </div>
+
+            <!-- Price & Rating -->
+            <div class="flex items-center justify-between mt-6">
+              <div class="flex items-center gap-1">
+                <span *ngFor="let s of getStars(course.rating)"
+                      class="material-symbols-outlined star-gold !text-[14px]">star</span>
+                <span class="text-on-surface-variant text-xs font-label ml-1">{{ course.rating }}</span>
+              </div>
+              <span class="text-lg font-black text-[#D4A843]">{{ course.price }}</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Learn With P41 Section -->
+  <section class="section-padding bg-surface overflow-hidden relative">
+    <div class="gold-glow w-[500px] h-[500px] top-0 right-0 opacity-30"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+
+        <!-- Left: Text -->
+        <div class="animate-slide-up">
+          <h2 class="text-sm font-label uppercase tracking-[0.3em] text-[#D4A843] font-bold mb-6">Why P41 Academy</h2>
+          <h3 class="text-4xl md:text-5xl font-black tracking-tighter mb-12 leading-tight">
+            Learn From<br/>
+            <span class="text-[#D4A843] italic">The Source</span>
+          </h3>
+
+          <div class="space-y-12">
+            <div class="flex gap-6 group">
+              <div class="w-14 h-14 rounded-sm bg-[#D4A843]/10 flex items-center justify-center shrink-0 border border-[#D4A843]/20 group-hover:bg-[#D4A843] transition-all duration-300">
+                <span class="material-symbols-outlined text-[#D4A843] group-hover:text-white">precision_manufacturing</span>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold mb-2">Real-World Case Studies</h4>
+                <p class="text-on-surface-variant opacity-70 leading-relaxed">Every module features actual project data from our 150+ facility transformations. No theory without practice.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-6 group">
+              <div class="w-14 h-14 rounded-sm bg-[#D4A843]/10 flex items-center justify-center shrink-0 border border-[#D4A843]/20 group-hover:bg-[#D4A843] transition-all duration-300">
+                <span class="material-symbols-outlined text-[#D4A843] group-hover:text-white">video_library</span>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold mb-2">On-Demand Video Content</h4>
+                <p class="text-on-surface-variant opacity-70 leading-relaxed">HD video lessons you can watch anywhere, anytime. Lifetime access to all course materials and future updates.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-6 group">
+              <div class="w-14 h-14 rounded-sm bg-[#D4A843]/10 flex items-center justify-center shrink-0 border border-[#D4A843]/20 group-hover:bg-[#D4A843] transition-all duration-300">
+                <span class="material-symbols-outlined text-[#D4A843] group-hover:text-white">workspace_premium</span>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold mb-2">Certified Completion</h4>
+                <p class="text-on-surface-variant opacity-70 leading-relaxed">Earn industry-recognized certificates upon completion. Validate your expertise with the P41 seal of excellence.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Stats Grid -->
+        <div class="grid grid-cols-2 gap-4 animate-scale-in">
+          <div class="bg-surface-container-low p-8 flex flex-col justify-between h-64 border-l-4 border-[#D4A843] hover:bg-surface-container-high transition-all cursor-default">
+            <span class="text-6xl font-black font-label text-[#D4A843]">25+</span>
+            <span class="font-label text-sm uppercase tracking-widest text-on-surface-variant font-bold">Years Teaching</span>
+          </div>
+          <div class="bg-surface-container-low p-8 flex flex-col justify-between h-64 mt-12 hover:bg-surface-container-high transition-all cursor-default">
+            <span class="text-6xl font-black font-label text-[#D4A843]">1.3K</span>
+            <span class="font-label text-sm uppercase tracking-widest text-on-surface-variant font-bold">Active Students</span>
+          </div>
+          <div class="bg-surface-container-low p-8 flex flex-col justify-between h-64 -mt-12 hover:bg-surface-container-high transition-all cursor-default">
+            <span class="text-6xl font-black font-label text-[#D4A843]">98%</span>
+            <span class="font-label text-sm uppercase tracking-widest text-on-surface-variant font-bold">Completion Rate</span>
+          </div>
+          <div class="academy-btn !rounded-none !p-8 flex flex-col justify-between h-64 hover:scale-105 transition-all cursor-default">
+            <span class="text-6xl font-black font-label">4.8</span>
+            <span class="font-label text-sm uppercase tracking-widest opacity-80">Average Rating</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instructor Section -->
+  <section class="section-padding bg-surface-container-low overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <!-- Image -->
+        <div class="relative group">
+          <div class="absolute -inset-4 bg-[#D4A843]/10 rounded-sm translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500"></div>
+          <img src="ives front look.jpg" class="relative z-10 w-full rounded-sm shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-700" alt="Ives De Saeger">
+          <div class="absolute bottom-8 left-8 z-20 bg-[#D4A843] p-6 text-white max-w-xs shadow-2xl">
+            <p class="text-sm font-label uppercase tracking-widest font-bold opacity-80 mb-2">Your Instructor</p>
+            <p class="text-2xl font-black font-headline">Ives De Saeger</p>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="animate-slide-up">
+          <h2 class="text-sm font-label uppercase tracking-[0.3em] text-[#D4A843] font-bold mb-6">Meet Your Instructor</h2>
+          <div class="relative mb-12">
+            <span class="material-symbols-outlined text-8xl absolute -top-10 -left-10 text-[#D4A843]/10 select-none">format_quote</span>
+            <p class="text-4xl md:text-5xl font-black leading-tight italic text-on-surface relative z-10">
+              "I don't teach theory. I share 25 years of factory-floor wisdom."
+            </p>
+          </div>
+          <p class="text-xl text-on-surface-variant leading-relaxed mb-12 max-w-xl">
+            With decades of hands-on experience across three continents and 150+ facilities, Ives has developed proprietary methodologies that blend classical industrial engineering with cutting-edge Industry 4.0 technologies.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <span class="academy-tag">Industrial Engineering</span>
+            <span class="academy-tag">Lean 4.0</span>
+            <span class="academy-tag">Time Study</span>
+            <span class="academy-tag">TOC</span>
+            <span class="academy-tag">TRIZ</span>
+            <span class="academy-tag">Digital Twins</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-padding bg-surface overflow-hidden relative">
+    <div class="max-w-4xl mx-auto text-center relative z-10 animate-slide-up">
+      <h2 class="text-5xl md:text-6xl font-black tracking-tighter mb-8">Start Your <span class="text-[#D4A843] italic">Journey</span></h2>
+      <p class="text-xl text-on-surface-variant mb-12">
+        Join 1,300+ professionals who have already transformed their industrial operations knowledge.
+      </p>
+
+      <form class="bg-surface-container-low p-8 md:p-16 text-left space-y-8 shadow-2xl border border-outline-variant/5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="space-y-2">
+            <label class="font-label text-xs uppercase tracking-widest text-on-surface-variant font-bold">Full Name</label>
+            <input type="text" class="w-full bg-transparent border-none border-b-2 border-outline-variant/30 focus:ring-0 focus:border-[#D4A843] transition-all py-4 font-headline text-lg" placeholder="Your Name">
+          </div>
+          <div class="space-y-2">
+            <label class="font-label text-xs uppercase tracking-widest text-on-surface-variant font-bold">Business Email</label>
+            <input type="email" class="w-full bg-transparent border-none border-b-2 border-outline-variant/30 focus:ring-0 focus:border-[#D4A843] transition-all py-4 font-headline text-lg" placeholder="you@company.com">
+          </div>
+        </div>
+        <div class="space-y-2">
+          <label class="font-label text-xs uppercase tracking-widest text-on-surface-variant font-bold">Interested Course</label>
+          <select class="w-full bg-transparent border-none border-b-2 border-outline-variant/30 focus:ring-0 focus:border-[#D4A843] transition-all py-4 font-headline text-lg text-on-surface-variant cursor-pointer">
+            <option value="">Select a course...</option>
+            <option *ngFor="let course of courses" [value]="course.id">{{ course.title }}</option>
+          </select>
+        </div>
+        <button class="w-full academy-btn !py-6 !text-xl shadow-2xl shadow-[#D4A843]/20">
+          Request Course Info
+        </button>
+      </form>
+    </div>
+
+    <div class="absolute bottom-0 left-0 w-full h-1/2 bg-[#D4A843]/5 -skew-y-3 translate-y-24 pointer-events-none"></div>
+  </section>
+
+</main>

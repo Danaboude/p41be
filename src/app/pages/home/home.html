@@ -142,6 +142,149 @@
     </div>
   </section>
 
+  <!-- Why Choose P41 Section (separate component — edit: src/app/pages/home/sections/why-choose/) -->
+  <app-why-choose></app-why-choose>
+
+  <!-- Video Testimonials Section -->
+  <section class="bg-gradient-to-b from-surface to-surface-container-low/50 py-24 px-6 md:px-12 lg:px-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+        <div class="animate-slide-up">
+          <div class="inline-flex items-center gap-2 bg-primary/10 px-4 py-1.5 rounded-sm mb-6">
+            <span class="material-symbols-outlined text-primary text-sm">play_circle</span>
+            <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">Customer Stories</span>
+          </div>
+          <h2 class="text-4xl md:text-5xl font-black mb-4">Video <span class="text-primary italic">Testimonials</span></h2>
+          <p class="text-xl text-on-surface-variant font-label max-w-lg">Curious what our customers say? Hear it directly from industry leaders.</p>
+        </div>
+        <!-- Auto-scroll hint -->
+        <div class="flex items-center gap-2 shrink-0 text-on-surface-variant/60 font-label text-xs tracking-wide">
+          <span class="material-symbols-outlined text-base animate-pulse">mouse</span>
+          Hover to pause &amp; click to watch
+        </div>
+      </div>
+
+      <!-- Testimonial Quotes Horizontal Scroll -->
+      <div class="flex gap-6 overflow-x-auto hide-scrollbar pb-12 snap-x snap-mandatory">
+        <div class="testimonial-card snap-start group">
+          <div class="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-110 transition-transform duration-700"></div>
+          <span class="material-symbols-outlined text-5xl text-primary/20 mb-4 block group-hover:text-primary/40 transition-colors duration-500">format_quote</span>
+          <div class="flex gap-1 mb-4">
+            <span *ngFor="let s of [1,2,3,4,5]" class="material-symbols-outlined text-yellow-400 text-base" style="font-variation-settings:'FILL' 1">star</span>
+          </div>
+          <p class="text-base leading-relaxed text-on-surface mb-8 relative z-10">
+            "Ives is the Jonah type in the book The Goal of Eli Goldratt. He consistently moves you towards a process of thinking that leads to innovation. His pragmatic way of thinking challenges you to improve yourself and find solutions to problem solving."
+          </p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full border-2 border-primary/20 bg-primary/10 flex items-center justify-center font-bold text-primary text-sm group-hover:bg-primary group-hover:text-white transition-all duration-300">AL</div>
+            <div>
+              <p class="font-bold text-on-surface text-sm">Alex Laureyns</p>
+              <p class="text-xs text-on-surface-variant font-label">Director at RAL</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card snap-start group">
+          <div class="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-110 transition-transform duration-700"></div>
+          <span class="material-symbols-outlined text-5xl text-primary/20 mb-4 block group-hover:text-primary/40 transition-colors duration-500">format_quote</span>
+          <div class="flex gap-1 mb-4">
+            <span *ngFor="let s of [1,2,3,4,5]" class="material-symbols-outlined text-yellow-400 text-base" style="font-variation-settings:'FILL' 1">star</span>
+          </div>
+          <p class="text-base leading-relaxed text-on-surface mb-8 relative z-10">
+            "It is a pleasure to discuss with Ives the challenges and opportunities in industrial engineering. You simply forget time. He looks with a much wider perspective to the future of the business. He is a great partner to work together with."
+          </p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full border-2 border-primary/20 bg-primary/10 flex items-center justify-center font-bold text-primary text-sm group-hover:bg-primary group-hover:text-white transition-all duration-300">EV</div>
+            <div>
+              <p class="font-bold text-on-surface text-sm">Eddy Van der Straeten</p>
+              <p class="text-xs text-on-surface-variant font-label">Senior Advanced Engineering Manager at Adient</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Videos Infinite Auto-Scroll Marquee -->
+      <div class="relative video-marquee-viewport"
+           (mouseenter)="pauseCarousel()"
+           (mouseleave)="resumeCarousel()">
+
+        <!-- Fade edges -->
+        <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-r from-surface to-transparent"></div>
+        <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-l from-surface to-transparent"></div>
+
+        <!-- Track: videos rendered twice for seamless loop -->
+        <div class="video-marquee-track" [class.paused]="carouselPaused()">
+
+          <!-- First set -->
+          <div *ngFor="let video of videos"
+               (click)="playVideo(video.id)"
+               class="video-marquee-card group">
+            <img [src]="video.thumbnail" [alt]="video.title" (error)="onImgError($event)"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <p class="text-white font-label font-bold text-sm leading-tight drop-shadow-lg line-clamp-2">{{ video.title }}</p>
+              <span class="text-white/60 text-xs font-label mt-1 inline-flex items-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">play_circle</span> Watch now
+              </span>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-14 h-14 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-2xl scale-90 group-hover:scale-110 group-hover:bg-primary/90 transition-all duration-300">
+                <span class="material-symbols-outlined text-2xl" style="font-variation-settings:'FILL' 1">play_arrow</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Clone set (exact duplicate for seamless loop) -->
+          <div *ngFor="let video of videos"
+               (click)="playVideo(video.id)"
+               class="video-marquee-card group">
+            <img [src]="video.thumbnail" [alt]="video.title" (error)="onImgError($event)"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <p class="text-white font-label font-bold text-sm leading-tight drop-shadow-lg line-clamp-2">{{ video.title }}</p>
+              <span class="text-white/60 text-xs font-label mt-1 inline-flex items-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">play_circle</span> Watch now
+              </span>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-14 h-14 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-2xl scale-90 group-hover:scale-110 group-hover:bg-primary/90 transition-all duration-300">
+                <span class="material-symbols-outlined text-2xl" style="font-variation-settings:'FILL' 1">play_arrow</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- Video Modal Overlay -->
+  <div *ngIf="activeVideo()" 
+       class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-3xl flex items-center justify-center p-4 md:p-12 animate-fade-in">
+    <button (click)="closeVideo()" 
+            class="absolute top-8 right-8 text-white/50 hover:text-white transition-all hover:rotate-90 duration-300">
+      <span class="material-symbols-outlined text-4xl">close</span>
+    </button>
+    
+    <div class="w-full max-w-5xl aspect-video relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/20 border border-white/10 animate-scale-in">
+      <iframe 
+        *ngIf="activeVideo()"
+        class="w-full h-full"
+        [src]="getSafeUrl(activeVideo()!)" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
   <!-- Why P41 Section -->
   <section class="bg-inverse-surface text-inverse-on-surface section-padding relative overflow-hidden">
     <div class="absolute top-0 right-0 w-1/2 h-full opacity-5 pointer-events-none">
@@ -211,8 +354,17 @@
     </div>
   </section>
 
+  <!-- About P41 Section (separate component — edit: src/app/pages/home/sections/about-p41/) -->
+  <app-about-p41></app-about-p41>
+
+  <!-- Blog Section (separate component — edit: src/app/pages/home/sections/blog/) -->
+  <app-blog-section></app-blog-section>
+
+  <!-- Books Section (separate component — edit: src/app/pages/home/sections/books/) -->
+  <app-books></app-books>
+
   <!-- CTA Section -->
-  <section class="section-padding bg-surface overflow-hidden relative">
+  <section id="ready-to-evolve" class="section-padding bg-surface overflow-hidden relative">
     <div class="max-w-4xl mx-auto text-center relative z-10 animate-slide-up">
       <h2 class="text-5xl md:text-6xl font-black tracking-tighter mb-8">Ready to Evolve?</h2>
       <p class="text-xl text-on-surface-variant mb-12">

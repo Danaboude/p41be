@@ -1,0 +1,163 @@
+<!-- Why Choose P41 Section -->
+<section class="section-padding bg-surface relative overflow-hidden">
+
+  <!-- Decorative background blobs -->
+  <div class="absolute top-0 right-0 w-96 h-96 bg-primary/4 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 w-72 h-72 bg-primary/3 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3 pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+
+    <!-- Section Header -->
+    <div class="mb-16 animate-slide-up">
+      <div class="inline-flex items-center gap-2 bg-primary/10 px-4 py-1.5 rounded-sm mb-6">
+        <span class="material-symbols-outlined text-primary text-sm">verified</span>
+        <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">Our Advantage</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <h2 class="text-4xl md:text-5xl font-black max-w-xl">
+          Why Choose <span class="text-primary italic">P41</span>
+        </h2>
+        <p class="text-on-surface-variant font-label text-lg max-w-md md:text-right leading-relaxed">
+          We combine decades of hands-on expertise with cutting-edge methods to deliver measurable results.
+        </p>
+      </div>
+    </div>
+
+    <!-- Feature Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+      <div *ngFor="let f of features; let i = index"
+           class="group relative p-8 rounded-2xl border border-outline-variant/10 bg-gradient-to-br hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/8 hover:-translate-y-2 transition-all duration-500 cursor-default overflow-hidden"
+           [ngClass]="f.color">
+
+        <!-- Card number badge -->
+        <div class="absolute top-6 right-6 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+          <span class="text-primary font-label font-black text-sm">{{ i + 1 }}</span>
+        </div>
+
+        <!-- Icon -->
+        <div class="w-14 h-14 rounded-xl bg-white shadow-lg shadow-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-primary/20 transition-all duration-500">
+          <span class="material-symbols-outlined text-primary text-2xl">{{ f.icon }}</span>
+        </div>
+
+        <!-- Content -->
+        <h3 class="text-xl font-black mb-3 text-on-surface group-hover:text-primary transition-colors duration-300">{{ f.title }}</h3>
+        <p class="text-on-surface-variant leading-relaxed text-sm">{{ f.description }}</p>
+
+        <!-- Bottom accent line -->
+        <div class="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-primary to-primary-container w-0 group-hover:w-full transition-all duration-500 rounded-full"></div>
+      </div>
+    </div>
+
+    <!-- Request Free Course Form -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+      <!-- Left: CTA Text -->
+      <div class="animate-slide-up">
+        <div class="inline-flex items-center gap-2 bg-primary/10 px-4 py-1.5 rounded-sm mb-6">
+          <span class="material-symbols-outlined text-primary text-sm">school</span>
+          <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">Free Course</span>
+        </div>
+        <h3 class="text-4xl font-black mb-6">Request a <span class="text-primary italic">Free Course</span></h3>
+        <p class="text-on-surface-variant leading-relaxed text-lg mb-8">
+          Take the first step towards industrial excellence. Our experts will reach out to discuss the perfect training program for your team.
+        </p>
+
+        <!-- Benefits list -->
+        <div class="space-y-4">
+          <div *ngFor="let benefit of ['No obligation, 100% free consultation', 'Tailored to your industry & team size', 'Industry 4.0 certified trainers', 'Follow-up support included']"
+               class="flex items-center gap-3">
+            <div class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-primary text-sm">check</span>
+            </div>
+            <span class="text-on-surface-variant font-label text-sm">{{ benefit }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="relative">
+        <!-- Success State -->
+        <div *ngIf="formSubmitted"
+             class="flex flex-col items-center justify-center text-center p-16 bg-primary/5 rounded-3xl border border-primary/10 animate-scale-in min-h-[400px]">
+          <div class="w-20 h-20 rounded-full bg-primary flex items-center justify-center mb-6 shadow-2xl shadow-primary/30">
+            <span class="material-symbols-outlined text-white text-4xl">check_circle</span>
+          </div>
+          <h4 class="text-2xl font-black mb-2">You're on the list!</h4>
+          <p class="text-on-surface-variant font-label">We'll be in touch shortly to schedule your free course.</p>
+        </div>
+
+        <!-- Form -->
+        <form *ngIf="!formSubmitted"
+              (ngSubmit)="submitForm()"
+              class="bg-white rounded-3xl p-8 shadow-2xl shadow-primary/8 border border-outline-variant/10 space-y-5">
+
+          <div class="grid grid-cols-2 gap-4">
+            <!-- First Name -->
+            <div class="space-y-1.5">
+              <label class="font-label text-[11px] uppercase tracking-widest text-on-surface-variant font-bold">
+                First Name <span class="text-red-400">*</span>
+              </label>
+              <input type="text" [(ngModel)]="form.firstName" name="firstName" required
+                     placeholder="Ives"
+                     class="w-full bg-surface-container-low/50 border border-outline-variant/20 rounded-xl px-4 py-3 font-headline text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all placeholder:text-on-surface-variant/30">
+            </div>
+            <!-- Last Name -->
+            <div class="space-y-1.5">
+              <label class="font-label text-[11px] uppercase tracking-widest text-on-surface-variant font-bold">
+                Last Name <span class="text-red-400">*</span>
+              </label>
+              <input type="text" [(ngModel)]="form.lastName" name="lastName" required
+                     placeholder="De Saeger"
+                     class="w-full bg-surface-container-low/50 border border-outline-variant/20 rounded-xl px-4 py-3 font-headline text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all placeholder:text-on-surface-variant/30">
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="space-y-1.5">
+            <label class="font-label text-[11px] uppercase tracking-widest text-on-surface-variant font-bold">
+              Email Address <span class="text-red-400">*</span>
+            </label>
+            <input type="email" [(ngModel)]="form.email" name="email" required
+                   placeholder="you@company.com"
+                   class="w-full bg-surface-container-low/50 border border-outline-variant/20 rounded-xl px-4 py-3 font-headline text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all placeholder:text-on-surface-variant/30">
+          </div>
+
+          <!-- Phone -->
+          <div class="space-y-1.5">
+            <label class="font-label text-[11px] uppercase tracking-widest text-on-surface-variant font-bold">Phone Number</label>
+            <input type="tel" [(ngModel)]="form.phone" name="phone"
+                   placeholder="+32 ..."
+                   class="w-full bg-surface-container-low/50 border border-outline-variant/20 rounded-xl px-4 py-3 font-headline text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all placeholder:text-on-surface-variant/30">
+          </div>
+
+          <!-- Address -->
+          <div class="space-y-1.5">
+            <label class="font-label text-[11px] uppercase tracking-widest text-on-surface-variant font-bold">My Address</label>
+            <input type="text" [(ngModel)]="form.address" name="address"
+                   placeholder="Company / City"
+                   class="w-full bg-surface-container-low/50 border border-outline-variant/20 rounded-xl px-4 py-3 font-headline text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all placeholder:text-on-surface-variant/30">
+          </div>
+
+          <!-- Subject -->
+          <div class="space-y-1.5">
+            <label class="font-label text-[11px] uppercase tracking-widest text-on-surface-variant font-bold">Subject</label>
+            <input type="text" [(ngModel)]="form.subject" name="subject"
+                   placeholder="Which course interests you?"
+                   class="w-full bg-surface-container-low/50 border border-outline-variant/20 rounded-xl px-4 py-3 font-headline text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all placeholder:text-on-surface-variant/30">
+          </div>
+
+          <!-- Submit -->
+          <button type="submit"
+                  [disabled]="formLoading"
+                  class="w-full premium-gradient-btn !py-4 !rounded-xl !text-base shadow-xl shadow-primary/25 flex items-center justify-center gap-3 disabled:opacity-70">
+            <span *ngIf="formLoading" class="material-symbols-outlined animate-spin text-sm">progress_activity</span>
+            <span *ngIf="!formLoading" class="material-symbols-outlined text-sm">send</span>
+            {{ formLoading ? 'Sending...' : 'Request Free Course' }}
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>

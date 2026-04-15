@@ -1,0 +1,140 @@
+<main class="animate-fade-in">
+  <!-- Hero Section -->
+  <section class="relative min-h-[50vh] flex items-center overflow-hidden section-padding bg-surface-container-lowest">
+    <div class="absolute inset-0 z-0">
+      <img src="hero_backgournd.jpg" class="w-full h-full object-cover opacity-10 grayscale" alt="Industrial background">
+      <div class="absolute inset-0 bg-gradient-to-b from-surface via-surface/80 to-transparent"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto w-full relative z-10 text-center">
+      <div class="animate-slide-up">
+        <div class="inline-flex items-center gap-2 bg-primary/10 px-4 py-1.5 rounded-sm mb-8">
+          <span class="material-symbols-outlined text-primary text-sm">info</span>
+          <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">About P41</span>
+        </div>
+        
+        <h1 class="text-6xl md:text-7xl font-black leading-[0.9] mb-8">
+          Architecting <span class="text-primary italic">Industrial Excellence</span>
+        </h1>
+        
+        <p class="text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+          {{ t().footer.desc }}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder's Vision Section (Adapted from Home) -->
+  <section class="section-padding bg-surface overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div class="relative group">
+          <div class="absolute -inset-4 bg-primary/10 rounded-sm translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500"></div>
+          <img src="ives front look.jpg" class="relative z-10 w-full rounded-sm shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-700" alt="Ives De Saeger Founder">
+          <div class="absolute bottom-8 left-8 z-20 bg-primary p-6 text-white max-w-xs shadow-2xl">
+            <p class="text-sm font-label uppercase tracking-widest font-bold opacity-80 mb-2">{{ t().vision.role }}</p>
+            <p class="text-2xl font-black font-headline">{{ t().vision.name }}</p>
+          </div>
+        </div>
+        
+        <div class="animate-slide-up">
+          <h2 class="text-sm font-label uppercase tracking-[0.3em] text-primary font-bold mb-6">{{ t().vision.title }}</h2>
+          <div class="relative mb-12">
+            <span class="material-symbols-outlined text-8xl absolute -top-10 -left-10 text-primary/10 select-none">format_quote</span>
+            <p class="text-4xl md:text-5xl font-black leading-tight italic text-on-surface relative z-10">
+              {{ t().vision.quote }}
+            </p>
+          </div>
+          <p class="text-xl text-on-surface-variant leading-relaxed mb-8">
+            {{ t().vision.desc }}
+          </p>
+          <p class="text-lg text-on-surface-variant/80 leading-relaxed mb-12">
+            At P41, we believe that the future of industry lies in the perfect synchronization of human intuition and digital speed. Our mission is to provide the architectural framework that makes this possible for every facility we touch.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats / Why Choose (Adapted from Home) -->
+  <section class="bg-inverse-surface text-inverse-on-surface section-padding relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/2 h-full opacity-5 pointer-events-none">
+      <img src="CrossRoads-29-scaled.jpg" class="w-full h-full object-cover">
+    </div>
+    
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+        <div class="animate-slide-up">
+          <h2 class="text-5xl font-black tracking-tighter mb-12 leading-tight">
+            Our Impact <br/>
+            <span class="text-primary">By The Numbers</span>
+          </h2>
+          
+          <div class="space-y-12">
+            <div class="flex gap-6 group">
+              <div class="w-14 h-14 rounded-sm bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 group-hover:bg-primary transition-all duration-300">
+                <span class="material-symbols-outlined text-primary group-hover:text-white">history_edu</span>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold mb-2">{{ t().why_p41.exp.title }}</h4>
+                <p class="text-on-surface-variant opacity-70 leading-relaxed">{{ t().why_p41.exp.desc }}</p>
+              </div>
+            </div>
+            
+            <div class="flex gap-6 group">
+              <div class="w-14 h-14 rounded-sm bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 group-hover:bg-primary transition-all duration-300">
+                <span class="material-symbols-outlined text-primary group-hover:text-white">architecture</span>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold mb-2">{{ t().why_p41.methods.title }}</h4>
+                <p class="text-on-surface-variant opacity-70 leading-relaxed">{{ t().why_p41.methods.desc }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-2 gap-4 animate-scale-in">
+          <div class="bg-surface/5 backdrop-blur-xl p-8 flex flex-col justify-between h-64 border-l-4 border-primary hover:bg-surface/10 transition-all cursor-default">
+            <span class="text-6xl font-black font-label text-primary">25+</span>
+            <span class="font-label text-sm uppercase tracking-widest opacity-60">{{ t().why_p41.stats.years }}</span>
+          </div>
+          <div class="bg-surface/5 backdrop-blur-xl p-8 flex flex-col justify-between h-64 mt-12 hover:bg-surface/10 transition-all cursor-default">
+            <span class="text-6xl font-black font-label text-primary">40%</span>
+            <span class="font-label text-sm uppercase tracking-widest opacity-60">{{ t().why_p41.stats.waste }}</span>
+          </div>
+          <div class="bg-surface/5 backdrop-blur-xl p-8 flex flex-col justify-between h-64 -mt-12 hover:bg-surface/10 transition-all cursor-default">
+            <span class="text-6xl font-black font-label text-primary">150+</span>
+            <span class="font-label text-sm uppercase tracking-widest opacity-60">{{ t().why_p41.stats.facilities }}</span>
+          </div>
+          <div class="premium-gradient-btn !p-8 flex flex-col justify-between h-64 !rounded-none hover:scale-105 transition-all cursor-default">
+            <span class="text-6xl font-black font-label text-white">12B</span>
+            <span class="font-label text-sm uppercase tracking-widest text-white/80">{{ t().why_p41.stats.data }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Logos (Adapted from Home) -->
+  <section class="bg-surface py-24">
+    <div class="max-w-7xl mx-auto px-8">
+      <p class="text-center font-label text-xs uppercase tracking-[0.4em] text-on-surface-variant/40 mb-16 font-bold">Trusted by Industry Giants</p>
+      <div class="flex flex-wrap items-center justify-center gap-12 md:gap-24 opacity-30 grayscale hover:opacity-60 transition-all duration-500">
+        <img *ngFor="let client of clients" [src]="client.logo" [alt]="client.name" class="h-8 md:h-12 object-contain">
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section (Adapted from Home) -->
+  <section class="section-padding bg-surface-container-low overflow-hidden relative border-t border-outline-variant/10">
+    <div class="max-w-4xl mx-auto text-center relative z-10 animate-slide-up">
+      <h2 class="text-5xl md:text-6xl font-black tracking-tighter mb-8">Let's Build the Future</h2>
+      <p class="text-xl text-on-surface-variant mb-12">
+        Join the ranks of high-performance industrial leaders. Our consultants are ready to audit your operations.
+      </p>
+      <button class="premium-gradient-btn !px-12 !py-6 !text-xl shadow-2xl shadow-primary/40">
+        Contact Our Experts
+      </button>
+    </div>
+  </section>
+</main>

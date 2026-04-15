@@ -1,0 +1,4 @@
+/* About Page Scoped Styles */
+:host {
+  display: block;
+}
