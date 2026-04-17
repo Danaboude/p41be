@@ -1,23 +1,24 @@
 <!-- About P41 Section -->
-<section class="bg-inverse-surface text-inverse-on-surface section-padding relative overflow-hidden">
+<section class="bg-white text-on-surface section-padding relative overflow-hidden">
 
   <!-- Decorative background image -->
-  <div class="absolute inset-0 opacity-5 pointer-events-none">
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none grayscale">
     <img src="CrossRoads-29-scaled.jpg" class="w-full h-full object-cover" alt="">
   </div>
-  <!-- Gradient overlay -->
-  <div class="absolute inset-0 bg-gradient-to-br from-inverse-surface via-inverse-surface/95 to-primary/20 pointer-events-none"></div>
+  
+  <!-- Subtle Gradient overlay for light theme -->
+  <div class="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-primary/5 pointer-events-none"></div>
 
   <div class="max-w-7xl mx-auto relative z-10">
 
     <!-- Section Badge -->
     <div class="mb-16 animate-fade-in">
-      <div class="inline-flex items-center gap-2 bg-primary/20 px-4 py-1.5 rounded-sm mb-6">
+      <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-6">
         <span class="material-symbols-outlined text-primary text-sm">hub</span>
         <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">About P41</span>
       </div>
       <h2 class="text-4xl md:text-5xl font-black max-w-3xl leading-tight">
-        Start implementing the technologies <span class="text-primary italic">that are out there</span> in your company
+        Start implementing the technologies <span class="text-primary">that are out there</span> in your company
       </h2>
     </div>
 
@@ -26,28 +27,28 @@
 
       <!-- Left: Article Text -->
       <div class="space-y-6 animate-slide-up">
-        <p class="text-inverse-on-surface/75 leading-relaxed text-lg">
-          If your company is not taking advantage of the available technologies, then it's time to change that now. It's a well-known fact that a lot of (industrial) businesses are lagging behind in the application of the newest technologies, which results in a <strong class="text-inverse-on-surface font-bold">competitive disadvantage.</strong>
+        <p class="text-on-surface-variant leading-relaxed text-lg">
+          If your company is not taking advantage of the available technologies, then it's time to change that now. It's a well-known fact that a lot of (industrial) businesses are lagging behind in the application of the newest technologies, which results in a <strong class="text-on-surface font-bold">competitive disadvantage.</strong>
         </p>
-        <p class="text-inverse-on-surface/75 leading-relaxed">
+        <p class="text-on-surface-variant leading-relaxed">
           Both incremental and fundamental improvements can be made through the application of new technologies. The collective name of these technologies? <strong class="text-primary font-bold text-lg">Industry 4.0.</strong>
         </p>
-        <p class="text-inverse-on-surface/75 leading-relaxed">
+        <p class="text-on-surface-variant leading-relaxed">
           It is my expertise to consult companies in the implementation of the technologies that Industry 4.0 has to offer. Using time study, error quality analysis and throughput to visualise flow, direct results can be obtained.
         </p>
-        <p class="text-inverse-on-surface/75 leading-relaxed">
-          Many companies require to set the basics right first for cycle time, flow and quality. Once we know where the money is going, smart investments can be made. So, if you're the CXO of a company facing problems with the implementation of new technologies — <strong class="text-inverse-on-surface">let's chat.</strong>
+        <p class="text-on-surface-variant leading-relaxed">
+          Many companies require to set the basics right first for cycle time, flow and quality. Once we know where the money is going, smart investments can be made. So, if you're the CXO of a company facing problems with the implementation of new technologies — <strong class="text-on-surface font-bold">let's chat.</strong>
         </p>
 
         <!-- CTA Buttons -->
         <div class="flex flex-wrap gap-4 pt-4">
-          <button class="premium-gradient-btn !px-8 !py-4 shadow-2xl shadow-primary/30">
+          <button class="premium-gradient-btn !px-8 !py-4 shadow-2xl shadow-primary/20">
             <span class="flex items-center gap-2">
               <span class="material-symbols-outlined text-sm">calendar_month</span>
               Let's Chat
             </span>
           </button>
-          <button class="flex items-center gap-2 border border-inverse-on-surface/20 px-8 py-4 rounded-full font-label font-bold text-inverse-on-surface/70 hover:border-primary hover:text-primary transition-all duration-300">
+          <button class="flex items-center gap-2 border border-outline-variant px-8 py-4 rounded-full font-label font-bold text-on-surface-variant hover:border-primary hover:text-primary transition-all duration-300">
             <span class="material-symbols-outlined text-sm">qr_code_scanner</span>
             i4.0 Scan
           </button>
@@ -57,9 +58,9 @@
       <!-- Right: YouTube Embed -->
       <div class="relative animate-scale-in">
         <!-- Decorative frame -->
-        <div class="absolute -inset-3 bg-primary/10 rounded-3xl blur-xl"></div>
+        <div class="absolute -inset-3 bg-primary/5 rounded-3xl blur-xl"></div>
 
-        <div class="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/40 border border-white/10 aspect-video group cursor-pointer"
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 border border-zinc-100 aspect-video group cursor-pointer"
              (click)="videoPlaying.set(true)">
 
           <!-- Thumbnail (shown before play) -->
@@ -104,36 +105,36 @@
     </div>
 
     <!-- Stats Row -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
       <div *ngFor="let stat of stats"
-           class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-primary/30 transition-all duration-300 group">
-        <p class="text-4xl md:text-5xl font-black text-primary mb-2 group-hover:scale-110 transition-transform duration-300">{{ stat.value }}</p>
-        <p class="text-inverse-on-surface/60 font-label text-xs uppercase tracking-widest">{{ stat.label }}</p>
+           class="bg-zinc-50 border border-zinc-100 rounded-2xl p-8 text-center hover:bg-white hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 group">
+        <p class="text-4xl md:text-5xl font-black text-primary mb-2 group-hover:scale-110 transition-transform duration-500">{{ stat.value }}</p>
+        <p class="text-on-surface-variant font-label text-xs uppercase tracking-widest">{{ stat.label }}</p>
       </div>
     </div>
 
     <!-- Technologies Grid -->
     <div class="animate-fade-in">
-      <p class="text-inverse-on-surface/50 font-label text-xs uppercase tracking-widest mb-8">Technologies we implement</p>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <p class="text-on-surface-variant/60 font-label text-[10px] uppercase tracking-widest mb-10 font-bold">Technologies we implement</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
         <div *ngFor="let tech of technologies"
-             class="flex items-center gap-4 bg-white/5 border border-white/10 rounded-xl p-4 hover:border-primary/40 hover:bg-primary/10 transition-all duration-300 group">
-          <div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary transition-all duration-300">
-            <span class="material-symbols-outlined text-primary group-hover:text-white text-xl transition-colors">{{ tech.icon }}</span>
+             class="flex items-center gap-4 bg-zinc-50 border border-zinc-100 rounded-2xl p-5 hover:border-primary/40 hover:bg-white hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center shrink-0 group-hover:bg-primary transition-all duration-500">
+            <span class="material-symbols-outlined text-primary group-hover:text-white text-2xl transition-colors">{{ tech.icon }}</span>
           </div>
-          <span class="font-label font-bold text-sm text-inverse-on-surface/80 group-hover:text-inverse-on-surface transition-colors">{{ tech.label }}</span>
+          <span class="font-label font-bold text-sm text-on-surface-variant group-hover:text-on-surface transition-colors">{{ tech.label }}</span>
         </div>
       </div>
     </div>
 
     <!-- Academy CTA Strip -->
-    <div class="mt-16 p-8 rounded-2xl border border-primary/20 bg-primary/10 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="mt-20 p-10 rounded-3xl border border-primary/10 bg-primary/5 flex flex-col md:flex-row items-center justify-between gap-8">
       <div>
-        <p class="text-inverse-on-surface/50 font-label text-xs uppercase tracking-widest mb-1">Still curious?</p>
-        <p class="text-xl font-bold text-inverse-on-surface">Check out the Academy sessions for free.</p>
+        <p class="text-primary font-label text-[10px] uppercase tracking-widest mb-2 font-bold">Still curious?</p>
+        <p class="text-2xl font-black text-on-surface">Check out the Academy sessions for free.</p>
       </div>
-      <button class="shrink-0 premium-gradient-btn !px-10 !py-4 shadow-xl shadow-primary/30 flex items-center gap-2">
-        <span class="material-symbols-outlined text-sm">school</span>
+      <button class="shrink-0 premium-gradient-btn !px-12 !py-5 shadow-2xl shadow-primary/30 flex items-center gap-3 hover:scale-105 active:scale-95 transition-all">
+        <span class="material-symbols-outlined text-base">school</span>
         Free Academy Sessions
       </button>
     </div>

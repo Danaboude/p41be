@@ -36,6 +36,12 @@ export class HeaderComponent {
   /** True when on /about route */
   isAbout = computed(() => this.currentUrl().startsWith('/about'));
 
+  /** True when on /consultancy route */
+  isConsultancy = computed(() => this.currentUrl().startsWith('/consultancy'));
+
+  /** True when on /contact route */
+  isContact = computed(() => this.currentUrl().startsWith('/contact'));
+
   switchLang() {
     const nextLang = this.currentLang() === 'en' ? 'nl' : 'en';
     this.translationService.setLang(nextLang);
@@ -46,14 +52,7 @@ export class HeaderComponent {
   }
 
   navigateToConsultancy() {
-    this.router.navigate([''], { fragment: 'ready-to-evolve' }).then(() => {
-      setTimeout(() => {
-        const el = document.getElementById('ready-to-evolve');
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 100);
-    });
+    this.router.navigate(['/consultancy']).then(() => this.scrollToTop());
   }
 
   navigateToAcademy() {
@@ -66,6 +65,10 @@ export class HeaderComponent {
 
   navigateToAbout() {
     this.router.navigate(['/about']).then(() => this.scrollToTop());
+  }
+
+  navigateToContact() {
+    this.router.navigate(['/contact']).then(() => this.scrollToTop());
   }
 
   navigateHome() {

@@ -26,5 +26,37 @@ export class FooterComponent {
   );
 
   isAcademy = computed(() => this.currentUrl().startsWith('/academy'));
+  isBlog = computed(() => this.currentUrl().startsWith('/blog'));
+  isAbout = computed(() => this.currentUrl().startsWith('/about'));
+  isConsultancy = computed(() => this.currentUrl().startsWith('/consultancy'));
+  isContact = computed(() => this.currentUrl().startsWith('/contact'));
+
+  private scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  navigateToConsultancy() {
+    this.router.navigate(['/consultancy']).then(() => this.scrollToTop());
+  }
+
+  navigateToAcademy() {
+    this.router.navigate(['/academy']).then(() => this.scrollToTop());
+  }
+
+  navigateToBlog() {
+    this.router.navigate(['/blog']).then(() => this.scrollToTop());
+  }
+
+  navigateToAbout() {
+    this.router.navigate(['/about']).then(() => this.scrollToTop());
+  }
+
+  navigateToContact() {
+    this.router.navigate(['/contact']).then(() => this.scrollToTop());
+  }
+
+  navigateHome() {
+    this.router.navigate(['']).then(() => this.scrollToTop());
+  }
 }
 

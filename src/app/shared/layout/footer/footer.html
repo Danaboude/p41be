@@ -1,76 +1,95 @@
-<footer class="bg-inverse-surface text-inverse-on-surface w-full py-20 px-8">
-  <div class="max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<footer 
+  class="bg-white text-on-surface w-full py-24 px-8 border-t border-zinc-100 relative overflow-hidden transition-all duration-700">
+  
+  <!-- Subtle Background Accents -->
+  <div class="absolute inset-0 pointer-events-none opacity-20">
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-[100px]"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-16">
       <div class="col-span-1 md:col-span-1">
-        <div class="flex items-center gap-3 mb-6 group cursor-pointer">
-          <div class="bg-white p-1 rounded-sm">
-            <img [src]="isAcademy() ? 'logo-Y.jpg' : 'logo.jpg'" alt="P41 Logo" class="h-10 w-auto">
+        <div class="flex items-center gap-3 mb-8 group cursor-pointer" (click)="navigateHome()">
+          <div class="bg-white p-1 rounded-sm border border-zinc-100">
+            <img [src]="isAcademy() ? 'logo-Y.jpg' : (isBlog() ? 'logo-R.jpg' : 'logo.jpg')" alt="P41 Logo" class="h-10 w-auto">
           </div>
         </div>
-        <p class="text-on-surface-variant opacity-80 font-body leading-relaxed mb-8">
+        <p class="text-on-surface-variant font-body leading-relaxed mb-10 text-sm">
           {{ t().footer.desc }}
         </p>
-        <div class="flex gap-4">
-          <span [class]="isAcademy()
-            ? 'material-symbols-outlined text-on-surface-variant hover:text-[#D4A843] cursor-pointer transition-all'
-            : 'material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-all'">language</span>
-          <span [class]="isAcademy()
-            ? 'material-symbols-outlined text-on-surface-variant hover:text-[#D4A843] cursor-pointer transition-all'
-            : 'material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-all'">share</span>
-          <span [class]="isAcademy()
-            ? 'material-symbols-outlined text-on-surface-variant hover:text-[#D4A843] cursor-pointer transition-all'
-            : 'material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-all'">mail</span>
+        <div class="flex flex-wrap gap-4">
+          <a href="https://www.facebook.com/P41-Industrial-Services-646347805377414" target="_blank" [class]="isAcademy() ? 'w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-400 hover:bg-[#D4A843] hover:text-white transition-all' : (isBlog() ? 'w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-400 hover:bg-[#E53935] hover:text-white transition-all' : 'w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-400 hover:bg-primary hover:text-white transition-all')">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://x.com/inventives" target="_blank" [class]="isAcademy() ? 'w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-400 hover:bg-[#D4A843] hover:text-white transition-all' : (isBlog() ? 'w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-400 hover:bg-[#E53935] hover:text-white transition-all' : 'w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-400 hover:bg-primary hover:text-white transition-all')">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/p41-partners-in-process-innovation/" target="_blank" [class]="isAcademy() ? 'w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-400 hover:bg-[#D4A843] hover:text-white transition-all' : (isBlog() ? 'w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-400 hover:bg-[#E53935] hover:text-white transition-all' : 'w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-400 hover:bg-primary hover:text-white transition-all')">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/ivesdesaeger/" target="_blank" [class]="isAcademy() ? 'w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-400 hover:bg-[#D4A843] hover:text-white transition-all' : (isBlog() ? 'w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-400 hover:bg-[#E53935] hover:text-white transition-all' : 'w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-400 hover:bg-primary hover:text-white transition-all')">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://api.whatsapp.com/send?phone=+32%20496%20166%20554&text=Hi,%20I%20contacted%20you%20through%20your%20website." target="_blank" [class]="isAcademy() ? 'w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-400 hover:bg-[#D4A843] hover:text-white transition-all' : (isBlog() ? 'w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-400 hover:bg-[#E53935] hover:text-white transition-all' : 'w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-400 hover:bg-primary hover:text-white transition-all')">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="https://nl.pinterest.com/ivesdesaeger/" target="_blank" [class]="isAcademy() ? 'w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-400 hover:bg-[#D4A843] hover:text-white transition-all' : (isBlog() ? 'w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-400 hover:bg-[#E53935] hover:text-white transition-all' : 'w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-400 hover:bg-primary hover:text-white transition-all')">
+            <i class="fab fa-pinterest-p"></i>
+          </a>
         </div>
       </div>
+
       <div>
         <h5 [class]="isAcademy()
-          ? 'font-label font-bold uppercase tracking-widest text-[#D4A843] mb-8'
-          : 'font-label font-bold uppercase tracking-widest text-primary mb-8'">{{ t().footer.nav }}</h5>
-        <ul class="space-y-4">
-          <li><a href="#" class="text-on-surface-variant hover:text-primary transition-all font-label">{{
+          ? 'font-label font-bold uppercase tracking-widest text-[#D4A843] mb-10 text-[11px]'
+          : (isBlog() ? 'font-label font-bold uppercase tracking-widest text-[#E53935] mb-10 text-[11px]' : 'font-label font-bold uppercase tracking-widest text-primary mb-10 text-[11px]')">{{ t().footer.nav }}</h5>
+        <ul class="space-y-5">
+          <li><a (click)="navigateToConsultancy()" [class]="'text-on-surface-variant transition-all font-label text-sm cursor-pointer ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{
               t().nav.consultancy }}</a></li>
-          <li><a href="/academy" class="text-on-surface-variant hover:text-primary transition-all font-label">{{
+          <li><a (click)="navigateToAcademy()" [class]="'text-on-surface-variant transition-all font-label text-sm cursor-pointer ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{
               t().nav.academy }}</a></li>
-          <li><a href="#" class="text-on-surface-variant hover:text-primary transition-all font-label">{{ t().nav.blog
+          <li><a (click)="navigateToBlog()" [class]="'text-on-surface-variant transition-all font-label text-sm cursor-pointer ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{ t().nav.blog
               }}</a></li>
         </ul>
       </div>
+
       <div>
         <h5 [class]="isAcademy()
-          ? 'font-label font-bold uppercase tracking-widest text-[#D4A843] mb-8'
-          : 'font-label font-bold uppercase tracking-widest text-primary mb-8'">{{ t().footer.company }}</h5>
-        <ul class="space-y-4">
-          <li><a href="#" class="text-on-surface-variant hover:text-primary transition-all font-label">{{ t().nav.about
+          ? 'font-label font-bold uppercase tracking-widest text-[#D4A843] mb-10 text-[11px]'
+          : (isBlog() ? 'font-label font-bold uppercase tracking-widest text-[#E53935] mb-10 text-[11px]' : 'font-label font-bold uppercase tracking-widest text-primary mb-10 text-[11px]')">{{ t().footer.company }}</h5>
+        <ul class="space-y-5">
+          <li><a (click)="navigateToAbout()" [class]="'text-on-surface-variant transition-all font-label text-sm cursor-pointer ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{ t().nav.about
               }}</a></li>
-          <li><a href="#" class="text-on-surface-variant hover:text-primary transition-all font-label">Contact</a></li>
-          <li><a href="#" class="text-on-surface-variant hover:text-primary transition-all font-label">Privacy
+          <li><a (click)="navigateToContact()" [class]="'text-on-surface-variant transition-all font-label text-sm cursor-pointer ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{ t().nav.contact
+              }}</a></li>
+          <li><a href="#" [class]="'text-on-surface-variant transition-all font-label text-sm ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">Privacy
               Policy</a></li>
         </ul>
       </div>
+
       <div>
         <h5 [class]="isAcademy()
-          ? 'font-label font-bold uppercase tracking-widest text-[#D4A843] mb-8'
-          : 'font-label font-bold uppercase tracking-widest text-primary mb-8'">{{ t().footer.newsletter }}</h5>
-        <p class="text-on-surface-variant text-sm mb-6">{{ t().footer.newsletter_desc }}</p>
-        <div class="flex">
+          ? 'font-label font-bold uppercase tracking-widest text-[#D4A843] mb-10 text-[11px]'
+          : (isBlog() ? 'font-label font-bold uppercase tracking-widest text-[#E53935] mb-10 text-[11px]' : 'font-label font-bold uppercase tracking-widest text-primary mb-10 text-[11px]')">{{ t().footer.newsletter }}</h5>
+        <p class="text-on-surface-variant text-sm mb-8 leading-relaxed">{{ t().footer.newsletter_desc }}</p>
+        <div class="flex shadow-sm rounded-xl overflow-hidden border border-zinc-100">
           <input type="text"
-            class="bg-surface/5 border-none rounded-l-lg text-white w-full focus:ring-1 focus:ring-primary px-4"
+            [class]="'bg-zinc-50 border-none text-zinc-900 w-full px-5 py-4 text-sm placeholder:text-zinc-300 focus:ring-1 ' + (isAcademy() ? 'focus:ring-[#D4A843]' : (isBlog() ? 'focus:ring-[#E53935]' : 'focus:ring-primary'))"
             placeholder="Email Address">
-          <button [class]="isAcademy()
-            ? 'bg-[#D4A843] px-4 rounded-r-lg hover:opacity-90 transition-colors'
-            : 'bg-primary px-4 rounded-r-lg hover:opacity-90 transition-colors'">
+          <button [class]="'px-5 hover:opacity-90 transition-colors ' + (isAcademy() ? 'bg-[#D4A843]' : (isBlog() ? 'bg-[#E53935]' : 'bg-primary'))">
             <span class="material-symbols-outlined text-white">chevron_right</span>
           </button>
         </div>
       </div>
     </div>
+
     <div
-      class="mt-20 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-6">
-      <p class="text-on-surface-variant text-sm opacity-60">{{ t().footer.rights }}</p>
-      <div class="flex gap-8 text-sm text-on-surface-variant opacity-60">
-        <a href="#" class="hover:text-primary transition-all">Cookie Settings</a>
-        <a href="#" class="hover:text-primary transition-all">Security</a>
-        <a href="#" class="hover:text-primary transition-all">Accessibility</a>
+      class="mt-24 pt-10 border-t border-zinc-50 flex flex-col md:flex-row justify-between items-center gap-8">
+      <p class="text-zinc-400 text-xs font-label">{{ t().footer.rights }}</p>
+      <div class="flex gap-10 text-xs text-zinc-400 font-label">
+        <a href="#" [class]="'transition-all underline underline-offset-4 decoration-zinc-200 ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">Cookie Settings</a>
+        <a href="#" [class]="'transition-all underline underline-offset-4 decoration-zinc-200 ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">Security</a>
+        <a href="#" [class]="'transition-all underline underline-offset-4 decoration-zinc-200 ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">Accessibility</a>
       </div>
     </div>
   </div>

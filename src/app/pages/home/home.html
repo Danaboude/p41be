@@ -1,45 +1,92 @@
 <main class="animate-fade-in">
-  <!-- Hero Section -->
-  <section class="relative min-h-[95vh] flex items-center overflow-hidden section-padding">
-    <div class="absolute inset-0 z-0">
-      <img src="hero_backgournd.jpg" class="w-full h-full object-cover opacity-10 grayscale" alt="Industrial background">
-      <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent"></div>
+  <!-- New Hero Section (Scratch Redesign) -->
+  <section class="relative min-h-[95vh] flex items-center bg-white overflow-hidden">
+    <!-- Subtle Background Accents -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-0 right-0 w-1/3 h-1/2 bg-primary/5 rounded-bl-[200px] blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 w-1/4 h-1/3 bg-primary/5 rounded-tr-[200px] blur-3xl"></div>
     </div>
-    
-    <div class="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <div class="animate-slide-up">
-        <div class="inline-flex items-center gap-2 bg-surface-container-high px-4 py-1.5 rounded-sm mb-8">
-          <span class="material-symbols-outlined text-primary text-sm">precision_manufacturing</span>
-          <span class="text-on-surface font-label text-xs font-bold tracking-widest uppercase">{{ t().hero.tag }}</span>
-        </div>
-        
-        <h1 class="text-6xl md:text-8xl font-black leading-[0.9] mb-8">
-          {{ t().hero.title }}<br/>
-          <span class="text-primary italic">{{ t().hero.subtitle }}</span>
-        </h1>
-        
-        <p class="text-lg md:text-xl text-on-surface-variant max-w-xl mb-12 leading-relaxed">
-          {{ t().hero.description }}
-        </p>
-        
-        <div class="flex flex-col sm:flex-row gap-6">
-          <button class="premium-gradient-btn !px-10 !py-5 text-lg">
-            {{ t().hero.cta_start }}
-          </button>
-          <button class="bg-surface-container-high text-on-surface font-label font-bold px-10 py-5 rounded-full text-lg hover:bg-surface-container-highest transition-all active:scale-95">
-            {{ t().hero.cta_methods }}
-          </button>
-        </div>
-      </div>
 
-      <div class="relative hidden lg:block animate-scale-in">
-        <div class="absolute -inset-10 bg-primary/5 rounded-full blur-3xl"></div>
-        <img src="ives_with_mic_hero.png" class="relative z-10 w-full max-w-2xl mx-auto drop-shadow-2xl" alt="Ives De Saeger">
-        <!-- Floating Data Badge -->
-        <div class="absolute top-1/4 -right-4 bg-white p-6 shadow-2xl rounded-sm border-l-4 border-primary animate-fade-in">
-          <p class="text-3xl font-black text-primary">25+</p>
-          <p class="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold">Years Industry Expertise</p>
+    <div class="max-w-7xl mx-auto px-8 w-full pt-20 pb-16 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+
+        <!-- Content Column (6/12) -->
+        <div class="lg:col-span-6 animate-slide-up">
+          <div class="flex items-center gap-4 mb-8">
+            <span class="h-[1px] w-12 bg-primary"></span>
+            <span class="text-primary font-label text-xs font-bold tracking-[0.3em] uppercase">{{ t().hero.tag }}</span>
+          </div>
+
+          <h1 class="text-6xl md:text-8xl font-black text-zinc-900 leading-[0.9] tracking-tighter mb-10">
+            {{ t().hero.title }}<br />
+            <span class="text-primary">{{ t().hero.subtitle }}</span>
+          </h1>
+
+          <p class="text-xl md:text-2xl text-zinc-600 max-w-xl mb-12 leading-relaxed font-label">
+            {{ t().hero.description }}
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-5 mb-16">
+            <button
+              class="bg-primary hover:bg-primary/90 text-white px-10 py-5 rounded-full font-label font-bold text-lg shadow-xl shadow-primary/20 hover:scale-105 active:scale-95 transition-all">
+              {{ t().hero.cta_start }}
+            </button>
+            <button
+              class="bg-white border-2 border-zinc-100 hover:border-zinc-200 text-zinc-900 px-10 py-5 rounded-full font-label font-bold text-lg hover:bg-zinc-50 active:scale-95 transition-all">
+              {{ t().hero.cta_methods }}
+            </button>
+          </div>
+
+          <!-- Direct Trust Signal -->
+          <div class="flex items-center gap-8 pt-8 border-t border-zinc-100">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-primary">verified</span>
+              <span class="text-sm font-label font-bold text-zinc-500 uppercase tracking-wider">ISO 9001:2015</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-primary">public</span>
+              <span class="text-sm font-label font-bold text-zinc-500 uppercase tracking-wider">Global Reach</span>
+            </div>
+          </div>
         </div>
+
+        <!-- Image Composition (6/12) -->
+        <div class="lg:col-span-6 relative">
+          <div class="grid grid-cols-2 gap-6 items-end">
+            <!-- Conference/Audience Image (CrossRoads) -->
+            <div class="relative animate-slide-up" style="animation-delay: 0.2s">
+              <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white">
+                <img src="CrossRoads-22-1-scaled-1.jpg"
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Conference">
+              </div>
+              <div class="absolute -bottom-4 -right-4 bg-white p-4 rounded-2xl shadow-xl">
+                <p class="text-primary font-black text-2xl">25+</p>
+                <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest leading-tight">Years
+                  of<br>Excellence</p>
+              </div>
+            </div>
+
+            <!-- Ives De Saeger Image -->
+            <div class="relative animate-slide-up" style="animation-delay: 0.4s">
+              <div class="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl bg-zinc-50">
+                <img src="ives_with_mic_hero.png"
+                  class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+                  alt="Ives De Saeger">
+              </div>
+              <div class="mt-6 pl-4">
+                <p class="text-zinc-900 font-black text-2xl">{{ t().vision.name }}</p>
+                <p class="text-zinc-500 font-label text-sm font-bold uppercase tracking-widest">Founder & Lead Expert
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Decorative Geometry -->
+          <div
+            class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border-[40px] border-primary/5 rounded-full pointer-events-none">
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -47,320 +94,139 @@
   <!-- Client Logos -->
   <section class="bg-surface py-12 border-y border-outline-variant/5">
     <div class="max-w-7xl mx-auto px-8">
-      <div class="flex flex-wrap items-center justify-center gap-12 md:gap-24 opacity-30 grayscale hover:opacity-60 transition-all duration-500">
+      <div
+        class="flex flex-wrap items-center justify-center gap-12 md:gap-24 opacity-30 grayscale hover:opacity-60 transition-all duration-500">
         <img *ngFor="let client of clients" [src]="client.logo" [alt]="client.name" class="h-8 md:h-10 object-contain">
       </div>
     </div>
   </section>
 
-  <!-- Founder's Vision Section -->
-  <section class="section-padding bg-surface-container-low overflow-hidden">
-    <div class="max-w-7xl mx-auto">
+  <!-- Streamlined Vision Section -->
+  <section class="section-padding bg-zinc-50/30 overflow-hidden relative">
+    <div class="max-w-7xl mx-auto px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-        <div class="relative group">
-          <div class="absolute -inset-4 bg-primary/10 rounded-sm translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500"></div>
-          <img src="ives front look.jpg" class="relative z-10 w-full rounded-sm shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-700" alt="Ives De Saeger Founder">
-          <div class="absolute bottom-8 left-8 z-20 bg-primary p-6 text-white max-w-xs shadow-2xl">
-            <p class="text-sm font-label uppercase tracking-widest font-bold opacity-80 mb-2">{{ t().vision.role }}</p>
-            <p class="text-2xl font-black font-headline">{{ t().vision.name }}</p>
-          </div>
-        </div>
-        
         <div class="animate-slide-up">
-          <h2 class="text-sm font-label uppercase tracking-[0.3em] text-primary font-bold mb-6">{{ t().vision.title }}</h2>
-          <div class="relative mb-12">
-            <span class="material-symbols-outlined text-8xl absolute -top-10 -left-10 text-primary/10 select-none">format_quote</span>
-            <p class="text-4xl md:text-5xl font-black leading-tight italic text-on-surface relative z-10">
-              {{ t().vision.quote }}
-            </p>
+          <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-8">
+            <span class="text-primary font-label text-[10px] font-black tracking-widest uppercase">{{ t().vision.title
+              }}</span>
           </div>
-          <p class="text-xl text-on-surface-variant leading-relaxed mb-12 max-w-xl">
-            {{ t().vision.desc }}
+          <h2 class="text-4xl md:text-6xl font-black mb-8 tracking-tighter text-zinc-900 leading-[1.1]">
+            Transforming industrial complexity <br />
+            into <span class="text-primary">operational clarity.</span>
+          </h2>
+          <p class="text-xl text-zinc-500 leading-relaxed mb-10 max-w-xl font-label">
+            We architect the systems that bridge the gap between human intuition and digital speed, ensuring your
+            facility is ready for the future.
           </p>
-          <button class="flex items-center gap-4 text-primary font-label font-bold group">
+          <a (click)="navigateToAbout()"
+            class="group flex items-center gap-4 text-primary font-label font-black cursor-pointer">
             <span class="w-12 h-[2px] bg-primary group-hover:w-16 transition-all"></span>
-            READ THE FULL STORY
-          </button>
+            DISCOVER THE MISSION
+          </a>
+        </div>
+        <div class="relative group max-w-[334px] mx-auto lg:ml-auto lg:mr-0">
+          <div
+            class="absolute -inset-4 bg-primary/5 rounded-3xl translate-x-4 translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-700">
+          </div>
+          <img src="ives-microfoon-334x500-1.jpg"
+            class="relative z-10 w-full h-auto rounded-2xl shadow-2xl transition-all duration-700" alt="Vision">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section class="section-padding bg-surface">
-    <div class="max-w-7xl mx-auto">
+  <!-- Navigation Teasers -->
+  <section class="py-24 bg-white border-y border-zinc-50">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-[-100px] relative z-20">
+        <!-- Consultancy Teaser -->
+        <div (click)="navigateToConsultancy()"
+          class="group bg-white p-12 rounded-3xl shadow-2xl shadow-zinc-200 border border-zinc-50 cursor-pointer hover:-translate-y-2 transition-all duration-500">
+          <div
+            class="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center mb-8 group-hover:bg-primary transition-all duration-500">
+            <span
+              class="material-symbols-outlined text-primary group-hover:text-white text-3xl transition-colors">architecture</span>
+          </div>
+          <h3 class="text-3xl font-black mb-4 text-zinc-900 leading-tight">Consultancy &<br />Engineering</h3>
+          <p class="text-zinc-500 mb-8 font-label">Complete efficiency audits and Industry 4.0 implementation strategies
+            for high-performance facilities.</p>
+          <span class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all">
+            Explore Services <span class="material-symbols-outlined">arrow_forward</span>
+          </span>
+        </div>
+
+        <!-- About Teaser -->
+        <div (click)="navigateToAbout()"
+          class="group bg-zinc-900 p-12 rounded-3xl shadow-2xl shadow-zinc-900/10 cursor-pointer hover:-translate-y-2 transition-all duration-500 relative overflow-hidden">
+          <div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="relative z-10">
+            <div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-8">
+              <span class="material-symbols-outlined text-white text-3xl">hub</span>
+            </div>
+            <h3 class="text-3xl font-black mb-4 text-white leading-tight">The Visionary<br />Behind P41</h3>
+            <p class="text-zinc-400 mb-8 font-label">Learn about Ives De Saeger's journey and how we integrated 25 years
+              of expertise into the P41 framework.</p>
+            <span class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all">
+              Meet the Founder <span class="material-symbols-outlined">arrow_forward</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="section-padding bg-zinc-50/10">
+    <div class="max-w-7xl mx-auto px-8">
       <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
         <div class="max-w-2xl animate-slide-up">
-          <h2 class="text-4xl md:text-5xl font-bold mb-4">{{ t().services.title }}</h2>
-          <p class="text-lg text-on-surface-variant leading-relaxed">
-            {{ t().services.description }}
+          <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-6">
+            <span class="text-primary font-label text-[10px] font-black tracking-widest uppercase">Expertise</span>
+          </div>
+          <h2 class="text-4xl md:text-5xl font-black mb-4 text-zinc-900 leading-tight">Our Core <span
+              class="text-primary">Capabilities</span></h2>
+          <p class="text-lg text-zinc-500 font-label leading-relaxed">
+            Tailored solutions designed to optimize flow and ensure long-term industrial excellence.
           </p>
         </div>
-        <div class="h-[1px] flex-grow bg-outline-variant/20 mb-4 hidden md:block"></div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-1">
-        <!-- Consultancy -->
-        <div class="group bg-surface-container-low p-12 transition-all duration-500 hover:bg-primary hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20">
-          <span class="material-symbols-outlined text-5xl mb-8 text-primary group-hover:text-white transition-colors">settings_suggest</span>
-          <h3 class="text-2xl font-bold mb-4 group-hover:text-white transition-colors">{{ t().services.consultancy.title }}</h3>
-          <p class="text-on-surface-variant group-hover:text-white/80 leading-relaxed mb-8 transition-colors">
-            {{ t().services.consultancy.desc }}
-          </p>
-          <a href="#" class="inline-flex items-center gap-2 font-label font-bold text-primary group-hover:text-white group-hover:underline underline-offset-8 transition-all">
-            {{ t().services.consultancy.link }} <span class="material-symbols-outlined text-sm">arrow_forward</span>
-          </a>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Consultancy Link Card -->
+        <div (click)="navigateToConsultancy()"
+          class="p-10 bg-white rounded-3xl border border-zinc-100 hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/5 transition-all cursor-pointer group">
+          <span class="material-symbols-outlined text-primary text-4xl mb-6 block">settings_suggest</span>
+          <h3 class="text-2xl font-black mb-4 text-zinc-900">{{ t().services.consultancy.title }}</h3>
+          <p class="text-zinc-500 mb-8 font-label text-sm leading-relaxed">{{ t().services.consultancy.desc }}</p>
+          <span class="text-primary font-bold text-sm flex items-center gap-2">Read More <span
+              class="material-symbols-outlined text-sm">north_east</span></span>
         </div>
 
-        <!-- Workshops -->
-        <div class="group bg-surface-container-high p-12 transition-all duration-500 hover:bg-primary hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20 relative overflow-hidden">
-          <img src="ives-microfoon-334x500-1.jpg" class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-20 transition-opacity duration-700">
-          <div class="relative z-10">
-            <span class="material-symbols-outlined text-5xl mb-8 text-primary group-hover:text-white transition-colors">hub</span>
-            <h3 class="text-2xl font-bold mb-4 group-hover:text-white transition-colors">{{ t().services.workshops.title }}</h3>
-            <p class="text-on-surface-variant group-hover:text-white/80 leading-relaxed mb-8 transition-colors">
-              {{ t().services.workshops.desc }}
-            </p>
-            <a href="#" class="inline-flex items-center gap-2 font-label font-bold text-primary group-hover:text-white group-hover:underline underline-offset-8 transition-all">
-              {{ t().services.workshops.link }} <span class="material-symbols-outlined text-sm">arrow_forward</span>
-            </a>
-          </div>
+        <!-- Academy Link Card -->
+        <div (click)="navigateToAcademy()"
+          class="p-10 bg-white rounded-3xl border border-zinc-100 hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/5 transition-all cursor-pointer group">
+          <span class="material-symbols-outlined text-primary text-4xl mb-6 block">hub</span>
+          <h3 class="text-2xl font-black mb-4 text-zinc-900">{{ t().services.workshops.title }}</h3>
+          <p class="text-zinc-500 mb-8 font-label text-sm leading-relaxed">{{ t().services.workshops.desc }}</p>
+          <span class="text-primary font-bold text-sm flex items-center gap-2">Learn More <span
+              class="material-symbols-outlined text-sm">north_east</span></span>
         </div>
 
-        <!-- Online Training -->
-        <div class="group bg-surface-container-low p-12 transition-all duration-500 hover:bg-primary hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20">
-          <span class="material-symbols-outlined text-5xl mb-8 text-primary group-hover:text-white transition-colors">school</span>
-          <h3 class="text-2xl font-bold mb-4 group-hover:text-white transition-colors">{{ t().services.training.title }}</h3>
-          <p class="text-on-surface-variant group-hover:text-white/80 leading-relaxed mb-8 transition-colors">
-            {{ t().services.training.desc }}
-          </p>
-          <a href="#" class="inline-flex items-center gap-2 font-label font-bold text-primary group-hover:text-white group-hover:underline underline-offset-8 transition-all">
-            {{ t().services.training.link }} <span class="material-symbols-outlined text-sm">arrow_forward</span>
-          </a>
+        <!-- Training Link Card -->
+        <div (click)="navigateToAcademy()"
+          class="p-10 bg-white rounded-3xl border border-zinc-100 hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/5 transition-all cursor-pointer group">
+          <span class="material-symbols-outlined text-primary text-4xl mb-6 block">school</span>
+          <h3 class="text-2xl font-black mb-4 text-zinc-900">{{ t().services.training.title }}</h3>
+          <p class="text-zinc-500 mb-8 font-label text-sm leading-relaxed">{{ t().services.training.desc }}</p>
+          <span class="text-primary font-bold text-sm flex items-center gap-2">Explore Training <span
+              class="material-symbols-outlined text-sm">north_east</span></span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Why Choose P41 Section (separate component — edit: src/app/pages/home/sections/why-choose/) -->
-  <app-why-choose></app-why-choose>
-
-  <!-- Video Testimonials Section -->
-  <section class="bg-gradient-to-b from-surface to-surface-container-low/50 py-24 px-6 md:px-12 lg:px-24 overflow-hidden">
-    <div class="max-w-7xl mx-auto">
-
-      <!-- Section Header -->
-      <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-        <div class="animate-slide-up">
-          <div class="inline-flex items-center gap-2 bg-primary/10 px-4 py-1.5 rounded-sm mb-6">
-            <span class="material-symbols-outlined text-primary text-sm">play_circle</span>
-            <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">Customer Stories</span>
-          </div>
-          <h2 class="text-4xl md:text-5xl font-black mb-4">Video <span class="text-primary italic">Testimonials</span></h2>
-          <p class="text-xl text-on-surface-variant font-label max-w-lg">Curious what our customers say? Hear it directly from industry leaders.</p>
-        </div>
-        <!-- Auto-scroll hint -->
-        <div class="flex items-center gap-2 shrink-0 text-on-surface-variant/60 font-label text-xs tracking-wide">
-          <span class="material-symbols-outlined text-base animate-pulse">mouse</span>
-          Hover to pause &amp; click to watch
-        </div>
-      </div>
-
-      <!-- Testimonial Quotes Horizontal Scroll -->
-      <div class="flex gap-6 overflow-x-auto hide-scrollbar pb-12 snap-x snap-mandatory">
-        <div class="testimonial-card snap-start group">
-          <div class="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-110 transition-transform duration-700"></div>
-          <span class="material-symbols-outlined text-5xl text-primary/20 mb-4 block group-hover:text-primary/40 transition-colors duration-500">format_quote</span>
-          <div class="flex gap-1 mb-4">
-            <span *ngFor="let s of [1,2,3,4,5]" class="material-symbols-outlined text-yellow-400 text-base" style="font-variation-settings:'FILL' 1">star</span>
-          </div>
-          <p class="text-base leading-relaxed text-on-surface mb-8 relative z-10">
-            "Ives is the Jonah type in the book The Goal of Eli Goldratt. He consistently moves you towards a process of thinking that leads to innovation. His pragmatic way of thinking challenges you to improve yourself and find solutions to problem solving."
-          </p>
-          <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-full border-2 border-primary/20 bg-primary/10 flex items-center justify-center font-bold text-primary text-sm group-hover:bg-primary group-hover:text-white transition-all duration-300">AL</div>
-            <div>
-              <p class="font-bold text-on-surface text-sm">Alex Laureyns</p>
-              <p class="text-xs text-on-surface-variant font-label">Director at RAL</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card snap-start group">
-          <div class="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-110 transition-transform duration-700"></div>
-          <span class="material-symbols-outlined text-5xl text-primary/20 mb-4 block group-hover:text-primary/40 transition-colors duration-500">format_quote</span>
-          <div class="flex gap-1 mb-4">
-            <span *ngFor="let s of [1,2,3,4,5]" class="material-symbols-outlined text-yellow-400 text-base" style="font-variation-settings:'FILL' 1">star</span>
-          </div>
-          <p class="text-base leading-relaxed text-on-surface mb-8 relative z-10">
-            "It is a pleasure to discuss with Ives the challenges and opportunities in industrial engineering. You simply forget time. He looks with a much wider perspective to the future of the business. He is a great partner to work together with."
-          </p>
-          <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-full border-2 border-primary/20 bg-primary/10 flex items-center justify-center font-bold text-primary text-sm group-hover:bg-primary group-hover:text-white transition-all duration-300">EV</div>
-            <div>
-              <p class="font-bold text-on-surface text-sm">Eddy Van der Straeten</p>
-              <p class="text-xs text-on-surface-variant font-label">Senior Advanced Engineering Manager at Adient</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Videos Infinite Auto-Scroll Marquee -->
-      <div class="relative video-marquee-viewport"
-           (mouseenter)="pauseCarousel()"
-           (mouseleave)="resumeCarousel()">
-
-        <!-- Fade edges -->
-        <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-r from-surface to-transparent"></div>
-        <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-l from-surface to-transparent"></div>
-
-        <!-- Track: videos rendered twice for seamless loop -->
-        <div class="video-marquee-track" [class.paused]="carouselPaused()">
-
-          <!-- First set -->
-          <div *ngFor="let video of videos"
-               (click)="playVideo(video.id)"
-               class="video-marquee-card group">
-            <img [src]="video.thumbnail" [alt]="video.title" (error)="onImgError($event)"
-                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-4">
-              <p class="text-white font-label font-bold text-sm leading-tight drop-shadow-lg line-clamp-2">{{ video.title }}</p>
-              <span class="text-white/60 text-xs font-label mt-1 inline-flex items-center gap-1">
-                <span class="material-symbols-outlined text-[14px]">play_circle</span> Watch now
-              </span>
-            </div>
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="w-14 h-14 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-2xl scale-90 group-hover:scale-110 group-hover:bg-primary/90 transition-all duration-300">
-                <span class="material-symbols-outlined text-2xl" style="font-variation-settings:'FILL' 1">play_arrow</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Clone set (exact duplicate for seamless loop) -->
-          <div *ngFor="let video of videos"
-               (click)="playVideo(video.id)"
-               class="video-marquee-card group">
-            <img [src]="video.thumbnail" [alt]="video.title" (error)="onImgError($event)"
-                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-4">
-              <p class="text-white font-label font-bold text-sm leading-tight drop-shadow-lg line-clamp-2">{{ video.title }}</p>
-              <span class="text-white/60 text-xs font-label mt-1 inline-flex items-center gap-1">
-                <span class="material-symbols-outlined text-[14px]">play_circle</span> Watch now
-              </span>
-            </div>
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="w-14 h-14 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-2xl scale-90 group-hover:scale-110 group-hover:bg-primary/90 transition-all duration-300">
-                <span class="material-symbols-outlined text-2xl" style="font-variation-settings:'FILL' 1">play_arrow</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-
-    </div>
-  </section>
-
-  <!-- Video Modal Overlay -->
-  <div *ngIf="activeVideo()" 
-       class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-3xl flex items-center justify-center p-4 md:p-12 animate-fade-in">
-    <button (click)="closeVideo()" 
-            class="absolute top-8 right-8 text-white/50 hover:text-white transition-all hover:rotate-90 duration-300">
-      <span class="material-symbols-outlined text-4xl">close</span>
-    </button>
-    
-    <div class="w-full max-w-5xl aspect-video relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/20 border border-white/10 animate-scale-in">
-      <iframe 
-        *ngIf="activeVideo()"
-        class="w-full h-full"
-        [src]="getSafeUrl(activeVideo()!)" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        referrerpolicy="strict-origin-when-cross-origin" 
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-
-  <!-- Why P41 Section -->
-  <section class="bg-inverse-surface text-inverse-on-surface section-padding relative overflow-hidden">
-    <div class="absolute top-0 right-0 w-1/2 h-full opacity-5 pointer-events-none">
-      <img src="CrossRoads-29-scaled.jpg" class="w-full h-full object-cover">
-    </div>
-    
-    <div class="max-w-7xl mx-auto relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-        <div class="animate-slide-up">
-          <h2 class="text-5xl font-black tracking-tighter mb-12 leading-tight">
-            {{ t().why_p41.title }}<br/>
-            <span class="text-primary">{{ t().why_p41.subtitle }}</span>
-          </h2>
-          
-          <div class="space-y-12">
-            <div class="flex gap-6 group">
-              <div class="w-14 h-14 rounded-sm bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 group-hover:bg-primary transition-all duration-300">
-                <span class="material-symbols-outlined text-primary group-hover:text-white">history_edu</span>
-              </div>
-              <div>
-                <h4 class="text-xl font-bold mb-2">{{ t().why_p41.exp.title }}</h4>
-                <p class="text-on-surface-variant opacity-70 leading-relaxed">{{ t().why_p41.exp.desc }}</p>
-              </div>
-            </div>
-            
-            <div class="flex gap-6 group">
-              <div class="w-14 h-14 rounded-sm bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 group-hover:bg-primary transition-all duration-300">
-                <span class="material-symbols-outlined text-primary group-hover:text-white">architecture</span>
-              </div>
-              <div>
-                <h4 class="text-xl font-bold mb-2">{{ t().why_p41.methods.title }}</h4>
-                <p class="text-on-surface-variant opacity-70 leading-relaxed">{{ t().why_p41.methods.desc }}</p>
-              </div>
-            </div>
-            
-            <div class="flex gap-6 group">
-              <div class="w-14 h-14 rounded-sm bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 group-hover:bg-primary transition-all duration-300">
-                <span class="material-symbols-outlined text-primary group-hover:text-white">database</span>
-              </div>
-              <div>
-                <h4 class="text-xl font-bold mb-2">{{ t().why_p41.knowledge.title }}</h4>
-                <p class="text-on-surface-variant opacity-70 leading-relaxed">{{ t().why_p41.knowledge.desc }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="grid grid-cols-2 gap-4 animate-scale-in">
-          <div class="bg-surface/5 backdrop-blur-xl p-8 flex flex-col justify-between h-64 border-l-4 border-primary hover:bg-surface/10 transition-all cursor-default">
-            <span class="text-6xl font-black font-label text-primary">25+</span>
-            <span class="font-label text-sm uppercase tracking-widest opacity-60">{{ t().why_p41.stats.years }}</span>
-          </div>
-          <div class="bg-surface/5 backdrop-blur-xl p-8 flex flex-col justify-between h-64 mt-12 hover:bg-surface/10 transition-all cursor-default">
-            <span class="text-6xl font-black font-label text-primary">40%</span>
-            <span class="font-label text-sm uppercase tracking-widest opacity-60">{{ t().why_p41.stats.waste }}</span>
-          </div>
-          <div class="bg-surface/5 backdrop-blur-xl p-8 flex flex-col justify-between h-64 -mt-12 hover:bg-surface/10 transition-all cursor-default">
-            <span class="text-6xl font-black font-label text-primary">150+</span>
-            <span class="font-label text-sm uppercase tracking-widest opacity-60">{{ t().why_p41.stats.facilities }}</span>
-          </div>
-          <div class="premium-gradient-btn !p-8 flex flex-col justify-between h-64 !rounded-none hover:scale-105 transition-all cursor-default">
-            <span class="text-6xl font-black font-label text-white">12B</span>
-            <span class="font-label text-sm uppercase tracking-widest text-white/80">{{ t().why_p41.stats.data }}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About P41 Section (separate component — edit: src/app/pages/home/sections/about-p41/) -->
-  <app-about-p41></app-about-p41>
-
-  <!-- Blog Section (separate component — edit: src/app/pages/home/sections/blog/) -->
+  <!-- Blog & Books -->
   <app-blog-section></app-blog-section>
-
-  <!-- Books Section (separate component — edit: src/app/pages/home/sections/books/) -->
   <app-books></app-books>
 
   <!-- CTA Section -->
@@ -370,28 +236,37 @@
       <p class="text-xl text-on-surface-variant mb-12">
         Contact our consultants for a complimentary efficiency audit of your current operations.
       </p>
-      
+
       <form class="bg-surface-container-low p-8 md:p-16 text-left space-y-8 shadow-2xl border border-outline-variant/5">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div class="space-y-2">
-            <label class="font-label text-xs uppercase tracking-widest text-on-surface-variant font-bold">Full Name</label>
-            <input type="text" class="w-full bg-transparent border-none border-b-2 border-outline-variant/30 focus:ring-0 focus:border-primary transition-all py-4 font-headline text-lg" placeholder="John Doe">
+            <label class="font-label text-xs uppercase tracking-widest text-on-surface-variant font-bold">Full
+              Name</label>
+            <input type="text"
+              class="w-full bg-transparent border-none border-b-2 border-outline-variant/30 focus:ring-0 focus:border-primary transition-all py-4 font-headline text-lg"
+              placeholder="Ives">
           </div>
           <div class="space-y-2">
-            <label class="font-label text-xs uppercase tracking-widest text-on-surface-variant font-bold">Business Email</label>
-            <input type="email" class="w-full bg-transparent border-none border-b-2 border-outline-variant/30 focus:ring-0 focus:border-primary transition-all py-4 font-headline text-lg" placeholder="john@enterprise.com">
+            <label class="font-label text-xs uppercase tracking-widest text-on-surface-variant font-bold">Business
+              Email</label>
+            <input type="email"
+              class="w-full bg-transparent border-none border-b-2 border-outline-variant/30 focus:ring-0 focus:border-primary transition-all py-4 font-headline text-lg"
+              placeholder="john@enterprise.com">
           </div>
         </div>
         <div class="space-y-2">
-          <label class="font-label text-xs uppercase tracking-widest text-on-surface-variant font-bold">Project Inquiry</label>
-          <textarea rows="4" class="w-full bg-transparent border-none border-b-2 border-outline-variant/30 focus:ring-0 focus:border-primary transition-all py-4 font-headline text-lg resize-none" placeholder="Tell us about your industrial challenges..."></textarea>
+          <label class="font-label text-xs uppercase tracking-widest text-on-surface-variant font-bold">Project
+            Inquiry</label>
+          <textarea rows="4"
+            class="w-full bg-transparent border-none border-b-2 border-outline-variant/30 focus:ring-0 focus:border-primary transition-all py-4 font-headline text-lg resize-none"
+            placeholder="Tell us about your industrial challenges..."></textarea>
         </div>
         <button class="w-full premium-gradient-btn !py-6 !text-xl shadow-2xl shadow-primary/40">
           Send Inquiry
         </button>
       </form>
     </div>
-    
+
     <div class="absolute bottom-0 left-0 w-full h-1/2 bg-primary/5 -skew-y-3 translate-y-24 pointer-events-none"></div>
   </section>
 </main>

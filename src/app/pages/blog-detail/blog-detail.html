@@ -32,7 +32,7 @@
       <!-- Meta -->
       <div class="flex flex-wrap items-center gap-6 text-white/60 font-label text-sm">
         <div class="flex items-center gap-2">
-          <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold">I</div>
+          <div class="w-8 h-8 rounded-full bg-[#E53935] flex items-center justify-center text-white text-xs font-bold">I</div>
           <span class="text-white/80 font-bold">{{ post.author }}</span>
         </div>
         <span class="flex items-center gap-1">
@@ -66,7 +66,7 @@
 
       <!-- Author Card -->
       <div class="bg-surface-container-low rounded-2xl p-8 flex flex-col sm:flex-row gap-6 items-center border border-outline-variant/10 shadow-sm">
-        <div class="w-20 h-20 rounded-full overflow-hidden shadow-lg border-2 border-primary/20 shrink-0">
+        <div class="w-20 h-20 rounded-full overflow-hidden shadow-lg border-2 border-[#E53935]/20 shrink-0">
           <img src="ives-microfoon-334x500-1.jpg" alt="Ives De Saeger" class="w-full h-full object-cover">
         </div>
         <div>
@@ -81,7 +81,7 @@
       <div class="mt-12 flex flex-wrap items-center gap-2">
         <span class="text-on-surface-variant text-sm font-label font-bold mr-2">Tags:</span>
         <span *ngFor="let tag of post.tags"
-              class="bg-primary/8 text-primary px-3 py-1 rounded-full text-xs font-label font-bold hover:bg-primary hover:text-white transition-all duration-300 cursor-default">
+              class="bg-[#E53935]/8 text-[#E53935] px-3 py-1 rounded-full text-xs font-label font-bold hover:bg-[#E53935] hover:text-white transition-all duration-300 cursor-default">
           {{ tag }}
         </span>
       </div>
@@ -91,7 +91,7 @@
   <!-- Related Posts -->
   <section class="bg-surface-container-low/50 py-20 px-6 md:px-12 border-t border-outline-variant/10">
     <div class="max-w-7xl mx-auto">
-      <h3 class="text-3xl font-black mb-12">More <span class="text-primary italic">Articles</span></h3>
+      <h3 class="text-3xl font-black mb-12">More <span class="text-[#E53935]">Articles</span></h3>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <a *ngFor="let related of otherPosts"
@@ -102,14 +102,14 @@
           </div>
           <div class="p-6">
             <span class="text-xs font-label text-on-surface-variant/60 font-bold">{{ related.date }}</span>
-            <h4 class="text-lg font-black mt-2 group-hover:text-primary transition-colors">{{ related.title }}</h4>
+            <h4 class="text-lg font-black mt-2 group-hover:text-[#E53935] transition-colors">{{ related.title }}</h4>
           </div>
         </a>
       </div>
 
       <!-- Back to Home -->
       <div class="mt-12 text-center">
-        <a routerLink="/" class="inline-flex items-center gap-2 premium-gradient-btn !px-8 !py-4">
+        <a routerLink="/" class="inline-flex items-center gap-2 bg-[#E53935] text-white font-label font-bold rounded-full !px-8 !py-4 hover:bg-[#D32F2F] transition-all shadow-lg shadow-[#E53935]/20">
           <span class="material-symbols-outlined text-sm">home</span>
           Back to Home
         </a>
@@ -122,9 +122,9 @@
 <!-- 404 fallback -->
 <div *ngIf="!post" class="min-h-[70vh] flex items-center justify-center text-center px-6 animate-fade-in">
   <div>
-    <span class="material-symbols-outlined text-8xl text-primary/20 mb-6 block">article</span>
+    <span class="material-symbols-outlined text-8xl text-[#E53935]/20 mb-6 block">article</span>
     <h1 class="text-4xl font-black mb-4">Post Not Found</h1>
     <p class="text-on-surface-variant mb-8">The article you're looking for doesn't exist.</p>
-    <a routerLink="/" class="premium-gradient-btn !px-8 !py-3">Back to Home</a>
+    <a routerLink="/" class="bg-[#E53935] text-white font-label font-bold rounded-full !px-8 !py-3 hover:bg-[#D32F2F] transition-all">Back to Home</a>
   </div>
 </div>

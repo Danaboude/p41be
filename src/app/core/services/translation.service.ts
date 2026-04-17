@@ -18,6 +18,7 @@ export class TranslationService {
         academy: 'Academy',
         blog: 'Blog',
         about: 'About',
+        contact: 'Contact',
         demo: 'Request a Demo'
       },
       hero: {
@@ -83,6 +84,24 @@ export class TranslationService {
         role: 'Founder & Lead Consultant',
         quote: 'Industrial Intelligence is not just about machines; it\'s about the symphony of human expertise and digital precision.',
         desc: 'With decades of experience in the field, Ives has been at the forefront of the Industry 4.0 revolution, helping companies transition from legacy systems to future-ready ecosystems.'
+      },
+      contact: {
+        title: 'Let\'s Connect',
+        subtitle: 'Reach out to our experts for a detailed efficiency audit or any industrial inquiries.',
+        form: {
+          name: 'Full Name',
+          email: 'Business Email',
+          subject: 'Subject',
+          message: 'Your Message',
+          submit: 'Send Message',
+          success: 'Your message has been sent successfully!'
+        },
+        info: {
+          address: 'Address',
+          email: 'Email Us',
+          phone: 'Call Us',
+          social: 'Social Media'
+        }
       }
     },
     nl: {
@@ -92,6 +111,7 @@ export class TranslationService {
         academy: 'Academie',
         blog: 'Blog',
         about: 'Over ons',
+        contact: 'Contact',
         demo: 'Demo aanvragen'
       },
       hero: {
@@ -157,6 +177,24 @@ export class TranslationService {
         role: 'Oprichter & Lead Consultant',
         quote: 'Industriële Intelligentie gaat niet alleen over machines; het gaat over de symfonie van menselijke expertise en digitale precisie.',
         desc: 'Met decennia aan ervaring in het veld staat Ives in de voorhoede van de Industrie 4.0-revolutie en helpt hij bedrijven de overstap te maken van legacy-systemen naar toekomstbestendige ecosystemen.'
+      },
+      contact: {
+        title: 'Laten we contact opnemen',
+        subtitle: 'Neem contact op met onze experts voor een gedetailleerde efficiëntie-audit of industriële vragen.',
+        form: {
+          name: 'Volledige Naam',
+          email: 'Zakelijk E-mailadres',
+          subject: 'Onderwerp',
+          message: 'Uw Bericht',
+          submit: 'Bericht Verzenden',
+          success: 'Uw bericht is succesvol verzonden!'
+        },
+        info: {
+          address: 'Adres',
+          email: 'E-mail ons',
+          phone: 'Bel ons',
+          social: 'Sociale Media'
+        }
       }
     }
   };

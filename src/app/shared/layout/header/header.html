@@ -1,46 +1,62 @@
-<nav class="px-6 py-3 flex justify-between items-center max-w-[96%] mx-auto my-3 rounded-2xl animate-fade-in border border-white/30 bg-white/75 backdrop-blur-2xl shadow-[0_4px_40px_rgba(33,85,157,0.08)]">
-  <div class="flex items-center gap-2 cursor-pointer group" (click)="navigateHome()">
-    <div class="bg-white/50 p-1 rounded-lg backdrop-blur-sm border border-white/20 group-hover:border-primary/30 transition-all duration-500">
-      <img [src]="isAcademy() ? 'logo-Y.jpg' : 'logo.jpg'" alt="P41 Logo" class="h-10 w-auto group-hover:scale-110 transition-transform duration-500">
+<nav
+  [class]="'px-6 py-3 flex justify-between items-center max-w-[96%] mx-auto my-3 rounded-2xl animate-fade-in border border-white/30 backdrop-blur-2xl shadow-[0_4px_40px_rgba(33,85,157,0.08)] ' + 
+  (isBlog() ? 'bg-white/90' : 'bg-white/75')">
+  
+  <div class="flex items-center gap-2 cursor-pointer group relative z-10" (click)="navigateHome()">
+    <div
+      class="bg-white/50 p-1 rounded-lg backdrop-blur-sm border border-white/20 group-hover:border-primary/30 transition-all duration-500">
+      <img [src]="isAcademy() ? 'logo-Y.jpg' : (isBlog() ? 'logo-R.jpg' : 'logo.jpg')" alt="P41 Logo"
+        class="h-10 w-auto group-hover:scale-110 transition-transform duration-500">
     </div>
   </div>
 
-  <div class="hidden md:flex items-center gap-10">
-    <a (click)="navigateHome()" [class]="!isAcademy()
+  <div class="hidden md:flex items-center gap-10 relative z-10">
+    <a (click)="navigateHome()"
+      [class]="(!isAcademy() && !isBlog())
       ? 'text-primary border-b-2 border-primary pb-1 font-label font-bold tracking-tight hover:opacity-80 transition-all cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-primary after:scale-x-100'
-      : 'text-on-surface-variant font-label font-bold hover:text-[#D4A843] transition-all hover:-translate-y-0.5 cursor-pointer'">{{
+      : 'text-on-surface-variant font-label font-bold transition-all hover:-translate-y-0.5 cursor-pointer ' + 
+        (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{
       t().nav.home }}</a>
-    <a (click)="navigateToConsultancy()" class="text-on-surface-variant font-label font-bold transition-all hover:-translate-y-0.5 cursor-pointer"
-       [class.hover:text-primary]="!isAcademy()"
-       [class.hover:text-[#D4A843]]="isAcademy()">{{ t().nav.consultancy
-      }}</a>
-    <a (click)="navigateToAcademy()" [class]="isAcademy()
-      ? 'text-[#D4A843] border-b-2 border-[#D4A843] pb-1 font-label font-bold tracking-tight hover:opacity-80 transition-all cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#D4A843] after:scale-x-100'
-      : 'text-on-surface-variant font-label font-bold hover:text-primary transition-all hover:-translate-y-0.5 cursor-pointer'">{{ t().nav.academy }}</a>
-    <a (click)="navigateToBlog()" [class]="isBlog()
+    <a (click)="navigateToConsultancy()"
+      [class]="isConsultancy()
       ? 'text-primary border-b-2 border-primary pb-1 font-label font-bold tracking-tight hover:opacity-80 transition-all cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-primary after:scale-x-100'
-      : 'text-on-surface-variant font-label font-bold hover:text-primary transition-all hover:-translate-y-0.5 cursor-pointer'">{{ t().nav.blog }}</a>
+      : 'text-on-surface-variant font-label font-bold transition-all hover:-translate-y-0.5 cursor-pointer ' + 
+        (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{
+      t().nav.consultancy
+      }}</a>
+    <a (click)="navigateToAcademy()"
+      [class]="isAcademy()
+      ? 'text-[#D4A843] border-b-2 border-[#D4A843] pb-1 font-label font-bold tracking-tight hover:opacity-80 transition-all cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#D4A843] after:scale-x-100'
+      : 'text-on-surface-variant font-label font-bold transition-all hover:-translate-y-0.5 cursor-pointer ' + 
+        (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary')">{{ t().nav.academy
+      }}</a>
+    <a (click)="navigateToBlog()"
+      [class]="isBlog()
+      ? 'text-[#E53935] border-b-2 border-[#E53935] pb-1 font-label font-bold tracking-tight hover:opacity-80 transition-all cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#E53935] after:scale-x-100'
+      : 'text-on-surface-variant font-label font-bold transition-all hover:-translate-y-0.5 cursor-pointer ' + 
+        (isAcademy() ? 'hover:text-[#D4A843]' : 'hover:text-[#E53935]')">{{ t().nav.blog
+      }}</a>
     <a (click)="navigateToAbout()" [class]="isAbout()
       ? 'text-primary border-b-2 border-primary pb-1 font-label font-bold tracking-tight hover:opacity-80 transition-all cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-primary after:scale-x-100'
-      : 'text-on-surface-variant font-label font-bold hover:text-primary transition-all hover:-translate-y-0.5 cursor-pointer'">{{ t().nav.about }}</a>
+      : 'text-on-surface-variant font-label font-bold transition-all hover:-translate-y-0.5 cursor-pointer ' + 
+        (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{ t().nav.about
+      }}</a>
+    <a (click)="navigateToContact()" [class]="isContact()
+      ? 'text-primary border-b-2 border-primary pb-1 font-label font-bold tracking-tight hover:opacity-80 transition-all cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-primary after:scale-x-100'
+      : 'text-on-surface-variant font-label font-bold transition-all hover:-translate-y-0.5 cursor-pointer ' + 
+        (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{ t().nav.contact
+      }}</a>
   </div>
 
   <div class="flex items-center gap-6">
-    <div class="flex items-center gap-4 bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/10">
+    <div
+      class="flex items-center gap-4 bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/10">
       <button (click)="switchLang()"
-        class="text-xs font-label font-bold text-on-surface-variant hover:text-primary transition-all uppercase tracking-widest">
+        [class]="'text-xs font-label font-bold text-on-surface-variant hover:text-primary transition-all uppercase tracking-widest ' + (isBlog() ? 'hover:!text-[#E53935]' : '')">
         {{ currentLang() }}
       </button>
-      <div class="w-[1px] h-4 bg-outline-variant/30"></div>
-      <span
-        class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-all !text-[20px]">search</span>
     </div>
-    
-    <button [class]="isAcademy()
-      ? 'bg-gradient-to-r from-[#D4A843] to-[#E8C840] text-[#1A1A1A] font-label font-bold !px-8 !py-3 rounded-full shadow-lg shadow-[#D4A843]/20 hover:shadow-xl hover:shadow-[#D4A843]/30 transition-all active:scale-95'
-      : 'premium-gradient-btn !px-8 !py-3 shadow-lg shadow-primary/20'">
-      {{ t().nav.demo }}
-    </button>
+
+
   </div>
 </nav>
-

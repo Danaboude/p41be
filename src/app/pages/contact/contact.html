@@ -1,0 +1,167 @@
+<main class="animate-fade-in bg-white">
+  <!-- Hero Section -->
+  <section class="relative min-h-[50vh] flex items-center overflow-hidden py-24 px-8 border-b border-zinc-50">
+    <!-- Sophisticated Background -->
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-primary/5"></div>
+      <div class="absolute top-0 right-0 w-2/3 h-full opacity-[0.03] grayscale pointer-events-none">
+        <img src="hero_backgournd.jpg" class="w-full h-full object-cover" alt="Industrial Background">
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto w-full relative z-10 text-center">
+      <div class="animate-slide-up">
+        <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-8">
+          <span class="material-symbols-outlined text-primary text-sm">contact_support</span>
+          <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">{{ t().nav.contact }}</span>
+        </div>
+
+        <h1 class="text-6xl md:text-8xl font-black text-zinc-900 leading-[0.9] tracking-tighter mb-10">
+          {{ t().contact.title }}
+        </h1>
+
+        <p class="text-xl md:text-2xl text-zinc-500 max-w-2xl mx-auto mb-12 leading-relaxed font-label">
+          {{ t().contact.subtitle }}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Grid -->
+  <section class="section-padding bg-zinc-50/30">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-20">
+
+        <!-- Contact Form (7/12) -->
+        <div
+          class="lg:col-span-7 bg-white p-8 md:p-16 rounded-3xl shadow-2xl shadow-zinc-200/50 border border-zinc-100 animate-slide-up">
+          <form (submit)="onSubmit($event)" class="space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="space-y-2">
+                <label class="font-label text-xs uppercase tracking-widest text-zinc-400 font-black">{{
+                  t().contact.form.name }}</label>
+                <input type="text" required
+                  class="w-full bg-zinc-50 border-none border-b-2 border-zinc-100 focus:ring-0 focus:border-primary transition-all py-4 px-4 font-headline text-lg rounded-t-xl"
+                  placeholder="Ives">
+              </div>
+              <div class="space-y-2">
+                <label class="font-label text-xs uppercase tracking-widest text-zinc-400 font-black">{{
+                  t().contact.form.email }}</label>
+                <input type="email" required
+                  class="w-full bg-zinc-50 border-none border-b-2 border-zinc-100 focus:ring-0 focus:border-primary transition-all py-4 px-4 font-headline text-lg rounded-t-xl"
+                  placeholder="john@enterprise.com">
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label class="font-label text-xs uppercase tracking-widest text-zinc-400 font-black">{{
+                t().contact.form.subject }}</label>
+              <input type="text" required
+                class="w-full bg-zinc-50 border-none border-b-2 border-zinc-100 focus:ring-0 focus:border-primary transition-all py-4 px-4 font-headline text-lg rounded-t-xl"
+                placeholder="Industrial Efficiency Audit">
+            </div>
+
+            <div class="space-y-2">
+              <label class="font-label text-xs uppercase tracking-widest text-zinc-400 font-black">{{
+                t().contact.form.message }}</label>
+              <textarea rows="5" required
+                class="w-full bg-zinc-50 border-none border-b-2 border-zinc-100 focus:ring-0 focus:border-primary transition-all py-4 px-4 font-headline text-lg resize-none rounded-t-xl"
+                placeholder="Tell us about your industrial challenges..."></textarea>
+            </div>
+
+            <button type="submit"
+              class="w-full premium-gradient-btn !py-6 !text-xl shadow-2xl shadow-primary/30 hover:scale-[1.02] active:scale-95 transition-all">
+              {{ t().contact.form.submit }}
+            </button>
+
+            <!-- Success Message -->
+            <div *ngIf="submitted()"
+              class="animate-fade-in flex items-center gap-3 p-4 bg-primary/5 border border-primary/20 rounded-xl text-primary font-bold">
+              <span class="material-symbols-outlined italic">verified</span>
+              {{ t().contact.form.success }}
+            </div>
+          </form>
+        </div>
+
+        <!-- Contact Info (5/12) -->
+        <div class="lg:col-span-5 space-y-12 animate-slide-up" style="animation-delay: 0.2s">
+          <!-- Address -->
+          <div class="flex gap-8 group">
+            <div
+              class="w-16 h-16 rounded-2xl bg-white shadow-xl shadow-zinc-200/50 flex items-center justify-center shrink-0 border border-zinc-50 group-hover:bg-primary transition-all duration-500">
+              <span
+                class="material-symbols-outlined text-primary text-3xl group-hover:text-white transition-colors duration-500">location_on</span>
+            </div>
+            <div>
+              <h4 class="text-xs font-label uppercase tracking-widest text-zinc-400 font-black mb-2">{{
+                t().contact.info.address }}</h4>
+              <p class="text-xl font-black text-zinc-900 leading-tight">Industrielaan 41,<br />8500 Kortrijk, Belgium
+              </p>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="flex gap-8 group">
+            <div
+              class="w-16 h-16 rounded-2xl bg-white shadow-xl shadow-zinc-200/50 flex items-center justify-center shrink-0 border border-zinc-50 group-hover:bg-primary transition-all duration-500">
+              <span
+                class="material-symbols-outlined text-primary text-3xl group-hover:text-white transition-colors duration-500">mail</span>
+            </div>
+            <div>
+              <h4 class="text-xs font-label uppercase tracking-widest text-zinc-400 font-black mb-2">{{
+                t().contact.info.email }}</h4>
+              <p class="text-xl font-black text-zinc-900 leading-tight">info&#64;p41.be</p>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="flex gap-8 group">
+            <div
+              class="w-16 h-16 rounded-2xl bg-white shadow-xl shadow-zinc-200/50 flex items-center justify-center shrink-0 border border-zinc-50 group-hover:bg-primary transition-all duration-500">
+              <span
+                class="material-symbols-outlined text-primary text-3xl group-hover:text-white transition-colors duration-500">call</span>
+            </div>
+            <div>
+              <h4 class="text-xs font-label uppercase tracking-widest text-zinc-400 font-black mb-2">{{
+                t().contact.info.phone }}</h4>
+              <p class="text-xl font-black text-zinc-900 leading-tight">+32 475 22 41 41</p>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div class="pt-8 border-t border-zinc-200">
+            <h4 class="text-xs font-label uppercase tracking-widest text-zinc-400 font-black mb-6">{{
+              t().contact.info.social }}</h4>
+            <div class="flex gap-4">
+              <a href="https://www.linkedin.com/company/p41-partners-in-process-innovation/" target="_blank"
+                class="w-12 h-12 rounded-full bg-zinc-900 flex items-center justify-center text-white hover:bg-primary transition-all duration-300">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/ivesdesaeger/" target="_blank"
+                class="w-12 h-12 rounded-full bg-zinc-900 flex items-center justify-center text-white hover:bg-primary transition-all duration-300">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://x.com/inventives" target="_blank"
+                class="w-12 h-12 rounded-full bg-zinc-900 flex items-center justify-center text-white hover:bg-primary transition-all duration-300">
+                <i class="fab fa-x-twitter"></i>
+              </a>
+              <a href="https://api.whatsapp.com/send?phone=+32%20496%20166%20554&text=Hi,%20I%20contacted%20you%20through%20your%20website."
+                target="_blank"
+                class="w-12 h-12 rounded-full bg-zinc-900 flex items-center justify-center text-white hover:bg-primary transition-all duration-300">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual Accent Section -->
+  <section class="h-[40vh] relative overflow-hidden">
+    <img src="CrossRoads-29-scaled.jpg" class="w-full h-full object-cover grayscale" alt="Industrial Environment">
+    <div class="absolute inset-0 bg-primary/20 mix-blend-multiply opacity-40"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-zinc-50/30 to-white"></div>
+  </section>
+</main>

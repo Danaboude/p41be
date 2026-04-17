@@ -2,21 +2,21 @@ import { Component, inject, signal, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslationService } from '../../core/services/translation.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { WhyChooseComponent } from './sections/why-choose/why-choose';
-import { AboutP41Component } from './sections/about-p41/about-p41';
+import { Router } from '@angular/router';
 import { BooksComponent } from './sections/books/books';
 import { BlogSectionComponent } from './sections/blog/blog';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, WhyChooseComponent, AboutP41Component, BooksComponent, BlogSectionComponent],
+  imports: [CommonModule, BooksComponent, BlogSectionComponent],
   templateUrl: './home.html',
   styleUrls: ['./home.css']
 })
 export class HomeComponent implements OnDestroy {
   private translationService = inject(TranslationService);
   private sanitizer = inject(DomSanitizer);
+  private router = inject(Router);
 
   t = this.translationService.t;
   activeVideo = signal<string | null>(null);
@@ -43,6 +43,18 @@ export class HomeComponent implements OnDestroy {
     { id: '2PJzXcsdCtw', title: 'The Goal — Theory of Constraints',      thumbnail: 'https://img.youtube.com/vi/2PJzXcsdCtw/hqdefault.jpg' },
     { id: '4KFfxETqfnU', title: 'Innovation & Structured Thinking',      thumbnail: 'https://img.youtube.com/vi/4KFfxETqfnU/hqdefault.jpg' }
   ];
+
+  navigateToAbout() {
+    this.router.navigate(['/about']).then(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  navigateToConsultancy() {
+    this.router.navigate(['/consultancy']).then(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  navigateToAcademy() {
+    this.router.navigate(['/academy']).then(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
 
   pauseCarousel()  { this.carouselPaused.set(true);  }
   resumeCarousel() { this.carouselPaused.set(false); }
