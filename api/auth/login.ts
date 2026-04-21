@@ -6,6 +6,12 @@ import jwt from 'jsonwebtoken';
 const JWT_SECRET = process.env['JWT_SECRET'] || 'default-secret';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  console.log('Login request received. Method:', req.method);
+  
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method Not Allowed' });
   }
