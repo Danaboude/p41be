@@ -1,4 +1,4 @@
-import bcrypt from 'bcryptjs';
+const bcrypt = require('bcryptjs');
 const password = 'ives-abdulkareem';
 const hash = bcrypt.hashSync(password, 10);
 console.log(hash);

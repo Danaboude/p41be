@@ -1,7 +1,6 @@
 {
   "name": "p41.be",
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -48,6 +47,7 @@
     "@tailwindcss/postcss": "^4.1.12",
     "@types/bcryptjs": "^2.4.6",
     "@types/jsonwebtoken": "^9.0.10",
+    "@vercel/node": "^5.7.12",
     "jsdom": "^27.1.0",
     "postcss": "^8.5.3",
     "prisma": "^6.19.3",
