@@ -1,12 +1,14 @@
 {
   "name": "p41.be",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "postinstall": "prisma generate"
   },
   "prettier": {
     "printWidth": 100,
