@@ -1,55 +1,62 @@
-<main class="animate-fade-in" *ngIf="course">
+<main class="animate-fade-in" *ngIf="!isLoading() && course()">
 
   <!-- Hero Banner -->
   <section class="relative min-h-[55vh] flex items-end overflow-hidden">
     <div class="absolute inset-0">
-      <img [src]="course.image" [alt]="course.title" class="w-full h-full object-cover">
-      <div class="absolute inset-0 bg-gradient-to-t from-inverse-surface via-inverse-surface/70 to-inverse-surface/30"></div>
+      <img [src]="course().image" [alt]="course().title" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-inverse-surface via-inverse-surface/70 to-inverse-surface/30">
+      </div>
     </div>
 
     <div class="relative z-10 max-w-6xl mx-auto w-full px-6 md:px-12 pb-16 pt-32">
       <!-- Back link -->
-      <a routerLink="/academy" class="inline-flex items-center gap-2 text-[#E8C840]/80 hover:text-[#E8C840] font-label text-sm mb-8 transition-colors group">
-        <span class="material-symbols-outlined text-base group-hover:-translate-x-1 transition-transform">arrow_back</span>
+      <a routerLink="/academy"
+        class="inline-flex items-center gap-2 text-[#E8C840]/80 hover:text-[#E8C840] font-label text-sm mb-8 transition-colors group">
+        <span
+          class="material-symbols-outlined text-base group-hover:-translate-x-1 transition-transform">arrow_back</span>
         Back to Academy
       </a>
 
       <!-- Tags -->
       <div class="flex flex-wrap gap-2 mb-6">
-        <span *ngFor="let tag of course.tags"
-              class="bg-[#D4A843]/20 backdrop-blur-sm text-[#E8C840] px-3 py-1 rounded-full text-xs font-label font-bold border border-[#D4A843]/30">
+        <span *ngFor="let tag of course().tags"
+          class="bg-[#D4A843]/20 backdrop-blur-sm text-[#E8C840] px-3 py-1 rounded-full text-xs font-label font-bold border border-[#D4A843]/30">
           {{ tag }}
         </span>
-        <span class="bg-white/10 backdrop-blur-sm text-white/80 px-3 py-1 rounded-full text-xs font-label font-bold border border-white/10">{{ course.level }}</span>
+        <span
+          class="bg-white/10 backdrop-blur-sm text-white/80 px-3 py-1 rounded-full text-xs font-label font-bold border border-white/10">{{
+          course().level }}</span>
       </div>
 
       <!-- Title -->
       <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-4 animate-slide-up tracking-tighter">
-        {{ course.title }}
+        {{ course().title }}
       </h1>
-      <p class="text-xl md:text-2xl text-white/60 font-label mb-8">{{ course.subtitle }}</p>
+      <p class="text-xl md:text-2xl text-white/60 font-label mb-8">{{ course().subtitle }}</p>
 
       <!-- Meta -->
       <div class="flex flex-wrap items-center gap-6 text-white/60 font-label text-sm">
         <div class="flex items-center gap-2">
-          <div class="w-8 h-8 rounded-full bg-[#D4A843] flex items-center justify-center text-white text-xs font-bold">I</div>
-          <span class="text-white/80 font-bold">{{ course.instructor }}</span>
+          <div class="w-8 h-8 rounded-full bg-[#D4A843] flex items-center justify-center text-white text-xs font-bold">I
+          </div>
+          <span class="text-white/80 font-bold">{{ course().instructor }}</span>
         </div>
         <span class="flex items-center gap-1">
           <span class="material-symbols-outlined text-sm text-[#D4A843]">schedule</span>
-          {{ course.duration }}
+          {{ course().duration }}
         </span>
         <span class="flex items-center gap-1">
           <span class="material-symbols-outlined text-sm text-[#D4A843]">menu_book</span>
-          {{ course.modules.length }} Modules
+          {{ (course().modules || []).length }} Modules
         </span>
-        <span class="flex items-center gap-1">
+        <span class="flex items-center gap-1" *ngIf="course().students > 0">
           <span class="material-symbols-outlined text-sm text-[#D4A843]">group</span>
-          {{ course.students }} Students
+          {{ course().students }} Students
         </span>
         <div class="flex items-center gap-1">
-          <span *ngFor="let s of getStars(course.rating)" class="material-symbols-outlined star-gold !text-[14px]">star</span>
-          <span class="ml-1">{{ course.rating }}</span>
+          <span *ngFor="let s of getStars(course().rating)"
+            class="material-symbols-outlined star-gold !text-[14px]">star</span>
+          <span class="ml-1">{{ course().rating }}</span>
         </div>
       </div>
     </div>
@@ -64,52 +71,54 @@
         <div class="lg:col-span-2 space-y-16">
 
           <!-- About -->
-          <div>
+          <div *ngIf="course().longDescription?.length">
             <h2 class="text-2xl font-black mb-6 tracking-tight">About This Course</h2>
             <div class="space-y-4">
-              <p *ngFor="let para of course.longDescription"
-                 class="text-on-surface-variant text-base leading-relaxed">
+              <p *ngFor="let para of course().longDescription"
+                class="text-on-surface-variant text-base leading-relaxed">
                 {{ para }}
               </p>
             </div>
           </div>
 
           <!-- What You'll Learn -->
-          <div>
+          <div *ngIf="course().whatYouLearn?.length">
             <h2 class="text-2xl font-black mb-6 tracking-tight">What You'll Learn</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div *ngFor="let item of course.whatYouLearn"
-                   class="flex gap-3 items-start">
-                <span class="material-symbols-outlined text-[#D4A843] text-lg mt-0.5 shrink-0" style="font-variation-settings:'FILL' 1">check_circle</span>
+              <div *ngFor="let item of course().whatYouLearn" class="flex gap-3 items-start">
+                <span class="material-symbols-outlined text-[#D4A843] text-lg mt-0.5 shrink-0"
+                  style="font-variation-settings:'FILL' 1">check_circle</span>
                 <span class="text-on-surface-variant text-sm leading-relaxed">{{ item }}</span>
               </div>
             </div>
           </div>
 
           <!-- Course Modules -->
-          <div>
+          <div *ngIf="course().modules?.length">
             <div class="flex items-baseline justify-between mb-6">
               <h2 class="text-2xl font-black tracking-tight">Course Modules</h2>
-              <span class="text-on-surface-variant/60 font-label text-sm">{{ course.modules.length }} modules · {{ getTotalDuration() }} total</span>
+              <span class="text-on-surface-variant/60 font-label text-sm">{{ (course().modules || []).length }} modules
+                · {{ getTotalDuration() }} total</span>
             </div>
 
             <div class="space-y-3">
-              <div *ngFor="let mod of course.modules; let i = index"
-                   class="module-item"
-                   [class.expanded]="expandedModule === i">
+              <div *ngFor="let mod of course().modules; let i = index" class="module-item"
+                [class.expanded]="expandedModule() === i">
                 <div class="module-header" (click)="toggleModule(i)">
                   <div class="flex items-center gap-4">
                     <div class="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-black font-label"
-                         [class]="expandedModule === i ? 'bg-[#D4A843] text-white' : 'bg-surface-container-high text-on-surface-variant'">
+                      [class]="expandedModule() === i ? 'bg-[#D4A843] text-white' : 'bg-surface-container-high text-on-surface-variant'">
                       {{ i + 1 }}
                     </div>
                     <div>
-                      <p class="font-bold text-sm" [class]="expandedModule === i ? 'text-[#D4A843]' : 'text-on-surface'">{{ mod.title }}</p>
+                      <p class="font-bold text-sm"
+                        [class]="expandedModule() === i ? 'text-[#D4A843]' : 'text-on-surface'">{{ mod.title }}</p>
                     </div>
                   </div>
                   <div class="flex items-center gap-3">
                     <span class="text-on-surface-variant/60 text-xs font-label">{{ mod.duration }}</span>
-                    <span class="material-symbols-outlined text-on-surface-variant/40 text-base module-chevron">expand_more</span>
+                    <span
+                      class="material-symbols-outlined text-on-surface-variant/40 text-base module-chevron">expand_more</span>
                   </div>
                 </div>
                 <div class="module-body">
@@ -120,11 +129,10 @@
           </div>
 
           <!-- Prerequisites -->
-          <div>
+          <div *ngIf="course().prerequisites?.length">
             <h2 class="text-2xl font-black mb-6 tracking-tight">Prerequisites</h2>
             <div class="space-y-3">
-              <div *ngFor="let prereq of course.prerequisites"
-                   class="flex gap-3 items-start">
+              <div *ngFor="let prereq of course().prerequisites" class="flex gap-3 items-start">
                 <span class="material-symbols-outlined text-on-surface-variant/50 text-lg mt-0.5 shrink-0">info</span>
                 <span class="text-on-surface-variant text-sm leading-relaxed">{{ prereq }}</span>
               </div>
@@ -137,23 +145,100 @@
           <div class="sticky top-28 bg-white rounded-2xl border border-outline-variant/10 overflow-hidden shadow-2xl">
             <!-- Image -->
             <div class="aspect-video overflow-hidden">
-              <img [src]="course.image" [alt]="course.title" class="w-full h-full object-cover">
+              <img [src]="course().image" [alt]="course().title" class="w-full h-full object-cover">
             </div>
 
             <div class="p-6 space-y-6">
               <!-- Price -->
               <div class="flex items-baseline gap-3">
-                <span class="text-4xl font-black text-[#D4A843]">{{ course.price }}</span>
+                <span class="text-4xl font-black text-[#D4A843]">{{ course().price }}</span>
                 <span class="text-on-surface-variant font-label text-sm">one-time</span>
               </div>
 
               <!-- CTA -->
-              <button class="academy-btn block w-full text-center !py-4 text-lg">
-                Enroll Now
-              </button>
-              <button class="block w-full text-center py-3 rounded-full border border-outline-variant/20 text-on-surface-variant font-label font-bold text-sm hover:bg-surface-container-low transition-all">
-                Download Curriculum PDF
-              </button>
+              <ng-container *ngIf="!showCheckout()">
+                <button (click)="startCheckout()" class="academy-btn block w-full text-center !py-4 text-lg">
+                  Enroll Now
+                </button>
+
+              </ng-container>
+
+              <!-- Checkout Form -->
+              <div *ngIf="showCheckout()"
+                class="mt-6 bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/10 shadow-inner">
+                <h4 class="font-black text-lg mb-4 text-on-surface flex items-center justify-between">
+                  Enrollment Details
+                  <button (click)="showCheckout.set(false)" class="text-on-surface-variant/50 hover:text-on-surface">
+                    <span class="material-symbols-outlined text-sm">close</span>
+                  </button>
+                </h4>
+                <form [formGroup]="checkoutForm" (ngSubmit)="submitCheckout()" class="space-y-4">
+                  <div>
+                    <label class="block text-xs font-bold text-on-surface-variant mb-1">Full Name *</label>
+                    <input type="text" formControlName="name"
+                      class="w-full px-4 py-2 rounded-xl border border-outline-variant/20 focus:border-[#D4A843] focus:outline-none transition-colors"
+                      placeholder="Jane Doe">
+                    <span class="text-xs text-red-500 mt-1 block"
+                      *ngIf="checkoutForm.get('name')?.invalid && checkoutForm.get('name')?.touched">Name is
+                      required</span>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-bold text-on-surface-variant mb-1">Email *</label>
+                    <input type="email" formControlName="email"
+                      class="w-full px-4 py-2 rounded-xl border border-outline-variant/20 focus:border-[#D4A843] focus:outline-none transition-colors"
+                      placeholder="jane@example.com">
+                    <span class="text-xs text-red-500 mt-1 block"
+                      *ngIf="checkoutForm.get('email')?.invalid && checkoutForm.get('email')?.touched">Valid email is
+                      required</span>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-bold text-on-surface-variant mb-1">Phone Number *</label>
+                    <input type="tel" formControlName="phone"
+                      class="w-full px-4 py-2 rounded-xl border border-outline-variant/20 focus:border-[#D4A843] focus:outline-none transition-colors"
+                      placeholder="+32 400 00 00 00">
+                    <span class="text-xs text-red-500 mt-1 block"
+                      *ngIf="checkoutForm.get('phone')?.invalid && checkoutForm.get('phone')?.touched">Valid EU phone
+                      format required</span>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-bold text-on-surface-variant mb-1">Address</label>
+                    <input type="text" formControlName="address"
+                      class="w-full px-4 py-2 rounded-xl border border-outline-variant/20 focus:border-[#D4A843] focus:outline-none transition-colors"
+                      placeholder="Street 1, 1000 Brussels">
+                  </div>
+
+                  <div class="border-t border-outline-variant/10 pt-4 mt-2">
+                    <h5 class="text-[10px] font-black text-on-surface-variant/60 mb-3 uppercase tracking-widest">
+                      Business / VAT</h5>
+                    <div class="space-y-4">
+                      <div>
+                        <label class="block text-xs font-bold text-on-surface-variant mb-1">Company Name</label>
+                        <input type="text" formControlName="vatCompany"
+                          class="w-full px-4 py-2 rounded-xl border border-outline-variant/20 focus:border-[#D4A843] focus:outline-none transition-colors"
+                          placeholder="Company Ltd">
+                      </div>
+                      <div>
+                        <label class="block text-xs font-bold text-on-surface-variant mb-1">VAT Number</label>
+                        <input type="text" formControlName="vatAddress"
+                          class="w-full px-4 py-2 rounded-xl border border-outline-variant/20 focus:border-[#D4A843] focus:outline-none transition-colors"
+                          placeholder="BE0123.456.789">
+                      </div>
+                    </div>
+                  </div>
+
+                  <button type="submit" [disabled]="isCheckingOut()"
+                    class="academy-btn block w-full text-center !py-4 text-lg mt-6 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <span *ngIf="!isCheckingOut()" class="flex items-center justify-center gap-2">
+                      Proceed to Payment
+                      <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </span>
+                    <span *ngIf="isCheckingOut()" class="flex items-center justify-center gap-2">
+                      <span class="material-symbols-outlined animate-spin text-sm">sync</span>
+                      Processing...
+                    </span>
+                  </button>
+                </form>
+              </div>
 
               <!-- Quick Info -->
               <div class="space-y-4 pt-4 border-t border-outline-variant/10">
@@ -161,13 +246,13 @@
                   <span class="text-on-surface-variant font-label flex items-center gap-2">
                     <span class="material-symbols-outlined text-[14px] text-[#D4A843]">schedule</span> Duration
                   </span>
-                  <span class="text-on-surface font-bold">{{ course.duration }}</span>
+                  <span class="text-on-surface font-bold">{{ course().duration }}</span>
                 </div>
-                <div class="flex items-center justify-between text-sm">
+                <div class="flex items-center justify-between text-sm" *ngIf="course().modules">
                   <span class="text-on-surface-variant font-label flex items-center gap-2">
                     <span class="material-symbols-outlined text-[14px] text-[#D4A843]">menu_book</span> Modules
                   </span>
-                  <span class="text-on-surface font-bold">{{ course.modules.length }}</span>
+                  <span class="text-on-surface font-bold">{{ (course().modules || []).length }}</span>
                 </div>
                 <div class="flex items-center justify-between text-sm">
                   <span class="text-on-surface-variant font-label flex items-center gap-2">
@@ -179,7 +264,7 @@
                   <span class="text-on-surface-variant font-label flex items-center gap-2">
                     <span class="material-symbols-outlined text-[14px] text-[#D4A843]">signal_cellular_alt</span> Level
                   </span>
-                  <span class="text-on-surface font-bold">{{ course.level }}</span>
+                  <span class="text-on-surface font-bold">{{ course().level }}</span>
                 </div>
                 <div class="flex items-center justify-between text-sm">
                   <span class="text-on-surface-variant font-label flex items-center gap-2">
@@ -189,7 +274,8 @@
                 </div>
                 <div class="flex items-center justify-between text-sm">
                   <span class="text-on-surface-variant font-label flex items-center gap-2">
-                    <span class="material-symbols-outlined text-[14px] text-[#D4A843]">workspace_premium</span> Certificate
+                    <span class="material-symbols-outlined text-[14px] text-[#D4A843]">workspace_premium</span>
+                    Certificate
                   </span>
                   <span class="text-on-surface font-bold">Included</span>
                 </div>
@@ -202,7 +288,7 @@
                     <img src="ives-microfoon-334x500-1.jpg" alt="Ives De Saeger" class="w-full h-full object-cover">
                   </div>
                   <div>
-                    <p class="font-bold text-sm">{{ course.instructor }}</p>
+                    <p class="font-bold text-sm">{{ course().instructor }}</p>
                     <p class="text-on-surface-variant text-xs font-label">Founder & Lead Instructor</p>
                   </div>
                 </div>
@@ -220,26 +306,31 @@
       <h3 class="text-3xl font-black mb-12 tracking-tight">More <span class="text-[#D4A843] italic">Courses</span></h3>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a *ngFor="let related of otherCourses"
-           [routerLink]="['/academy', related.id]"
-           class="related-card group block">
+        <a *ngFor="let related of otherCourses()" [routerLink]="['/academy', related.id]"
+          class="related-card group block">
           <div class="aspect-video overflow-hidden">
-            <img [src]="related.image" [alt]="related.title" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <img [src]="related.image" [alt]="related.title"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
           </div>
           <div class="p-5">
-            <div class="flex flex-wrap gap-2 mb-3">
+            <div class="flex flex-wrap gap-2 mb-3" *ngIf="related.tags">
               <span *ngFor="let tag of related.tags" class="academy-tag !text-[8px]">{{ tag }}</span>
             </div>
             <h4 class="text-lg font-black group-hover:text-[#D4A843] transition-colors mb-1">{{ related.title }}</h4>
             <p class="text-on-surface-variant text-xs font-label mb-4">{{ related.subtitle }}</p>
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-1">
-                <span *ngFor="let s of getStars(related.rating)" class="material-symbols-outlined star-gold !text-[12px]">star</span>
+                <span *ngFor="let s of getStars(related.rating)"
+                  class="material-symbols-outlined star-gold !text-[12px]">star</span>
               </div>
               <span class="text-sm font-black text-[#D4A843]">{{ related.price }}</span>
             </div>
           </div>
         </a>
+        <div *ngIf="otherCourses().length === 0"
+          class="col-span-full py-10 text-center text-on-surface-variant/40 italic">
+          More courses arriving soon...
+        </div>
       </div>
 
       <!-- Back to Academy -->
@@ -254,8 +345,19 @@
 
 </main>
 
+<!-- Loading State -->
+<div *ngIf="isLoading()" class="min-h-screen flex flex-col items-center justify-center bg-inverse-surface text-center">
+  <div class="relative w-24 h-24 mb-8">
+    <div class="absolute inset-0 border-8 border-[#D4A843]/10 rounded-full"></div>
+    <div class="absolute inset-0 border-8 border-[#D4A843] border-t-transparent rounded-full animate-spin"></div>
+  </div>
+  <h2 class="text-2xl font-black text-white tracking-widest uppercase animate-pulse">Synchronizing Data</h2>
+  <p class="text-white/40 text-sm mt-2">Retrieving course content from the Neon Cloud...</p>
+</div>
+
 <!-- 404 fallback -->
-<div *ngIf="!course" class="min-h-[70vh] flex items-center justify-center text-center px-6 animate-fade-in">
+<div *ngIf="!isLoading() && !course()"
+  class="min-h-[70vh] flex items-center justify-center text-center px-6 animate-fade-in">
   <div>
     <span class="material-symbols-outlined text-8xl text-[#D4A843]/20 mb-6 block">school</span>
     <h1 class="text-4xl font-black mb-4">Course Not Found</h1>

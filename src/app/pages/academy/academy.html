@@ -10,78 +10,85 @@
     <!-- Decorative gold glows -->
     <div class="gold-glow w-[600px] h-[600px] -top-40 -right-40 opacity-40"></div>
 
-    <div class="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <div class="animate-slide-up">
-        <div class="inline-flex items-center gap-2 bg-[#D4A843]/10 border border-[#D4A843]/20 px-4 py-1.5 rounded-sm mb-8">
-          <span class="material-symbols-outlined text-[#D4A843] text-sm">school</span>
-          <span class="text-[#B8922E] font-label text-xs font-bold tracking-widest uppercase">P41 Academy</span>
+    <div class="max-w-7xl mx-auto w-full relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" *ngIf="featuredCourse">
+        <div class="animate-slide-up">
+          <div class="inline-flex items-center gap-2 bg-[#D4A843]/10 px-4 py-1.5 rounded-sm mb-8">
+            <span class="material-symbols-outlined text-[#D4A843] text-sm">workspace_premium</span>
+            <span class="text-[#D4A843] font-label text-xs font-bold tracking-widest uppercase">Premium Education</span>
+          </div>
+          
+          <h1 class="text-6xl md:text-8xl font-black leading-[0.9] mb-8">
+            {{ featuredCourse.title }}
+          </h1>
+          
+          <p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed mb-12">
+            {{ featuredCourse.description }}
+          </p>
+
+          <div class="flex flex-wrap gap-8 items-center">
+            <button class="bg-[#D4A843] text-white font-label font-bold px-10 py-5 rounded-2xl flex items-center gap-3 hover:translate-x-2 transition-all shadow-xl shadow-[#D4A843]/20">
+              Enroll Now
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+          </div>
+
+          <!-- Quick stats -->
+          <div class="flex flex-wrap gap-10 mt-16">
+            <div>
+              <p class="text-3xl font-black text-[#D4A843]">6+</p>
+              <p class="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mt-1">Courses</p>
+            </div>
+            <div>
+              <p class="text-3xl font-black text-[#D4A843]">1.3K+</p>
+              <p class="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mt-1">Students</p>
+            </div>
+            <div>
+              <p class="text-3xl font-black text-[#D4A843]">4.8</p>
+              <p class="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mt-1">Avg Rating</p>
+            </div>
+            <div>
+              <p class="text-3xl font-black text-[#D4A843]">25+</p>
+              <p class="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mt-1">Years Expertise</p>
+            </div>
+          </div>
         </div>
 
-        <h1 class="text-6xl md:text-8xl font-black leading-[0.9] mb-8">
-          Master the Art of<br/>
-          <span class="text-[#D4A843]">Industrial Excellence</span>
-        </h1>
-
-        <p class="text-lg md:text-xl text-on-surface-variant max-w-xl mb-12 leading-relaxed">
-          Expert-led courses designed by Ives De Saeger. From Lean fundamentals to advanced Industry 4.0 strategies — learn at your own pace.
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-6">
-          <button class="academy-btn !px-10 !py-5 text-lg">Browse Courses</button>
-          <button class="bg-surface-container-high text-on-surface font-label font-bold px-10 py-5 rounded-full text-lg hover:bg-surface-container-highest transition-all active:scale-95">
-            View Curriculum
-          </button>
-        </div>
-
-        <!-- Quick stats -->
-        <div class="flex flex-wrap gap-10 mt-16">
-          <div>
-            <p class="text-3xl font-black text-[#D4A843]">6+</p>
-            <p class="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mt-1">Courses</p>
+        <!-- Featured Course Card -->
+        <div class="featured-card animate-scale-in hidden lg:block">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img [src]="featuredCourse.image" [alt]="featuredCourse.title"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute top-4 left-4 flex gap-2">
+              <span class="bg-[#D4A843] text-white px-3 py-1 rounded-full text-xs font-label font-bold">Featured</span>
+              <span class="bg-white/90 text-on-surface px-3 py-1 rounded-full text-xs font-label font-bold">{{ featuredCourse.level }}</span>
+            </div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <h3 class="text-2xl font-black mb-2 text-white">{{ featuredCourse.title }}</h3>
+              <p class="text-white/70 text-sm font-label">{{ featuredCourse.subtitle }}</p>
+            </div>
           </div>
-          <div>
-            <p class="text-3xl font-black text-[#D4A843]">1.3K+</p>
-            <p class="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mt-1">Students</p>
-          </div>
-          <div>
-            <p class="text-3xl font-black text-[#D4A843]">4.8</p>
-            <p class="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mt-1">Avg Rating</p>
-          </div>
-          <div>
-            <p class="text-3xl font-black text-[#D4A843]">25+</p>
-            <p class="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mt-1">Years Expertise</p>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-1">
+                <span *ngFor="let s of getStars(featuredCourse.rating)"
+                      class="material-symbols-outlined star-gold text-sm">star</span>
+                <span class="text-on-surface-variant text-xs font-label ml-1">{{ featuredCourse.rating }}</span>
+              </div>
+              <span class="text-2xl font-black text-[#D4A843]">{{ featuredCourse.price }}</span>
+            </div>
+            <a [routerLink]="['/academy', featuredCourse.id]" class="academy-btn block text-center w-full !py-3">
+              Enroll Now
+            </a>
           </div>
         </div>
       </div>
 
-      <!-- Featured Course Card -->
-      <div class="featured-card animate-scale-in hidden lg:block">
-        <div class="relative aspect-[4/3] overflow-hidden">
-          <img [src]="featuredCourse.image" [alt]="featuredCourse.title"
-               class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-          <div class="absolute top-4 left-4 flex gap-2">
-            <span class="bg-[#D4A843] text-white px-3 py-1 rounded-full text-xs font-label font-bold">Featured</span>
-            <span class="bg-white/90 text-on-surface px-3 py-1 rounded-full text-xs font-label font-bold">{{ featuredCourse.level }}</span>
-          </div>
-          <div class="absolute bottom-6 left-6 right-6">
-            <h3 class="text-2xl font-black mb-2 text-white">{{ featuredCourse.title }}</h3>
-            <p class="text-white/70 text-sm font-label">{{ featuredCourse.subtitle }}</p>
-          </div>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center gap-1">
-              <span *ngFor="let s of getStars(featuredCourse.rating)"
-                    class="material-symbols-outlined star-gold text-sm">star</span>
-              <span class="text-on-surface-variant text-xs font-label ml-1">{{ featuredCourse.rating }}</span>
-            </div>
-            <span class="text-2xl font-black text-[#D4A843]">{{ featuredCourse.price }}</span>
-          </div>
-          <a [routerLink]="['/academy', featuredCourse.id]" class="academy-btn block text-center w-full !py-3">
-            Enroll Now
-          </a>
-        </div>
+      <!-- Loading State -->
+      <div *ngIf="isLoading()" class="py-40 text-center animate-pulse">
+        <div class="inline-block w-12 h-12 border-4 border-[#D4A843]/20 border-t-[#D4A843] rounded-full animate-spin mb-4"></div>
+        <p class="font-label font-bold text-sm uppercase tracking-widest text-[#D4A843]/40">Synchronizing with Academy Cloud...</p>
       </div>
     </div>
   </section>
@@ -103,7 +110,7 @@
 
       <!-- Course Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <a *ngFor="let course of courses"
+        <a *ngFor="let course of courses()"
            [routerLink]="['/academy', course.id]"
            class="course-card group cursor-pointer block">
 
@@ -292,7 +299,7 @@
           <label class="font-label text-xs uppercase tracking-widest text-on-surface-variant font-bold">Interested Course</label>
           <select class="w-full bg-transparent border-none border-b-2 border-outline-variant/30 focus:ring-0 focus:border-[#D4A843] transition-all py-4 font-headline text-lg text-on-surface-variant cursor-pointer">
             <option value="">Select a course...</option>
-            <option *ngFor="let course of courses" [value]="course.id">{{ course.title }}</option>
+            <option *ngFor="let course of courses()" [value]="course.id">{{ course.title }}</option>
           </select>
         </div>
         <button class="w-full academy-btn !py-6 !text-xl shadow-2xl shadow-[#D4A843]/20">

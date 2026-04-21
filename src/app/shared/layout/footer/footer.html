@@ -62,7 +62,7 @@
               }}</a></li>
           <li><a (click)="navigateToContact()" [class]="'text-on-surface-variant transition-all font-label text-sm cursor-pointer ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{ t().nav.contact
               }}</a></li>
-          <li><a href="#" [class]="'text-on-surface-variant transition-all font-label text-sm ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">Privacy
+          <li><a (click)="navigateToPrivacy()" [class]="'text-on-surface-variant transition-all font-label text-sm cursor-pointer ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">Privacy
               Policy</a></li>
         </ul>
       </div>
@@ -84,13 +84,8 @@
     </div>
 
     <div
-      class="mt-24 pt-10 border-t border-zinc-50 flex flex-col md:flex-row justify-between items-center gap-8">
+      class="mt-16 pt-8 border-t border-zinc-50 flex flex-col md:flex-row justify-between items-center gap-8">
       <p class="text-zinc-400 text-xs font-label">{{ t().footer.rights }}</p>
-      <div class="flex gap-10 text-xs text-zinc-400 font-label">
-        <a href="#" [class]="'transition-all underline underline-offset-4 decoration-zinc-200 ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">Cookie Settings</a>
-        <a href="#" [class]="'transition-all underline underline-offset-4 decoration-zinc-200 ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">Security</a>
-        <a href="#" [class]="'transition-all underline underline-offset-4 decoration-zinc-200 ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">Accessibility</a>
-      </div>
     </div>
   </div>
 </footer>

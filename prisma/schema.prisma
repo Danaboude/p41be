@@ -1,0 +1,76 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
+
+model Course {
+  id              String           @id @default(cuid())
+  title           String
+  subtitle        String
+  description     String
+  longDescription Json? // Array of strings
+  image           String
+  duration        String
+  level           String
+  modules         Json? // Array of {title, duration, description}
+  price           String
+  isPaid          Boolean          @default(false)
+  tags            String[]
+  instructor      String           @default("Ives De Saeger")
+  rating          Float            @default(5.0)
+  students        Int              @default(0)
+  whatYouLearn    Json? // Array of strings
+  prerequisites   Json? // Array of strings
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  materials       CourseMaterial[]
+}
+
+model CourseMaterial {
+  id        String   @id @default(cuid())
+  courseId  String
+  name      String
+  url       String
+  size      Int
+  type      String
+  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
+
+model BlogPost {
+  id        String   @id @default(cuid())
+  title     String
+  excerpt   String
+  content   String[]
+  image     String
+  date      String
+  readTime  String
+  tags      String[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Purchase {
+  id              String   @id @default(cuid())
+  courseId        String
+  name            String
+  email           String
+  phone           String
+  address         String?
+  vatCompany      String?
+  vatAddress      String?
+  status          String   @default("PENDING") // PENDING, PAID, FAILED
+  molliePaymentId String?
+  createdAt       DateTime @default(now())
+}

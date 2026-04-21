@@ -1,0 +1,165 @@
+<div class="space-y-8 animate-fade-in">
+  <!-- Header -->
+  <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+    <div>
+      <h2 class="text-3xl font-black tracking-tight text-on-surface">Manage <span class="text-primary italic">Academy Courses</span></h2>
+      <p class="text-on-surface-variant text-sm mt-1">Add, edit, or remove courses from the public learning platform.</p>
+    </div>
+    <a routerLink="/admin/academy/new" class="premium-gradient-btn !px-6 !py-3 flex items-center gap-2 shadow-lg shadow-primary/20 cursor-pointer">
+      <span class="material-symbols-outlined text-lg">add</span>
+      <span class="font-bold">Add New Course</span>
+    </a>
+  </div>
+
+  <!-- Table Container -->
+  <div class="bg-white rounded-[32px] border border-outline-variant/10 shadow-sm overflow-hidden">
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse">
+        <thead class="bg-surface-container-low border-b border-outline-variant/5">
+          <tr>
+            <th class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant/50">Course Info</th>
+            <th class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant/50">Details</th>
+            <th class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant/50">Price/Status</th>
+            <th class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant/50 text-right">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-outline-variant/5 relative">
+          <!-- Loading Overlay -->
+          <tr *ngIf="isLoading()">
+            <td colspan="4" class="px-8 py-32 text-center">
+              <div class="flex flex-col items-center justify-center animate-fade-in">
+                <div class="relative w-16 h-16 mb-6">
+                  <div class="absolute inset-0 border-4 border-primary/10 rounded-full"></div>
+                  <div class="absolute inset-0 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+                </div>
+                <p class="text-xs font-black uppercase tracking-[0.2em] text-primary animate-pulse">Synchronizing Data...</p>
+              </div>
+            </td>
+          </tr>
+
+          <tr *ngFor="let course of courses()" class="hover:bg-surface-container-lowest transition-colors group" [class.opacity-0]="isLoading()">
+            <td class="px-8 py-6">
+              <div class="flex items-center gap-4">
+                <div class="w-16 h-12 rounded-xl overflow-hidden bg-surface-container-low border border-outline-variant/10 shrink-0">
+                  <img [src]="course.image" [alt]="course.title" class="w-full h-full object-cover">
+                </div>
+                <div>
+                  <p class="font-black text-on-surface group-hover:text-primary transition-colors">{{ course.title }}</p>
+                  <p class="text-xs text-on-surface-variant/60 font-medium truncate max-w-[200px]">{{ course.subtitle }}</p>
+                </div>
+              </div>
+            </td>
+            <td class="px-8 py-6">
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-surface-container-low px-2 py-1 rounded-md text-[10px] font-bold text-on-surface-variant/70">{{ course.duration }}</span>
+                <span class="bg-primary/5 px-2 py-1 rounded-md text-[10px] font-bold text-primary">{{ course.level }}</span>
+              </div>
+            </td>
+            <td class="px-8 py-6">
+              <div class="flex flex-col">
+                <span class="font-bold text-on-surface">{{ course.price }}</span>
+                <span [class]="course.isPaid ? 'text-[10px] font-black uppercase tracking-widest text-error/60' : 'text-[10px] font-black uppercase tracking-widest text-success'">
+                  {{ course.isPaid ? 'Paid' : 'Free Access' }}
+                </span>
+              </div>
+            </td>
+            <td class="px-8 py-6 text-right">
+              <div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <button (click)="openUploadModal(course.id)" class="w-10 h-10 rounded-xl bg-[#D4A843]/10 text-[#D4A843] hover:bg-[#D4A843] hover:text-white transition-all flex items-center justify-center cursor-pointer" title="Upload Materials">
+                  <span class="material-symbols-outlined text-xl">cloud_upload</span>
+                </button>
+                <a [routerLink]="['/admin/academy/edit', course.id]" class="w-10 h-10 rounded-xl bg-primary/5 text-primary hover:bg-primary hover:text-white transition-all flex items-center justify-center cursor-pointer">
+                  <span class="material-symbols-outlined text-xl">edit</span>
+                </a>
+                <button (click)="deleteCourse(course.id)" class="w-10 h-10 rounded-xl bg-error/5 text-error hover:bg-error hover:text-white transition-all">
+                  <span class="material-symbols-outlined text-xl">delete</span>
+                </button>
+              </div>
+            </td>
+          </tr>
+          <tr *ngIf="courses().length === 0">
+            <td colspan="4" class="px-8 py-20 text-center">
+              <div class="text-on-surface-variant/40">
+                <span class="material-symbols-outlined text-6xl mb-4">inventory_2</span>
+                <p class="font-bold uppercase tracking-widest text-sm">No courses found in database</p>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Upload Modal -->
+<div *ngIf="uploadingCourseId() !== null" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm animate-fade-in">
+  <div class="bg-surface w-full max-w-lg rounded-3xl p-8 relative shadow-2xl border border-outline-variant/20">
+    <button (click)="closeUploadModal()" class="absolute top-6 right-6 text-on-surface-variant/50 hover:text-on-surface transition-colors" [disabled]="isSaving()">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    
+    <h3 class="text-2xl font-black mb-2 tracking-tight text-on-surface">Add External Material</h3>
+    <p class="text-sm text-on-surface-variant font-medium mb-8">Add a link to a file hosted on YouTube, Google Drive, or Dropbox.</p>
+
+    <!-- Add Link Form -->
+    <div class="space-y-4">
+      <div>
+        <label class="block text-xs font-bold text-on-surface-variant mb-1">Material Name (e.g., Session 1 Video)</label>
+        <input type="text" [(ngModel)]="materialName" placeholder="Video 1" class="w-full px-4 py-3 rounded-xl border border-outline-variant/20 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all" [disabled]="isSaving()">
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-on-surface-variant mb-1">External URL (e.g., Google Drive, YouTube)</label>
+        <input type="text" [(ngModel)]="materialUrl" placeholder="https://..." class="w-full px-4 py-3 rounded-xl border border-outline-variant/20 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all" [disabled]="isSaving()">
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-on-surface-variant mb-1">Type</label>
+        <select [(ngModel)]="materialType" class="w-full px-4 py-3 rounded-xl border border-outline-variant/20 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all bg-white" [disabled]="isSaving()">
+          <option value="DOCUMENT">Document (PDF/ZIP)</option>
+          <option value="VIDEO">Video</option>
+        </select>
+      </div>
+
+      <div class="pt-4 flex justify-end gap-3">
+        <button (click)="closeUploadModal()" class="px-6 py-3 rounded-xl font-bold text-on-surface-variant hover:bg-surface-container-low transition-colors" [disabled]="isSaving()">Cancel</button>
+        <button (click)="saveMaterial()" class="px-6 py-3 rounded-xl bg-primary text-white font-bold hover:bg-primary/90 transition-colors flex items-center gap-2" [disabled]="isSaving() || !materialName || !materialUrl">
+           <span *ngIf="isSaving()" class="material-symbols-outlined text-sm animate-spin">sync</span>
+           <span *ngIf="!isSaving()" class="material-symbols-outlined text-sm">link</span>
+           Save Link
+        </button>
+      </div>
+    </div>
+
+    <!-- Existing Materials List -->
+    <div class="mt-8 border-t border-outline-variant/10 pt-6">
+      <h4 class="text-sm font-bold text-on-surface mb-4 flex items-center justify-between">
+        Current Materials
+        <span *ngIf="isLoadingMaterials()" class="material-symbols-outlined text-sm animate-spin text-on-surface-variant">sync</span>
+      </h4>
+      
+      <div *ngIf="existingMaterials().length === 0 && !isLoadingMaterials()" class="text-center py-6 text-on-surface-variant/50 text-xs font-bold bg-surface-container-lowest rounded-xl border border-outline-variant/5 relative z-20">
+        No materials added yet.
+      </div>
+      
+      <div class="space-y-2 max-h-[250px] overflow-y-auto pr-2 relative z-20" *ngIf="existingMaterials().length > 0">
+        <div *ngFor="let mat of existingMaterials()" class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/10 hover:border-outline-variant/30 transition-colors">
+          <div class="flex items-center gap-3 overflow-hidden">
+            <span class="material-symbols-outlined text-primary text-xl shrink-0">{{ mat.type === 'VIDEO' ? 'smart_display' : 'description' }}</span>
+            <div class="truncate">
+              <p class="text-sm font-bold text-on-surface truncate">{{ mat.name }}</p>
+              <a [href]="mat.url" target="_blank" class="text-[10px] text-on-surface-variant hover:text-primary hover:underline truncate block">{{ mat.url }}</a>
+            </div>
+          </div>
+          <button (click)="deleteMaterial(mat.id)" class="w-8 h-8 rounded-full bg-error/5 text-error hover:bg-error hover:text-white transition-colors flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-sm">delete</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="saveError()" class="mt-4 p-4 bg-error/10 border border-error/20 rounded-xl flex items-start gap-3">
+       <span class="material-symbols-outlined text-error shrink-0">error</span>
+       <p class="text-sm text-error font-medium">{{ saveError() }}</p>
+    </div>
+  </div>
+</div>

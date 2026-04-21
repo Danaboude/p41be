@@ -55,6 +55,10 @@ export class FooterComponent {
     this.router.navigate(['/contact']).then(() => this.scrollToTop());
   }
 
+  navigateToPrivacy() {
+    this.router.navigate(['/privacy']).then(() => this.scrollToTop());
+  }
+
   navigateHome() {
     this.router.navigate(['']).then(() => this.scrollToTop());
   }
