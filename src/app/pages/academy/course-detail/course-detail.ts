@@ -44,6 +44,15 @@ export class CourseDetailComponent implements OnInit {
     return this.allCourses().filter(c => c.id !== this.course()?.id).slice(0, 3);
   });
 
+  isFree = computed(() => {
+    const c = this.course();
+    if (!c) return false;
+    // Check both the isPaid flag and the price string
+    if (c.isPaid === false) return true;
+    const rawPrice = String(c.price).replace(/[^\d.,]/g, '').replace(',', '.');
+    return rawPrice === '' || parseFloat(rawPrice) === 0;
+  });
+
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const courseId = params.get('courseId');
@@ -134,9 +143,13 @@ export class CourseDetailComponent implements OnInit {
        next: (res) => {
           if (res.checkoutUrl) {
              window.location.href = res.checkoutUrl;
+          } else if (res.status === 'free_success') {
+             this.isCheckingOut.set(false);
+             this.showCheckout.set(false);
+             this.notificationService.success('Enrollment successful! Check your email for course access.', 10000);
           } else {
              this.isCheckingOut.set(false);
-             alert('Payment initiation failed');
+             alert('Enrollment failed');
           }
        },
        error: (err) => {

@@ -151,23 +151,24 @@
             <div class="p-6 space-y-6">
               <!-- Price -->
               <div class="flex items-baseline gap-3">
-                <span class="text-4xl font-black text-[#D4A843]">{{ course().price }}</span>
+                <span class="text-4xl font-black text-[#D4A843]">
+                  {{ isFree() ? 'Free' : course().price }}
+                </span>
                 <span class="text-on-surface-variant font-label text-sm">one-time</span>
               </div>
 
               <!-- CTA -->
               <ng-container *ngIf="!showCheckout()">
                 <button (click)="startCheckout()" class="academy-btn block w-full text-center !py-4 text-lg">
-                  Enroll Now
+                  {{ isFree() ? 'Get the Course' : 'Enroll Now' }}
                 </button>
-
               </ng-container>
 
               <!-- Checkout Form -->
               <div *ngIf="showCheckout()"
                 class="mt-6 bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/10 shadow-inner">
                 <h4 class="font-black text-lg mb-4 text-on-surface flex items-center justify-between">
-                  Enrollment Details
+                  {{ isFree() ? 'Free Enrollment' : 'Enrollment Details' }}
                   <button (click)="showCheckout.set(false)" class="text-on-surface-variant/50 hover:text-on-surface">
                     <span class="material-symbols-outlined text-sm">close</span>
                   </button>
@@ -229,7 +230,7 @@
                   <button type="submit" [disabled]="isCheckingOut()"
                     class="academy-btn block w-full text-center !py-4 text-lg mt-6 disabled:opacity-50 disabled:cursor-not-allowed">
                     <span *ngIf="!isCheckingOut()" class="flex items-center justify-center gap-2">
-                      Proceed to Payment
+                      {{ isFree() ? 'Get the Course' : 'Proceed to Payment' }}
                       <span class="material-symbols-outlined text-sm">arrow_forward</span>
                     </span>
                     <span *ngIf="isCheckingOut()" class="flex items-center justify-center gap-2">

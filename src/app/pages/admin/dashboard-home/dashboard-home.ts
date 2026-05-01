@@ -15,47 +15,59 @@ import { FormsModule } from '@angular/forms';
       <div>
         <div class="bg-white rounded-[40px] p-8 border border-outline-variant/5 shadow-sm">
            <div class="flex items-center justify-between mb-8">
-             <h3 class="font-black text-2xl">Course Enrollments</h3>
+             <div class="flex items-center gap-6">
+               <h3 class="font-black text-2xl">Enrollments</h3>
+               <div class="flex bg-surface-container-low p-1 rounded-2xl border border-outline-variant/5">
+                 <button (click)="activeTab = 'paid'" [class]="activeTab === 'paid' ? 'bg-white shadow-sm text-primary' : 'text-on-surface-variant hover:text-on-surface'" class="px-6 py-2 rounded-xl text-xs font-bold transition-all">
+                   Paid
+                 </button>
+                 <button (click)="activeTab = 'free'" [class]="activeTab === 'free' ? 'bg-white shadow-sm text-primary' : 'text-on-surface-variant hover:text-on-surface'" class="px-6 py-2 rounded-xl text-xs font-bold transition-all">
+                   Free
+                 </button>
+               </div>
+             </div>
              <button (click)="fetchPurchases()" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary/10 hover:text-primary transition-colors">
                <span class="material-symbols-outlined text-sm" [class.animate-spin]="isLoadingPurchases">sync</span>
              </button>
            </div>
            
            <div *ngIf="isLoadingPurchases" class="text-center py-10 text-on-surface-variant/50">
-             Loading purchases...
+             Loading enrollments...
            </div>
            
-           <div *ngIf="!isLoadingPurchases && purchases.length === 0" class="text-center py-16 text-on-surface-variant/50">
+           <div *ngIf="!isLoadingPurchases && filteredPurchases.length === 0" class="text-center py-16 text-on-surface-variant/50">
               <span class="material-symbols-outlined text-4xl block mb-2 opacity-50">inbox</span>
-              No purchases found.
+              No {{ activeTab }} enrollments found.
            </div>
 
-           <div class="overflow-x-auto" *ngIf="!isLoadingPurchases && purchases.length > 0">
+           <div class="overflow-x-auto" *ngIf="!isLoadingPurchases && filteredPurchases.length > 0">
              <table class="w-full text-left">
                 <thead>
                    <tr class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant/40 border-b border-outline-variant/10">
                       <th class="pb-3 px-4">Date</th>
-                      <th class="pb-3 px-4">Buyer</th>
-                      <th class="pb-3 px-4">Company</th>
+                      <th class="pb-3 px-4">Student</th>
+                      <th class="pb-3 px-4">Course</th>
                       <th class="pb-3 px-4">Status</th>
                       <th class="pb-3 px-4 text-right">Action</th>
                    </tr>
                 </thead>
                 <tbody>
-                   <tr *ngFor="let p of purchases" class="border-b border-outline-variant/5 hover:bg-surface-container-lowest transition-colors">
+                   <tr *ngFor="let p of filteredPurchases" class="border-b border-outline-variant/5 hover:bg-surface-container-lowest transition-colors">
                       <td class="py-4 px-4 text-sm whitespace-nowrap">{{ p.createdAt | date:'shortDate' }}</td>
                       <td class="py-4 px-4 text-sm">
                         <div class="font-bold text-on-surface">{{ p.name }}</div>
                         <div class="text-xs text-on-surface-variant mt-0.5">{{ p.email }} <span class="opacity-50">·</span> {{ p.phone }}</div>
                       </td>
-                      <td class="py-4 px-4 text-sm text-on-surface-variant">
-                        <ng-container *ngIf="p.vatCompany">{{ p.vatCompany }}</ng-container>
-                        <ng-container *ngIf="!p.vatCompany"><span class="italic opacity-50">None</span></ng-container>
+                      <td class="py-4 px-4 text-sm text-on-surface-variant font-bold">
+                        {{ p.courseTitle || getCourseTitle(p.courseId) }}
                       </td>
                       <td class="py-4 px-4">
                          <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider" 
-                           [ngClass]="{'bg-success/10 text-success border border-success/20': p.status === 'PAID', 'bg-[#D4A843]/10 text-[#D4A843] border border-[#D4A843]/20': p.status === 'PENDING'}">
-                           {{ p.status }}
+                           [ngClass]="{
+                             'bg-success/10 text-success border border-success/20': !!p.molliePaymentId, 
+                             'bg-primary/10 text-primary border border-primary/20': !p.molliePaymentId
+                           }">
+                           {{ !p.molliePaymentId ? 'FREE' : 'PAID' }}
                          </span>
                       </td>
                       <td class="py-4 px-4 text-right">
@@ -111,7 +123,25 @@ export class AdminDashboardHomeComponent implements OnInit {
   private cdr = inject(ChangeDetectorRef);
 
   purchases: any[] = [];
+  courses: any[] = [];
   isLoadingPurchases = false;
+  activeTab = 'paid';
+
+  get filteredPurchases() {
+    if (!this.purchases) return [];
+    if (this.activeTab === 'paid') {
+      // Paid enrollments have a Mollie ID
+      return this.purchases.filter(p => !!p.molliePaymentId);
+    } else {
+      // Free enrollments do not have a Mollie ID
+      return this.purchases.filter(p => !p.molliePaymentId);
+    }
+  }
+
+  getCourseTitle(courseId: string): string {
+    const course = this.courses.find(c => c.id === courseId);
+    return course ? course.title : (courseId || 'Unknown Course');
+  }
 
   selectedPurchase: any | null = null;
   emailSubject = '';
@@ -119,7 +149,21 @@ export class AdminDashboardHomeComponent implements OnInit {
   isSending = false;
 
   ngOnInit() {
+    this.fetchCourses();
     this.fetchPurchases();
+  }
+
+  fetchCourses() {
+    this.http.get<any[]>('/api/academy').subscribe({
+      next: (res) => this.courses = res,
+      error: () => {
+        // Mock courses if API fails
+        this.courses = [
+          { id: '1', title: 'ISO 27001 Implementation Guide' },
+          { id: '2', title: 'Cybersecurity Fundamentals' }
+        ];
+      }
+    });
   }
 
   fetchPurchases() {
@@ -142,15 +186,16 @@ export class AdminDashboardHomeComponent implements OnInit {
         this.purchases = Array.isArray(res) ? res : [];
         this.cdr.detectChanges();
       },
-      error: (err) => {
-        console.error('Failed to load purchases:', err);
-        if (err.status === 401) {
-          console.log("Mocking purchases due to unauth local env");
-          this.purchases = [
-            { id: '1', name: 'John Doe', email: 'john@example.com', phone: '+32490000000', status: 'PAID', createdAt: new Date() }
-          ];
+        error: (err) => {
+          console.error('Failed to load purchases:', err);
+          if (err.status === 401 || err.status === 0 || err.status === 404) {
+            console.log("Mocking purchases for preview");
+            this.purchases = [
+              { id: '1', name: 'John Doe', email: 'john@example.com', phone: '+32490000000', status: 'PAID', molliePaymentId: 'tr_mock123', courseId: '1', courseTitle: 'ISO 27001 Implementation Guide', createdAt: new Date() },
+              { id: '2', name: 'Free Student', email: 'free@example.com', phone: '+32488888888', status: 'PAID', courseId: '2', courseTitle: 'Cybersecurity Fundamentals', createdAt: new Date() }
+            ];
+          }
         }
-      }
     });
   }
 

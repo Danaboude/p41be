@@ -28,14 +28,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
      
      try {
        console.log('[API/Purchases] Fetching from Prisma...');
-       // Fetch all purchases and include course details conceptually, but Prisma doesn't have relation set up directly.
-       // We'll fetch purchases and order by recent.
-       const purchases = await prisma.purchase.findMany({
-         orderBy: { createdAt: 'desc' }
-       });
+       const [purchases, courses] = await Promise.all([
+         prisma.purchase.findMany({ orderBy: { createdAt: 'desc' } }),
+         prisma.course.findMany({ select: { id: true, title: true } })
+       ]);
        
-       console.log('[API/Purchases] Prisma query completed. Count:', purchases.length);
-       return res.status(200).json(purchases);
+       const courseMap = Object.fromEntries(courses.map(c => [c.id, c.title]));
+       const purchasesWithTitles = purchases.map(p => ({
+         ...p,
+         courseTitle: courseMap[p.courseId] || 'Unknown Course'
+       }));
+
+       console.log('[API/Purchases] Data merged. Count:', purchasesWithTitles.length);
+       return res.status(200).json(purchasesWithTitles);
      } catch(e: any) {
         console.error('[API/Purchases] Crash in DB query:', e);
         return res.status(500).json({ error: e.message });

@@ -98,12 +98,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
          parsedValue = parseFloat(rawPrice).toFixed(2);
       }
 
-      if (!mollieClient) {
-          return res.status(500).json({ error: 'Mollie is not configured' });
-      }
-
       // Vercel deployment URL or localhost fallback
       const baseUrl = process.env['VERCEL_URL'] ? `https://${process.env['VERCEL_URL']}` : 'http://localhost:3000';
+
+      const isActuallyFree = course.isPaid === false || parsedValue === '0.00';
 
       // 1. Save Purchase Context FIRST to get our own ID
       const purchase = await prisma.purchase.create({
@@ -115,11 +113,50 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           address,
           vatCompany,
           vatAddress,
-          status: 'PENDING'
+          status: isActuallyFree ? 'PAID' : 'PENDING'
         }
       });
 
-      // 2. Create Mollie Payment using our purchase.id in redirectUrl
+      // Handle Free Course
+      if (isActuallyFree) {
+         console.log(`[FreeEnrollment] Processing free enrollment for ${email}...`);
+         if (resend) {
+            try {
+               await resend.emails.send({
+                  from: `${process.env['FROM_NAME'] || 'Academy'} <${process.env['FROM_EMAIL'] || 'noreply@p41.be'}>`,
+                  to: email,
+                  subject: `Your Free Course Access: ${course.title}`,
+                  html: `
+                    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+                      <div style="text-align: center; padding: 20px;">
+                        <img src="https://p41.be/logo.jpg" alt="Logo" style="max-height: 80px;" />
+                      </div>
+                      <h2 style="color: #D4A843; text-align: center;">Welcome to the Course!</h2>
+                      <p>Dear ${name},</p>
+                      <p>You have successfully enrolled in <strong>${course.title}</strong> for free.</p>
+                      <div style="text-align: center; margin: 30px 0;">
+                        <a href="${baseUrl}/academy/access/${purchase.id}" style="background-color: #D4A843; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">
+                          Access My Course Materials
+                        </a>
+                      </div>
+                      <p>If you have any questions, feel free to contact us.</p>
+                      <br/>
+                      <p>Best regards,<br/>Ives De Saeger</p>
+                    </div>
+                  `
+               });
+               console.log(`[FreeEnrollment] Email sent successfully.`);
+            } catch (emailErr) {
+               console.error(`[FreeEnrollment] Email failed:`, emailErr);
+            }
+         }
+         return res.status(200).json({ status: 'free_success' });
+      }
+
+      if (!mollieClient) {
+          return res.status(500).json({ error: 'Mollie is not configured' });
+      }
+
       const paymentPayload: any = {
         amount: {
           currency: 'EUR',
