@@ -18,16 +18,16 @@ import { AdminBlogComponent } from './pages/admin/blog/blog';
 import { adminGuard } from './core/guards/admin.guard';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'consultancy', component: ConsultancyComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'academy', component: AcademyComponent },
-  { path: 'academy/:courseId', component: CourseDetailComponent },
+  { path: '', component: HomeComponent, data: { seoKey: 'home' } },
+  { path: 'about', component: AboutComponent, data: { seoKey: 'about' } },
+  { path: 'consultancy', component: ConsultancyComponent, data: { seoKey: 'consultancy' } },
+  { path: 'contact', component: ContactComponent, data: { seoKey: 'contact' } },
+  { path: 'academy', component: AcademyComponent, data: { seoKey: 'academy' } },
+  { path: 'academy/:courseId', component: CourseDetailComponent, data: { seoKey: 'academy' } },
   { path: 'academy/access/:purchaseId', component: CourseAccessComponent },
-  { path: 'blog', component: BlogComponent },
-  { path: 'blog/:slug', component: BlogDetailComponent },
-  { path: 'privacy', loadComponent: () => import('./pages/privacy/privacy').then(m => m.PrivacyComponent) },
+  { path: 'blog', component: BlogComponent, data: { seoKey: 'blog' } },
+  { path: 'blog/:slug', component: BlogDetailComponent, data: { seoKey: 'blog' } },
+  { path: 'privacy', loadComponent: () => import('./pages/privacy/privacy').then(m => m.PrivacyComponent), data: { seoKey: 'privacy' } },
   
   // Admin Routes
   { path: 'admin/login', component: AdminLoginComponent },

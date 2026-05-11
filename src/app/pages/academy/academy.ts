@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { TranslationService } from '../../core/services/translation.service';
 import { DataService } from '../../core/services/data.service';
+import { SeoService } from '../../core/services/seo.service';
 
 export interface Course {
   id: string;
@@ -12,7 +13,7 @@ export interface Course {
   image: string;
   duration: string;
   level: string;
-  modules: number;
+  modules?: any[];
   price: string;
   isPaid: boolean;
   tags: string[];
@@ -31,12 +32,19 @@ export interface Course {
 export class AcademyComponent implements OnInit {
   private translationService = inject(TranslationService);
   private dataService = inject(DataService);
+  private seoService = inject(SeoService);
   t = this.translationService.t;
 
   courses = signal<Course[]>([]);
   isLoading = signal(true);
 
   ngOnInit() {
+    this.seoService.updateSeoTags({
+      title: 'P41 Academy - Lean, Six Sigma & Industry 4.0 Training',
+      description: 'Boost your career with our professional training courses in Lean Manufacturing, Six Sigma, Change Management, and Industry 4.0. Practical, expert-led sessions.',
+      url: 'https://p41.be/academy',
+      image: 'https://www.blomconsultancy.nl/wp-content/uploads/2016/09/Makigami_brown-paper-768x576.png'
+    });
     this.dataService.getCourses().subscribe({
       next: (data) => {
         this.courses.set(data);

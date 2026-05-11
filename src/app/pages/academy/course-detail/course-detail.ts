@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { HttpClient } from '@angular/common/http';
 import { DataService } from '../../../core/services/data.service';
 import { NotificationService } from '../../../core/services/notification.service';
+import { SeoService } from '../../../core/services/seo.service';
 
 @Component({
   selector: 'app-course-detail',
@@ -19,6 +20,7 @@ export class CourseDetailComponent implements OnInit {
   private fb = inject(FormBuilder);
   private http = inject(HttpClient);
   private notificationService = inject(NotificationService);
+  private seoService = inject(SeoService);
 
   checkoutForm: FormGroup;
   showCheckout = signal(false);
@@ -96,6 +98,27 @@ export class CourseDetailComponent implements OnInit {
         this.allCourses.set(courses);
         const found = courses.find(c => c.id === courseId);
         this.course.set(found || null);
+        
+        if (found) {
+          this.seoService.updateSeoTags({
+            title: `${found.title} | P41 Academy`,
+            description: found.description || found.shortDescription,
+            image: found.image ? `https://www.p41.be/${found.image}` : undefined,
+            type: 'video.other',
+            jsonLd: {
+              '@context': 'https://schema.org',
+              '@type': 'Course',
+              'name': found.title,
+              'description': found.description || found.shortDescription,
+              'provider': {
+                '@type': 'Organization',
+                'name': 'P41 Academy',
+                'sameAs': 'https://www.p41.be'
+              }
+            }
+          });
+        }
+        
         this.isLoading.set(false);
       },
       error: () => this.isLoading.set(false)

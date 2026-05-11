@@ -16,14 +16,6 @@
         Back to Home
       </a>
 
-      <!-- Tags -->
-      <div class="flex flex-wrap gap-2 mb-6">
-        <span *ngFor="let tag of post.tags"
-              class="bg-white/10 backdrop-blur-sm text-white/80 px-3 py-1 rounded-full text-xs font-label font-bold border border-white/10">
-          #{{ tag }}
-        </span>
-      </div>
-
       <!-- Title -->
       <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-6 animate-slide-up">
         {{ post.title }}
@@ -42,6 +34,14 @@
         <span class="flex items-center gap-1">
           <span class="material-symbols-outlined text-sm">schedule</span>
           {{ post.readTime }}
+        </span>
+      </div>
+
+      <!-- Tags (Moved here) -->
+      <div class="flex flex-wrap gap-2 mt-8">
+        <span *ngFor="let tag of post.tags"
+              class="bg-white/10 backdrop-blur-sm text-white/90 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest border border-white/20 shadow-sm hover:bg-white hover:text-black transition-all cursor-default">
+          #{{ tag }}
         </span>
       </div>
     </div>
@@ -102,7 +102,8 @@
           </div>
           <div class="p-6">
             <span class="text-xs font-label text-on-surface-variant/60 font-bold">{{ related.date }}</span>
-            <h4 class="text-lg font-black mt-2 group-hover:text-[#E53935] transition-colors">{{ related.title }}</h4>
+            <h4 class="text-lg font-black mt-2 group-hover:text-[#E53935] transition-colors line-clamp-1">{{ related.title }}</h4>
+            <p class="text-sm text-on-surface-variant/70 mt-2 line-clamp-2 leading-relaxed">{{ related.excerpt }}</p>
           </div>
         </a>
       </div>
@@ -119,8 +120,17 @@
 
 </main>
 
+<!-- Loading State -->
+<div *ngIf="isLoading()" class="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 animate-fade-in">
+  <div class="relative w-20 h-20 mb-8">
+    <div class="absolute inset-0 border-4 border-[#E53935]/10 rounded-full"></div>
+    <div class="absolute inset-0 border-4 border-[#E53935] border-t-transparent rounded-full animate-spin"></div>
+  </div>
+  <p class="text-xs font-black uppercase tracking-[0.3em] text-[#E53935] animate-pulse">Retrieving Industrial Intelligence...</p>
+</div>
+
 <!-- 404 fallback -->
-<div *ngIf="!post" class="min-h-[70vh] flex items-center justify-center text-center px-6 animate-fade-in">
+<div *ngIf="!isLoading() && !post" class="min-h-[70vh] flex items-center justify-center text-center px-6 animate-fade-in">
   <div>
     <span class="material-symbols-outlined text-8xl text-[#E53935]/20 mb-6 block">article</span>
     <h1 class="text-4xl font-black mb-4">Post Not Found</h1>

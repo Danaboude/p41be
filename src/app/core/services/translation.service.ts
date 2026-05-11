@@ -102,6 +102,36 @@ export class TranslationService {
           phone: 'Call Us',
           social: 'Social Media'
         }
+      },
+      seo: {
+        home: {
+          title: 'P41 Industrial Intelligence | Industry 4.0 Leader',
+          description: 'P41 Industrial Intelligence redefines industrial flow, error reduction, and time optimization through strategic consultancy and digital transformation.'
+        },
+        about: {
+          title: 'About P41 | Our Vision & Methods',
+          description: 'Learn about P41\'s mission to bridge the gap between industrial heritage and digital management. Meet our founder Ives De Saeger.'
+        },
+        consultancy: {
+          title: 'Industrial Consultancy | P41 Services',
+          description: 'Strategic navigation through digital transformation for production assets and supply chain logistics.'
+        },
+        academy: {
+          title: 'P41 Academy | Online Industrial Training',
+          description: 'Scale your organization\'s IQ with on-demand modules covering Lean 4.0, IoT integration, and predictive maintenance.'
+        },
+        blog: {
+          title: 'Industry Insights Blog | P41 Industrial Intelligence',
+          description: 'Latest insights, trends, and case studies on Industry 4.0, digital transformation, and industrial efficiency.'
+        },
+        contact: {
+          title: 'Contact P41 | Get Your Efficiency Audit',
+          description: 'Connect with our experts for a detailed efficiency audit or any industrial inquiries. Let\'s optimize your flow.'
+        },
+        privacy: {
+          title: 'Privacy Policy | P41 Industrial Intelligence',
+          description: 'Our commitment to protecting your privacy and managing your data securely.'
+        }
       }
     },
     nl: {
@@ -194,6 +224,36 @@ export class TranslationService {
           email: 'E-mail ons',
           phone: 'Bel ons',
           social: 'Sociale Media'
+        }
+      },
+      seo: {
+        home: {
+          title: 'P41 Industriële Intelligentie | Leider in Industrie 4.0',
+          description: 'P41 Industriële Intelligentie herdefinieert industriële flow, foutreductie en tijdoptimalisatie via strategische consultancy en digitale transformatie.'
+        },
+        about: {
+          title: 'Over P41 | Onze Visie & Methoden',
+          description: 'Lees meer over de missie van P41 om de kloof te overbruggen tussen industrieel erfgoed en digitaal management. Maak kennis met onze oprichter Ives De Saeger.'
+        },
+        consultancy: {
+          title: 'Industriële Consultancy | P41 Diensten',
+          description: 'Strategische navigatie door digitale transformatie voor productiemiddelen en supply chain logistiek.'
+        },
+        academy: {
+          title: 'P41 Academie | Online Industriële Training',
+          description: 'Vergroot het IQ van uw organisatie met on-demand modules over Lean 4.0, IoT-integratie en voorspellend onderhoud.'
+        },
+        blog: {
+          title: 'Industry Insights Blog | P41 Industriële Intelligentie',
+          description: 'De nieuwste inzichten, trends en casestudies over Industrie 4.0, digitale transformatie en industriële efficiëntie.'
+        },
+        contact: {
+          title: 'Contact P41 | Vraag uw Efficiëntie-audit aan',
+          description: 'Neem contact op met onze experts voor een gedetailleerde efficiëntie-audit of industriële vragen. Laten we uw flow optimaliseren.'
+        },
+        privacy: {
+          title: 'Privacybeleid | P41 Industriële Intelligentie',
+          description: 'Onze toewijding aan het beschermen van uw privacy en het veilig beheren van uw gegevens.'
         }
       }
     }

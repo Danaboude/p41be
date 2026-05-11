@@ -23,22 +23,33 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const user = await prisma.user.findUnique({
+    let user = await prisma.user.findUnique({
       where: { email },
     });
 
-    if (!user) {
-      return res.status(401).json({ message: 'Invalid credentials' });
-    }
+    let isValid = false;
+    let userId = '';
 
-    const isValid = await bcrypt.compare(password, user.passwordHash);
+    if (user) {
+      isValid = await bcrypt.compare(password, user.passwordHash);
+      userId = user.id;
+    } else {
+      // Fallback to .env credentials
+      const adminEmail = process.env['ADMIN_EMAIL'];
+      const adminPassword = process.env['ADMIN_PASSWORD'];
+      
+      if (adminEmail && adminPassword && email === adminEmail && password === adminPassword) {
+        isValid = true;
+        userId = 'admin-env';
+      }
+    }
 
     if (!isValid) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 
     const token = jwt.sign(
-      { userId: user.id, email: user.email },
+      { userId, email },
       JWT_SECRET,
       { expiresIn: '7d' }
     );
@@ -46,8 +57,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(200).json({
       token,
       user: {
-        id: user.id,
-        email: user.email,
+        id: userId,
+        email: email,
       },
     });
   } catch (error: any) {

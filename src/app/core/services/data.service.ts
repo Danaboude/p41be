@@ -39,6 +39,10 @@ export class DataService {
     return this.http.get<any[]>('/api/blog');
   }
 
+  getBlogPost(slug: string): Observable<any> {
+    return this.http.get<any>(`/api/blog?slug=${slug}`);
+  }
+
   createBlogPost(post: any): Observable<any> {
     return this.http.post<any>('/api/blog', post, { headers: this.getHeaders() });
   }
