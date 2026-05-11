@@ -12,7 +12,7 @@ async function main() {
   // Create Admin User
   const adminEmail = process.env['ADMIN_EMAIL'] || 'ives@p41.be';
   const adminPass = process.env['ADMIN_PASSWORD'] || 'ives-abdulkareem';
-  
+
   const passwordHash = await bcrypt.hash(adminPass, 10);
   await prisma.user.create({
     data: {
