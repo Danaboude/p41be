@@ -13,21 +13,21 @@
       <div class="max-w-3xl animate-slide-up">
         <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-8">
           <span class="material-symbols-outlined text-primary text-sm">architecture</span>
-          <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">Consultancy & Engineering</span>
+          <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">{{ t().consultancy_page.tag }}</span>
         </div>
         
         <h1 class="text-6xl md:text-8xl font-black text-zinc-900 leading-[0.9] tracking-tighter mb-10">
-          Industrial <span class="text-primary">Architecture</span><br/>
-          For the Future.
+          {{ t().consultancy_page.title1 }} <span class="text-primary">{{ t().consultancy_page.title2 }}</span><br/>
+          {{ t().consultancy_page.title3 }}
         </h1>
         
         <p class="text-xl md:text-2xl text-zinc-500 max-w-xl mb-12 leading-relaxed font-label">
-          We don't just solve problems; we architect scalable systems that turn industrial complexity into operational clarity.
+          {{ t().consultancy_page.desc }}
         </p>
 
         <div class="flex flex-wrap gap-4">
           <button class="premium-gradient-btn !px-10 !py-5 !text-lg shadow-2xl shadow-primary/20">
-            Book an Efficiency Audit
+            {{ t().consultancy_page.cta1 }}
           </button>
           <div class="flex items-center gap-4 px-6 py-4 rounded-full border border-zinc-100 bg-zinc-50/50">
             <div class="flex -space-x-3">
@@ -35,7 +35,7 @@
               <div class="w-10 h-10 rounded-full border-2 border-white bg-zinc-300"></div>
               <div class="w-10 h-10 rounded-full border-2 border-white bg-zinc-400"></div>
             </div>
-            <span class="text-sm font-label font-bold text-zinc-600">Joined by 150+ facilities</span>
+            <span class="text-sm font-label font-bold text-zinc-600">{{ t().consultancy_page.joined }}</span>
           </div>
         </div>
       </div>
@@ -48,22 +48,22 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         <div class="space-y-8">
           <h2 class="text-4xl md:text-5xl font-black text-zinc-900 leading-tight">
-            Bridging the gap between <br/>
-            <span class="text-primary">Human Intuition & Digital Speed.</span>
+            {{ t().consultancy_page.gap_title1 }} <br/>
+            <span class="text-primary">{{ t().consultancy_page.gap_title2 }}</span>
           </h2>
           <p class="text-lg text-zinc-600 leading-relaxed">
-            The industrial landscape is changing faster than ever. Companies that lag behind in implementing Industry 4.0 technologies face a significant competitive disadvantage. 
+            {{ t().consultancy_page.gap_desc }}
           </p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6">
             <div class="p-6 bg-white rounded-2xl border border-zinc-100 shadow-sm">
               <span class="material-symbols-outlined text-primary mb-4 text-3xl">query_stats</span>
-              <h4 class="font-black text-lg mb-2">Cycle Time Analysis</h4>
-              <p class="text-sm text-zinc-500">Visualizing flow to identify bottlenecks and hidden costs.</p>
+              <h4 class="font-black text-lg mb-2">{{ t().consultancy_page.cycle_title }}</h4>
+              <p class="text-sm text-zinc-500">{{ t().consultancy_page.cycle_desc }}</p>
             </div>
             <div class="p-6 bg-white rounded-2xl border border-zinc-100 shadow-sm">
               <span class="material-symbols-outlined text-primary mb-4 text-3xl">verified_user</span>
-              <h4 class="font-black text-lg mb-2">Error Quality Analysis</h4>
-              <p class="text-sm text-zinc-500">Implementing systematic safeguards to ensure 100% precision.</p>
+              <h4 class="font-black text-lg mb-2">{{ t().consultancy_page.error_title }}</h4>
+              <p class="text-sm text-zinc-500">{{ t().consultancy_page.error_desc }}</p>
             </div>
           </div>
         </div>
@@ -85,12 +85,12 @@
     </div>
     
     <div class="max-w-4xl mx-auto text-center relative z-10">
-      <h2 class="text-5xl md:text-7xl font-black tracking-tighter mb-8 italic">Ready to architect your future?</h2>
+      <h2 class="text-5xl md:text-7xl font-black tracking-tighter mb-8 italic">{{ t().consultancy_page.final_cta_title }}</h2>
       <p class="text-xl text-zinc-500 mb-12 max-w-2xl mx-auto font-label">
-        Schedule a discovery call with Ives De Saeger and find out how we can optimize your production flow.
+        {{ t().consultancy_page.final_cta_desc }}
       </p>
       <button class="premium-gradient-btn !px-12 !py-6 !text-xl shadow-2xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all">
-        Start Your Efficiency Audit
+        {{ t().consultancy_page.final_cta_button }}
       </button>
     </div>
   </section>

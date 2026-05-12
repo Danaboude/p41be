@@ -11,21 +11,21 @@
     <div class="mb-16 animate-slide-up">
       <div class="inline-flex items-center gap-2 bg-primary/10 px-4 py-1.5 rounded-sm mb-6">
         <span class="material-symbols-outlined text-primary text-sm">verified</span>
-        <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">Our Advantage</span>
+        <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">{{ t().why_choose.tag }}</span>
       </div>
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <h2 class="text-4xl md:text-5xl font-black max-w-xl">
-          Why Choose <span class="text-primary">P41</span>
+          {{ t().why_choose.title }} <span class="text-primary">P41</span>
         </h2>
         <p class="text-on-surface-variant font-label text-lg max-w-md md:text-right leading-relaxed">
-          We combine decades of hands-on expertise with cutting-edge methods to deliver measurable results.
+          {{ t().why_choose.desc }}
         </p>
       </div>
     </div>
 
     <!-- Feature Cards Grid -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-      <div *ngFor="let f of features; let i = index"
+      <div *ngFor="let f of features(); let i = index"
            class="group relative p-8 rounded-2xl border border-outline-variant/10 bg-gradient-to-br hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/8 hover:-translate-y-2 transition-all duration-500 cursor-default overflow-hidden"
            [ngClass]="f.color">
 
@@ -55,16 +55,16 @@
       <div class="animate-slide-up">
         <div class="inline-flex items-center gap-2 bg-primary/10 px-4 py-1.5 rounded-sm mb-6">
           <span class="material-symbols-outlined text-primary text-sm">school</span>
-          <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">Free Course</span>
+          <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">{{ t().why_choose.free_course.tag }}</span>
         </div>
-        <h3 class="text-4xl font-black mb-6">Request a <span class="text-primary">Free Course</span></h3>
+        <h3 class="text-4xl font-black mb-6">{{ t().why_choose.free_course.title }} <span class="text-primary">{{ t().why_choose.free_course.subtitle }}</span></h3>
         <p class="text-on-surface-variant leading-relaxed text-lg mb-8">
-          Take the first step towards industrial excellence. Our experts will reach out to discuss the perfect training program for your team.
+          {{ t().why_choose.free_course.desc }}
         </p>
 
         <!-- Benefits list -->
         <div class="space-y-4">
-          <div *ngFor="let benefit of ['No obligation, 100% free consultation', 'Tailored to your industry & team size', 'Industry 4.0 certified trainers', 'Follow-up support included']"
+          <div *ngFor="let benefit of benefits()"
                class="flex items-center gap-3">
             <div class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
               <span class="material-symbols-outlined text-primary text-sm">check</span>
@@ -82,8 +82,8 @@
           <div class="w-20 h-20 rounded-full bg-primary flex items-center justify-center mb-6 shadow-2xl shadow-primary/30">
             <span class="material-symbols-outlined text-white text-4xl">check_circle</span>
           </div>
-          <h4 class="text-2xl font-black mb-2">You're on the list!</h4>
-          <p class="text-on-surface-variant font-label">We'll be in touch shortly to schedule your free course.</p>
+          <h4 class="text-2xl font-black mb-2">{{ t().why_choose.free_course.success_title }}</h4>
+          <p class="text-on-surface-variant font-label">{{ t().why_choose.free_course.success_desc }}</p>
         </div>
 
         <!-- Form -->
@@ -95,7 +95,7 @@
             <!-- First Name -->
             <div class="space-y-1.5">
               <label class="font-label text-[11px] uppercase tracking-widest text-on-surface-variant font-bold">
-                First Name <span class="text-red-400">*</span>
+                {{ t().why_choose.form.first_name }} <span class="text-red-400">*</span>
               </label>
               <input type="text" [(ngModel)]="form.firstName" name="firstName" required
                      placeholder="Ives"
@@ -104,7 +104,7 @@
             <!-- Last Name -->
             <div class="space-y-1.5">
               <label class="font-label text-[11px] uppercase tracking-widest text-on-surface-variant font-bold">
-                Last Name <span class="text-red-400">*</span>
+                {{ t().why_choose.form.last_name }} <span class="text-red-400">*</span>
               </label>
               <input type="text" [(ngModel)]="form.lastName" name="lastName" required
                      placeholder="De Saeger"
@@ -115,7 +115,7 @@
           <!-- Email -->
           <div class="space-y-1.5">
             <label class="font-label text-[11px] uppercase tracking-widest text-on-surface-variant font-bold">
-              Email Address <span class="text-red-400">*</span>
+              {{ t().why_choose.form.email }} <span class="text-red-400">*</span>
             </label>
             <input type="email" [(ngModel)]="form.email" name="email" required
                    placeholder="you@company.com"
@@ -124,7 +124,7 @@
 
           <!-- Phone -->
           <div class="space-y-1.5">
-            <label class="font-label text-[11px] uppercase tracking-widest text-on-surface-variant font-bold">Phone Number</label>
+            <label class="font-label text-[11px] uppercase tracking-widest text-on-surface-variant font-bold">{{ t().why_choose.form.phone }}</label>
             <input type="tel" [(ngModel)]="form.phone" name="phone"
                    placeholder="+32 ..."
                    class="w-full bg-surface-container-low/50 border border-outline-variant/20 rounded-xl px-4 py-3 font-headline text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all placeholder:text-on-surface-variant/30">
@@ -132,7 +132,7 @@
 
           <!-- Address -->
           <div class="space-y-1.5">
-            <label class="font-label text-[11px] uppercase tracking-widest text-on-surface-variant font-bold">My Address</label>
+            <label class="font-label text-[11px] uppercase tracking-widest text-on-surface-variant font-bold">{{ t().why_choose.form.address }}</label>
             <input type="text" [(ngModel)]="form.address" name="address"
                    placeholder="Company / City"
                    class="w-full bg-surface-container-low/50 border border-outline-variant/20 rounded-xl px-4 py-3 font-headline text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all placeholder:text-on-surface-variant/30">
@@ -140,7 +140,7 @@
 
           <!-- Subject -->
           <div class="space-y-1.5">
-            <label class="font-label text-[11px] uppercase tracking-widest text-on-surface-variant font-bold">Subject</label>
+            <label class="font-label text-[11px] uppercase tracking-widest text-on-surface-variant font-bold">{{ t().why_choose.form.subject }}</label>
             <input type="text" [(ngModel)]="form.subject" name="subject"
                    placeholder="Which course interests you?"
                    class="w-full bg-surface-container-low/50 border border-outline-variant/20 rounded-xl px-4 py-3 font-headline text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all placeholder:text-on-surface-variant/30">
@@ -152,7 +152,7 @@
                   class="w-full premium-gradient-btn !py-4 !rounded-xl !text-base shadow-xl shadow-primary/25 flex items-center justify-center gap-3 disabled:opacity-70">
             <span *ngIf="formLoading" class="material-symbols-outlined animate-spin text-sm">progress_activity</span>
             <span *ngIf="!formLoading" class="material-symbols-outlined text-sm">send</span>
-            {{ formLoading ? 'Sending...' : 'Request Free Course' }}
+            {{ formLoading ? t().why_choose.form.sending : t().why_choose.form.submit }}
           </button>
 
         </form>

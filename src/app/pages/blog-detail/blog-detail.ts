@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { SeoService } from '../../core/services/seo.service';
 import { DataService } from '../../core/services/data.service';
+import { TranslationService } from '../../core/services/translation.service';
 
 interface BlogPost {
   id: string;
+  slug?: string;
   title: string;
   excerpt: string;
   date: string;
@@ -27,6 +29,8 @@ export class BlogDetailComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private seoService = inject(SeoService);
   private dataService = inject(DataService);
+  private translationService = inject(TranslationService);
+  t = this.translationService.t;
 
   post: BlogPost | null = null;
   allPosts: BlogPost[] = [];

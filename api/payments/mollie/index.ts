@@ -41,13 +41,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                      html: `
                        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
                          <div style="text-align: center; padding: 20px;">
-                           <img src="https://p41.be/logo.jpg" alt="Logo" style="max-height: 80px;" />
+                           <img src="${baseUrl}/logo-Y.jpg" alt="P41 Academy Logo" style="max-height: 80px;" />
                          </div>
                          <h2 style="color: #D4A843; text-align: center;">Welcome to the Course!</h2>
                          <p>Dear ${purchase.name},</p>
                          <p>Thank you for enrolling in <strong>${course?.title}</strong>. Your payment has been successfully processed.</p>
                          <div style="text-align: center; margin: 30px 0;">
-                           <a href="${process.env['VERCEL_URL'] ? `https://${process.env['VERCEL_URL']}` : 'http://localhost:3000'}/academy/access/${purchase.id}" style="background-color: #D4A843; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">
+                           <a href="${baseUrl}/academy/access/${purchase.id}" style="background-color: #D4A843; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">
                              Access My Course Materials
                            </a>
                          </div>
@@ -75,7 +75,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         return res.status(400).json({ error: 'Missing required fields' });
       }
 
-      const course = await prisma.course.findUnique({ where: { id: courseId } });
+      const course = await prisma.course.findUnique({ 
+        where: { id: courseId },
+        include: { materials: true }
+      });
       if (!course) {
         return res.status(404).json({ error: 'Course not found' });
       }
@@ -120,6 +123,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       // Handle Free Course
       if (isActuallyFree) {
          console.log(`[FreeEnrollment] Processing free enrollment for ${email}...`);
+         
+         // Check if course has materials/content to send
+         const hasContent = (course.materials && course.materials.length > 0) || 
+                           (course.modules && Array.isArray(course.modules) && course.modules.length > 0);
+
+         if (!hasContent) {
+           console.log(`[FreeEnrollment] Course ${course.id} has no content. Skipping email and returning no_content.`);
+           return res.status(200).json({ status: 'free_success_no_content' });
+         }
+
          if (resend) {
             try {
                await resend.emails.send({
@@ -129,7 +142,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                   html: `
                     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
                       <div style="text-align: center; padding: 20px;">
-                        <img src="https://p41.be/logo.jpg" alt="Logo" style="max-height: 80px;" />
+                        <img src="${baseUrl}/logo-Y.jpg" alt="P41 Academy Logo" style="max-height: 80px;" />
                       </div>
                       <h2 style="color: #D4A843; text-align: center;">Welcome to the Course!</h2>
                       <p>Dear ${name},</p>
@@ -227,11 +240,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                    subject: `Your Course Access: ${course?.title}`,
                    html: `
                      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
-                       <h2 style="color: #D4A843;">Welcome to the Course!</h2>
+                       <div style="text-align: center; padding: 20px;">
+                         <img src="${baseUrl}/logo-Y.jpg" alt="P41 Academy Logo" style="max-height: 80px;" />
+                       </div>
+                       <h2 style="color: #D4A843; text-align: center;">Welcome to the Course!</h2>
                        <p>Dear ${purchase.name},</p>
                        <p>Thank you for enrolling in <strong>${course?.title}</strong>. Your payment has been successfully processed.</p>
-                       <div style="margin: 30px 0;">
-                         <a href="${process.env['VERCEL_URL'] ? `https://${process.env['VERCEL_URL']}` : 'http://localhost:3000'}/academy/access/${purchase.id}" style="background-color: #D4A843; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">
+                       <div style="text-align: center; margin: 30px 0;">
+                         <a href="${baseUrl}/academy/access/${purchase.id}" style="background-color: #D4A843; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">
                            Access My Course Materials
                          </a>
                        </div>

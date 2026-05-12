@@ -13,7 +13,7 @@ import { TranslationService } from '../../../core/services/translation.service';
   styleUrls: ['./header.css']
 })
 export class HeaderComponent {
-  private translationService = inject(TranslationService);
+  public translationService = inject(TranslationService);
   private router = inject(Router);
   t = this.translationService.t;
   currentLang = this.translationService.lang;

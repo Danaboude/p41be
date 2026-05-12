@@ -19,6 +19,7 @@ export class HomeComponent implements OnDestroy {
   private router = inject(Router);
 
   t = this.translationService.t;
+  lang = this.translationService.lang;
   activeVideo = signal<string | null>(null);
 
   /** Controls CSS animation-play-state on the carousel track */

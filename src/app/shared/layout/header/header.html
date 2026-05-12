@@ -50,10 +50,16 @@
 
   <div class="flex items-center gap-6">
     <div
-      class="flex items-center gap-4 bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/10">
-      <button (click)="switchLang()"
-        [class]="'text-xs font-label font-bold text-on-surface-variant hover:text-primary transition-all uppercase tracking-widest ' + (isBlog() ? 'hover:!text-[#E53935]' : '')">
-        {{ currentLang() }}
+      class="flex items-center gap-1 bg-zinc-100/50 p-1 rounded-xl border border-zinc-200/50 backdrop-blur-md">
+      <button (click)="translationService.setLang('en')"
+        [class]="'px-3 py-1.5 rounded-lg text-[10px] font-black transition-all duration-300 ' + 
+        (currentLang() === 'en' ? 'bg-white text-primary shadow-sm' : 'text-zinc-400 hover:text-zinc-600')">
+        EN
+      </button>
+      <button (click)="translationService.setLang('nl')"
+        [class]="'px-3 py-1.5 rounded-lg text-[10px] font-black transition-all duration-300 ' + 
+        (currentLang() === 'nl' ? 'bg-white text-primary shadow-sm' : 'text-zinc-400 hover:text-zinc-600')">
+        NL
       </button>
     </div>
 

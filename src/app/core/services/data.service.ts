@@ -17,6 +17,10 @@ export class DataService {
     };
   }
 
+  get token() {
+    return this.authService.token();
+  }
+
   // Academy Courses
   getCourses(): Observable<any[]> {
     return this.http.get<any[]>('/api/academy');
@@ -64,5 +68,10 @@ export class DataService {
         'Content-Type': file.type
       }
     });
+  }
+
+  // Lead Submission
+  submitLead(leadData: any): Observable<any> {
+    return this.http.post<any>('/api/emails/lead', leadData);
   }
 }

@@ -15,10 +15,10 @@
     <div class="mb-16 animate-fade-in">
       <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-6">
         <span class="material-symbols-outlined text-primary text-sm">hub</span>
-        <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">About P41</span>
+        <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">{{ t().about_p41.tag }}</span>
       </div>
       <h2 class="text-4xl md:text-5xl font-black max-w-3xl leading-tight">
-        Start implementing the technologies <span class="text-primary">that are out there</span> in your company
+        {{ t().about_p41.title1 }} <span class="text-primary">{{ t().about_p41.title2 }}</span> {{ t().about_p41.title3 }}
       </h2>
     </div>
 
@@ -27,30 +27,22 @@
 
       <!-- Left: Article Text -->
       <div class="space-y-6 animate-slide-up">
-        <p class="text-on-surface-variant leading-relaxed text-lg">
-          If your company is not taking advantage of the available technologies, then it's time to change that now. It's a well-known fact that a lot of (industrial) businesses are lagging behind in the application of the newest technologies, which results in a <strong class="text-on-surface font-bold">competitive disadvantage.</strong>
-        </p>
-        <p class="text-on-surface-variant leading-relaxed">
-          Both incremental and fundamental improvements can be made through the application of new technologies. The collective name of these technologies? <strong class="text-primary font-bold text-lg">Industry 4.0.</strong>
-        </p>
-        <p class="text-on-surface-variant leading-relaxed">
-          It is my expertise to consult companies in the implementation of the technologies that Industry 4.0 has to offer. Using time study, error quality analysis and throughput to visualise flow, direct results can be obtained.
-        </p>
-        <p class="text-on-surface-variant leading-relaxed">
-          Many companies require to set the basics right first for cycle time, flow and quality. Once we know where the money is going, smart investments can be made. So, if you're the CXO of a company facing problems with the implementation of new technologies — <strong class="text-on-surface font-bold">let's chat.</strong>
-        </p>
-
+        <p class="text-on-surface-variant leading-relaxed text-lg" [innerHTML]="t().about_p41.p1"></p>
+        <p class="text-on-surface-variant leading-relaxed" [innerHTML]="t().about_p41.p2"></p>
+        <p class="text-on-surface-variant leading-relaxed">{{ t().about_p41.p3 }}</p>
+        <p class="text-on-surface-variant leading-relaxed" [innerHTML]="t().about_p41.p4"></p>
+ 
         <!-- CTA Buttons -->
         <div class="flex flex-wrap gap-4 pt-4">
           <button class="premium-gradient-btn !px-8 !py-4 shadow-2xl shadow-primary/20">
             <span class="flex items-center gap-2">
               <span class="material-symbols-outlined text-sm">calendar_month</span>
-              Let's Chat
+              {{ t().about_p41.cta_chat }}
             </span>
           </button>
           <button class="flex items-center gap-2 border border-outline-variant px-8 py-4 rounded-full font-label font-bold text-on-surface-variant hover:border-primary hover:text-primary transition-all duration-300">
             <span class="material-symbols-outlined text-sm">qr_code_scanner</span>
-            i4.0 Scan
+            {{ t().about_p41.cta_scan }}
           </button>
         </div>
       </div>
@@ -78,9 +70,9 @@
 
             <!-- Caption -->
             <div class="absolute bottom-0 left-0 right-0 p-6">
-              <p class="text-white font-label font-bold text-base drop-shadow-lg">Watch: Industry 4.0 Explained</p>
+              <p class="text-white font-label font-bold text-base drop-shadow-lg">{{ t().about_p41.video_title }}</p>
               <span class="text-white/60 text-xs font-label flex items-center gap-1">
-                <span class="material-symbols-outlined text-[14px]">play_circle</span> Click to play
+                <span class="material-symbols-outlined text-[14px]">play_circle</span> {{ t().about_p41.video_cta }}
               </span>
             </div>
           </ng-container>
@@ -98,7 +90,7 @@
         <!-- Badge -->
         <div class="absolute -bottom-4 -right-4 bg-primary text-white px-5 py-3 rounded-xl shadow-xl font-label font-bold text-sm flex items-center gap-2">
           <span class="material-symbols-outlined text-sm">trending_up</span>
-          10x ROI Guaranteed
+          {{ t().about_p41.roi_badge }}
         </div>
       </div>
 
@@ -106,7 +98,7 @@
 
     <!-- Stats Row -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-      <div *ngFor="let stat of stats"
+      <div *ngFor="let stat of stats()"
            class="bg-zinc-50 border border-zinc-100 rounded-2xl p-8 text-center hover:bg-white hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 group">
         <p class="text-4xl md:text-5xl font-black text-primary mb-2 group-hover:scale-110 transition-transform duration-500">{{ stat.value }}</p>
         <p class="text-on-surface-variant font-label text-xs uppercase tracking-widest">{{ stat.label }}</p>
@@ -115,9 +107,9 @@
 
     <!-- Technologies Grid -->
     <div class="animate-fade-in">
-      <p class="text-on-surface-variant/60 font-label text-[10px] uppercase tracking-widest mb-10 font-bold">Technologies we implement</p>
+      <p class="text-on-surface-variant/60 font-label text-[10px] uppercase tracking-widest mb-10 font-bold">{{ t().about_p41.tech_tag }}</p>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div *ngFor="let tech of technologies"
+        <div *ngFor="let tech of technologies()"
              class="flex items-center gap-4 bg-zinc-50 border border-zinc-100 rounded-2xl p-5 hover:border-primary/40 hover:bg-white hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group">
           <div class="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center shrink-0 group-hover:bg-primary transition-all duration-500">
             <span class="material-symbols-outlined text-primary group-hover:text-white text-2xl transition-colors">{{ tech.icon }}</span>
@@ -130,12 +122,12 @@
     <!-- Academy CTA Strip -->
     <div class="mt-20 p-10 rounded-3xl border border-primary/10 bg-primary/5 flex flex-col md:flex-row items-center justify-between gap-8">
       <div>
-        <p class="text-primary font-label text-[10px] uppercase tracking-widest mb-2 font-bold">Still curious?</p>
-        <p class="text-2xl font-black text-on-surface">Check out the Academy sessions for free.</p>
+        <p class="text-primary font-label text-[10px] uppercase tracking-widest mb-2 font-bold">{{ t().about_p41.academy_tag }}</p>
+        <p class="text-2xl font-black text-on-surface">{{ t().about_p41.academy_title }}</p>
       </div>
       <button class="shrink-0 premium-gradient-btn !px-12 !py-5 shadow-2xl shadow-primary/30 flex items-center gap-3 hover:scale-105 active:scale-95 transition-all">
         <span class="material-symbols-outlined text-base">school</span>
-        Free Academy Sessions
+        {{ t().about_p41.academy_button }}
       </button>
     </div>
 

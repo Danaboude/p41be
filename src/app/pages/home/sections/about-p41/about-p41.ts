@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { inject, signal } from '@angular/core';
+import { inject, signal, computed } from '@angular/core';
+import { TranslationService } from '../../../../core/services/translation.service';
 
 @Component({
   selector: 'app-about-p41',
@@ -12,6 +13,8 @@ import { inject, signal } from '@angular/core';
 })
 export class AboutP41Component {
   private sanitizer = inject(DomSanitizer);
+  private translationService = inject(TranslationService);
+  t = this.translationService.t;
 
   videoPlaying = signal(false);
 
@@ -24,17 +27,27 @@ export class AboutP41Component {
     );
   }
 
-  stats = [
-    { value: '10x',  label: 'Typical Client ROI' },
-    { value: '30%',  label: 'Efficiency Improvement' },
-    { value: '<1yr', label: 'Return on Investment' },
-    { value: '25+',  label: 'Years of Expertise' }
-  ];
+  stats = computed(() => {
+    const s = this.t().about_p41.stats;
+    return [
+      { value: '25+', label: s.years },
+      { value: '150+', label: s.facilities },
+      { value: '3', label: s.continents },
+      { value: '10x', label: s.roi }
+    ];
+  });
 
-  technologies = [
-    { icon: 'psychology',          label: 'Artificial Intelligence' },
-    { icon: 'sensors',             label: 'Internet of Things' },
-    { icon: 'precision_manufacturing', label: 'Cobots & Robotics' },
-    { icon: 'account_tree',        label: 'Robotic Process Automation' }
-  ];
+  technologies = computed(() => {
+    const tech = this.t().about_p41.technologies;
+    return [
+      { icon: 'precision_manufacturing', label: tech.lean },
+      { icon: 'account_tree', label: tech.flow },
+      { icon: 'factory', label: tech.smart },
+      { icon: 'sensors', label: tech.iot },
+      { icon: 'verified_user', label: tech.quality },
+      { icon: 'local_shipping', label: tech.logistics },
+      { icon: 'school', label: tech.training },
+      { icon: 'psychology', label: tech.ai }
+    ];
+  });
 }

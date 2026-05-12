@@ -170,6 +170,10 @@ export class CourseDetailComponent implements OnInit {
              this.isCheckingOut.set(false);
              this.showCheckout.set(false);
              this.notificationService.success('Enrollment successful! Check your email for course access.', 10000);
+          } else if (res.status === 'free_success_no_content') {
+             this.isCheckingOut.set(false);
+             this.showCheckout.set(false);
+             this.notificationService.show('Thank you for your interest! This course currently has no downloadable materials available yet.', 'info');
           } else {
              this.isCheckingOut.set(false);
              alert('Enrollment failed');

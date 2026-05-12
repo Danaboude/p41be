@@ -10,11 +10,11 @@
       <div class="animate-slide-up">
         <div class="inline-flex items-center gap-2 bg-primary/10 px-4 py-1.5 rounded-sm mb-8">
           <span class="material-symbols-outlined text-primary text-sm">info</span>
-          <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">About P41</span>
+          <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">{{ t().about.tag }}</span>
         </div>
         
         <h1 class="text-6xl md:text-7xl font-black leading-[0.9] mb-8">
-          Architecting <span class="text-primary">Industrial Excellence</span>
+          {{ t().about.title1 }} <span class="text-primary">{{ t().about.title2 }}</span>
         </h1>
         
         <p class="text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
@@ -54,7 +54,7 @@
               {{ t().vision.desc }}
             </p>
             <p class="text-lg text-zinc-500 leading-relaxed font-label border-l-2 border-primary/20 pl-8">
-              At P41, we believe that the future of industry lies in the perfect synchronization of human intuition and digital speed. Our mission is to provide the architectural framework that makes this possible for every facility we touch.
+              {{ t().about.vision_desc2 }}
             </p>
           </div>
         </div>
@@ -74,14 +74,14 @@
 
     <div class="max-w-4xl mx-auto text-center relative z-10 animate-slide-up">
       <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-10">
-        <span class="text-primary font-label text-[10px] font-black tracking-widest uppercase">Take the Next Step</span>
+        <span class="text-primary font-label text-[10px] font-black tracking-widest uppercase">{{ t().about.cta_tag }}</span>
       </div>
-      <h2 class="text-5xl md:text-7xl font-black tracking-tighter mb-10 text-zinc-900">Let's Build the Future</h2>
+      <h2 class="text-5xl md:text-7xl font-black tracking-tighter mb-10 text-zinc-900">{{ t().about.cta_title }}</h2>
       <p class="text-xl text-zinc-500 mb-12 font-label max-w-2xl mx-auto">
-        Join the ranks of high-performance industrial leaders. Our consultants are ready to audit your operations and architect your evolution.
+        {{ t().about.cta_desc }}
       </p>
       <button (click)="navigateToConsultancy()" class="premium-gradient-btn !px-12 !py-6 !text-xl shadow-2xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all">
-        Contact Our Experts
+        {{ t().about.cta_button }}
       </button>
     </div>
   </section>

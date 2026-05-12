@@ -14,21 +14,21 @@
       <div class="animate-slide-up">
         <div class="inline-flex items-center gap-2 bg-primary/10 px-4 py-1.5 rounded-sm mb-6">
           <span class="material-symbols-outlined text-primary text-sm">menu_book</span>
-          <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">Publications</span>
+          <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">{{ t().home.books.tag
+            }}</span>
         </div>
         <h2 class="text-4xl md:text-5xl font-black mb-6 leading-tight">
-          Read my books &amp; start <span class="text-primary">innovating</span>
+          {{ t().home.books.title1 }} <span class="text-primary">{{ t().home.books.title2 }}</span>
         </h2>
         <p class="text-on-surface-variant text-lg leading-relaxed mb-10 max-w-lg">
-          Two landmark books on cross-sector innovation and leadership — translated into actionable frameworks your
-          company can implement immediately.
+          {{ t().home.books.desc }}
         </p>
 
         <!-- CTA button -->
         <a [href]="booksUrl" target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center gap-3 premium-gradient-btn !px-10 !py-5 !text-base shadow-2xl shadow-primary/30 hover:-translate-y-1 transition-transform duration-300">
           <span class="material-symbols-outlined text-lg">shopping_bag</span>
-          Order Your Copy
+          {{ t().home.books.order_cta }}
           <span class="material-symbols-outlined text-sm opacity-70">open_in_new</span>
         </a>
       </div>
@@ -43,14 +43,13 @@
         <!-- Photo -->
         <div
           class="relative z-10 rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border border-outline-variant/10 max-w-xs lg:max-w-sm w-full">
-          <img src="ives-microfoon-334x500-1.jpg" alt="Ives De Saeger — Author & Industrial Engineer"
+          <img src="ives-microfoon-334x500-1.jpg" alt="Ives De Saeger Author & Industrial Engineer"
             class="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700">
 
           <!-- Name badge overlay -->
           <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
             <p class="text-white font-label font-bold">Ives De Saeger</p>
-            <p class="text-white/60 text-xs font-label">Author · CEO at Aeriez, AI product recognition and improving
-              flow between departments · Speaker</p>
+            <p class="text-white/60 text-xs font-label">{{ t().home.books.author_role }}</p>
           </div>
         </div>
 

@@ -26,6 +26,7 @@ export class AdminBlogComponent implements OnInit {
   // Form State
   postForm: any = {
     title: '',
+    slug: '',
     excerpt: '',
     content: [],
     image: '',
@@ -69,7 +70,7 @@ export class AdminBlogComponent implements OnInit {
 
   openAddModal() {
     this.editingPost = null;
-    this.postForm = { title: '', excerpt: '', content: '', image: '', date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }), readTime: '5 min read', tags: [] };
+    this.postForm = { title: '', slug: '', excerpt: '', content: '', image: '', date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }), readTime: '5 min read', tags: [] };
     this.isModalOpen = true;
   }
 
@@ -98,12 +99,23 @@ export class AdminBlogComponent implements OnInit {
   }
 
   savePost() {
+    const token = this.dataService.token;
+    console.log('[Admin Blog] Saving post. Token present:', !!token);
+    if (!token) {
+      alert('Your session has expired. Please log in again.');
+      return;
+    }
     this.isSaving.set(true);
     
     // Prepare data (convert content string to array if needed)
     const postData = { ...this.postForm };
     if (typeof postData.content === 'string') {
       postData.content = postData.content.split('\n').filter((p: string) => p.trim() !== '');
+    }
+
+    // Auto-generate slug if missing
+    if (!postData.slug && postData.title) {
+      postData.slug = postData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
     }
 
     if (this.editingPost) {
@@ -128,6 +140,11 @@ export class AdminBlogComponent implements OnInit {
   }
 
   deletePost(id: string) {
+    const token = this.dataService.token;
+    if (!token) {
+      alert('Your session has expired. Please log in again.');
+      return;
+    }
     if (confirm('Are you sure you want to delete this article?')) {
       this.isDeleting.set(id);
       this.dataService.deleteBlogPost(id).subscribe({

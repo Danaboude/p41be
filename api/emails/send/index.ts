@@ -35,6 +35,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
          return res.status(500).json({ error: 'Resend API key missing' });
        }
 
+       const baseUrl = process.env['VERCEL_URL'] ? `https://${process.env['VERCEL_URL']}` : 'https://p41.be';
+
        const response = await resend.emails.send({
            from: `${process.env['FROM_NAME'] || 'P41 Academy'} <${process.env['FROM_EMAIL'] || 'ives@p41.be'}>`,
            to,
@@ -42,7 +44,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
            html: `
              <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
                <div style="text-align: center; padding: 20px;">
-                 <img src="https://p41.be/logo.jpg" alt="P41" style="max-height: 80px;" />
+                 <img src="${baseUrl}/logo.jpg" alt="P41" style="max-height: 80px;" />
                </div>
                <div style="padding: 20px;">
                  ${htmlBody}

@@ -3,14 +3,23 @@ import prisma from '../lib/prisma';
 import jwt from 'jsonwebtoken';
 
 const JWT_SECRET = process.env['JWT_SECRET'] || 'default-secret';
+console.log('[API Blog] JWT Secret Length:', JWT_SECRET.length);
 
 // Helper to verify token
 const verifyToken = (req: VercelRequest) => {
-  const token = req.headers.authorization?.split(' ')[1];
-  if (!token) return null;
+  const authHeader = req.headers.authorization;
+  console.log('[API Blog] Auth Header:', authHeader);
+  const token = authHeader?.split(' ')[1];
+  if (!token) {
+    console.log('[API Blog] No token found');
+    return null;
+  }
   try {
-    return jwt.verify(token, JWT_SECRET);
-  } catch (e) {
+    const decoded = jwt.verify(token, JWT_SECRET);
+    console.log('[API Blog] Token verified:', decoded);
+    return decoded;
+  } catch (e: any) {
+    console.log('[API Blog] Token verification failed:', e.message);
     return null;
   }
 };
@@ -23,22 +32,28 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const { id, slug } = req.query;
     try {
       if (id || slug) {
-        const post = await prisma.blogPost.findUnique({ 
-          where: id ? { id: String(id) } : { id: String(slug) } // Using slug as id in this simplified schema for now or adding slug field
+        const identifier = String(id || slug);
+        const post = await prisma.blogPost.findFirst({ 
+          where: {
+            OR: [
+              { id: identifier },
+              { slug: identifier }
+            ]
+          }
         });
         return res.status(200).json(post);
       }
       const posts = await prisma.blogPost.findMany({ orderBy: { createdAt: 'desc' } });
       return res.status(200).json(posts);
-    } catch (e) {
-      return res.status(500).json({ message: 'Error fetching blog posts' });
+    } catch (e: any) {
+      return res.status(500).json({ message: 'Error fetching blog posts', error: e.message });
     }
   }
 
   // Protected and Restricted Methods
   const decoded = verifyToken(req);
   if (!decoded) {
-    return res.status(401).json({ message: 'Unauthorized' });
+    return res.status(401).json({ message: 'Unauthorized', reason: 'Invalid or missing token' });
   }
 
   try {

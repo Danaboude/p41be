@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslationService } from '../../../../core/services/translation.service';
 
 interface Book {
   title: string;
@@ -21,7 +22,9 @@ interface Book {
   styleUrls: ['./books.css']
 })
 export class BooksComponent {
-  readonly booksUrl = 'https://factoryofthecustomer.eu/books';
+  private translationService = inject(TranslationService);
+  t = this.translationService.t;
+  booksUrl = 'https://www.aeriez.com/books';
 
 
 }
