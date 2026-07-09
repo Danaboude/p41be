@@ -24,7 +24,7 @@ interface Book {
 export class BooksComponent {
   private translationService = inject(TranslationService);
   t = this.translationService.t;
-  booksUrl = 'https://www.aeriez.com/books';
+  booksUrl = 'https://factoryofthecustomer.eu/books';
 
 
 }
