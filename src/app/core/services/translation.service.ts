@@ -509,17 +509,16 @@ export class TranslationService {
         features_title2: 'different.',
         features: [
           { icon: 'drag_indicator', title: 'Drag-and-Drop, Not Form-Filling', desc: 'Moving someone off a job, or covering for someone at short notice, is a drag from one job card to another. The system re-validates in real time and flags conflicts immediately.' },
-          { icon: 'rule', title: 'A Rule Engine That Enforces Only What You Want', desc: 'Five independent checks competence, conflict, presence, hours, vehicle capacity each opt-in per company, configurable in Settings, blocking or just flagging a violation.' },
+          { icon: 'rule', title: 'A Rule Engine That Enforces Only What You Want', desc: 'Four independent checks competence, presence, hours, vehicle capacity each opt-in per company, configurable in Settings, blocking or just flagging a violation.' },
           { icon: 'diversity_3', title: 'Built Around Real Crew Structures', desc: 'Real Coaches with a declared team and van, Empty/Leave Coach placeholders for slots that change day to day, and interns or future-dated staff scheduled correctly from day one.' },
           { icon: 'today', title: 'Two Honestly Different Views of "Who\'s Working"', desc: "Today's board turns green the moment someone is present and on a job. Future views show who's scheduled, in a distinct shading a planning view, not a pretend attendance record." },
           { icon: 'event_repeat', title: 'Flexible, Intelligent Job Repetition', desc: "Build a weekly, biweekly, or seasonal cadence in one step skipping weekends and holidays automatically, and telling you exactly which dates couldn't be created and why." },
           { icon: 'receipt_long', title: 'Costing Built From What Actually Happened', desc: 'A live breakdown personnel, machines, materials, flat costs, vehicle costs, overhead, margin up to a selling price. Invoices freeze a snapshot at invoice time.' }
         ],
         checks_tag: 'The Rule Engine',
-        checks_title: 'Five checks, each one optional.',
+        checks_title: 'Four checks, each one optional.',
         checks: [
           { name: 'Competence', desc: 'Is this person actually trained/qualified for this task, at what skill level?' },
-          { name: 'Conflict', desc: 'Does this person have a known personality/working conflict with someone already on the crew?' },
           { name: 'Presence', desc: 'Are they marked present today, or for future dates do they even work that day?' },
           { name: 'Hours', desc: 'Would this assignment push them past their daily hour cap, or overlap another job?' },
           { name: 'Vehicle Capacity', desc: 'Is there still a free seat in the van or bus assigned to this job?' }

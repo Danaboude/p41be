@@ -1,4 +1,4 @@
-import { Component, inject, computed } from '@angular/core';
+import { Component, inject, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, NavigationEnd } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -17,6 +17,12 @@ export class HeaderComponent {
   private router = inject(Router);
   t = this.translationService.t;
   currentLang = this.translationService.lang;
+
+  isMobileMenuOpen = signal(false);
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen.update(v => !v);
+  }
 
   /** Track current URL to detect academy pages */
   private currentUrl = toSignal(
@@ -58,6 +64,7 @@ export class HeaderComponent {
 
   private scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    this.isMobileMenuOpen.set(false);
   }
 
   navigateToConsultancy() {
