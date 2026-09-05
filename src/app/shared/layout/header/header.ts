@@ -42,6 +42,15 @@ export class HeaderComponent {
   /** True when on /contact route */
   isContact = computed(() => this.currentUrl().startsWith('/contact'));
 
+  /** True when on /time-study route */
+  isTimeStudy = computed(() => this.currentUrl().startsWith('/time-study'));
+
+  /** True when on /teamplanner route */
+  isTeamPlanner = computed(() => this.currentUrl().startsWith('/teamplanner'));
+
+  /** True when on any product page, used to highlight the "Products" nav item */
+  isProducts = computed(() => this.isTimeStudy() || this.isTeamPlanner());
+
   switchLang() {
     const nextLang = this.currentLang() === 'en' ? 'nl' : 'en';
     this.translationService.setLang(nextLang);
@@ -69,6 +78,14 @@ export class HeaderComponent {
 
   navigateToContact() {
     this.router.navigate(['/contact']).then(() => this.scrollToTop());
+  }
+
+  navigateToTimeStudy() {
+    this.router.navigate(['/time-study']).then(() => this.scrollToTop());
+  }
+
+  navigateToTeamPlanner() {
+    this.router.navigate(['/teamplanner']).then(() => this.scrollToTop());
   }
 
   navigateHome() {

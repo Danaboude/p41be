@@ -12,6 +12,39 @@ import { TranslationService } from './core/services/translation.service';
 import { effect } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+// Page-specific structured data (schema.org). Keyed by route `seoKey`.
+// Kept language-neutral and centralized so it survives the NavigationEnd re-sync in updateSeo().
+const JSON_LD_BY_SEO_KEY: Record<string, any> = {
+  timeStudy: {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Time Study',
+    applicationCategory: 'BusinessApplication',
+    applicationSubCategory: 'Industrial Engineering / Lean Manufacturing Software',
+    operatingSystem: 'Web',
+    description: 'Line-balancing, time-study, and production-costing workbench that turns a station-by-station work breakdown into takt time, balance loss %, and unit cost.',
+    url: 'https://www.p41.be/time-study',
+    image: 'https://www.p41.be/banner.jpg',
+    brand: { '@type': 'Brand', name: 'P41 Industrial Intelligence' },
+    offers: { '@type': 'Offer', priceCurrency: 'EUR', availability: 'https://schema.org/InStock', url: 'https://www.p41.be/time-study' },
+    provider: { '@type': 'Organization', name: 'P41 Industrial Intelligence', url: 'https://www.p41.be' }
+  },
+  teamPlanner: {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'TeamPlanner',
+    applicationCategory: 'BusinessApplication',
+    applicationSubCategory: 'Field Service & Workforce Scheduling Software',
+    operatingSystem: 'Web',
+    description: 'Workforce scheduling for field crews plan jobs, staff them with the right people and vehicles, track attendance, and invoice real cost, all from one board.',
+    url: 'https://www.p41.be/teamplanner',
+    image: 'https://www.p41.be/banner.jpg',
+    brand: { '@type': 'Brand', name: 'P41 Industrial Intelligence' },
+    offers: { '@type': 'Offer', priceCurrency: 'EUR', availability: 'https://schema.org/InStock', url: 'https://www.p41.be/teamplanner' },
+    provider: { '@type': 'Organization', name: 'P41 Industrial Intelligence', url: 'https://www.p41.be' }
+  }
+};
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -62,7 +95,8 @@ export class App {
     if (seoKey && t.seo && t.seo[seoKey]) {
       this.seoService.updateSeoTags({
         title: t.seo[seoKey].title,
-        description: t.seo[seoKey].description
+        description: t.seo[seoKey].description,
+        jsonLd: JSON_LD_BY_SEO_KEY[seoKey]
       });
     }
   }

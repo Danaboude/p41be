@@ -62,7 +62,7 @@
   }
 
   .glass-nav {
-    /* The sticky/z-index is on :host — here only visual styles */
+    /* The sticky/z-index is on :host here only visual styles */
     background: rgba(255,255,255,0.72);
     backdrop-filter: blur(24px) saturate(180%);
     -webkit-backdrop-filter: blur(24px) saturate(180%);

@@ -28,7 +28,9 @@ export const routes: Routes = [
   { path: 'blog', component: BlogComponent, data: { seoKey: 'blog' } },
   { path: 'blog/:slug', component: BlogDetailComponent, data: { seoKey: 'blog' } },
   { path: 'privacy', loadComponent: () => import('./pages/privacy/privacy').then(m => m.PrivacyComponent), data: { seoKey: 'privacy' } },
-  
+  { path: 'time-study', loadComponent: () => import('./pages/time-study/time-study').then(m => m.TimeStudyComponent), data: { seoKey: 'timeStudy' } },
+  { path: 'teamplanner', loadComponent: () => import('./pages/teamplanner/teamplanner').then(m => m.TeamPlannerComponent), data: { seoKey: 'teamPlanner' } },
+
   // Admin Routes
   { path: 'admin/login', component: AdminLoginComponent },
   { 

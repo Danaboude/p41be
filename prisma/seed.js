@@ -25,7 +25,7 @@ async function main() {
 
   const courses = [
     {
-      title: 'Makigami — From Paper to Digitalization',
+      title: 'Makigami From Paper to Digitalization',
       subtitle: 'Analyzing information flow through processes',
       description: 'Learn the Makigami technique to map administrative processes and identify opportunities for digitalization and simplification.',
       longDescription: [
@@ -145,7 +145,7 @@ async function main() {
       ]
     },
     {
-      title: 'Yamazumi — Reducing Balance Losses',
+      title: 'Yamazumi Reducing Balance Losses',
       subtitle: 'Balancing work for optimal flow',
       description: 'Master the Yamazumi method to balance tasks across workstations and eliminate idle time in your processes.',
       longDescription: [
@@ -209,7 +209,7 @@ async function main() {
       subtitle: 'Applying Systems Thinking to customer service',
       description: 'Discover John Seddon\'s Systems Thinking approach to understand what customers want and eliminate "Failure Demand".',
       longDescription: [
-        'John Seddon\'s approach challenges traditional "command and control" management. This course focuses on "Failure Demand" — demand caused by a failure to do something right for the customer.',
+        'John Seddon\'s approach challenges traditional "command and control" management. This course focuses on "Failure Demand" demand caused by a failure to do something right for the customer.',
         'You will learn how to analyze customer interactions to distinguish between Value Demand (what they actually want) and Failure Demand (complaints, status checks, etc.).',
         'By applying Systems Thinking, you can radically simplify processes, improve service, and reduce costs simultaneously.'
       ],
@@ -600,7 +600,7 @@ async function main() {
       subtitle: 'Real-time results via data and connectivity',
       description: 'Learn to use dashboards, sensors, and real-time data to steer your company results in the right direction.',
       longDescription: [
-        'Stop managing your company with monthly paper reports. This course teaches "Ultra-connectivity" — using real-time data to steer your strategy.',
+        'Stop managing your company with monthly paper reports. This course teaches "Ultra-connectivity" using real-time data to steer your strategy.',
         'You will learn to build KPI systems that are actually linked to customer parameters and use sensors for real-time measurement in the shop floor.',
         'We cover everything from "lagging" vs "leading" indicators to using XR charts for customer results. A pragmatic guide for leaders who want data-driven success.'
       ],

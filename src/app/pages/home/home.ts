@@ -41,7 +41,7 @@ export class HomeComponent implements OnDestroy {
     { id: 'WBnHxlVSr1I', title: 'Future of Industrial Engineering',      thumbnail: 'https://img.youtube.com/vi/WBnHxlVSr1I/hqdefault.jpg' },
     { id: 'igsNEOm6Xcc', title: 'Process Optimization Workshop',         thumbnail: 'https://img.youtube.com/vi/igsNEOm6Xcc/hqdefault.jpg' },
     { id: '7eUloohokjc', title: 'Leadership in Engineering',             thumbnail: 'https://img.youtube.com/vi/7eUloohokjc/hqdefault.jpg' },
-    { id: '2PJzXcsdCtw', title: 'The Goal — Theory of Constraints',      thumbnail: 'https://img.youtube.com/vi/2PJzXcsdCtw/hqdefault.jpg' },
+    { id: '2PJzXcsdCtw', title: 'The Goal Theory of Constraints',      thumbnail: 'https://img.youtube.com/vi/2PJzXcsdCtw/hqdefault.jpg' },
     { id: '4KFfxETqfnU', title: 'Innovation & Structured Thinking',      thumbnail: 'https://img.youtube.com/vi/4KFfxETqfnU/hqdefault.jpg' }
   ];
 
@@ -55,6 +55,14 @@ export class HomeComponent implements OnDestroy {
 
   navigateToAcademy() {
     this.router.navigate(['/academy']).then(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  navigateToTimeStudy() {
+    this.router.navigate(['/time-study']).then(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  navigateToTeamPlanner() {
+    this.router.navigate(['/teamplanner']).then(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
   }
 
   pauseCarousel()  { this.carouselPaused.set(true);  }
