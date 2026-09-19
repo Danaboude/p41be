@@ -47,7 +47,7 @@ export class TranslationService {
       },
       blog_detail: {
         back: 'Back to Home',
-        author_desc: 'Industrial engineer with 25+ years of experience. Author, speaker, and founder of P41 helping companies implement Industry 4.0 technologies.',
+        author_desc: 'Industrial engineer with 31+ years of experience. Author of three books, MTM-UAS & TRIZ Expert, holder of 3 patents. Founder of P41 helping companies implement Industry 4.0 technologies.',
         tags_label: 'Tags:',
         more_title: 'More',
         more_accent: 'Articles',
@@ -69,11 +69,11 @@ export class TranslationService {
         subscribe: 'Subscribe Now'
       },
       hero: {
-        tag: 'Industry 4.0 Leader',
-        title: 'Industrial Intelligence.',
-        subtitle: 'Redefined.',
-        description: 'Optimizing time, eliminating error, and perfecting flow. We bridge the gap between heavy industrial heritage and futuristic digital management.',
-        cta_start: 'Get Started',
+        tag: 'Industrial Efficiency Expert',
+        title: 'Less Errors.',
+        subtitle: 'More Output.',
+        description: 'We analyse how work really happens on your shop floor — through time study and error analysis — and show you exactly where you can gain at least 10% within 3 months.',
+        cta_start: 'Request a Free Audit',
         cta_methods: 'Our Methods'
       },
       home: {
@@ -99,7 +99,7 @@ export class TranslationService {
           about: {
             title1: 'The Visionary',
             title2: 'Behind P41',
-            desc: "Learn about Ives De Saeger's journey and how we integrated 25 years of expertise into the P41 framework.",
+            desc: "Learn about Ives De Saeger's journey and how 31 years of expertise was built into the P41 framework.",
             cta: 'Meet the Founder'
           }
         },
@@ -115,7 +115,7 @@ export class TranslationService {
         products: {
           tag: 'Our Tools',
           title1: 'Software built from',
-          title2: '25 years on the floor.',
+          title2: '31 years on the floor.',
           desc: 'Two purpose-built tools, born out of real consultancy work on real factory floors and job sites not generic SaaS templates.',
           time_study: {
             title: 'Time Study',
@@ -166,9 +166,9 @@ export class TranslationService {
           tag: 'Publications',
           title1: 'Read my books & start',
           title2: 'innovating',
-          desc: 'Two landmark books on cross-sector innovation and leadership translated into actionable frameworks your company can implement immediately.',
+          desc: 'Three landmark books on industrial efficiency, leadership and cross-sector innovation: <em>Grenzeling</em>, <em>De Puberende Leider</em>, and <em>The Customer\'s Truffle</em> — each translated into actionable frameworks your company can implement immediately.',
           order_cta: 'Order Your Copy',
-          author_role: 'Author · CEO at Aeriez, AI product recognition and improving flow between departments · Speaker'
+          author_role: 'Author · MTM-UAS Expert · TRIZ Expert · 3 Patents · Industrial Engineer & Speaker'
         }
       },
       services: {
@@ -218,14 +218,14 @@ export class TranslationService {
         company: 'Company',
         newsletter: 'Newsletter',
         newsletter_desc: 'Receive our monthly \'State of Industry\' report directly in your inbox.',
-        rights: '© 2024 P41 Industrial Intelligence. All rights reserved.'
+        rights: '© 2026 P41 Industrial Intelligence. All rights reserved.'
       },
       vision: {
         title: 'Founder\'s Vision',
         name: 'Ives De Saeger',
-        role: 'Founder & Lead Consultant',
-        quote: 'Industrial Intelligence is not just about machines; it\'s about the symphony of human expertise and digital precision.',
-        desc: 'With decades of experience in the field, Ives has been at the forefront of the Industry 4.0 revolution, helping companies transition from legacy systems to future-ready ecosystems.'
+        role: 'Founder & Lead Expert | P41',
+        quote: 'Industrial Intelligence is not just about machines; it\'s about understanding how work really happens — and then making it measurably better.',
+        desc: 'With 31 years of hands-on experience, Ives is a certified MTM-UAS Expert, TRIZ Expert, and holds 3 patents. Author of three books, he has helped more than 100 companies since 1995 achieve measurable efficiency gains — at least 10% within 3 months, with payback periods under one year.'
       },
       contact: {
         title: 'Let\'s Connect',
@@ -292,22 +292,22 @@ export class TranslationService {
       },
       consultancy_page: {
         tag: 'Consultancy & Engineering',
-        title1: 'Industrial',
-        title2: 'Architecture',
-        title3: 'For the Future.',
-        desc: "We don't just solve problems; we architect scalable systems that turn industrial complexity into operational clarity.",
-        cta1: 'Book an Efficiency Audit',
-        joined: 'Joined by 150+ facilities',
-        gap_title1: 'Bridging the gap between',
-        gap_title2: 'Human Intuition & Digital Speed.',
-        gap_desc: 'The industrial landscape is changing faster than ever. Companies that lag behind in implementing Industry 4.0 technologies face a significant competitive disadvantage.',
-        cycle_title: 'Cycle Time Analysis',
-        cycle_desc: 'Visualizing flow to identify bottlenecks and hidden costs.',
+        title1: 'Less Errors.',
+        title2: 'More Output.',
+        title3: 'Without Big Investments.',
+        desc: 'We analyse how work really happens on your shop floor — through time study and error analysis — and show you exactly where you can gain at least 10% within 3 months.',
+        cta1: 'Request a Free Audit',
+        joined: 'Trusted by 100+ companies since 1995',
+        gap_title1: 'We understand how work',
+        gap_title2: 'Really Happens on Your Floor.',
+        gap_desc: 'Most consultants start with theory. We start with a stopwatch and a clipboard. Time study, error analysis, and throughput measurement give us a precise picture of where your losses are — before we recommend anything.',
+        cycle_title: 'Cycle Time & Time Study',
+        cycle_desc: 'Visualizing real work flow to identify bottlenecks, balance loss, and hidden costs per unit.',
         error_title: 'Error Quality Analysis',
-        error_desc: 'Implementing systematic safeguards to ensure 100% precision.',
-        final_cta_title: 'Ready to architect your future?',
-        final_cta_desc: 'Schedule a discovery call with Ives De Saeger and find out how we can optimize your production flow.',
-        final_cta_button: 'Start Your Efficiency Audit'
+        error_desc: 'Systematic safeguards that identify root causes and reduce recurring defects at the source.',
+        final_cta_title: 'Ready to find your 10%?',
+        final_cta_desc: 'Schedule a discovery call with Ives De Saeger. Bring a real work breakdown and we will show you where the gains are.',
+        final_cta_button: 'Request a Free Efficiency Audit'
       },
       why_choose: {
         tag: 'Our Advantage',
@@ -600,7 +600,7 @@ export class TranslationService {
       },
       blog_detail: {
         back: 'Terug naar Home',
-        author_desc: 'Industrieel ingenieur met 25+ jaar ervaring. Auteur, spreker en oprichter van P41 helpt bedrijven bij het implementeren van Industrie 4.0-technologieën.',
+        author_desc: 'Industrieel ingenieur met 31+ jaar ervaring. Auteur van drie boeken, MTM-UAS & TRIZ Expert, houder van 3 octrooien. Oprichter van P41 die bedrijven helpt bij het implementeren van Industrie 4.0-technologieën.',
         tags_label: 'Tags:',
         more_title: 'Meer',
         more_accent: 'Artikelen',
@@ -622,11 +622,11 @@ export class TranslationService {
         subscribe: 'Nu Inschrijven'
       },
       hero: {
-        tag: 'Leider in Industrie 4.0',
-        title: 'Industriële Intelligentie.',
-        subtitle: 'Hergedefinieerd.',
-        description: 'Optimaliseren van tijd, elimineren van fouten en perfectioneren van flow. Wij overbruggen de kloof tussen zwaar industrieel erfgoed en futuristisch digitaal management.',
-        cta_start: 'Begin nu',
+        tag: 'Industrieel Efficiëntie-expert',
+        title: 'Minder Fouten.',
+        subtitle: 'Meer Output.',
+        description: 'We ontleden hoe het werk vandaag echt gebeurt op uw werkvloer — via tijdstudie en foutanalyse — en tonen exact waar u binnen 3 maanden minstens 10% kan winnen.',
+        cta_start: 'Vraag een Gratis Audit aan',
         cta_methods: 'Onze Methoden'
       },
       home: {
@@ -652,7 +652,7 @@ export class TranslationService {
           about: {
             title1: 'De Visionair',
             title2: 'Achter P41',
-            desc: "Lees meer over de reis van Ives De Saeger en hoe we 25 jaar expertise hebben geïntegreerd in het P41-raamwerk.",
+            desc: "Lees meer over de reis van Ives De Saeger en hoe 31 jaar expertise is verwerkt in het P41-raamwerk.",
             cta: 'Ontmoet de Oprichter'
           }
         },
@@ -668,7 +668,7 @@ export class TranslationService {
         products: {
           tag: 'Onze Tools',
           title1: 'Software gebouwd uit',
-          title2: '25 jaar werkvloerervaring.',
+          title2: '31 jaar werkvloerervaring.',
           desc: 'Twee doelgerichte tools, ontstaan uit echt consultancywerk op echte fabrieksvloeren en werven geen generieke SaaS-sjablonen.',
           time_study: {
             title: 'Time Study',
@@ -719,9 +719,9 @@ export class TranslationService {
           tag: 'Publicaties',
           title1: 'Lees mijn boeken & begin met',
           title2: 'innoveren',
-          desc: 'Twee grensverleggende boeken over sectoroverschrijdende innovatie en leiderschap vertaald naar bruikbare raamwerken die uw bedrijf onmiddellijk kan implementeren.',
+          desc: 'Drie grensverleggende boeken over industriële efficiëntie, leiderschap en sectoroverschrijdende innovatie: <em>Grenzeling</em>, <em>De Puberende Leider</em> en <em>The Customer\'s Truffle</em> — elk vertaald naar bruikbare raamwerken die uw bedrijf onmiddellijk kan implementeren.',
           order_cta: 'Bestel Uw Exemplaar',
-          author_role: 'Auteur · CEO bij Aeriez, AI-productherkenning en verbetering van flow tussen afdelingen · Spreker'
+          author_role: 'Auteur · MTM-UAS Expert · TRIZ Expert · 3 Octrooien · Industrieel Ingenieur & Spreker'
         }
       },
       services: {
@@ -771,14 +771,14 @@ export class TranslationService {
         company: 'Bedrijf',
         newsletter: 'Nieuwsbrief',
         newsletter_desc: 'Ontvang maandelijks ons \'State of Industry\' rapport direct in v uw inbox.',
-        rights: '© 2024 P41 Industriële Intelligentie. Alle rechten voorbehouden.'
+        rights: '© 2026 P41 Industriële Intelligentie. Alle rechten voorbehouden.'
       },
       vision: {
         title: 'Visie van de Oprichter',
         name: 'Ives De Saeger',
-        role: 'Oprichter & Lead Consultant',
-        quote: 'Industriële Intelligentie gaat niet alleen over machines; het gaat over de symfonie van menselijke expertise en digitale precisie.',
-        desc: 'Met decennia aan ervaring in het veld staat Ives in de voorhoede van de Industrie 4.0-revolutie en helpt hij bedrijven de overstap te maken van legacy-systemen naar toekomstbestendige ecosystemen.'
+        role: 'Oprichter & Hoofdexpert | P41',
+        quote: 'Industriële Intelligentie gaat niet alleen over machines; het gaat over begrijpen hoe het werk echt gebeurt — en het daarna meetbaar beter maken.',
+        desc: 'Met 31 jaar praktijkervaring is Ives een gecertificeerd MTM-UAS Expert, TRIZ Expert en houder van 3 octrooien. Auteur van drie boeken en geholpen bij meer dan 100 bedrijven sinds 1995 — met een aantoonbare efficiëntiewinst van minstens 10% binnen 3 maanden.'
       },
       contact: {
         title: 'Laten we contact opnemen',
@@ -845,22 +845,22 @@ export class TranslationService {
       },
       consultancy_page: {
         tag: 'Consultancy & Engineering',
-        title1: 'Industriële',
-        title2: 'Architectuur',
-        title3: 'Voor de Toekomst.',
-        desc: 'Wij lossen niet alleen problemen op; wij ontwerpen schaalbare systemen die industriële complexiteit omzetten in operationele helderheid.',
-        cta1: 'Boek een Efficiëntie-audit',
-        joined: 'Aangesloten bij 150+ faciliteiten',
-        gap_title1: 'De kloof overbruggen tussen',
-        gap_title2: 'Menselijke Intuïtie & Digitale Snelheid.',
-        gap_desc: 'Het industriële landschap verandert sneller dan ooit. Bedrijven die achterblijven bij de implementatie van Industrie 4.0-technologieën hebben een aanzienlijk concurrentienadeel.',
-        cycle_title: 'Cyclustijdanalyse',
-        cycle_desc: 'Flow visualiseren om knelpunten en verborgen kosten te identificeren.',
+        title1: 'Minder Fouten.',
+        title2: 'Meer Output.',
+        title3: 'Zonder Grote Investeringen.',
+        desc: 'We ontleden hoe het werk vandaag echt gebeurt op uw werkvloer — via tijdstudie en foutanalyse — en tonen exact waar u binnen 3 maanden minstens 10% kan winnen.',
+        cta1: 'Vraag een Gratis Audit aan',
+        joined: 'Vertrouwd door 100+ bedrijven sinds 1995',
+        gap_title1: 'Wij begrijpen hoe het werk',
+        gap_title2: 'Echt Gebeurt op Uw Werkvloer.',
+        gap_desc: 'De meeste consultants starten met theorie. Wij starten met een stopwatch en een klembord. Tijdstudie, foutanalyse en doorvoermetingen geven ons een nauwkeurig beeld van waar uw verliezen zitten — voordat we iets aanbevelen.',
+        cycle_title: 'Cyclustijd & Tijdstudie',
+        cycle_desc: 'Echte werkflow visualiseren om knelpunten, balansverliezen en verborgen kosten per eenheid te identificeren.',
         error_title: 'Foutkwaliteitsanalyse',
-        error_desc: 'Systematische waarborgen implementeren om 100% precisie te garanderen.',
-        final_cta_title: 'Klaar om uw toekomst te architecteren?',
-        final_cta_desc: 'Plan een kennismakingsgesprek met Ives De Saeger en ontdek hoe we uw productieflow kunnen optimaliseren.',
-        final_cta_button: 'Start Uw Efficiëntie-audit'
+        error_desc: 'Systematische waarborgen die oorzaken identificeren en terugkerende defecten aan de bron verminderen.',
+        final_cta_title: 'Klaar om uw 10% te vinden?',
+        final_cta_desc: 'Plan een kennismakingsgesprek met Ives De Saeger. Breng een echte werkopsplitsing mee en we tonen u waar de winst zit.',
+        final_cta_button: 'Vraag een Gratis Efficiëntie-audit aan'
       },
       why_choose: {
         tag: 'Ons Voordeel',

@@ -30,10 +30,10 @@ export class AboutP41Component {
   stats = computed(() => {
     const s = this.t().about_p41.stats;
     return [
-      { value: '25+', label: s.years },
-      { value: '150+', label: s.facilities },
+      { value: '31+', label: s.years },
+      { value: '100+', label: s.facilities },
       { value: '3', label: s.continents },
-      { value: '10x', label: s.roi }
+      { value: '≥10%', label: s.roi }
     ];
   });
 
