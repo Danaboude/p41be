@@ -49,6 +49,10 @@
   position: relative;
 }
 
+.course-card--compact .course-card-image {
+  aspect-ratio: 4/3;
+}
+
 .course-card-image img {
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }

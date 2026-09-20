@@ -5,11 +5,12 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { BooksComponent } from './sections/books/books';
 import { BlogSectionComponent } from './sections/blog/blog';
+import { AboutP41Component } from './sections/about-p41/about-p41';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, BooksComponent, BlogSectionComponent],
+  imports: [CommonModule, BooksComponent, BlogSectionComponent, AboutP41Component],
   templateUrl: './home.html',
   styleUrls: ['./home.css']
 })

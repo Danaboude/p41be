@@ -91,10 +91,10 @@
       </div>
 
       <!-- Course Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         <a *ngFor="let course of courses()"
            [routerLink]="['/academy', course.id]"
-           class="course-card group cursor-pointer block">
+           class="course-card course-card--compact group cursor-pointer block">
 
           <!-- Image -->
           <div class="course-card-image">
@@ -104,35 +104,27 @@
           </div>
 
           <!-- Content -->
-          <div class="p-6">
-            <!-- Tags -->
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span *ngFor="let tag of course.tags" class="academy-tag">{{ tag }}</span>
+          <div class="p-4">
+            <!-- Tag -->
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="academy-tag">{{ course.tags[0] }}</span>
             </div>
 
             <!-- Title -->
-            <h4 class="text-xl font-black mb-1 group-hover:text-[#D4A843] transition-colors">{{ course.title }}</h4>
-            <p class="text-on-surface-variant text-sm font-label mb-4">{{ course.subtitle }}</p>
-
-            <!-- Description -->
-            <p class="text-on-surface-variant/60 text-sm leading-relaxed mb-6 line-clamp-2">{{ course.description }}</p>
+            <h4 class="text-sm font-black mb-1 leading-tight line-clamp-2 group-hover:text-[#D4A843] transition-colors">{{ course.title }}</h4>
+            <p class="text-on-surface-variant/60 text-xs font-label mb-3 line-clamp-1">{{ course.subtitle }}</p>
 
             <!-- Stats -->
-            <div class="stats-strip">
+            <div class="stats-strip !gap-3 !pt-3">
               <div>
-                <span class="material-symbols-outlined text-[14px] text-[#D4A843]">schedule</span>
+                <span class="material-symbols-outlined text-[13px] text-[#D4A843]">schedule</span>
                 {{ course.duration }}
-              </div>
-              <div>
-                <span class="material-symbols-outlined text-[14px] text-[#D4A843]">menu_book</span>
-                {{ course.modules?.length || 0 }} Modules
               </div>
             </div>
 
-            <!-- Price & Rating -->
-            <div class="flex items-center justify-between mt-6">
-
-              <span class="text-lg font-black text-[#D4A843]">{{ course.price }}</span>
+            <!-- Price -->
+            <div class="flex items-center justify-between mt-3">
+              <span class="text-sm font-black text-[#D4A843]">{{ course.price }}</span>
             </div>
           </div>
         </a>

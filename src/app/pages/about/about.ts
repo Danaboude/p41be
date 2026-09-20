@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { TranslationService } from '../../core/services/translation.service';
-import { AboutP41Component } from '../home/sections/about-p41/about-p41';
 
 @Component({
   selector: 'app-about',
