@@ -7,7 +7,7 @@ import { AboutP41Component } from '../home/sections/about-p41/about-p41';
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, AboutP41Component],
+  imports: [CommonModule],
   templateUrl: './about.html',
   styleUrls: ['./about.css']
 })

@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslationService } from '../../core/services/translation.service';
 import { WhyChooseComponent } from '../home/sections/why-choose/why-choose';
@@ -6,7 +7,7 @@ import { WhyChooseComponent } from '../home/sections/why-choose/why-choose';
 @Component({
   selector: 'app-consultancy',
   standalone: true,
-  imports: [CommonModule, WhyChooseComponent],
+  imports: [CommonModule, RouterLink, WhyChooseComponent],
   templateUrl: './consultancy.html'
 })
 export class ConsultancyComponent {

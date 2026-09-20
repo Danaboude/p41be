@@ -109,7 +109,35 @@
   </section>
 
   <!-- Detailed About P41 Component -->
-  <app-about-p41></app-about-p41>
+  <section class="section-padding bg-white relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 animate-fade-in">
+      <div class="mb-20">
+        <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-8">
+          <span class="material-symbols-outlined text-primary text-sm">history_edu</span>
+          <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">Our Story</span>
+        </div>
+        <h2 class="text-3xl md:text-5xl font-black text-zinc-900 mb-8 leading-tight">
+          {{ t().about_story.intro.q }}
+        </h2>
+        <p class="text-xl text-zinc-600 font-label leading-relaxed">
+          {{ t().about_story.intro.p }}
+        </p>
+      </div>
+
+      <div class="space-y-16">
+        <ng-container *ngFor="let section of t().about_story.sections">
+          <div class="border-l-4 border-primary/20 pl-8 transition-colors duration-300 hover:border-primary">
+            <h3 class="text-2xl font-black text-zinc-900 mb-6 tracking-tight">{{ section.title }}</h3>
+            <div class="space-y-4">
+              <p *ngFor="let paragraph of section.content" class="text-lg text-zinc-600 font-body leading-relaxed">
+                {{ paragraph }}
+              </p>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </section>
 
   <!-- CTA Section -->
   <section class="section-padding bg-white overflow-hidden relative border-t border-zinc-50">

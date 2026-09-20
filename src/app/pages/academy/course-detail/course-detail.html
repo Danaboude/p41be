@@ -49,15 +49,8 @@
           <span class="material-symbols-outlined text-sm text-[#D4A843]">menu_book</span>
           {{ (course().modules || []).length }} Modules
         </span>
-        <span class="flex items-center gap-1" *ngIf="course().students > 0">
-          <span class="material-symbols-outlined text-sm text-[#D4A843]">group</span>
-          {{ course().students }} Students
-        </span>
-        <div class="flex items-center gap-1">
-          <span *ngFor="let s of getStars(course().rating)"
-            class="material-symbols-outlined star-gold !text-[14px]">star</span>
-          <span class="ml-1">{{ course().rating }}</span>
-        </div>
+
+
       </div>
     </div>
   </section>
@@ -320,10 +313,7 @@
             <h4 class="text-lg font-black group-hover:text-[#D4A843] transition-colors mb-1">{{ related.title }}</h4>
             <p class="text-on-surface-variant text-xs font-label mb-4">{{ related.subtitle }}</p>
             <div class="flex items-center justify-between">
-              <div class="flex items-center gap-1">
-                <span *ngFor="let s of getStars(related.rating)"
-                  class="material-symbols-outlined star-gold !text-[12px]">star</span>
-              </div>
+
               <span class="text-sm font-black text-[#D4A843]">{{ related.price }}</span>
             </div>
           </div>

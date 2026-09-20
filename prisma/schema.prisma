@@ -49,6 +49,10 @@ model CourseMaterial {
 }
 
 model BlogPost {
+  kind String @default("ARTICLE")
+  sourceUrl String?
+  videoUrl String?
+  dateApproximate Boolean @default(false)
   id        String   @id @default(cuid())
   slug      String?  @unique
   title     String

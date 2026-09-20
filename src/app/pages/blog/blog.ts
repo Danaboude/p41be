@@ -1,6 +1,6 @@
-import { Component, inject, signal, OnInit } from '@angular/core';
+import { Component, inject, signal, computed, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { TranslationService } from '../../core/services/translation.service';
 import { DataService } from '../../core/services/data.service';
 
@@ -14,23 +14,27 @@ import { DataService } from '../../core/services/data.service';
 export class BlogComponent implements OnInit {
   private translationService = inject(TranslationService);
   private dataService = inject(DataService);
-  private router = inject(Router);
+  lang = this.translationService.lang;
   t = this.translationService.t;
 
   blogs = signal<any[]>([]);
+  linkedinPosts = computed(() => this.blogs().filter(p => p.kind === 'LINKEDIN'));
+  articles = computed(() => this.blogs().filter(p => p.kind !== 'LINKEDIN'));
+  failed = signal(false);
   isLoading = signal(true);
 
-  ngOnInit() {
+  ngOnInit() { this.loadPosts(); }
+
+  loadPosts() {
+    this.isLoading.set(true);
+    this.failed.set(false);
     this.dataService.getBlogPosts().subscribe({
       next: (data) => {
-        this.blogs.set(data);
+        this.blogs.set([...data].sort((a, b) => (Date.parse(b.date) || 0) - (Date.parse(a.date) || 0)));
         this.isLoading.set(false);
       },
-      error: () => this.isLoading.set(false)
+      error: () => { this.failed.set(true); this.isLoading.set(false); }
     });
   }
 
-  navigateToDetail(slug: string) {
-    this.router.navigate(['/blog', slug]);
-  }
 }

@@ -15,6 +15,7 @@ import { TranslationService } from '../../../core/services/translation.service';
 export class FooterComponent {
   private translationService = inject(TranslationService);
   private router = inject(Router);
+  readonly year = new Date().getFullYear();
   t = this.translationService.t;
 
   private currentUrl = toSignal(

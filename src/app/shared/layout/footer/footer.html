@@ -1,6 +1,6 @@
-<footer 
+<footer
   class="bg-white text-on-surface w-full py-24 px-8 border-t border-zinc-100 relative overflow-hidden transition-all duration-700">
-  
+
   <!-- Subtle Background Accents -->
   <div class="absolute inset-0 pointer-events-none opacity-20">
     <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-[100px]"></div>
@@ -70,23 +70,16 @@
       <div>
         <h5 [class]="isAcademy()
           ? 'font-label font-bold uppercase tracking-widest text-[#D4A843] mb-10 text-[11px]'
-          : (isBlog() ? 'font-label font-bold uppercase tracking-widest text-[#E53935] mb-10 text-[11px]' : 'font-label font-bold uppercase tracking-widest text-primary mb-10 text-[11px]')">{{ t().footer.newsletter }}</h5>
-        <p class="text-on-surface-variant text-sm mb-8 leading-relaxed">{{ t().footer.newsletter_desc }}</p>
-        <div class="flex shadow-sm rounded-xl overflow-hidden border border-zinc-100">
-          <input type="text"
-            [class]="'bg-zinc-50 border-none text-zinc-900 w-full px-5 py-4 text-sm placeholder:text-zinc-300 focus:ring-1 ' + (isAcademy() ? 'focus:ring-[#D4A843]' : (isBlog() ? 'focus:ring-[#E53935]' : 'focus:ring-primary'))"
-            placeholder="Email Address">
-          <button [class]="'px-5 hover:opacity-90 transition-colors ' + (isAcademy() ? 'bg-[#D4A843]' : (isBlog() ? 'bg-[#E53935]' : 'bg-primary'))">
-            <span class="material-symbols-outlined text-white">chevron_right</span>
-          </button>
-        </div>
+          : (isBlog() ? 'font-label font-bold uppercase tracking-widest text-[#E53935] mb-10 text-[11px]' : 'font-label font-bold uppercase tracking-widest text-primary mb-10 text-[11px]')">{{ t().nav.contact }}</h5>
+        <p class="text-on-surface-variant text-sm mb-8 leading-relaxed">{{ t().blog_page.cta_desc }}</p>
+        <a href="/contact" class="inline-flex px-5 py-4 rounded-xl bg-zinc-100 font-bold text-sm hover:underline">{{ t().blog_page.cta_button }}</a>
       </div>
     </div>
 
     <div
       class="mt-16 pt-8 border-t border-zinc-50 flex flex-col md:flex-row justify-between items-center gap-8">
-      <p class="text-zinc-400 text-xs font-label">{{ t().footer.rights }}</p>
+      <p class="text-zinc-400 text-xs font-label">{{ t().footer.rights.replace('{year}', year) }}</p>
     </div>
   </div>
 </footer>
-
+

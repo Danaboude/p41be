@@ -17,40 +17,26 @@
             <span class="material-symbols-outlined text-[#D4A843] text-sm">workspace_premium</span>
             <span class="text-[#D4A843] font-label text-xs font-bold tracking-widest uppercase">Premium Education</span>
           </div>
-          
+
           <h1 class="text-6xl md:text-8xl font-black leading-[0.9] mb-8">
             {{ featuredCourse.title }}
           </h1>
-          
+
           <p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed mb-12">
             {{ featuredCourse.description }}
           </p>
 
           <div class="flex flex-wrap gap-8 items-center">
-            <button class="bg-[#D4A843] text-white font-label font-bold px-10 py-5 rounded-2xl flex items-center gap-3 hover:translate-x-2 transition-all shadow-xl shadow-[#D4A843]/20">
+            <a [routerLink]="['/academy', featuredCourse.id]" class="bg-[#D4A843] text-white font-label font-bold px-10 py-5 rounded-2xl flex items-center gap-3 hover:translate-x-2 transition-all shadow-xl shadow-[#D4A843]/20">
               Enroll Now
               <span class="material-symbols-outlined">arrow_forward</span>
-            </button>
+            </a>
           </div>
 
-          <!-- Quick stats -->
           <div class="flex flex-wrap gap-10 mt-16">
-            <div>
-              <p class="text-3xl font-black text-[#D4A843]">20+</p>
-              <p class="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mt-1">Courses</p>
-            </div>
-            <div>
-              <p class="text-3xl font-black text-[#D4A843]">1.3K+</p>
-              <p class="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mt-1">Students via Mtech+</p>
-            </div>
-            <div>
-              <p class="text-3xl font-black text-[#D4A843]">4.8</p>
-              <p class="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mt-1">Avg Rating (Mtech+)</p>
-            </div>
-            <div>
-              <p class="text-3xl font-black text-[#D4A843]">31+</p>
-              <p class="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mt-1">Years Expertise</p>
-            </div>
+            <div><p class="text-3xl font-black text-[#D4A843]">{{ courses().length }}</p><p class="text-sm">Courses</p></div>
+            <div><p class="text-3xl font-black text-[#D4A843]">31</p><p class="text-sm">Years of practical experience</p></div>
+            <div><p class="text-3xl font-black text-[#D4A843]">3</p><p class="text-sm">Published books</p></div>
           </div>
         </div>
 
@@ -71,11 +57,7 @@
           </div>
           <div class="p-6">
             <div class="flex items-center justify-between mb-4">
-              <div class="flex items-center gap-1">
-                <span *ngFor="let s of getStars(featuredCourse.rating)"
-                      class="material-symbols-outlined star-gold text-sm">star</span>
-                <span class="text-on-surface-variant text-xs font-label ml-1">{{ featuredCourse.rating }}</span>
-              </div>
+
               <span class="text-2xl font-black text-[#D4A843]">{{ featuredCourse.price }}</span>
             </div>
             <a [routerLink]="['/academy', featuredCourse.id]" class="academy-btn block text-center w-full !py-3">
@@ -145,19 +127,11 @@
                 <span class="material-symbols-outlined text-[14px] text-[#D4A843]">menu_book</span>
                 {{ course.modules?.length || 0 }} Modules
               </div>
-              <div>
-                <span class="material-symbols-outlined text-[14px] text-[#D4A843]">group</span>
-                {{ course.students }}
-              </div>
             </div>
 
             <!-- Price & Rating -->
             <div class="flex items-center justify-between mt-6">
-              <div class="flex items-center gap-1">
-                <span *ngFor="let s of getStars(course.rating)"
-                      class="material-symbols-outlined star-gold !text-[14px]">star</span>
-                <span class="text-on-surface-variant text-xs font-label ml-1">{{ course.rating }}</span>
-              </div>
+
               <span class="text-lg font-black text-[#D4A843]">{{ course.price }}</span>
             </div>
           </div>
@@ -218,19 +192,19 @@
         <div class="grid grid-cols-2 gap-4 animate-scale-in">
           <div class="bg-surface-container-low p-8 flex flex-col justify-between h-64 border-l-4 border-[#D4A843] hover:bg-surface-container-high transition-all cursor-default">
             <span class="text-6xl font-black font-label text-[#D4A843]">31+</span>
-            <span class="font-label text-sm uppercase tracking-widest text-on-surface-variant font-bold">Years Teaching</span>
+            <span class="font-label text-sm uppercase tracking-widest text-on-surface-variant font-bold">Years of practical experience</span>
           </div>
           <div class="bg-surface-container-low p-8 flex flex-col justify-between h-64 mt-12 hover:bg-surface-container-high transition-all cursor-default">
-            <span class="text-6xl font-black font-label text-[#D4A843]">1.3K</span>
-            <span class="font-label text-sm uppercase tracking-widest text-on-surface-variant font-bold">Students via Mtech+</span>
+            <span class="text-6xl font-black font-label text-[#D4A843]">100+</span>
+            <span class="font-label text-sm uppercase tracking-widest text-on-surface-variant font-bold">Companies helped since 1995</span>
           </div>
           <div class="bg-surface-container-low p-8 flex flex-col justify-between h-64 -mt-12 hover:bg-surface-container-high transition-all cursor-default">
-            <span class="text-6xl font-black font-label text-[#D4A843]">98%</span>
-            <span class="font-label text-sm uppercase tracking-widest text-on-surface-variant font-bold">Completion Rate</span>
+            <span class="text-6xl font-black font-label text-[#D4A843]">3</span>
+            <span class="font-label text-sm uppercase tracking-widest text-on-surface-variant font-bold">Published books</span>
           </div>
           <div class="academy-btn !rounded-none !p-8 flex flex-col justify-between h-64 hover:scale-105 transition-all cursor-default">
-            <span class="text-6xl font-black font-label">4.8</span>
-            <span class="font-label text-sm uppercase tracking-widest opacity-80">Average Rating</span>
+            <span class="text-6xl font-black font-label">1995</span>
+            <span class="font-label text-sm uppercase tracking-widest opacity-80">Working with industry since</span>
           </div>
         </div>
       </div>
@@ -281,7 +255,7 @@
     <div class="max-w-4xl mx-auto text-center relative z-10 animate-slide-up">
       <h2 class="text-5xl md:text-6xl font-black tracking-tighter mb-8">Start Your <span class="text-[#D4A843]">Journey</span></h2>
       <p class="text-xl text-on-surface-variant mb-12">
-        Join 1,300+ professionals (via Mtech+) who have already transformed their industrial operations knowledge.
+        Build practical skills in time study, quality and process improvement with Ives De Saeger.
       </p>
 
       <form class="bg-surface-container-low p-8 md:p-16 text-left space-y-8 shadow-2xl border border-outline-variant/5">

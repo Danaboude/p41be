@@ -8,27 +8,28 @@
         <img src="CrossRoads-22-1-scaled-1.jpg" class="w-full h-full object-cover" alt="Industrial Blueprint">
       </div>
     </div>
-    
+
     <div class="max-w-7xl mx-auto w-full relative z-10">
       <div class="max-w-3xl animate-slide-up">
         <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-8">
           <span class="material-symbols-outlined text-primary text-sm">architecture</span>
-          <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">{{ t().consultancy_page.tag }}</span>
+          <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">{{ t().consultancy_page.tag
+            }}</span>
         </div>
-        
+
         <h1 class="text-6xl md:text-8xl font-black text-zinc-900 leading-[0.9] tracking-tighter mb-10">
-          {{ t().consultancy_page.title1 }} <span class="text-primary">{{ t().consultancy_page.title2 }}</span><br/>
+          {{ t().consultancy_page.title1 }} <span class="text-primary">{{ t().consultancy_page.title2 }}</span><br />
           {{ t().consultancy_page.title3 }}
         </h1>
-        
+
         <p class="text-xl md:text-2xl text-zinc-500 max-w-xl mb-12 leading-relaxed font-label">
           {{ t().consultancy_page.desc }}
         </p>
 
         <div class="flex flex-wrap gap-4">
-          <button class="premium-gradient-btn !px-10 !py-5 !text-lg shadow-2xl shadow-primary/20">
+          <a routerLink="/contact" class="premium-gradient-btn !px-10 !py-5 !text-lg shadow-2xl shadow-primary/20">
             {{ t().consultancy_page.cta1 }}
-          </button>
+          </a>
           <div class="flex items-center gap-4 px-6 py-4 rounded-full border border-zinc-100 bg-zinc-50/50">
             <div class="flex -space-x-3">
               <div class="w-10 h-10 rounded-full border-2 border-white bg-zinc-200"></div>
@@ -48,7 +49,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         <div class="space-y-8">
           <h2 class="text-4xl md:text-5xl font-black text-zinc-900 leading-tight">
-            {{ t().consultancy_page.gap_title1 }} <br/>
+            {{ t().consultancy_page.gap_title1 }} <br />
             <span class="text-primary">{{ t().consultancy_page.gap_title2 }}</span>
           </h2>
           <p class="text-lg text-zinc-600 leading-relaxed">
@@ -68,8 +69,11 @@
           </div>
         </div>
         <div class="relative group">
-          <div class="absolute inset-0 bg-primary/20 blur-3xl rounded-full opacity-20 pointer-events-none group-hover:opacity-40 transition-opacity"></div>
-          <img src="CrossRoads-29-scaled.jpg" class="relative z-10 w-full rounded-3xl shadow-2xl border border-zinc-100" alt="Consultancy Team Working">
+          <div
+            class="absolute inset-0 bg-primary/20 blur-3xl rounded-full opacity-20 pointer-events-none group-hover:opacity-40 transition-opacity">
+          </div>
+          <img src="CrossRoads-29-scaled.jpg" class="relative z-10 w-full rounded-3xl shadow-2xl border border-zinc-100"
+            alt="Consultancy Team Working">
         </div>
       </div>
     </div>
@@ -80,67 +84,80 @@
     <div class="max-w-7xl mx-auto px-8">
       <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-12">
         <span class="material-symbols-outlined text-primary text-sm">workspace_premium</span>
-        <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">{{ t().consultancy_page.tag }}</span>
+        <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">{{ t().consultancy_page.tag
+          }}</span>
       </div>
 
       <!-- Proof Grid -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
 
         <!-- Patents -->
-        <div class="p-8 bg-zinc-50 rounded-3xl border border-zinc-100 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all group">
-          <div class="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center mb-6 group-hover:bg-primary transition-all duration-500">
-            <span class="material-symbols-outlined text-primary group-hover:text-white text-2xl transition-colors">verified</span>
+        <div
+          class="p-8 bg-zinc-50 rounded-3xl border border-zinc-100 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all group">
+          <div
+            class="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center mb-6 group-hover:bg-primary transition-all duration-500">
+            <span
+              class="material-symbols-outlined text-primary group-hover:text-white text-2xl transition-colors">verified</span>
           </div>
-          <h3 class="text-xl font-black mb-3 text-zinc-900">3 Industrial Patents</h3>
-          <p class="text-zinc-500 text-sm font-label leading-relaxed">Proprietary methodologies protected by patent — not borrowed frameworks, but original systems developed from 31 years of floor-level engineering work.</p>
+          <h3 class="text-xl font-black mb-3 text-zinc-900">{{ t().proof.patents_title }}</h3>
+          <p class="text-zinc-500 text-sm font-label leading-relaxed">{{ t().proof.patents_desc }}</p>
         </div>
 
         <!-- Books / Publications -->
-        <div class="p-8 bg-zinc-50 rounded-3xl border border-zinc-100 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all group">
-          <div class="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center mb-6 group-hover:bg-primary transition-all duration-500">
-            <span class="material-symbols-outlined text-primary group-hover:text-white text-2xl transition-colors">menu_book</span>
+        <div
+          class="p-8 bg-zinc-50 rounded-3xl border border-zinc-100 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all group">
+          <div
+            class="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center mb-6 group-hover:bg-primary transition-all duration-500">
+            <span
+              class="material-symbols-outlined text-primary group-hover:text-white text-2xl transition-colors">menu_book</span>
           </div>
-          <h3 class="text-xl font-black mb-3 text-zinc-900">3 Published Books</h3>
-          <p class="text-zinc-500 text-sm font-label leading-relaxed"><em>Grenzeling</em>, <em>De Puberende Leider</em>, and <em>The Customer's Truffle</em> — three books translating complex industrial methodology into actionable leadership frameworks.</p>
+          <h3 class="text-xl font-black mb-3 text-zinc-900">{{ t().proof.books_title }}</h3>
+          <p class="text-zinc-500 text-sm font-label leading-relaxed">{{ t().proof.books_desc }}</p>
         </div>
 
         <!-- Certifications -->
-        <div class="p-8 bg-zinc-50 rounded-3xl border border-zinc-100 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all group">
-          <div class="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center mb-6 group-hover:bg-primary transition-all duration-500">
-            <span class="material-symbols-outlined text-primary group-hover:text-white text-2xl transition-colors">school</span>
+        <div
+          class="p-8 bg-zinc-50 rounded-3xl border border-zinc-100 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all group">
+          <div
+            class="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center mb-6 group-hover:bg-primary transition-all duration-500">
+            <span
+              class="material-symbols-outlined text-primary group-hover:text-white text-2xl transition-colors">school</span>
           </div>
-          <h3 class="text-xl font-black mb-3 text-zinc-900">Certified Expert</h3>
-          <p class="text-zinc-500 text-sm font-label leading-relaxed">Certified MTM-UAS Expert and TRIZ Expert. ISO 9001:2015 certified operations. Academic publications in industrial engineering and innovation.</p>
+          <h3 class="text-xl font-black mb-3 text-zinc-900">{{ t().proof.expert_title }}</h3>
+          <p class="text-zinc-500 text-sm font-label leading-relaxed">{{ t().proof.expert_desc }}</p>
         </div>
       </div>
 
       <!-- Results Strip -->
-      <div class="bg-primary/5 border border-primary/10 rounded-3xl p-10 mb-16 flex flex-col md:flex-row items-center gap-12 justify-between">
+      <div
+        class="bg-primary/5 border border-primary/10 rounded-3xl p-10 mb-16 flex flex-col md:flex-row items-center gap-12 justify-between">
         <div class="text-center md:text-left">
           <p class="text-5xl font-black text-primary mb-2">≥10%</p>
-          <p class="text-sm font-label text-zinc-500 uppercase tracking-widest font-bold">Minimum efficiency gain<br>within 3 months</p>
+          <p class="text-sm font-label text-zinc-500 uppercase tracking-widest font-bold">{{ t().proof.gain }}</p>
         </div>
         <div class="w-px h-16 bg-zinc-200 hidden md:block"></div>
         <div class="text-center md:text-left">
           <p class="text-5xl font-black text-primary mb-2">100+</p>
-          <p class="text-sm font-label text-zinc-500 uppercase tracking-widest font-bold">Companies helped<br>since 1995</p>
+          <p class="text-sm font-label text-zinc-500 uppercase tracking-widest font-bold">{{ t().proof.companies }}
+          </p>
         </div>
         <div class="w-px h-16 bg-zinc-200 hidden md:block"></div>
         <div class="text-center md:text-left">
           <p class="text-5xl font-black text-primary mb-2">&lt;1yr</p>
-          <p class="text-sm font-label text-zinc-500 uppercase tracking-widest font-bold">Typical investment<br>payback period</p>
+          <p class="text-sm font-label text-zinc-500 uppercase tracking-widest font-bold">{{ t().proof.payback }}</p>
         </div>
         <div class="w-px h-16 bg-zinc-200 hidden md:block"></div>
         <div class="text-center md:text-left">
           <p class="text-5xl font-black text-primary mb-2">31+</p>
-          <p class="text-sm font-label text-zinc-500 uppercase tracking-widest font-bold">Years floor-level<br>experience</p>
+          <p class="text-sm font-label text-zinc-500 uppercase tracking-widest font-bold">{{ t().proof.experience }}</p>
         </div>
       </div>
 
       <!-- Client Logos -->
       <div>
-        <p class="text-[10px] font-label uppercase tracking-widest text-zinc-400 font-bold mb-8 text-center">Companies that trusted P41</p>
-        <div class="flex flex-wrap items-center justify-center gap-12 md:gap-20 opacity-30 grayscale hover:opacity-60 transition-all duration-500">
+        <p class="text-[10px] font-label uppercase tracking-widest text-zinc-400 font-bold mb-8 text-center">{{ t().proof.clients }}</p>
+        <div
+          class="flex flex-wrap items-center justify-center gap-12 md:gap-20 opacity-30 grayscale hover:opacity-60 transition-all duration-500">
           <img src="logos clints/cnh.png" alt="CNH" class="h-8 object-contain">
           <img src="logos clints/petersime.png" alt="Petersime" class="h-8 object-contain">
           <img src="logos clints/ral.png" alt="RAL" class="h-8 object-contain">
@@ -161,15 +178,17 @@
     <div class="absolute inset-0 opacity-5">
       <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary rounded-full blur-[120px]"></div>
     </div>
-    
+
     <div class="max-w-4xl mx-auto text-center relative z-10">
-      <h2 class="text-5xl md:text-7xl font-black tracking-tighter mb-8 italic">{{ t().consultancy_page.final_cta_title }}</h2>
+      <h2 class="text-5xl md:text-7xl font-black tracking-tighter mb-8 italic">{{ t().consultancy_page.final_cta_title
+        }}</h2>
       <p class="text-xl text-zinc-500 mb-12 max-w-2xl mx-auto font-label">
         {{ t().consultancy_page.final_cta_desc }}
       </p>
-      <button class="premium-gradient-btn !px-12 !py-6 !text-xl shadow-2xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all">
+      <a routerLink="/contact"
+        class="premium-gradient-btn !px-12 !py-6 !text-xl shadow-2xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all">
         {{ t().consultancy_page.final_cta_button }}
-      </button>
+      </a>
     </div>
   </section>
 </main>

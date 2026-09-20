@@ -1,6 +1,7 @@
-import { Component, inject, signal, OnInit } from '@angular/core';
+import { Component, inject, signal, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { publicationDate, linkedinUrl, videoEmbedUrl } from '../../../core/blog-utils';
 import { DataService } from '../../../core/services/data.service';
 
 @Component({
@@ -10,8 +11,11 @@ import { DataService } from '../../../core/services/data.service';
   templateUrl: './blog.html'
 })
 export class AdminBlogComponent implements OnInit {
+  @ViewChild('editorDialog') editorDialog?: ElementRef<HTMLElement>;
+  private previousFocus: HTMLElement | null = null;
   private dataService = inject(DataService);
 
+  error = signal('');
   posts = signal<any[]>([]);
   isLoading = signal(false);
   isSaving = signal(false);
@@ -25,6 +29,7 @@ export class AdminBlogComponent implements OnInit {
 
   // Form State
   postForm: any = {
+    kind: 'ARTICLE', sourceUrl: '', videoUrl: '', dateApproximate: false,
     title: '',
     slug: '',
     excerpt: '',
@@ -58,32 +63,52 @@ export class AdminBlogComponent implements OnInit {
   }
 
   loadPosts() {
+    this.error.set('');
     this.isLoading.set(true);
     this.dataService.getBlogPosts().subscribe({
       next: (data) => {
         this.posts.set(data);
         this.isLoading.set(false);
       },
-      error: () => this.isLoading.set(false)
+      error: () => { this.error.set('Could not load posts. Please try again.'); this.isLoading.set(false); }
     });
   }
 
   openAddModal() {
+    this.error.set('');
+    this.tagInput.set('');
     this.editingPost = null;
-    this.postForm = { title: '', slug: '', excerpt: '', content: '', image: '', date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }), readTime: '5 min read', tags: [] };
+    this.postForm = { kind: 'ARTICLE', sourceUrl: '', videoUrl: '', dateApproximate: false, title: '', slug: '', excerpt: '', content: '', image: '', date: new Date().toISOString().slice(0, 10), readTime: '5 min read', tags: [] };
+    this.previousFocus = document.activeElement as HTMLElement;
     this.isModalOpen = true;
+    setTimeout(() => this.editorDialog?.nativeElement.querySelector<HTMLElement>('button')?.focus());
   }
 
   openEditModal(post: any) {
+    this.error.set('');
+    this.tagInput.set('');
     this.editingPost = post;
     const contentStr = Array.isArray(post.content) ? post.content.join('\n') : (post.content || '');
-    this.postForm = { ...post, content: contentStr };
+    this.postForm = { kind: 'ARTICLE', sourceUrl: '', videoUrl: '', dateApproximate: false, ...post, tags: [...post.tags], date: publicationDate(post.date) || '', content: contentStr };
+    this.previousFocus = document.activeElement as HTMLElement;
     this.isModalOpen = true;
+    setTimeout(() => this.editorDialog?.nativeElement.querySelector<HTMLElement>('button')?.focus());
   }
 
   closeModal() {
+    if (this.isSaving()) return;
+    this.previousFocus?.focus();
     this.isModalOpen = false;
     this.editingPost = null;
+  }
+
+  trapFocus(event: KeyboardEvent) {
+    if (event.key !== 'Tab') return;
+    const controls = this.editorDialog?.nativeElement.querySelectorAll<HTMLElement>('button:not([disabled]), input, textarea, select, a[href]');
+    if (!controls?.length) return;
+    const first = controls[0], last = controls[controls.length - 1];
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
   }
 
   addTag() {
@@ -99,8 +124,14 @@ export class AdminBlogComponent implements OnInit {
   }
 
   savePost() {
+    if (this.isSaving()) return;
+    this.error.set('');
+    if (!this.postForm.title.trim() || !this.postForm.excerpt.trim() || !this.postForm.content.trim() || !publicationDate(this.postForm.date)) {
+      this.error.set('Add a title, summary, content and valid publication date.'); return;
+    }
+    if (this.postForm.sourceUrl && !linkedinUrl(this.postForm.sourceUrl)) { this.error.set('Enter an HTTPS LinkedIn link.'); return; }
+    if (this.postForm.videoUrl && !videoEmbedUrl(this.postForm.videoUrl)) { this.error.set('Enter a Vimeo player or Streamable embed URL, not iframe HTML.'); return; }
     const token = this.dataService.token;
-    console.log('[Admin Blog] Saving post. Token present:', !!token);
     if (!token) {
       alert('Your session has expired. Please log in again.');
       return;
@@ -122,19 +153,19 @@ export class AdminBlogComponent implements OnInit {
       this.dataService.updateBlogPost(postData).subscribe({
         next: () => {
           this.loadPosts();
-          this.closeModal();
           this.isSaving.set(false);
+          this.closeModal();
         },
-        error: () => this.isSaving.set(false)
+        error: (err) => { this.error.set(err.error?.message || 'Could not save this post. Please try again.'); this.isSaving.set(false); }
       });
     } else {
       this.dataService.createBlogPost(postData).subscribe({
         next: () => {
           this.loadPosts();
-          this.closeModal();
           this.isSaving.set(false);
+          this.closeModal();
         },
-        error: () => this.isSaving.set(false)
+        error: (err) => { this.error.set(err.error?.message || 'Could not save this post. Please try again.'); this.isSaving.set(false); }
       });
     }
   }
@@ -152,7 +183,7 @@ export class AdminBlogComponent implements OnInit {
           this.loadPosts();
           this.isDeleting.set(null);
         },
-        error: () => this.isDeleting.set(null)
+        error: () => { this.error.set('Could not delete this post. Please try again.'); this.isDeleting.set(null); }
       });
     }
   }

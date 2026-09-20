@@ -4,16 +4,16 @@
     <div>
       <h2 class="text-3xl font-black tracking-tight text-on-surface">Manage <span class="text-[#E53935] italic">Blog
           Insights</span></h2>
-      <p class="text-on-surface-variant text-sm mt-1">Publish and manage articles on industrial engineering and
-        manufacturing excellence.</p>
+      <p class="text-on-surface-variant text-sm mt-1">Manage articles and LinkedIn updates, publication dates, and videos.</p>
     </div>
     <button (click)="openAddModal()"
       class="bg-[#E53935] text-white font-bold px-6 py-3 rounded-2xl flex items-center gap-2 shadow-lg shadow-[#E53935]/20 hover:bg-[#D32F2F] transition-all">
       <span class="material-symbols-outlined text-lg">post_add</span>
-      <span>Post New Article</span>
+      <span>Add post</span>
     </button>
   </div>
 
+  <p *ngIf="error() && !isModalOpen" role="alert" class="p-4 bg-red-50 text-red-800 rounded-xl">{{ error() }} <button (click)="loadPosts()" class="underline">Retry</button></p>
   <!-- Table Container -->
   <div class="bg-white rounded-[32px] border border-outline-variant/10 shadow-sm overflow-hidden">
     <div class="overflow-x-auto">
@@ -62,20 +62,20 @@
               </div>
             </td>
             <td class="px-8 py-6">
-              <span class="text-sm font-bold text-on-surface-variant/80">{{ post.date }}</span>
+              <span class="text-sm font-bold text-on-surface-variant/80">{{ post.date | date:(post.dateApproximate ? 'MMM yyyy' : 'mediumDate') }}{{ post.dateApproximate ? ' (approx.)' : '' }}</span>
             </td>
             <td class="px-8 py-6">
               <span
                 class="bg-[#E53935]/5 px-2 py-1 rounded-md text-[10px] font-bold text-[#E53935] uppercase tracking-wider">{{
-                post.readTime }}</span>
+                post.kind === 'LINKEDIN' ? 'LinkedIn' : 'Article' }}</span>
             </td>
             <td class="px-8 py-6 text-right">
-              <div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button (click)="openEditModal(post)"
+              <div class="flex justify-end gap-2">
+                <button (click)="openEditModal(post)" [attr.aria-label]="'Edit ' + post.title"
                   class="w-10 h-10 rounded-xl bg-[#E53935]/5 text-[#E53935] hover:bg-[#E53935] hover:text-white transition-all">
                   <span class="material-symbols-outlined text-xl">edit</span>
                 </button>
-                <button (click)="deletePost(post.id)" [disabled]="isDeleting() === post.id"
+                <button (click)="deletePost(post.id)" [attr.aria-label]="'Delete ' + post.title" [disabled]="isDeleting() === post.id"
                   class="w-10 h-10 rounded-xl bg-error/5 text-error hover:bg-error hover:text-white transition-all flex items-center justify-center">
                   <span *ngIf="isDeleting() !== post.id" class="material-symbols-outlined text-xl">delete</span>
                   <span *ngIf="isDeleting() === post.id"
@@ -84,7 +84,7 @@
               </div>
             </td>
           </tr>
-          <tr *ngIf="posts().length === 0">
+          <tr *ngIf="!isLoading() && !error() && posts().length === 0">
             <td colspan="4" class="px-8 py-20 text-center">
               <div class="text-on-surface-variant/40">
                 <span class="material-symbols-outlined text-6xl mb-4">article</span>
@@ -98,7 +98,7 @@
   </div>
 
   <!-- Modal -->
-  <div *ngIf="isModalOpen" class="fixed inset-0 z-[100] flex items-center justify-center p-6 animate-fade-in">
+  <div #editorDialog *ngIf="isModalOpen" (keydown)="trapFocus($event)" role="dialog" aria-modal="true" aria-label="Post editor" (keydown.escape)="closeModal()" class="fixed inset-0 z-[100] flex items-center justify-center p-6 animate-fade-in">
     <!-- Backdrop -->
     <div class="absolute inset-0 bg-inverse-surface/40 backdrop-blur-sm" (click)="closeModal()"></div>
 
@@ -107,13 +107,26 @@
       class="bg-white rounded-[40px] shadow-2xl w-full max-w-3xl relative z-10 overflow-hidden animate-slide-up flex flex-col max-h-[95vh]">
       <div class="p-8 border-b border-outline-variant/10 flex justify-between items-center">
         <h3 class="text-2xl font-black">{{ editingPost ? 'Update' : 'Publish' }} <span
-            class="text-[#E53935]">Article</span></h3>
-        <button (click)="closeModal()" class="text-on-surface-variant hover:text-error transition-colors">
+            class="text-[#E53935]">Post</span></h3>
+        <button aria-label="Close editor" (click)="closeModal()" class="text-on-surface-variant hover:text-error transition-colors">
           <span class="material-symbols-outlined text-2xl">close</span>
         </button>
       </div>
 
       <div class="p-8 overflow-y-auto space-y-6 flex-1">
+        <p *ngIf="error()" role="alert" class="p-4 bg-red-50 text-red-800 rounded-xl">{{ error() }}</p>
+        <div class="grid gap-4">
+          <label class="font-bold text-sm">Post type
+            <select [(ngModel)]="postForm.kind" class="block w-full p-3 border rounded-xl mt-2"><option value="ARTICLE">Article</option><option value="LINKEDIN">LinkedIn update</option></select>
+          </label>
+          <label *ngIf="postForm.kind === 'LINKEDIN'" class="font-bold text-sm">Original LinkedIn post URL (optional)
+            <input type="url" [(ngModel)]="postForm.sourceUrl" placeholder="https://www.linkedin.com/posts/..." class="block w-full p-3 border rounded-xl mt-2">
+          </label>
+          <label class="font-bold text-sm">Video embed URL (optional)
+            <input type="url" [(ngModel)]="postForm.videoUrl" placeholder="https://player.vimeo.com/video/... or https://streamable.com/e/..." class="block w-full p-3 border rounded-xl mt-2">
+          </label>
+          <label class="flex gap-3 items-center text-sm"><input type="checkbox" [(ngModel)]="postForm.dateApproximate">Approximate date: show only the month and year</label>
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
           <div class="w-full space-y-2">
@@ -122,7 +135,7 @@
             <div class="relative">
               <span
                 class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/40 text-lg">link</span>
-              <input type="text" [(ngModel)]="postForm.image"
+              <input aria-label="Image URL" type="text" [(ngModel)]="postForm.image"
                 class="w-full pl-12 pr-5 py-4 bg-surface-container-low rounded-2xl outline-none focus:ring-2 focus:ring-[#E53935]/20 transition-all font-medium text-sm"
                 placeholder="Paste image link here (e.g. https://...)">
             </div>
@@ -131,57 +144,58 @@
             </p>
           </div>
 
-          <div class="space-y-2 col-span-2 md:col-span-1">
-            <label
-              class="block text-[10px] font-black uppercase tracking-widest text-on-surface-variant/60 ml-1">Article
+          <div class="space-y-2 md:col-span-1">
+            <label for="post-title"
+              class="block text-[10px] font-black uppercase tracking-widest text-on-surface-variant/60 ml-1">Post
               Title</label>
-            <input type="text" [(ngModel)]="postForm.title"
+            <input id="post-title" type="text" [(ngModel)]="postForm.title"
               class="w-full px-5 py-4 bg-surface-container-low rounded-2xl outline-none focus:ring-2 focus:ring-[#E53935]/20 transition-all font-bold"
               placeholder="e.g. Industry 4.0: The Silent Revolution">
           </div>
-          <div class="space-y-2 col-span-2 md:col-span-1">
-            <label
+          <div class="space-y-2 md:col-span-1">
+            <label for="post-slug"
               class="block text-[10px] font-black uppercase tracking-widest text-on-surface-variant/60 ml-1">URL Slug (Optional)</label>
-            <input type="text" [(ngModel)]="postForm.slug"
+            <input id="post-slug" type="text" [(ngModel)]="postForm.slug"
               class="w-full px-5 py-4 bg-surface-container-low rounded-2xl outline-none focus:ring-2 focus:ring-[#E53935]/20 transition-all font-medium text-sm"
               placeholder="e.g. industry-4-0-revolution">
           </div>
-          <div class="space-y-2 col-span-2">
-            <label
+          <div class="space-y-2 md:col-span-2">
+            <label for="post-excerpt"
               class="block text-[10px] font-black uppercase tracking-widest text-on-surface-variant/60 ml-1">Excerpt
               (Summary)</label>
-            <textarea [(ngModel)]="postForm.excerpt" rows="3"
+            <textarea id="post-excerpt" [(ngModel)]="postForm.excerpt" rows="3"
               class="w-full px-5 py-4 bg-surface-container-low rounded-2xl outline-none focus:ring-2 focus:ring-[#E53935]/20 transition-all font-medium resize-none"></textarea>
           </div>
-          <div class="space-y-2 col-span-2">
-            <label class="block text-[10px] font-black uppercase tracking-widest text-on-surface-variant/60 ml-1">Article Content (Markdown/Text)</label>
-            <textarea [(ngModel)]="postForm.content" rows="10" 
+          <div class="space-y-2 md:col-span-2">
+            <label for="post-content" class="block text-[10px] font-black uppercase tracking-widest text-on-surface-variant/60 ml-1">Post content (plain text)</label>
+            <textarea id="post-content" [(ngModel)]="postForm.content" rows="10"
               class="w-full px-5 py-4 bg-surface-container-low rounded-2xl outline-none focus:ring-2 focus:ring-[#E53935]/20 transition-all font-medium resize-y"
               placeholder="Write your article body here... Use new lines for paragraphs."></textarea>
           </div>
           <div class="space-y-2">
-            <label class="block text-[10px] font-black uppercase tracking-widest text-on-surface-variant/60 ml-1">Read
+            <label for="post-readTime" class="block text-[10px] font-black uppercase tracking-widest text-on-surface-variant/60 ml-1">Read
               Time</label>
-            <input type="text" [(ngModel)]="postForm.readTime"
+            <input id="post-readTime" type="text" [(ngModel)]="postForm.readTime"
               class="w-full px-5 py-4 bg-surface-container-low rounded-2xl outline-none focus:ring-2 focus:ring-[#E53935]/20 transition-all">
           </div>
           <div class="space-y-2">
-            <label
+            <label for="post-date"
               class="block text-[10px] font-black uppercase tracking-widest text-on-surface-variant/60 ml-1">Date</label>
-            <input type="text" [(ngModel)]="postForm.date"
+            <input id="post-date" type="date" [(ngModel)]="postForm.date"
               class="w-full px-5 py-4 bg-surface-container-low rounded-2xl outline-none focus:ring-2 focus:ring-[#E53935]/20 transition-all">
-          <div class="space-y-2 col-span-2">
+          </div>
+          <div class="space-y-2 md:col-span-2">
             <label class="block text-[10px] font-black uppercase tracking-widest text-on-surface-variant/60 ml-1">Tags</label>
             <div class="flex flex-wrap gap-2 mb-3">
               <span *ngFor="let tag of postForm.tags" class="bg-[#E53935]/10 text-[#E53935] px-3 py-1 rounded-full text-[10px] font-bold flex items-center gap-1">
                 #{{ tag }}
-                <button (click)="removeTag(tag)" class="hover:text-error transition-colors">
+                <button (click)="removeTag(tag)" [attr.aria-label]="'Remove tag ' + tag" class="hover:text-error transition-colors">
                   <span class="material-symbols-outlined text-sm">close</span>
                 </button>
               </span>
             </div>
             <div class="flex gap-2">
-              <input type="text" [ngModel]="tagInput()" (ngModelChange)="tagInput.set($event)" (keyup.enter)="addTag()"
+              <input aria-label="New tag" type="text" [ngModel]="tagInput()" (ngModelChange)="tagInput.set($event)" (keyup.enter)="addTag()"
                 class="flex-1 px-5 py-3 bg-surface-container-low rounded-xl outline-none focus:ring-2 focus:ring-[#E53935]/20 transition-all font-medium text-sm"
                 placeholder="Type a tag and press enter...">
               <button (click)="addTag()" class="px-5 py-3 bg-[#E53935]/10 text-[#E53935] rounded-xl font-bold text-xs hover:bg-[#E53935] hover:text-white transition-all">Add</button>
@@ -193,12 +207,12 @@
       <div class="p-8 bg-surface-container-low border-t border-outline-variant/10 flex justify-end gap-4">
         <button (click)="closeModal()"
           class="px-8 py-3 rounded-2xl font-bold text-on-surface-variant hover:bg-surface-container-lowest transition-all">Cancel</button>
-        <button (click)="savePost()" [disabled]="isSaving()"
+        <button (click)="savePost()" [disabled]="isSaving() || isUploadingImg()"
           class="bg-[#E53935] text-white font-bold px-10 py-3 rounded-2xl shadow-lg shadow-[#E53935]/20 hover:bg-[#D32F2F] transition-all flex items-center gap-2">
           <span *ngIf="isSaving()"
             class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-          <span>{{ isSaving() ? (editingPost ? 'Updating...' : 'Publishing...') : (editingPost ? 'Update Article' :
-            'Publish Article') }}</span>
+          <span>{{ isSaving() ? (editingPost ? 'Updating...' : 'Publishing...') : (editingPost ? 'Update Post' :
+            'Publish Post') }}</span>
         </button>
       </div>
     </div>

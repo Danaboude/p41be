@@ -46,7 +46,7 @@ export class TranslationService {
         cta: 'View All Articles'
       },
       blog_detail: {
-        back: 'Back to Home',
+        back: 'Back to Blog',
         author_desc: 'Industrial engineer with 31+ years of experience. Author of three books, MTM-UAS & TRIZ Expert, holder of 3 patents. Founder of P41 helping companies implement Industry 4.0 technologies.',
         tags_label: 'Tags:',
         more_title: 'More',
@@ -56,10 +56,30 @@ export class TranslationService {
         not_found_desc: 'The article you\'re looking for doesn\'t exist.'
       },
       blog_page: {
+        play_video: 'Play video',
+        video_notice: 'Playing this video connects to the external video provider.',
+        linkedin_title: "From LinkedIn",
+        from_ives: "Notes from Ives",
+        linkedin_desc: "Thoughts on work, people and technology, shared by Ives De Saeger.",
+        founder: "Founder of P41",
+        approximate: "approx.",
+        read_watch: "Read & watch",
+        original: "Original post",
+        articles_title: "Articles & perspectives",
+        articles_desc: "Practical thinking on time study, quality and better ways of working.",
+        empty_linkedin: "New LinkedIn updates will appear here.",
+        empty_articles: "New articles will appear here.",
+        load_error: "We could not load the posts. Please try again.",
+        retry: "Try again",
+        cta_tag: "From insight to practice",
+        cta_title: "Where could your operation improve?",
+        cta_desc: "Talk to Ives about how work happens on your shop floor and where time study can make a measurable difference.",
+        cta_button: "Request a conversation",
+
         tag: 'Insights & Wisdom',
         title: 'Our',
         title_accent: 'Blog',
-        desc: 'Get weekly inspiration for free! Explore our latest thoughts on industrial excellence.',
+        desc: 'Ideas from the shop floor. Explore articles and updates on time study, automation and how people work together.',
         loading: 'Reading Industrial Insights...',
         article_tag: 'Article',
         read_more: 'Read More',
@@ -70,9 +90,9 @@ export class TranslationService {
       },
       hero: {
         tag: 'Industrial Efficiency Expert',
-        title: 'Less Errors.',
+        title: 'Fewer Errors.',
         subtitle: 'More Output.',
-        description: 'We analyse how work really happens on your shop floor — through time study and error analysis — and show you exactly where you can gain at least 10% within 3 months.',
+        description: 'We analyse how work really happens on your shop floor through time study and error analysis and show you exactly where you can gain at least 10% within 3 months.',
         cta_start: 'Request a Free Audit',
         cta_methods: 'Our Methods'
       },
@@ -143,7 +163,7 @@ export class TranslationService {
           tag: 'Insights & Wisdom',
           title1: 'Our',
           title2: 'Blog',
-          desc: 'Get weekly inspiration for free! Explore our latest thoughts on industrial excellence.',
+          desc: 'Ideas from the shop floor. Explore articles and updates on time study, automation and how people work together.',
           view_all: 'View All Posts',
           article_tag: 'Article',
           read_more: 'Read More',
@@ -166,7 +186,7 @@ export class TranslationService {
           tag: 'Publications',
           title1: 'Read my books & start',
           title2: 'innovating',
-          desc: 'Three landmark books on industrial efficiency, leadership and cross-sector innovation: <em>Grenzeling</em>, <em>De Puberende Leider</em>, and <em>The Customer\'s Truffle</em> — each translated into actionable frameworks your company can implement immediately.',
+          desc: 'Three landmark books on industrial efficiency, leadership and cross-sector innovation: Grenzeling, De Puberende Leider, and The Customer\'s Truffle each translated into actionable frameworks your company can implement immediately.',
           order_cta: 'Order Your Copy',
           author_role: 'Author · MTM-UAS Expert · TRIZ Expert · 3 Patents · Industrial Engineer & Speaker'
         }
@@ -195,7 +215,7 @@ export class TranslationService {
         subtitle: 'Why P41?',
         exp: {
           title: 'Deep Experience',
-          desc: 'Decades of combined expertise on factory floors across three continents. We know what fails before it happens.'
+          desc: 'Decades of combined expertise on factory floors at more than 100 companies since 1995. We know what fails before it happens.'
         },
         methods: {
           title: 'Novel Methods',
@@ -208,24 +228,68 @@ export class TranslationService {
         stats: {
           years: 'Years Experience',
           waste: 'Avg. Waste Reduction',
-          facilities: 'Active Facilities',
+          facilities: 'Companies helped',
           data: 'Data Points Analyzed'
         }
       },
       footer: {
-        desc: 'Industrial Intelligence for the next generation of global manufacturing. Redefining flow, error, and time.',
+        desc: 'P41 for the next generation of global manufacturing. Redefining flow, error, and time.',
         nav: 'Navigation',
         company: 'Company',
         newsletter: 'Newsletter',
         newsletter_desc: 'Receive our monthly \'State of Industry\' report directly in your inbox.',
-        rights: '© 2026 P41 Industrial Intelligence. All rights reserved.'
+        rights: '© {year} P41. All rights reserved.'
+      },
+      about_story: {
+        intro: {
+          q: 'Does anyone here actually know how much time this takes versus a standard defined time?',
+          p: 'I first asked that question on a shop floor thirty years ago. I have repeated it in multiple of companies since, and the answer almost never existed. P41 grew out of that.'
+        },
+        sections: [
+          {
+            title: 'From physics to the shop floor',
+            content: ['I graduated as an engineer in physics from Ghent University in 1995. My first assignments had nothing to do with particles and everything to do with flow: order handling, capacity planning, the layout of a workshop. Years of time studies at home and abroad followed, and since 2001 I have run my own firm.', 'The physics never went away. It taught me that you cannot improve a system you do not understand, and that understanding starts with measurement.']
+          },
+          {
+            title: 'Measure first, technology second',
+            content: ['We measure what actually happens at the workstation, to 95% accuracy or better. Only then comes the question of which change, method or technology makes sense. That way no budget goes to the wrong intervention.', 'What we see again and again: in automotive roughly 10% of the time disappears into organisational loss, in other sectors closer to 20%. Anything above that is worth investigating.']
+          },
+          {
+            title: 'Then the solution, not the problem',
+            content: ['Most methods only analyse. We look for alternatives in a structured way, with TRIZ, with function thinking, and with technology that has already proven itself in another industry. The question is never how to improve this machine, but how many ways there are to fulfil this function.']
+          },
+          {
+            title: 'The part nobody puts on a CV',
+            content: ['An analysis that is correct but unsupported changes nothing. That is why I learned nonviolent communication, spent forty days in training, and followed my wife’s training as a therapist alongside her. Unusual for an engineer, but it explains why our changes are still standing long after we have left.', 'Operators rarely ignore a procedure out of unwillingness. Most of the time they are responding to a system that invites that behaviour. That system is our work.']
+          },
+          {
+            title: 'What that delivers',
+            content: ['• At TBP, scrap dropped by a factor of five, on an investment of 500 euro.', '• At BelOrta, we mapped everything that happened outside the ERP in three months: 35 interviews, several sites, one roadmap.', '• At Demival, facts from time studies replaced discussions based on feeling.', '• At Ryhove a cost calculation was devised from time study in less than 18 days for almost the complete company', '• At VDL Roeselare, we translated automotive concepts into series production of the electric Citea, applied timestudy, Lean approaches and refined the layout.', 'Results within three months, not a report that gathers dust. And if we find no workable solution within the agreed boundaries, we work at cost.']
+          },
+          {
+            title: 'Three books',
+            content: ['Grenzeling (2009) is about solutions that already exist outside your own sector. De puberende leider (2017) is about organisations that still have some growing up to do. The Customer’s Truffle (2026) is about the factory designed from the outside in. Alongside them: eight papers, two patents and a Chinese utility model.']
+          },
+          {
+            title: 'Including the year it went wrong',
+            content: ['In 2012 we were twelve people. In 2013 we were three. The market turned and I started again. That taught me more about running a business than the ten years before it, and it is why I never have to explain to a struggling owner what that feels like.']
+          },
+          {
+            title: 'Being challenged is what makes me tick',
+            content: ['At Ryhove i completely automated the timestudy files i was doing during many years. It resulted in a new timestudy app using balancing, workforms and layout visualisation.']
+          },
+          {
+            title: 'Curious where your time goes?',
+            content: ['Twenty minutes is enough to find out whether there is anything to gain.']
+          }
+        ]
       },
       vision: {
         title: 'Founder\'s Vision',
         name: 'Ives De Saeger',
         role: 'Founder & Lead Expert | P41',
-        quote: 'Industrial Intelligence is not just about machines; it\'s about understanding how work really happens — and then making it measurably better.',
-        desc: 'With 31 years of hands-on experience, Ives is a certified MTM-UAS Expert, TRIZ Expert, and holds 3 patents. Author of three books, he has helped more than 100 companies since 1995 achieve measurable efficiency gains — at least 10% within 3 months, with payback periods under one year.'
+        quote: 'Industrial Intelligence is not just about machines; it\'s about understanding how work really happens and then making it measurably better.',
+        desc: 'With 31 years of hands-on experience, Ives is a certified MTM-UAS Expert, TRIZ Expert, and holds 3 patents. Author of three books, he has helped more than 100 companies since 1995 achieve measurable efficiency gains at least 10% within 3 months, with payback periods under one year.'
       },
       contact: {
         title: 'Let\'s Connect',
@@ -268,16 +332,16 @@ export class TranslationService {
         cta_scan: 'i4.0 Scan',
         video_title: 'Watch: Industry 4.0 Explained',
         video_cta: 'Click to play',
-        roi_badge: '10x ROI Guaranteed',
+        roi_badge: 'Payback within one year',
         tech_tag: 'Technologies we implement',
         academy_tag: 'Still curious?',
         academy_title: 'Check out the Academy sessions for free.',
         academy_button: 'Free Academy Sessions',
         stats: {
           years: 'Years Experience',
-          facilities: 'Facilities',
-          continents: 'Continents',
-          roi: 'Typical ROI'
+          facilities: 'Companies helped',
+          continents: 'Published books',
+          roi: 'Gain within 3 months'
         },
         technologies: {
           lean: 'Lean 4.0',
@@ -290,17 +354,18 @@ export class TranslationService {
           ai: 'Industrial AI'
         }
       },
+      proof: {"patents_title": "3 patents", "patents_desc": "Ives De Saeger holds three patents and combines MTM-UAS and TRIZ expertise with 31 years of practical industrial experience.", "books_title": "3 published books", "books_desc": "Grenzeling, De Puberende Leider and The Customer’s Truffle: perspectives on leadership, customer value and how organisations work.", "expert_title": "Expertise & research", "expert_desc": "MTM-UAS and TRIZ expertise, academic publications and ISO 9001:2015 certified operations.", "gain": "Efficiency gain within 3 months", "companies": "Companies helped since 1995", "payback": "Investment payback period", "experience": "Years of shop-floor experience", "clients": "Companies that trusted P41"},
       consultancy_page: {
         tag: 'Consultancy & Engineering',
-        title1: 'Less Errors.',
+        title1: 'Fewer Errors.',
         title2: 'More Output.',
         title3: 'Without Big Investments.',
-        desc: 'We analyse how work really happens on your shop floor — through time study and error analysis — and show you exactly where you can gain at least 10% within 3 months.',
+        desc: 'We analyse how work really happens on your shop floor through time study and error analysis and show you exactly where you can gain at least 10% within 3 months.',
         cta1: 'Request a Free Audit',
         joined: 'Trusted by 100+ companies since 1995',
         gap_title1: 'We understand how work',
         gap_title2: 'Really Happens on Your Floor.',
-        gap_desc: 'Most consultants start with theory. We start with a stopwatch and a clipboard. Time study, error analysis, and throughput measurement give us a precise picture of where your losses are — before we recommend anything.',
+        gap_desc: 'Most consultants start with theory. We start with a stopwatch and a clipboard. Time study, error analysis, and throughput measurement give us a precise picture of where your losses are before we recommend anything.',
         cycle_title: 'Cycle Time & Time Study',
         cycle_desc: 'Visualizing real work flow to identify bottlenecks, balance loss, and hidden costs per unit.',
         error_title: 'Error Quality Analysis',
@@ -340,7 +405,7 @@ export class TranslationService {
         features: [
           {
             title: 'Deep Floor Experience',
-            desc: 'We don\'t just theorize. We\'ve spent thousands of hours on factory floors across three continents, understanding the grit of daily production.'
+            desc: 'We don\'t just theorize. We\'ve spent thousands of hours on factory floors at more than 100 companies since 1995, understanding the grit of daily production.'
           },
           {
             title: 'Proprietary Sprint Method',
@@ -353,7 +418,7 @@ export class TranslationService {
         ]
       },
       privacy_page: {
-        back: 'Back to Home',
+        back: 'Back to Blog',
         title1: 'Privacy',
         title2: 'Statement',
         intro: 'P41 cares a great deal about your privacy and respects your rights under applicable data protection laws.',
@@ -540,7 +605,7 @@ export class TranslationService {
       seo: {
         home: {
           title: 'P41 Industrial Intelligence | Industry 4.0 Leader',
-          description: 'P41 Industrial Intelligence redefines industrial flow, error reduction, and time optimization through strategic consultancy and digital transformation.'
+          description: 'Time study and error analysis for your shop floor. P41 helps identify at least 10% efficiency gains within 3 months. More than 100 companies helped since 1995.'
         },
         about: {
           title: 'About P41 | Our Vision & Methods',
@@ -599,7 +664,7 @@ export class TranslationService {
         cta: 'Bekijk Alle Artikelen'
       },
       blog_detail: {
-        back: 'Terug naar Home',
+        back: 'Terug naar de blog',
         author_desc: 'Industrieel ingenieur met 31+ jaar ervaring. Auteur van drie boeken, MTM-UAS & TRIZ Expert, houder van 3 octrooien. Oprichter van P41 die bedrijven helpt bij het implementeren van Industrie 4.0-technologieën.',
         tags_label: 'Tags:',
         more_title: 'Meer',
@@ -609,6 +674,26 @@ export class TranslationService {
         not_found_desc: 'Het artikel dat u zoekt bestaat niet.'
       },
       blog_page: {
+        play_video: "Video afspelen",
+        video_notice: "Bij het afspelen maakt u verbinding met de externe videodienst.",
+        linkedin_title: "Van LinkedIn",
+        from_ives: "Notities van Ives",
+        linkedin_desc: "Gedachten over werk, mensen en technologie, gedeeld door Ives De Saeger.",
+        founder: "Oprichter van P41",
+        approximate: "circa",
+        read_watch: "Lees & bekijk",
+        original: "Origineel bericht",
+        articles_title: "Artikelen & inzichten",
+        articles_desc: "Praktische inzichten over tijdstudie, kwaliteit en beter samenwerken.",
+        empty_linkedin: "Nieuwe LinkedIn-berichten verschijnen hier.",
+        empty_articles: "Nieuwe artikelen verschijnen hier.",
+        load_error: "We konden de berichten niet laden. Probeer het opnieuw.",
+        retry: "Opnieuw proberen",
+        cta_tag: "Van inzicht naar praktijk",
+        cta_title: "Waar kan jouw organisatie verbeteren?",
+        cta_desc: "Bespreek met Ives hoe het werk op jouw werkvloer verloopt en waar tijdstudie een meetbaar verschil kan maken.",
+        cta_button: "Vraag een gesprek aan",
+
         tag: 'Inzichten & Wijsheid',
         title: 'Onze',
         title_accent: 'Blog',
@@ -625,7 +710,7 @@ export class TranslationService {
         tag: 'Industrieel Efficiëntie-expert',
         title: 'Minder Fouten.',
         subtitle: 'Meer Output.',
-        description: 'We ontleden hoe het werk vandaag echt gebeurt op uw werkvloer — via tijdstudie en foutanalyse — en tonen exact waar u binnen 3 maanden minstens 10% kan winnen.',
+        description: 'We ontleden hoe het werk vandaag echt gebeurt op uw werkvloer via tijdstudie en foutanalyse en tonen exact waar u binnen 3 maanden minstens 10% kan winnen.',
         cta_start: 'Vraag een Gratis Audit aan',
         cta_methods: 'Onze Methoden'
       },
@@ -719,7 +804,7 @@ export class TranslationService {
           tag: 'Publicaties',
           title1: 'Lees mijn boeken & begin met',
           title2: 'innoveren',
-          desc: 'Drie grensverleggende boeken over industriële efficiëntie, leiderschap en sectoroverschrijdende innovatie: <em>Grenzeling</em>, <em>De Puberende Leider</em> en <em>The Customer\'s Truffle</em> — elk vertaald naar bruikbare raamwerken die uw bedrijf onmiddellijk kan implementeren.',
+          desc: 'Drie grensverleggende boeken over industriële efficiëntie, leiderschap en sectoroverschrijdende innovatie: Grenzeling, De Puberende Leider en The Customer\'s Truffle elk vertaald naar bruikbare raamwerken die uw bedrijf onmiddellijk kan implementeren.',
           order_cta: 'Bestel Uw Exemplaar',
           author_role: 'Auteur · MTM-UAS Expert · TRIZ Expert · 3 Octrooien · Industrieel Ingenieur & Spreker'
         }
@@ -748,7 +833,7 @@ export class TranslationService {
         subtitle: 'Waarom P41?',
         exp: {
           title: 'Diepe Ervaring',
-          desc: 'Decennia aan gecombineerde expertise op fabrieksvloeren over drie continenten. We weten wat er misgaat voordat het gebeurt.'
+          desc: 'Decennia aan gecombineerde expertise op fabrieksvloeren bij meer dan 100 bedrijven sinds 1995. We weten wat er misgaat voordat het gebeurt.'
         },
         methods: {
           title: 'Nieuwe Methoden',
@@ -761,24 +846,68 @@ export class TranslationService {
         stats: {
           years: 'Jaar Ervaring',
           waste: 'Gem. Verspilling Vermindering',
-          facilities: 'Actieve Faciliteiten',
+          facilities: 'Bedrijven geholpen',
           data: 'Datapunten Geanalyseerd'
         }
       },
       footer: {
-        desc: 'Industriële Intelligentie voor de volgende generatie wereldwijde productie. Herdefiniëren van flow, fouten en tijd.',
+        desc: 'P41 voor de volgende generatie wereldwijde productie. Herdefiniëren van flow, fouten en tijd.',
         nav: 'Navigatie',
         company: 'Bedrijf',
         newsletter: 'Nieuwsbrief',
-        newsletter_desc: 'Ontvang maandelijks ons \'State of Industry\' rapport direct in v uw inbox.',
-        rights: '© 2026 P41 Industriële Intelligentie. Alle rechten voorbehouden.'
+        newsletter_desc: 'Ontvang maandelijks ons \'State of Industry\' rapport direct in uw inbox.',
+        rights: '© {year} P41. Alle rechten voorbehouden.'
+      },
+      about_story: {
+        intro: {
+          q: 'Weet iemand hier eigenlijk hoeveel tijd dit kost ten opzichte van een standaard gedefinieerde tijd?',
+          p: 'Ik stelde die vraag dertig jaar geleden voor het eerst op een fabrieksvloer. Ik heb deze sindsdien in meerdere bedrijven herhaald, en het antwoord bestond bijna nooit. P41 is daaruit voortgekomen.'
+        },
+        sections: [
+          {
+            title: 'Van fysica tot de fabrieksvloer',
+            content: ['Ik studeerde in 1995 af als ingenieur in de fysica aan de Universiteit Gent. Mijn eerste opdrachten hadden niets te maken met deeltjes en alles met flow: orderafhandeling, capaciteitsplanning, de lay-out van een werkplaats. Jaren van tijdstudies in binnen- en buitenland volgden, en sinds 2001 leid ik mijn eigen bureau.', 'De fysica is nooit weggeweest. Het leerde me dat je een systeem dat je niet begrijpt, niet kunt verbeteren, en dat begrip begint bij meten.']
+          },
+          {
+            title: 'Meet eerst, technologie later',
+            content: ['We meten wat er werkelijk gebeurt op de werkplek, tot op 95% nauwkeurigheid of beter. Pas dan komt de vraag welke verandering, methode of technologie zinvol is. Op die manier gaat er geen budget naar de verkeerde ingreep.', 'Wat we keer op keer zien: in de auto-industrie verdwijnt grofweg 10% van de tijd in organisatorisch verlies, in andere sectoren dichter bij 20%. Alles daarboven is het onderzoeken waard.']
+          },
+          {
+            title: 'Dan de oplossing, niet het probleem',
+            content: ['De meeste methoden analyseren alleen. We zoeken op een gestructureerde manier naar alternatieven, met TRIZ, met functiedenken en met technologie die zich al in een andere branche heeft bewezen. De vraag is nooit hoe deze machine te verbeteren, maar hoeveel manieren er zijn om deze functie te vervullen.']
+          },
+          {
+            title: 'Het deel dat niemand op een CV zet',
+            content: ['Een analyse die correct is maar niet wordt ondersteund, verandert niets. Daarom leerde ik geweldloze communicatie, bracht ik veertig dagen door in training en volgde ik samen met mijn vrouw haar opleiding tot therapeut. Ongebruikelijk voor een ingenieur, maar het verklaart waarom onze veranderingen lang nadat we zijn vertrokken nog steeds standhouden.', 'Operators negeren zelden een procedure uit onwil. Meestal reageren ze op een systeem dat dat gedrag uitlokt. Dat systeem is ons werk.']
+          },
+          {
+            title: 'Wat dat oplevert',
+            content: ['• Bij TBP daalde de uitval met een factor vijf, op een investering van 500 euro.', '• Bij BelOrta brachten we alles wat er buiten het ERP gebeurde in drie maanden in kaart: 35 interviews, verschillende locaties, één roadmap.', '• Bij Demival vervingen feiten uit tijdstudies discussies op basis van gevoel.', '• Bij Ryhove werd in minder dan 18 dagen een kostprijsberekening opgesteld vanuit tijdstudie voor bijna het hele bedrijf', '• Bij VDL Roeselare vertaalden we automotive concepten naar serieproductie van de elektrische Citea, pasten we tijdstudie en Lean-benaderingen toe en verfijnden we de lay-out.', 'Resultaten binnen drie maanden, niet een rapport dat stof verzamelt. En als we binnen de afgesproken grenzen geen werkbare oplossing vinden, werken we tegen kostprijs.']
+          },
+          {
+            title: 'Drie boeken',
+            content: ['Grenzeling (2009) gaat over oplossingen die al bestaan buiten uw eigen sector. De puberende leider (2017) gaat over organisaties die nog wat moeten groeien. The Customer’s Truffle (2026) gaat over de fabriek ontworpen van buiten naar binnen. Daarnaast: acht papers, twee patenten en een Chinees gebruiksmodel.']
+          },
+          {
+            title: 'Inclusief het jaar dat het misging',
+            content: ['In 2012 waren we met twaalf mensen. In 2013 waren we met drie. De markt draaide en ik begon opnieuw. Dat leerde me meer over het runnen van een bedrijf dan de tien jaar daarvoor, en daarom hoef ik een worstelende eigenaar nooit uit te leggen hoe dat voelt.']
+          },
+          {
+            title: 'Uitgedaagd worden is wat mij drijft',
+            content: ['Bij Ryhove heb ik de tijdstudiebestanden die ik jarenlang deed volledig geautomatiseerd. Het resulteerde in een nieuwe tijdstudie-app met behulp van balancering, werkvormen en lay-outvisualisatie.']
+          },
+          {
+            title: 'Nieuwsgierig waar uw tijd naartoe gaat?',
+            content: ['Twintig minuten is genoeg om te ontdekken of er iets te winnen valt.']
+          }
+        ]
       },
       vision: {
         title: 'Visie van de Oprichter',
         name: 'Ives De Saeger',
         role: 'Oprichter & Hoofdexpert | P41',
-        quote: 'Industriële Intelligentie gaat niet alleen over machines; het gaat over begrijpen hoe het werk echt gebeurt — en het daarna meetbaar beter maken.',
-        desc: 'Met 31 jaar praktijkervaring is Ives een gecertificeerd MTM-UAS Expert, TRIZ Expert en houder van 3 octrooien. Auteur van drie boeken en geholpen bij meer dan 100 bedrijven sinds 1995 — met een aantoonbare efficiëntiewinst van minstens 10% binnen 3 maanden.'
+        quote: 'Industriële Intelligentie gaat niet alleen over machines; het gaat over begrijpen hoe het werk echt gebeurt en het daarna meetbaar beter maken.',
+        desc: 'Met 31 jaar praktijkervaring is Ives een gecertificeerd MTM-UAS Expert, TRIZ Expert en houder van 3 octrooien. Auteur van drie boeken en geholpen bij meer dan 100 bedrijven sinds 1995 met een aantoonbare efficiëntiewinst van minstens 10% binnen 3 maanden.'
       },
       contact: {
         title: 'Laten we contact opnemen',
@@ -821,16 +950,16 @@ export class TranslationService {
         cta_scan: 'i4.0 Scan',
         video_title: 'Kijk: Industrie 4.0 Uitgelegd',
         video_cta: 'Klik om te spelen',
-        roi_badge: '10x ROI Gegarandeerd',
+        roi_badge: 'Terugverdiend binnen één jaar',
         tech_tag: 'Technologieën die we implementeren',
         academy_tag: 'Nog steeds nieuwsgierig?',
         academy_title: 'Bekijk de Academy-sessies gratis.',
         academy_button: 'Gratis Academy-sessies',
         stats: {
           years: 'Jaar Ervaring',
-          facilities: 'Faciliteiten',
-          continents: 'Continenten',
-          roi: 'Typische ROI'
+          facilities: 'Bedrijven geholpen',
+          continents: 'Gepubliceerde boeken',
+          roi: 'Winst binnen 3 maanden'
         },
         technologies: {
           lean: 'Lean 4.0',
@@ -843,17 +972,18 @@ export class TranslationService {
           ai: 'Industriële AI'
         }
       },
+      proof: {"patents_title": "3 octrooien", "patents_desc": "Ives De Saeger heeft drie octrooien en combineert MTM-UAS- en TRIZ-expertise met 31 jaar industriële praktijkervaring.", "books_title": "3 gepubliceerde boeken", "books_desc": "Grenzeling, De Puberende Leider en The Customer’s Truffle: inzichten in leiderschap, klantwaarde en hoe organisaties werken.", "expert_title": "Expertise & onderzoek", "expert_desc": "MTM-UAS- en TRIZ-expertise, academische publicaties en ISO 9001:2015-gecertificeerde activiteiten.", "gain": "Efficiëntiewinst binnen 3 maanden", "companies": "Bedrijven geholpen sinds 1995", "payback": "Terugverdientijd van de investering", "experience": "Jaar ervaring op de werkvloer", "clients": "Bedrijven die P41 vertrouwden"},
       consultancy_page: {
         tag: 'Consultancy & Engineering',
         title1: 'Minder Fouten.',
         title2: 'Meer Output.',
         title3: 'Zonder Grote Investeringen.',
-        desc: 'We ontleden hoe het werk vandaag echt gebeurt op uw werkvloer — via tijdstudie en foutanalyse — en tonen exact waar u binnen 3 maanden minstens 10% kan winnen.',
+        desc: 'We ontleden hoe het werk vandaag echt gebeurt op uw werkvloer via tijdstudie en foutanalyse en tonen exact waar u binnen 3 maanden minstens 10% kan winnen.',
         cta1: 'Vraag een Gratis Audit aan',
         joined: 'Vertrouwd door 100+ bedrijven sinds 1995',
         gap_title1: 'Wij begrijpen hoe het werk',
         gap_title2: 'Echt Gebeurt op Uw Werkvloer.',
-        gap_desc: 'De meeste consultants starten met theorie. Wij starten met een stopwatch en een klembord. Tijdstudie, foutanalyse en doorvoermetingen geven ons een nauwkeurig beeld van waar uw verliezen zitten — voordat we iets aanbevelen.',
+        gap_desc: 'De meeste consultants starten met theorie. Wij starten met een stopwatch en een klembord. Tijdstudie, foutanalyse en doorvoermetingen geven ons een nauwkeurig beeld van waar uw verliezen zitten voordat we iets aanbevelen.',
         cycle_title: 'Cyclustijd & Tijdstudie',
         cycle_desc: 'Echte werkflow visualiseren om knelpunten, balansverliezen en verborgen kosten per eenheid te identificeren.',
         error_title: 'Foutkwaliteitsanalyse',
@@ -893,7 +1023,7 @@ export class TranslationService {
         features: [
           {
             title: 'Diepe Praktijkervaring',
-            desc: 'Wij theoretiseren niet alleen. We hebben duizenden uren doorgebracht op fabrieksvloeren over drie continenten, waarbij we de dagelijkse productie door en door begrijpen.'
+            desc: 'Wij theoretiseren niet alleen. We hebben duizenden uren doorgebracht op fabrieksvloeren bij meer dan 100 bedrijven sinds 1995, waarbij we de dagelijkse productie door en door begrijpen.'
           },
           {
             title: 'Eigen Sprint-methode',
@@ -906,7 +1036,7 @@ export class TranslationService {
         ]
       },
       privacy_page: {
-        back: 'Terug naar Home',
+        back: 'Terug naar de blog',
         title1: 'Privacy',
         title2: 'Verklaring',
         intro: 'P41 geeft veel om uw privacy en respecteert uw rechten onder de toepasselijke wetgeving inzake gegevensbescherming.',
@@ -1094,7 +1224,7 @@ export class TranslationService {
       seo: {
         home: {
           title: 'P41 Industriële Intelligentie | Leider in Industrie 4.0',
-          description: 'P41 Industriële Intelligentie herdefinieert industriële flow, foutreductie en tijdoptimalisatie via strategische consultancy en digitale transformatie.'
+          description: 'Tijdstudie en foutanalyse op uw werkvloer. P41 toont waar u minstens 10% wint binnen 3 maanden. Meer dan 100 bedrijven geholpen sinds 1995.'
         },
         about: {
           title: 'Over P41 | Onze Visie & Methoden',

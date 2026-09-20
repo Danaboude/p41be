@@ -1,5 +1,7 @@
 import { Component, signal, inject } from '@angular/core';
 import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
+import { Meta } from '@angular/platform-browser';
+import { DOCUMENT } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { filter, map } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -53,6 +55,8 @@ const JSON_LD_BY_SEO_KEY: Record<string, any> = {
   styleUrl: './app.css'
 })
 export class App {
+  private document = inject(DOCUMENT);
+  private meta = inject(Meta);
   private router = inject(Router);
   private activatedRoute = inject(ActivatedRoute);
   private seoService = inject(SeoService);
@@ -69,17 +73,18 @@ export class App {
 
   constructor() {
     // Automatically update SEO tags when route or language changes
-    effect(() => {
+    effect((onCleanup) => {
       const currentLang = this.translationService.lang();
       const t = this.translationService.t();
       
       // Trigger update on NavigationEnd
-      this.router.events.pipe(
+      const subscription = this.router.events.pipe(
         filter(event => event instanceof NavigationEnd)
       ).subscribe(() => {
         this.updateSeo(t);
       });
 
+      onCleanup(() => subscription.unsubscribe());
       // Initial update
       this.updateSeo(t);
     });
@@ -91,6 +96,10 @@ export class App {
       route = route.firstChild;
     }
 
+    this.document.documentElement.lang = this.translationService.lang();
+    const isAdmin = this.router.url.startsWith('/admin');
+    this.meta.updateTag({ name: 'robots', content: isAdmin ? 'noindex, nofollow' : 'index, follow' });
+    if (route?.snapshot.paramMap.has('slug')) return;
     const seoKey = route?.snapshot.data['seoKey'];
     if (seoKey && t.seo && t.seo[seoKey]) {
       this.seoService.updateSeoTags({

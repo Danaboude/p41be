@@ -1,4 +1,4 @@
-import { Injectable, inject, RendererFactory2, ViewEncapsulation } from '@angular/core';
+import { Injectable, inject, RendererFactory2 } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 
@@ -33,7 +33,7 @@ export class SeoService {
       description,
       keywords,
       image = 'https://www.p41.be/banner.jpg',
-      url = this.document.URL,
+      url = new URL(this.document.location.pathname, this.baseUrl).href,
       type = 'website',
       author = 'P41 Industrial Intelligence',
       publishedDate,
@@ -65,15 +65,20 @@ export class SeoService {
     }
 
     this.meta.updateTag({ property: 'og:url', content: url });
+    this.meta.updateTag({ name: 'twitter:url', content: url });
     this.meta.updateTag({ property: 'og:type', content: type });
     this.meta.updateTag({ property: 'og:site_name', content: 'P41 Industrial Intelligence' });
 
+    this.meta.removeTag("name='article:published_time'");
+    this.meta.removeTag("property='article:published_time'");
+    this.meta.removeTag("name='article:section'");
+    this.meta.removeTag("property='article:section'");
     if (publishedDate) {
-      this.meta.updateTag({ name: 'article:published_time', content: publishedDate });
+      this.meta.updateTag({ property: 'article:published_time', content: publishedDate });
     }
 
     if (section) {
-      this.meta.updateTag({ name: 'article:section', content: section });
+      this.meta.updateTag({ property: 'article:section', content: section });
     }
 
     this.updateCanonicalUrl(url);
@@ -89,7 +94,7 @@ export class SeoService {
         'url': 'https://www.p41.be',
         'logo': 'https://www.p41.be/logo.jpg',
         'sameAs': [
-          'https://www.linkedin.com/company/p41-be'
+          'https://www.linkedin.com/company/p41-partners-in-process-innovation/'
         ],
         'contactPoint': {
           '@type': 'ContactPoint',
