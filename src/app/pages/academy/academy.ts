@@ -66,6 +66,10 @@ export class AcademyComponent implements OnInit {
     return Array(Math.floor(rating || 0)).fill(0);
   }
 
+  onImgLoad(event: Event) {
+    (event.target as HTMLImageElement).classList.remove('opacity-0');
+  }
+
   getLevelIcon(level: string): string {
     switch (level) {
       case 'Beginner': return 'signal_cellular_1_bar';

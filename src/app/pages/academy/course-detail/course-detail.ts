@@ -125,6 +125,10 @@ export class CourseDetailComponent implements OnInit {
     });
   }
 
+  onImgLoad(event: Event) {
+    (event.target as HTMLImageElement).classList.remove('opacity-0');
+  }
+
   toggleModule(index: number) {
     this.expandedModule.set(this.expandedModule() === index ? null : index);
   }

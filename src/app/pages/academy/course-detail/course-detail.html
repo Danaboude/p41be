@@ -2,8 +2,9 @@
 
   <!-- Hero Banner -->
   <section class="relative min-h-[55vh] flex items-end overflow-hidden">
-    <div class="absolute inset-0">
-      <img [src]="course().image" [alt]="course().title" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-zinc-800 bg-center bg-no-repeat" style="background-image:url('logo-Y.jpg'); background-size: 8%;">
+      <img [src]="course().image" [alt]="course().title" loading="lazy" decoding="async" (load)="onImgLoad($event)"
+           class="w-full h-full object-cover opacity-0 transition-opacity duration-700">
       <div class="absolute inset-0 bg-gradient-to-t from-inverse-surface via-inverse-surface/70 to-inverse-surface/30">
       </div>
     </div>
@@ -137,8 +138,9 @@
         <div class="lg:col-span-1">
           <div class="sticky top-28 bg-white rounded-2xl border border-outline-variant/10 overflow-hidden shadow-2xl">
             <!-- Image -->
-            <div class="aspect-video overflow-hidden">
-              <img [src]="course().image" [alt]="course().title" class="w-full h-full object-cover">
+            <div class="aspect-video overflow-hidden bg-zinc-100 bg-center bg-no-repeat" style="background-image:url('logo-Y.jpg'); background-size: 20%;">
+              <img [src]="course().image" [alt]="course().title" loading="lazy" decoding="async" (load)="onImgLoad($event)"
+                   class="w-full h-full object-cover opacity-0 transition-opacity duration-500">
             </div>
 
             <div class="p-6 space-y-6">
@@ -302,9 +304,9 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <a *ngFor="let related of otherCourses()" [routerLink]="['/academy', related.id]"
           class="related-card group block">
-          <div class="aspect-video overflow-hidden">
-            <img [src]="related.image" [alt]="related.title"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="aspect-video overflow-hidden bg-zinc-100 bg-center bg-no-repeat" style="background-image:url('logo-Y.jpg'); background-size: 20%;">
+            <img [src]="related.image" [alt]="related.title" loading="lazy" decoding="async" (load)="onImgLoad($event)"
+              class="w-full h-full object-cover opacity-0 group-hover:scale-105 transition-all duration-500">
           </div>
           <div class="p-5">
             <div class="flex flex-wrap gap-2 mb-3" *ngIf="related.tags">
