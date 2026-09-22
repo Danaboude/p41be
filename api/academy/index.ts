@@ -26,7 +26,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const course = await prisma.course.findUnique({ where: { id: String(id) } });
         return res.status(200).json(course);
       }
-      const courses = await prisma.course.findMany({ orderBy: { createdAt: 'desc' } });
+      const courses = await prisma.course.findMany({ orderBy: [{ order: 'asc' }, { createdAt: 'desc' }] });
       return res.status(200).json(courses);
     } catch (e) {
       return res.status(500).json({ message: 'Error fetching courses' });

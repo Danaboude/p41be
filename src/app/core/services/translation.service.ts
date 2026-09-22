@@ -150,7 +150,7 @@ export class TranslationService {
         },
         cta: {
           title: 'Ready to Evolve?',
-          desc: 'Contact our consultants for a complimentary efficiency audit of your current operations.',
+          desc: 'Contact our consultants for a free, no-obligation talk about your current operations.',
           form: {
             name: 'Full Name',
             email: 'Business Email',
@@ -280,7 +280,7 @@ export class TranslationService {
           },
           {
             title: 'Curious where your time goes?',
-            content: ['Twenty minutes is enough to find out whether there is anything to gain.']
+            content: ['A free talk is enough to find out whether there is anything to gain.']
           }
         ]
       },
@@ -293,7 +293,7 @@ export class TranslationService {
       },
       contact: {
         title: 'Let\'s Connect',
-        subtitle: 'Reach out to our experts for a detailed efficiency audit or any industrial inquiries.',
+        subtitle: 'Reach out to our experts for a free talk about your operations or any industrial inquiries.',
         form: {
           name: 'Full Name',
           email: 'Business Email',
@@ -346,7 +346,7 @@ export class TranslationService {
         p3: 'It is my expertise to consult companies in the implementation of the technologies that Industry 4.0 has to offer. Using time study, error quality analysis and throughput to visualise flow, direct results can be obtained.',
         p4: 'Many companies require to set the basics right first for cycle time, flow and quality. Once we know where the money is going, smart investments can be made. So, if you\'re the CXO of a company facing problems with the implementation of new technologies <strong class="text-on-surface font-bold">let\'s chat.</strong>',
         cta_chat: 'Let\'s Chat',
-        cta_scan: 'i4.0 Scan',
+        cta_scan: 'Ask a Question',
         video_title: 'Watch: Industry 4.0 Explained',
         video_cta: 'Click to play',
         roi_badge: 'Payback within one year',
@@ -382,14 +382,14 @@ export class TranslationService {
         joined: 'Trusted by 100+ companies since 1995',
         gap_title1: 'We understand how work',
         gap_title2: 'Really Happens on Your Floor.',
-        gap_desc: 'Most consultants start with theory. We start with a stopwatch and a clipboard. Time study, error analysis, and throughput measurement give us a precise picture of where your losses are before we recommend anything.',
+        gap_desc: 'Most consultants start with theory. We start with pen and paper. Time study, error analysis, and throughput measurement give us a precise picture of where your losses are before we recommend anything.',
         cycle_title: 'Cycle Time & Time Study',
         cycle_desc: 'Visualizing real work flow to identify bottlenecks, balance loss, and hidden costs per unit.',
         error_title: 'Error Quality Analysis',
         error_desc: 'Systematic safeguards that identify root causes and reduce recurring defects at the source.',
         final_cta_title: 'Ready to find your 10%?',
         final_cta_desc: 'Schedule a discovery call with Ives De Saeger. Bring a real work breakdown and we will show you where the gains are.',
-        final_cta_button: 'Request a Free Efficiency Audit'
+        final_cta_button: 'Book a Free Talk'
       },
       why_choose: {
         tag: 'Our Advantage',
@@ -641,8 +641,8 @@ export class TranslationService {
           description: 'Latest insights, trends, and case studies on Industry 4.0, digital transformation, and industrial efficiency.'
         },
         contact: {
-          title: 'Contact P41 | Get Your Efficiency Audit',
-          description: 'Connect with our experts for a detailed efficiency audit or any industrial inquiries. Let\'s optimize your flow.'
+          title: 'Contact P41 | Book a Free Talk',
+          description: 'Connect with our experts for a free talk about your operations or any industrial inquiries. Let\'s optimize your flow.'
         },
         privacy: {
           title: 'Privacy Policy | P41 Industrial Intelligence',
@@ -785,7 +785,7 @@ export class TranslationService {
         },
         cta: {
           title: 'Klaar om te Evolueren?',
-          desc: 'Neem contact op met onze consultants voor een gratis efficiëntie-audit van uw huidige activiteiten.',
+          desc: 'Neem contact op met onze consultants voor een gratis, vrijblijvend gesprek over uw huidige activiteiten.',
           form: {
             name: 'Volledige Naam',
             email: 'Zakelijk E-mailadres',
@@ -915,7 +915,7 @@ export class TranslationService {
           },
           {
             title: 'Nieuwsgierig waar uw tijd naartoe gaat?',
-            content: ['Twintig minuten is genoeg om te ontdekken of er iets te winnen valt.']
+            content: ['Een gratis gesprek is genoeg om te ontdekken of er iets te winnen valt.']
           }
         ]
       },
@@ -928,7 +928,7 @@ export class TranslationService {
       },
       contact: {
         title: 'Laten we contact opnemen',
-        subtitle: 'Neem contact op met onze experts voor een gedetailleerde efficiëntie-audit of industriële vragen.',
+        subtitle: 'Neem contact op met onze experts voor een gratis gesprek over uw activiteiten of industriële vragen.',
         form: {
           name: 'Volledige Naam',
           email: 'Zakelijk E-mailadres',
@@ -981,7 +981,7 @@ export class TranslationService {
         p3: 'Het is mijn expertise om bedrijven te adviseren bij de implementatie van de technologieën die Industrie 4.0 te bieden heeft. Door gebruik te maken van cyclustijdanalyse, foutkwaliteitsanalyse en throughput om flow te visualiseren, kunnen directe resultaten worden behaald.',
         p4: 'Veel bedrijven moeten eerst de basis op orde brengen voor cyclustijd, flow en kwaliteit. Zodra we weten waar het geld naartoe gaat, kunnen er slimme investeringen worden gedaan. Dus, als u de CXO bent van een bedrijf dat problemen ondervindt bij de implementatie van nieuwe technologieën <strong class="text-on-surface font-bold">laten we praten.</strong>',
         cta_chat: 'Laten we Praten',
-        cta_scan: 'i4.0 Scan',
+        cta_scan: 'Stel een Vraag',
         video_title: 'Kijk: Industrie 4.0 Uitgelegd',
         video_cta: 'Klik om te spelen',
         roi_badge: 'Terugverdiend binnen één jaar',
@@ -1017,14 +1017,14 @@ export class TranslationService {
         joined: 'Vertrouwd door 100+ bedrijven sinds 1995',
         gap_title1: 'Wij begrijpen hoe het werk',
         gap_title2: 'Echt Gebeurt op Uw Werkvloer.',
-        gap_desc: 'De meeste consultants starten met theorie. Wij starten met een stopwatch en een klembord. Tijdstudie, foutanalyse en doorvoermetingen geven ons een nauwkeurig beeld van waar uw verliezen zitten voordat we iets aanbevelen.',
+        gap_desc: 'De meeste consultants starten met theorie. Wij starten met pen en papier. Tijdstudie, foutanalyse en doorvoermetingen geven ons een nauwkeurig beeld van waar uw verliezen zitten voordat we iets aanbevelen.',
         cycle_title: 'Cyclustijd & Tijdstudie',
         cycle_desc: 'Echte werkflow visualiseren om knelpunten, balansverliezen en verborgen kosten per eenheid te identificeren.',
         error_title: 'Foutkwaliteitsanalyse',
         error_desc: 'Systematische waarborgen die oorzaken identificeren en terugkerende defecten aan de bron verminderen.',
         final_cta_title: 'Klaar om uw 10% te vinden?',
         final_cta_desc: 'Plan een kennismakingsgesprek met Ives De Saeger. Breng een echte werkopsplitsing mee en we tonen u waar de winst zit.',
-        final_cta_button: 'Vraag een Gratis Efficiëntie-audit aan'
+        final_cta_button: 'Boek een Gratis Gesprek'
       },
       why_choose: {
         tag: 'Ons Voordeel',
@@ -1277,8 +1277,8 @@ export class TranslationService {
           description: 'De nieuwste inzichten, trends en casestudies over Industrie 4.0, digitale transformatie en industriële efficiëntie.'
         },
         contact: {
-          title: 'Contact P41 | Vraag uw Efficiëntie-audit aan',
-          description: 'Neem contact op met onze experts voor een gedetailleerde efficiëntie-audit of industriële vragen. Laten we uw flow optimaliseren.'
+          title: 'Contact P41 | Boek een Gratis Gesprek',
+          description: 'Neem contact op met onze experts voor een gratis gesprek over uw activiteiten of industriële vragen. Laten we uw flow optimaliseren.'
         },
         privacy: {
           title: 'Privacybeleid | P41 Industriële Intelligentie',

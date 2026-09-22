@@ -28,6 +28,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const courses = [
       {
         title: 'Makigami From Paper to Digitalization',
+        order: 4,
         subtitle: 'Analyzing information flow through processes',
         description: 'Learn the Makigami technique to map administrative processes and identify opportunities for digitalization and simplification.',
         longDescription: [
@@ -117,7 +118,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         ]
       },
       {
-        title: 'Continuous Improvement Culture',
+        title: 'Building a Continuous Improvement Culture',
+        order: 5,
         subtitle: 'Systematic approach for CI departments',
         description: 'A practical guide for managers to establish and sustain a culture of ongoing improvement in their organization.',
         longDescription: [
@@ -148,6 +150,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       },
       {
         title: 'Yamazumi Reducing Balance Losses',
+        order: 6,
         subtitle: 'Balancing work for optimal flow',
         description: 'Master the Yamazumi method to balance tasks across workstations and eliminate idle time in your processes.',
         longDescription: [
@@ -357,7 +360,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         ]
       },
       {
-        title: 'MTM-UAS Predetermined Time Study',
+        title: 'Time Study',
+        order: 1,
         subtitle: 'Quantifying work without a stopwatch',
         description: 'Master the international standard for predetermined time study. Learn to code human work with precision and scientific rigour.',
         longDescription: [
@@ -389,6 +393,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       },
       {
         title: 'Improve Flow with Smarter Layout',
+        order: 3,
         subtitle: 'Plant organization for maximum speed',
         description: 'Learn to design factory layouts that support flow, minimize transport, and create a better environment for your teams.',
         longDescription: [
@@ -479,6 +484,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       },
       {
         title: 'Pragmatic Error Reduction',
+        order: 2,
         subtitle: 'A critical look at quality approach',
         description: 'Learn to use "common sense" and pragmatic tools to get variation under control and help operators make fewer mistakes.',
         longDescription: [

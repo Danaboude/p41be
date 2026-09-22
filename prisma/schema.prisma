@@ -32,6 +32,7 @@ model Course {
   students        Int              @default(0)
   whatYouLearn    Json? // Array of strings
   prerequisites   Json? // Array of strings
+  order           Int              @default(100) // Lower shows first; unset courses default to the back of the list.
   createdAt       DateTime         @default(now())
   updatedAt       DateTime         @updatedAt
   materials       CourseMaterial[]
