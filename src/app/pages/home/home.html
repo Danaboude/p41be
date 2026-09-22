@@ -31,7 +31,7 @@
               class="bg-primary hover:bg-primary/90 text-white px-10 py-5 rounded-full font-label font-bold text-lg shadow-xl shadow-primary/20 hover:scale-105 active:scale-95 transition-all">
               {{ t().hero.cta_start }}
             </button>
-            <button
+            <button (click)="scrollToTools()"
               class="bg-white border-2 border-zinc-100 hover:border-zinc-200 text-zinc-900 px-10 py-5 rounded-full font-label font-bold text-lg hover:bg-zinc-50 active:scale-95 transition-all">
               {{ t().hero.cta_methods }}
             </button>
@@ -97,7 +97,7 @@
   <app-about-p41></app-about-p41>
 
   <!-- Tools -->
-  <section class="section-padding bg-zinc-50/30">
+  <section id="tools" class="section-padding bg-zinc-50/30">
     <div class="max-w-7xl mx-auto px-8">
       <div class="max-w-2xl mb-16 animate-slide-up">
         <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-6">
@@ -145,7 +145,7 @@
     <div class="max-w-7xl mx-auto px-8">
       <div
         class="flex flex-wrap items-center justify-center gap-12 md:gap-24 opacity-30 grayscale hover:opacity-60 transition-all duration-500">
-        <img *ngFor="let client of clients" [src]="client.logo" [alt]="client.name" class="h-8 md:h-10 object-contain">
+        <img *ngFor="let client of clients" [src]="client.logo" [alt]="client.name" class="h-16 md:h-20 object-contain">
       </div>
     </div>
   </section>

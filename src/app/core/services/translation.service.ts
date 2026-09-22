@@ -93,7 +93,7 @@ export class TranslationService {
         title: 'Fewer Errors.',
         subtitle: 'More Output.',
         description: 'We analyse how work really happens on your shop floor through time study and error analysis and show you exactly where you can gain at least 10% within 3 months.',
-        cta_start: 'Request a Free Audit',
+        cta_start: 'Let\'s Talk',
         cta_methods: 'Our Methods'
       },
       home: {
@@ -319,6 +319,23 @@ export class TranslationService {
         cta_desc: 'Join the ranks of high-performance industrial leaders. Our consultants are ready to audit your operations and architect your evolution.',
         cta_button: 'Contact Our Experts'
       },
+      papers: {
+        tag: 'Published Research',
+        title1: 'Peer-reviewed thinking,',
+        title2: 'not just opinions.',
+        desc: 'Eight papers written with the same rigour applied on the shop floor — on TRIZ, function modelling and lean flow.',
+        cta: 'View & download on Academia.edu',
+        list: [
+          { title: 'Function Value Map', authors: 'with Kim Rutten', desc: 'A new approach to analysing processes in Business Process Engineering, showing up to 30% improvement in productivity, efficiency, quality or cost.' },
+          { title: 'Creating Flow Using 5S and TRIZ', authors: '', desc: '5S is one of the pillars of lean manufacturing — using it to organise the workplace and create better flow.' },
+          { title: 'Strengthening the 40 Inventive Principles', authors: '', desc: 'A closer look at how translation and dictionary differences change the meaning of TRIZ\'s 40 inventive principles.' },
+          { title: 'Function Modeling Issues', authors: '', desc: 'Common pitfalls in functional modelling, and how they distort the analysis of a process or product.' },
+          { title: 'Functionele wendbaarheid, een zoektocht naar grenzelingen', authors: '', desc: 'Lean supply is closely associated with enabling flow and eliminating wasteful variation within the value stream.' },
+          { title: 'Abstracting TRIZ', authors: 'with Kim Rutten', desc: 'A structured way to abstract TRIZ principles so they apply beyond mechanical engineering.' },
+          { title: 'Creating Flow Using 5S and TRIZ (extended)', authors: '', desc: 'An extended edition of the 5S and TRIZ paper, covering the same flow-creation principles in more depth.' },
+          { title: 'Functional thinking in production process environment', authors: '', desc: 'Latent functions in operational analysis — like the hidden risk in a tool — reveal hazards that standard reviews miss.' }
+        ]
+      },
       about_p41: {
         tag: 'About P41',
         title1: 'Start implementing the technologies',
@@ -354,14 +371,14 @@ export class TranslationService {
           ai: 'Industrial AI'
         }
       },
-      proof: {"patents_title": "3 patents", "patents_desc": "Ives De Saeger holds three patents and combines MTM-UAS and TRIZ expertise with 31 years of practical industrial experience.", "books_title": "3 published books", "books_desc": "Grenzeling, De Puberende Leider and The Customer’s Truffle: perspectives on leadership, customer value and how organisations work.", "expert_title": "Expertise & research", "expert_desc": "MTM-UAS and TRIZ expertise, academic publications and ISO 9001:2015 certified operations.", "gain": "Efficiency gain within 3 months", "companies": "Companies helped since 1995", "payback": "Investment payback period", "experience": "Years of shop-floor experience", "clients": "Companies that trusted P41"},
+      proof: { "patents_title": "3 patents", "patents_desc": "Ives De Saeger holds three patents and combines MTM-UAS and TRIZ expertise with 31 years of practical industrial experience.", "books_title": "3 published books", "books_desc": "Grenzeling, De Puberende Leider and The Customer’s Truffle: perspectives on leadership, customer value and how organisations work.", "expert_title": "Expertise & research", "expert_desc": "MTM-UAS and TRIZ expertise, academic publications and ISO 9001:2015 certified operations.", "gain": "Efficiency gain within 3 months", "companies": "Companies helped since 1995", "payback": "Investment payback period", "experience": "Years of shop-floor experience", "clients": "Companies that trusted P41" },
       consultancy_page: {
         tag: 'Consultancy & Engineering',
         title1: 'Fewer Errors.',
         title2: 'More Output.',
         title3: 'Without Big Investments.',
         desc: 'We analyse how work really happens on your shop floor through time study and error analysis and show you exactly where you can gain at least 10% within 3 months.',
-        cta1: 'Request a Free Audit',
+        cta1: 'Let\'s Talk',
         joined: 'Trusted by 100+ companies since 1995',
         gap_title1: 'We understand how work',
         gap_title2: 'Really Happens on Your Floor.',
@@ -711,7 +728,7 @@ export class TranslationService {
         title: 'Minder Fouten.',
         subtitle: 'Meer Output.',
         description: 'We ontleden hoe het werk vandaag echt gebeurt op uw werkvloer via tijdstudie en foutanalyse en tonen exact waar u binnen 3 maanden minstens 10% kan winnen.',
-        cta_start: 'Vraag een Gratis Audit aan',
+        cta_start: 'Laten we kennismaken',
         cta_methods: 'Onze Methoden'
       },
       home: {
@@ -937,6 +954,23 @@ export class TranslationService {
         cta_desc: 'Sluit u aan bij de rangen van hoogwaardige industriële leiders. Onze consultants staan klaar om uw activiteiten te auditeren en uw evolutie te architecteren.',
         cta_button: 'Neem Contact op met Onze Experts'
       },
+      papers: {
+        tag: 'Gepubliceerd Onderzoek',
+        title1: 'Wetenschappelijk onderbouwd,',
+        title2: 'geen losse meningen.',
+        desc: 'Acht papers geschreven met dezelfde grondigheid als op de werkvloer — over TRIZ, functiemodellering en lean flow.',
+        cta: 'Bekijk & download op Academia.edu',
+        list: [
+          { title: 'Function Value Map', authors: 'met Kim Rutten', desc: 'Een nieuwe aanpak om processen in Business Process Engineering te analyseren, met tot 30% verbetering in productiviteit, efficiëntie, kwaliteit of kost.' },
+          { title: 'Creating Flow Using 5S and TRIZ', authors: '', desc: '5S is een van de pijlers van lean manufacturing — het wordt gebruikt om de werkplek te organiseren en een betere flow te creëren.' },
+          { title: 'Strengthening the 40 Inventive Principles', authors: '', desc: 'Een blik op hoe verschillen in vertaling en woordenboeken de betekenis van de 40 TRIZ-inventieprincipes veranderen.' },
+          { title: 'Function Modeling Issues', authors: '', desc: 'Veelvoorkomende valkuilen bij functioneel modelleren, en hoe ze de analyse van een proces of product vertekenen.' },
+          { title: 'Functionele wendbaarheid, een zoektocht naar grenzelingen', authors: '', desc: 'Lean supply hangt nauw samen met het mogelijk maken van flow en het elimineren van onnodige variatie in de waardestroom.' },
+          { title: 'Abstracting TRIZ', authors: 'met Kim Rutten', desc: 'Een gestructureerde manier om TRIZ-principes te abstraheren zodat ze verder reiken dan de werktuigbouwkunde.' },
+          { title: 'Creating Flow Using 5S and TRIZ (uitgebreid)', authors: '', desc: 'Een uitgebreide versie van het 5S- en TRIZ-paper, die dezelfde flow-principes verder uitdiept.' },
+          { title: 'Functional thinking in production process environment', authors: '', desc: 'Latente functies in operationele analyse — zoals het verborgen risico van een gereedschap — leggen gevaren bloot die standaardreviews missen.' }
+        ]
+      },
       about_p41: {
         tag: 'Over P41',
         title1: 'Start met het implementeren van de technologieën',
@@ -972,14 +1006,14 @@ export class TranslationService {
           ai: 'Industriële AI'
         }
       },
-      proof: {"patents_title": "3 octrooien", "patents_desc": "Ives De Saeger heeft drie octrooien en combineert MTM-UAS- en TRIZ-expertise met 31 jaar industriële praktijkervaring.", "books_title": "3 gepubliceerde boeken", "books_desc": "Grenzeling, De Puberende Leider en The Customer’s Truffle: inzichten in leiderschap, klantwaarde en hoe organisaties werken.", "expert_title": "Expertise & onderzoek", "expert_desc": "MTM-UAS- en TRIZ-expertise, academische publicaties en ISO 9001:2015-gecertificeerde activiteiten.", "gain": "Efficiëntiewinst binnen 3 maanden", "companies": "Bedrijven geholpen sinds 1995", "payback": "Terugverdientijd van de investering", "experience": "Jaar ervaring op de werkvloer", "clients": "Bedrijven die P41 vertrouwden"},
+      proof: { "patents_title": "3 octrooien", "patents_desc": "Ives De Saeger heeft drie octrooien en combineert MTM-UAS- en TRIZ-expertise met 31 jaar industriële praktijkervaring.", "books_title": "3 gepubliceerde boeken", "books_desc": "Grenzeling, De Puberende Leider en The Customer’s Truffle: inzichten in leiderschap, klantwaarde en hoe organisaties werken.", "expert_title": "Expertise & onderzoek", "expert_desc": "MTM-UAS- en TRIZ-expertise, academische publicaties en ISO 9001:2015-gecertificeerde activiteiten.", "gain": "Efficiëntiewinst binnen 3 maanden", "companies": "Bedrijven geholpen sinds 1995", "payback": "Terugverdientijd van de investering", "experience": "Jaar ervaring op de werkvloer", "clients": "Bedrijven die P41 vertrouwden" },
       consultancy_page: {
         tag: 'Consultancy & Engineering',
         title1: 'Minder Fouten.',
         title2: 'Meer Output.',
         title3: 'Zonder Grote Investeringen.',
         desc: 'We ontleden hoe het werk vandaag echt gebeurt op uw werkvloer via tijdstudie en foutanalyse en tonen exact waar u binnen 3 maanden minstens 10% kan winnen.',
-        cta1: 'Vraag een Gratis Audit aan',
+        cta1: 'Laten we kennismaken',
         joined: 'Vertrouwd door 100+ bedrijven sinds 1995',
         gap_title1: 'Wij begrijpen hoe het werk',
         gap_title2: 'Echt Gebeurt op Uw Werkvloer.',

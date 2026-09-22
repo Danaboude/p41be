@@ -46,6 +46,10 @@ export class HomeComponent implements OnDestroy {
     { id: '4KFfxETqfnU', title: 'Innovation & Structured Thinking',      thumbnail: 'https://img.youtube.com/vi/4KFfxETqfnU/hqdefault.jpg' }
   ];
 
+  scrollToTools() {
+    document.getElementById('tools')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   navigateToAbout() {
     this.router.navigate(['/about']).then(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
   }

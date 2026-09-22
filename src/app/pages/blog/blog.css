@@ -14,6 +14,10 @@ h2 { font-size:clamp(1.9rem,4vw,2.8rem); font-weight:800; letter-spacing:-.04em;
 .section-heading p { max-width:370px; font-size:15px; line-height:1.65; color:#596059; }
 .social-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
 .social-card { border:1px solid #dfe3dd; background:#fff; border-radius:20px; padding:32px; display:flex; flex-direction:column; box-shadow:0 5px 18px #17251b05; }
+.social-thumb { display:block; position:relative; margin:-32px -32px 24px; aspect-ratio:16/10; overflow:hidden; background:#14171a; border-radius:20px 20px 0 0; }
+.social-thumb img { width:100%; height:100%; object-fit:contain; }
+.video-badge { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; pointer-events:none; }
+.video-badge .material-symbols-outlined { font-size:52px; filter:drop-shadow(0 4px 10px rgba(0,0,0,.5)); }
 .post-byline { display:flex; gap:12px; align-items:center; margin-bottom:28px; }
 .post-byline img { width:48px; height:48px; border-radius:50%; object-fit:cover; }
 .post-byline strong { display:block; font-size:14px; }.post-byline div span { font-size:12px; color:#626960; }
@@ -31,6 +35,6 @@ h3 { font-size:25px; line-height:1.25; letter-spacing:-.025em; font-weight:750; 
 .journal-cta { margin-top:48px; padding:64px 0; background:#f3f4ef; }.journal-cta p { margin:20px 0 30px; color:#586056; max-width:650px; line-height:1.7; }.journal-cta a { display:inline-flex; gap:30px; padding:16px 24px; border-radius:999px; background:#ad2e2b; color:white; font-weight:650; }
 .status-message { padding:32px 0; color:#596059; }.status-message button { margin-top:12px; text-decoration:underline; }
 a:hover { text-decoration:underline; text-underline-offset:4px; } a:focus-visible,button:focus-visible { outline:3px solid #0a66c2; outline-offset:5px; }
-@media(max-width:760px) { .social-grid,.article-grid { grid-template-columns:1fr; }.section-heading { align-items:start; flex-direction:column; }.journal-hero { padding-top:52px; }.social-card { padding:24px; }.journal-section { padding:40px 0; }.source-badge { font-size:11px; } }
+@media(max-width:760px) { .social-grid,.article-grid { grid-template-columns:1fr; }.section-heading { align-items:start; flex-direction:column; }.journal-hero { padding-top:52px; }.social-card { padding:24px; }.social-thumb { margin:-24px -24px 20px; }.journal-section { padding:40px 0; }.source-badge { font-size:11px; } }
 
 .article-copy p { display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; }

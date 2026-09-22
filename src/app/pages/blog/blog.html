@@ -20,6 +20,10 @@
       <p *ngIf="!linkedinPosts().length" class="status-message">{{ t().blog_page.empty_linkedin }}</p>
       <div class="social-grid">
         <article *ngFor="let post of linkedinPosts()" class="social-card">
+          <a *ngIf="post.image" [routerLink]="['/blog', post.slug || post.id]" class="social-thumb">
+            <img [src]="post.image" alt="" loading="lazy">
+            <span *ngIf="post.videoUrl" class="video-badge" aria-hidden="true"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">play_circle</span></span>
+          </a>
           <div class="post-byline"><img src="/ives front look.jpg" alt="" width="48" height="48" loading="lazy"><div><strong>Ives De Saeger</strong><span>{{ t().blog_page.founder }}</span></div><span class="source-badge">LinkedIn</span></div>
           <time [attr.datetime]="post.dateApproximate ? post.date.slice(0, 7) : post.date">{{ post.date | date:(post.dateApproximate ? 'MMMM yyyy' : 'mediumDate'):'UTC':lang() }}{{ post.dateApproximate ? ' · ' + t().blog_page.approximate : '' }}</time>
           <h3><a [routerLink]="['/blog', post.slug || post.id]">{{ post.title }}</a></h3>
