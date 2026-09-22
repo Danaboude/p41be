@@ -1,4 +1,4 @@
-# Website report implementation — 19 September 2026
+# Website report implementation 19 September 2026
 
 Reviewed `P41_website_report.md` (the report present in this checkout). Existing edits to the translation service and consultancy page were preserved and extended.
 

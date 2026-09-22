@@ -153,6 +153,7 @@ export class TranslationService {
           desc: 'Contact our consultants for a free, no-obligation talk about your current operations.',
           form: {
             name: 'Full Name',
+            name_placeholder: 'Your name',
             email: 'Business Email',
             subject: 'Project Inquiry',
             placeholder: 'Tell us about your industrial challenges...',
@@ -296,6 +297,7 @@ export class TranslationService {
         subtitle: 'Reach out to our experts for a free talk about your operations or any industrial inquiries.',
         form: {
           name: 'Full Name',
+          name_placeholder: 'Your name',
           email: 'Business Email',
           subject: 'Subject',
           message: 'Your Message',
@@ -323,17 +325,17 @@ export class TranslationService {
         tag: 'Published Research',
         title1: 'Peer-reviewed thinking,',
         title2: 'not just opinions.',
-        desc: 'Eight papers written with the same rigour applied on the shop floor — on TRIZ, function modelling and lean flow.',
+        desc: 'Eight papers written with the same rigour applied on the shop floor on TRIZ, function modelling and lean flow.',
         cta: 'View & download on Academia.edu',
         list: [
           { title: 'Function Value Map', authors: 'with Kim Rutten', desc: 'A new approach to analysing processes in Business Process Engineering, showing up to 30% improvement in productivity, efficiency, quality or cost.' },
-          { title: 'Creating Flow Using 5S and TRIZ', authors: '', desc: '5S is one of the pillars of lean manufacturing — using it to organise the workplace and create better flow.' },
+          { title: 'Creating Flow Using 5S and TRIZ', authors: '', desc: '5S is one of the pillars of lean manufacturing using it to organise the workplace and create better flow.' },
           { title: 'Strengthening the 40 Inventive Principles', authors: '', desc: 'A closer look at how translation and dictionary differences change the meaning of TRIZ\'s 40 inventive principles.' },
           { title: 'Function Modeling Issues', authors: '', desc: 'Common pitfalls in functional modelling, and how they distort the analysis of a process or product.' },
           { title: 'Functionele wendbaarheid, een zoektocht naar grenzelingen', authors: '', desc: 'Lean supply is closely associated with enabling flow and eliminating wasteful variation within the value stream.' },
           { title: 'Abstracting TRIZ', authors: 'with Kim Rutten', desc: 'A structured way to abstract TRIZ principles so they apply beyond mechanical engineering.' },
           { title: 'Creating Flow Using 5S and TRIZ (extended)', authors: '', desc: 'An extended edition of the 5S and TRIZ paper, covering the same flow-creation principles in more depth.' },
-          { title: 'Functional thinking in production process environment', authors: '', desc: 'Latent functions in operational analysis — like the hidden risk in a tool — reveal hazards that standard reviews miss.' }
+          { title: 'Functional thinking in production process environment', authors: '', desc: 'Latent functions in operational analysis like the hidden risk in a tool reveal hazards that standard reviews miss.' }
         ]
       },
       about_p41: {
@@ -344,7 +346,7 @@ export class TranslationService {
         p1: 'If your company is not taking advantage of the available technologies, then it\'s time to change that now. It\'s a well-known fact that a lot of (industrial) businesses are lagging behind in the application of the newest technologies, which results in a <strong class="text-on-surface font-bold">competitive disadvantage.</strong>',
         p2: 'Both incremental and fundamental improvements can be made through the application of new technologies. The collective name of these technologies? <strong class="text-primary font-bold text-lg">Industry 4.0.</strong>',
         p3: 'It is my expertise to consult companies in the implementation of the technologies that Industry 4.0 has to offer. Using time study, error quality analysis and throughput to visualise flow, direct results can be obtained.',
-        p4: 'Many companies require to set the basics right first for cycle time, flow and quality. Once we know where the money is going, smart investments can be made. So, if you\'re the CXO of a company facing problems with the implementation of new technologies <strong class="text-on-surface font-bold">let\'s chat.</strong>',
+        p4: 'Many companies require to set the basics right first for cycle time, flow and quality. Once we know where the money is going, smart investments can be made. So, if you\'re a company facing problems with the implementation of new technologies <strong class="text-on-surface font-bold">let\'s chat.</strong>',
         cta_chat: 'Let\'s Chat',
         cta_scan: 'Ask a Question',
         video_title: 'Watch: Industry 4.0 Explained',
@@ -403,7 +405,7 @@ export class TranslationService {
           benefits: [
             'No obligation, 100% free consultation',
             'Tailored to your industry & team size',
-            'Industry 4.0 certified trainers',
+
             'Follow-up support included'
           ],
           success_title: "You're on the list!",
@@ -411,7 +413,9 @@ export class TranslationService {
         },
         form: {
           first_name: 'First Name',
+          first_name_placeholder: 'First name',
           last_name: 'Last Name',
+          last_name_placeholder: 'Last name',
           email: 'Email Address',
           phone: 'Phone Number',
           address: 'My Address',
@@ -788,6 +792,7 @@ export class TranslationService {
           desc: 'Neem contact op met onze consultants voor een gratis, vrijblijvend gesprek over uw huidige activiteiten.',
           form: {
             name: 'Volledige Naam',
+            name_placeholder: 'Uw naam',
             email: 'Zakelijk E-mailadres',
             subject: 'Projectaanvraag',
             placeholder: 'Vertel ons over uw industriële uitdagingen...',
@@ -931,6 +936,7 @@ export class TranslationService {
         subtitle: 'Neem contact op met onze experts voor een gratis gesprek over uw activiteiten of industriële vragen.',
         form: {
           name: 'Volledige Naam',
+          name_placeholder: 'Uw naam',
           email: 'Zakelijk E-mailadres',
           subject: 'Onderwerp',
           message: 'Uw Bericht',
@@ -958,17 +964,17 @@ export class TranslationService {
         tag: 'Gepubliceerd Onderzoek',
         title1: 'Wetenschappelijk onderbouwd,',
         title2: 'geen losse meningen.',
-        desc: 'Acht papers geschreven met dezelfde grondigheid als op de werkvloer — over TRIZ, functiemodellering en lean flow.',
+        desc: 'Acht papers geschreven met dezelfde grondigheid als op de werkvloer over TRIZ, functiemodellering en lean flow.',
         cta: 'Bekijk & download op Academia.edu',
         list: [
           { title: 'Function Value Map', authors: 'met Kim Rutten', desc: 'Een nieuwe aanpak om processen in Business Process Engineering te analyseren, met tot 30% verbetering in productiviteit, efficiëntie, kwaliteit of kost.' },
-          { title: 'Creating Flow Using 5S and TRIZ', authors: '', desc: '5S is een van de pijlers van lean manufacturing — het wordt gebruikt om de werkplek te organiseren en een betere flow te creëren.' },
+          { title: 'Creating Flow Using 5S and TRIZ', authors: '', desc: '5S is een van de pijlers van lean manufacturing het wordt gebruikt om de werkplek te organiseren en een betere flow te creëren.' },
           { title: 'Strengthening the 40 Inventive Principles', authors: '', desc: 'Een blik op hoe verschillen in vertaling en woordenboeken de betekenis van de 40 TRIZ-inventieprincipes veranderen.' },
           { title: 'Function Modeling Issues', authors: '', desc: 'Veelvoorkomende valkuilen bij functioneel modelleren, en hoe ze de analyse van een proces of product vertekenen.' },
           { title: 'Functionele wendbaarheid, een zoektocht naar grenzelingen', authors: '', desc: 'Lean supply hangt nauw samen met het mogelijk maken van flow en het elimineren van onnodige variatie in de waardestroom.' },
           { title: 'Abstracting TRIZ', authors: 'met Kim Rutten', desc: 'Een gestructureerde manier om TRIZ-principes te abstraheren zodat ze verder reiken dan de werktuigbouwkunde.' },
           { title: 'Creating Flow Using 5S and TRIZ (uitgebreid)', authors: '', desc: 'Een uitgebreide versie van het 5S- en TRIZ-paper, die dezelfde flow-principes verder uitdiept.' },
-          { title: 'Functional thinking in production process environment', authors: '', desc: 'Latente functies in operationele analyse — zoals het verborgen risico van een gereedschap — leggen gevaren bloot die standaardreviews missen.' }
+          { title: 'Functional thinking in production process environment', authors: '', desc: 'Latente functies in operationele analyse zoals het verborgen risico van een gereedschap leggen gevaren bloot die standaardreviews missen.' }
         ]
       },
       about_p41: {
@@ -979,7 +985,7 @@ export class TranslationService {
         p1: 'Als uw bedrijf geen gebruik maakt van de beschikbare technologieën, dan is het tijd om dat nu te veranderen. Het is een bekend feit dat veel (industriële) bedrijven achterlopen in de toepassing van de nieuwste technologieën, wat resulteert in een <strong class="text-on-surface font-bold">concurrentienadeel.</strong>',
         p2: 'Zowel incrementele als fundamentele verbeteringen kunnen worden aangebracht door de toepassing van nieuwe technologieën. De collectieve naam van deze technologieën? <strong class="text-primary font-bold text-lg">Industrie 4.0.</strong>',
         p3: 'Het is mijn expertise om bedrijven te adviseren bij de implementatie van de technologieën die Industrie 4.0 te bieden heeft. Door gebruik te maken van cyclustijdanalyse, foutkwaliteitsanalyse en throughput om flow te visualiseren, kunnen directe resultaten worden behaald.',
-        p4: 'Veel bedrijven moeten eerst de basis op orde brengen voor cyclustijd, flow en kwaliteit. Zodra we weten waar het geld naartoe gaat, kunnen er slimme investeringen worden gedaan. Dus, als u de CXO bent van een bedrijf dat problemen ondervindt bij de implementatie van nieuwe technologieën <strong class="text-on-surface font-bold">laten we praten.</strong>',
+        p4: 'Veel bedrijven moeten eerst de basis op orde brengen voor cyclustijd, flow en kwaliteit. Zodra we weten waar het geld naartoe gaat, kunnen er slimme investeringen worden gedaan. Dus, als  bent van een bedrijf dat problemen ondervindt bij de implementatie van nieuwe technologieën <strong class="text-on-surface font-bold">laten we praten.</strong>',
         cta_chat: 'Laten we Praten',
         cta_scan: 'Stel een Vraag',
         video_title: 'Kijk: Industrie 4.0 Uitgelegd',
@@ -1038,7 +1044,7 @@ export class TranslationService {
           benefits: [
             'Vrijblijvend, 100% gratis adviesgesprek',
             'Afgestemd op uw branche & teamgrootte',
-            'Industrie 4.0 gecertificeerde trainers',
+
             'Inclusief vervolgondersteuning'
           ],
           success_title: 'U staat op de lijst!',
@@ -1046,7 +1052,9 @@ export class TranslationService {
         },
         form: {
           first_name: 'Voornaam',
+          first_name_placeholder: 'Voornaam',
           last_name: 'Achternaam',
+          last_name_placeholder: 'Achternaam',
           email: 'E-mailadres',
           phone: 'Telefoonnummer',
           address: 'Mijn Adres',

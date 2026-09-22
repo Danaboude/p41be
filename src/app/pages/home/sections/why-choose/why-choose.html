@@ -98,7 +98,7 @@
                 {{ t().why_choose.form.first_name }} <span class="text-red-400">*</span>
               </label>
               <input type="text" [(ngModel)]="form.firstName" name="firstName" required
-                     placeholder="Ives"
+                     [placeholder]="t().why_choose.form.first_name_placeholder"
                      class="w-full bg-surface-container-low/50 border border-outline-variant/20 rounded-xl px-4 py-3 font-headline text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all placeholder:text-on-surface-variant/30">
             </div>
             <!-- Last Name -->
@@ -107,7 +107,7 @@
                 {{ t().why_choose.form.last_name }} <span class="text-red-400">*</span>
               </label>
               <input type="text" [(ngModel)]="form.lastName" name="lastName" required
-                     placeholder="De Saeger"
+                     [placeholder]="t().why_choose.form.last_name_placeholder"
                      class="w-full bg-surface-container-low/50 border border-outline-variant/20 rounded-xl px-4 py-3 font-headline text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all placeholder:text-on-surface-variant/30">
             </div>
           </div>
