@@ -69,10 +69,19 @@
     box-shadow: 0 4px 40px rgba(33, 85, 157, 0.06), inset 0 0 0 1px rgba(255,255,255,0.5);
   }
 
-  /* Sticky host background to block page content behind header */
-  app-header {
+  /* Sticky host background to block page content behind header.
+     Applied via ::before (not directly on app-header) because backdrop-filter
+     on the host itself would make it a containing block for its fixed-position
+     descendants (e.g. the mobile menu overlay), trapping them inside the
+     header's own box instead of the viewport. */
+  app-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
     background: rgba(250, 249, 255, 0.6);
     backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
   }
 
   /* Horizontal Scroll Utilities */
