@@ -47,7 +47,7 @@ export class TranslationService {
       },
       blog_detail: {
         back: 'Back to Blog',
-        author_desc: 'Industrial engineer with 31+ years of experience. Author of three books, MTM-UAS & TRIZ Expert, holder of 3 patents. Founder of P41 helping companies implement Industry 4.0 technologies.',
+        author_desc: 'Industrial engineer with 31+ years of experience. Author of three books, Time Study & TRIZ Expert, holder of 3 patents. Founder of P41 helping companies implement Industry 4.0 technologies.',
         tags_label: 'Tags:',
         more_title: 'More',
         more_accent: 'Articles',
@@ -189,7 +189,7 @@ export class TranslationService {
           title2: 'innovating',
           desc: 'Three landmark books on industrial efficiency, leadership and cross-sector innovation: Grenzeling, De Puberende Leider, and The Customer\'s Truffle each translated into actionable frameworks your company can implement immediately.',
           order_cta: 'Order Your Copy',
-          author_role: 'Author · MTM-UAS Expert · TRIZ Expert · 3 Patents · Industrial Engineer & Speaker'
+          author_role: 'Author · Time Study Expert · TRIZ Expert · 3 Patents · Industrial Engineer & Speaker'
         }
       },
       services: {
@@ -290,7 +290,7 @@ export class TranslationService {
         name: 'Ives De Saeger',
         role: 'Founder & Lead Expert | P41',
         quote: 'Industrial Intelligence is not just about machines; it\'s about understanding how work really happens and then making it measurably better.',
-        desc: 'With 31 years of hands-on experience, Ives is a certified MTM-UAS Expert, TRIZ Expert, and holds 3 patents. Author of three books, he has helped more than 100 companies since 1995 achieve measurable efficiency gains at least 10% within 3 months, with payback periods under one year.'
+        desc: 'With 31 years of hands-on experience, Ives is a certified Time Study Expert, TRIZ Expert, and holds 3 patents. Author of three books, he has helped more than 100 companies since 1995 achieve measurable efficiency gains at least 10% within 3 months, with payback periods under one year.'
       },
       contact: {
         title: 'Let\'s Connect',
@@ -373,7 +373,7 @@ export class TranslationService {
           ai: 'Industrial AI'
         }
       },
-      proof: { "patents_title": "3 patents", "patents_desc": "Ives De Saeger holds three patents and combines MTM-UAS and TRIZ expertise with 31 years of practical industrial experience.", "books_title": "3 published books", "books_desc": "Grenzeling, De Puberende Leider and The Customer’s Truffle: perspectives on leadership, customer value and how organisations work.", "expert_title": "Expertise & research", "expert_desc": "MTM-UAS and TRIZ expertise, academic publications and ISO 9001:2015 certified operations.", "gain": "Efficiency gain within 3 months", "companies": "Companies helped since 1995", "payback": "Investment payback period", "experience": "Years of shop-floor experience", "clients": "Companies that trusted P41" },
+      proof: { "patents_title": "3 patents", "patents_desc": "Ives De Saeger holds three patents and combines Time Study and TRIZ expertise with 31 years of practical industrial experience.", "books_title": "3 published books", "books_desc": "Grenzeling, De Puberende Leider and The Customer’s Truffle: perspectives on leadership, customer value and how organisations work.", "expert_title": "Expertise & research", "expert_desc": "Time Study and TRIZ expertise, academic publications and ISO 9001:2015 certified operations.", "gain": "Efficiency gain within 3 months", "companies": "Companies helped since 1995", "payback": "Investment payback period", "experience": "Years of shop-floor experience", "clients": "Companies that trusted P41" },
       consultancy_page: {
         tag: 'Consultancy & Engineering',
         title1: 'Fewer Errors.',
@@ -547,7 +547,7 @@ export class TranslationService {
         features_desc: 'Every capability below is real and shipped pick the ones that matter to your line.',
         features: [
           { icon: 'bar_chart', title: 'Station Balance & Takt Time', desc: 'A live bar chart of every station against the takt line, color-coded by balance-loss severity. Models helpers sharing a task, named operators working in parallel, and fully duplicated parallel lines as three distinct, separately-calculated scenarios.' },
-          { icon: 'library_books', title: 'Standardized Time-Code Library (UAS)', desc: 'A reusable, predetermined-time-system library verb/object/level codes, walking/bending/sitting motions, composable elements. The same element always carries the same time, across every study.' },
+          { icon: 'library_books', title: 'Predetermined Time Study Library', desc: 'A reusable library of standardized work elements, motion categories, and predefined time values for consistent time-study analysis. Elements can be combined into complete operations and reused across different studies.' },
           { icon: 'health_and_safety', title: 'R&PV Allowance Engine (BSI-3375)', desc: 'Score force, posture, temperature, and monotony factors from the BSI-3375-5 / ILO point tables, and the system looks up the correct rest-and-personal allowance automatically.' },
           { icon: 'payments', title: 'Full Costing Engine', desc: 'Personnel, machine, and material costs roll up from the same balanced-line data. Personnel cost splits into productive and paid balance-loss time, reconciling exactly with the total norm time per unit.' },
           { icon: 'fact_check', title: 'Work Instructions & PDF Export', desc: 'Drag-and-drop to reorder instruction groups and steps, attach images/videos/PDFs per step, and export a real standalone PDF not a print-to-PDF hack. A lightweight Operator app confirms completion on the floor.' },
@@ -686,7 +686,7 @@ export class TranslationService {
       },
       blog_detail: {
         back: 'Terug naar de blog',
-        author_desc: 'Industrieel ingenieur met 31+ jaar ervaring. Auteur van drie boeken, MTM-UAS & TRIZ Expert, houder van 3 octrooien. Oprichter van P41 die bedrijven helpt bij het implementeren van Industrie 4.0-technologieën.',
+        author_desc: 'Industrieel ingenieur met 31+ jaar ervaring. Auteur van drie boeken, Time Study & TRIZ Expert, houder van 3 octrooien. Oprichter van P41 die bedrijven helpt bij het implementeren van Industrie 4.0-technologieën.',
         tags_label: 'Tags:',
         more_title: 'Meer',
         more_accent: 'Artikelen',
@@ -828,7 +828,7 @@ export class TranslationService {
           title2: 'innoveren',
           desc: 'Drie grensverleggende boeken over industriële efficiëntie, leiderschap en sectoroverschrijdende innovatie: Grenzeling, De Puberende Leider en The Customer\'s Truffle elk vertaald naar bruikbare raamwerken die uw bedrijf onmiddellijk kan implementeren.',
           order_cta: 'Bestel Uw Exemplaar',
-          author_role: 'Auteur · MTM-UAS Expert · TRIZ Expert · 3 Octrooien · Industrieel Ingenieur & Spreker'
+          author_role: 'Auteur · Time Study Expert · TRIZ Expert · 3 Octrooien · Industrieel Ingenieur & Spreker'
         }
       },
       services: {
@@ -929,7 +929,7 @@ export class TranslationService {
         name: 'Ives De Saeger',
         role: 'Oprichter & Hoofdexpert | P41',
         quote: 'Industriële Intelligentie gaat niet alleen over machines; het gaat over begrijpen hoe het werk echt gebeurt en het daarna meetbaar beter maken.',
-        desc: 'Met 31 jaar praktijkervaring is Ives een gecertificeerd MTM-UAS Expert, TRIZ Expert en houder van 3 octrooien. Auteur van drie boeken en geholpen bij meer dan 100 bedrijven sinds 1995 met een aantoonbare efficiëntiewinst van minstens 10% binnen 3 maanden.'
+        desc: 'Met 31 jaar praktijkervaring is Ives een gecertificeerd Time Study Expert, TRIZ Expert en houder van 3 octrooien. Auteur van drie boeken en geholpen bij meer dan 100 bedrijven sinds 1995 met een aantoonbare efficiëntiewinst van minstens 10% binnen 3 maanden.'
       },
       contact: {
         title: 'Laten we contact opnemen',
@@ -1012,7 +1012,7 @@ export class TranslationService {
           ai: 'Industriële AI'
         }
       },
-      proof: { "patents_title": "3 octrooien", "patents_desc": "Ives De Saeger heeft drie octrooien en combineert MTM-UAS- en TRIZ-expertise met 31 jaar industriële praktijkervaring.", "books_title": "3 gepubliceerde boeken", "books_desc": "Grenzeling, De Puberende Leider en The Customer’s Truffle: inzichten in leiderschap, klantwaarde en hoe organisaties werken.", "expert_title": "Expertise & onderzoek", "expert_desc": "MTM-UAS- en TRIZ-expertise, academische publicaties en ISO 9001:2015-gecertificeerde activiteiten.", "gain": "Efficiëntiewinst binnen 3 maanden", "companies": "Bedrijven geholpen sinds 1995", "payback": "Terugverdientijd van de investering", "experience": "Jaar ervaring op de werkvloer", "clients": "Bedrijven die P41 vertrouwden" },
+      proof: { "patents_title": "3 octrooien", "patents_desc": "Ives De Saeger heeft drie octrooien en combineert Time Study  en TRIZ-expertise met 31 jaar industriële praktijkervaring.", "books_title": "3 gepubliceerde boeken", "books_desc": "Grenzeling, De Puberende Leider en The Customer’s Truffle: inzichten in leiderschap, klantwaarde en hoe organisaties werken.", "expert_title": "Expertise & onderzoek", "expert_desc": "Time Study en TRIZ-expertise, academische publicaties en ISO 9001:2015-gecertificeerde activiteiten.", "gain": "Efficiëntiewinst binnen 3 maanden", "companies": "Bedrijven geholpen sinds 1995", "payback": "Terugverdientijd van de investering", "experience": "Jaar ervaring op de werkvloer", "clients": "Bedrijven die P41 vertrouwden" },
       consultancy_page: {
         tag: 'Consultancy & Engineering',
         title1: 'Minder Fouten.',
@@ -1186,8 +1186,7 @@ export class TranslationService {
         features_desc: 'Elke functie hieronder is echt en operationeel kies de functies die voor uw lijn belangrijk zijn.',
         features: [
           { icon: 'bar_chart', title: 'Lijnbalancering & Takttijd', desc: 'Een live staafdiagram van elk station tegenover de taktlijn, kleurgecodeerd op ernst van balansverlies. Modelleert helpers die een taak delen, verschillende operatoren die parallel werken, en volledig gedupliceerde parallelle lijnen als drie afzonderlijke, apart berekende scenario\'s.' },
-          { icon: 'library_books', title: 'Gestandaardiseerde Tijdcodebibliotheek (UAS)', desc: 'Een herbruikbare, vooraf bepaalde tijdsysteembibliotheek werkwoord/object/niveau-codes, loop-/buig-/zitbewegingen, samenstelbare elementen. Hetzelfde element draagt altijd dezelfde tijd, in elke studie.' },
-          { icon: 'health_and_safety', title: 'R&PV Toeslagmotor (BSI-3375)', desc: 'Score kracht-, houding-, temperatuur- en monotoniefactoren uit de BSI-3375-5 / ILO-puntentabellen, en het systeem zoekt automatisch de correcte rust- en persoonlijke toeslag op.' },
+          { icon: 'library_books', title: 'Bibliotheek voor Vooraf Bepaalde Tijden', desc: 'Een herbruikbare bibliotheek van gestandaardiseerde werkelementen en vooraf bepaalde tijdswaarden voor consistente tijdstudies. Elementen zoals lopen, bukken en zitten kunnen worden gecombineerd tot complete bewerkingen. Hetzelfde element heeft in elke studie dezelfde tijdswaarde.' }, { icon: 'health_and_safety', title: 'R&PV Toeslagmotor (BSI-3375)', desc: 'Score kracht-, houding-, temperatuur- en monotoniefactoren uit de BSI-3375-5 / ILO-puntentabellen, en het systeem zoekt automatisch de correcte rust- en persoonlijke toeslag op.' },
           { icon: 'payments', title: 'Volledige Kostprijsmotor', desc: 'Personeels-, machine- en materiaalkosten rollen op uit dezelfde gebalanceerde-lijndata. Personeelskost splitst zich in productieve tijd en betaalde balansverlies-tijd, die exact aansluit op de totale normtijd per eenheid.' },
           { icon: 'fact_check', title: 'Werkinstructies & PDF-export', desc: 'Sleep instructiegroepen en stappen in de juiste volgorde, voeg per stap afbeeldingen/video\'s/PDF\'s toe, en exporteer een echt zelfstandig PDF-document geen print-naar-PDF-truc. Een lichte Operator-app bevestigt de uitvoering op de vloer.' },
           { icon: 'call_split', title: 'Varianten & Multi-Model Lijnen', desc: 'Modelleer optionele bouwopties als varianten met hun eigen voorkomstpercentage, en sequenceer een echte productiemix om te zien of een variant met hoge tijd wordt opgevangen voordat de lijn stilvalt.' },

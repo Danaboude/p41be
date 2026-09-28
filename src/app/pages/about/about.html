@@ -76,7 +76,7 @@
             <div class="flex items-center gap-3 p-4 bg-zinc-50 rounded-2xl border border-zinc-100">
               <span class="material-symbols-outlined text-primary text-xl">school</span>
               <div>
-                <p class="font-black text-sm text-zinc-900">MTM-UAS &amp; TRIZ</p>
+                <p class="font-black text-sm text-zinc-900">Time Study &amp; TRIZ</p>
                 <p class="text-[10px] text-zinc-400 font-label uppercase tracking-wider">Expert</p>
               </div>
             </div>
@@ -145,7 +145,8 @@
           <span
             class="material-symbols-outlined text-primary text-2xl mb-4 block group-hover:scale-110 transition-transform duration-300">description</span>
           <h3 class="font-black text-sm text-zinc-900 mb-1 leading-snug">{{ paper.title }}</h3>
-          <p *ngIf="paper.authors" class="text-[10px] text-zinc-400 font-label uppercase tracking-wider mb-3">{{ paper.authors }}</p>
+          <p *ngIf="paper.authors" class="text-[10px] text-zinc-400 font-label uppercase tracking-wider mb-3">{{
+            paper.authors }}</p>
           <p class="text-xs text-zinc-500 leading-relaxed line-clamp-3">{{ paper.desc }}</p>
         </a>
       </div>

@@ -91,7 +91,7 @@ de site wordt je ook beschreven als "CEO at Aeriez", wat op een P41-pagina verwa
 overkomen. 
 
 **AANBEVOLEN WIJZIGING**
-Breid deze sectie uit met concrete geloofwaardigheid: 31 jaar ervaring, MTM-UAS-expert, TRIZ-expert, drie octrooien, drie boeken en academische publicaties. Beperk de verwijzing naar Aeriez
+Breid deze sectie uit met concrete geloofwaardigheid: 31 jaar ervaring, Time Study expert, TRIZ-expert, drie octrooien, drie boeken en academische publicaties. Beperk de verwijzing naar Aeriez
 op de P41-pagina's tot één duidelijke, bewuste zin, in plaats van een herhaalde functietitel.
 
 **WAAROM DIT BELANGRIJK IS**
