@@ -537,7 +537,6 @@ export class TranslationService {
         what_desc: "Time Study is where an industrial engineer builds a study activity-by-activity, using a reusable, standardized time-code library. Change an activity once, and everything downstream updates with it.",
         what_points: [
           { icon: 'bar_chart', title: 'Station Balance & Takt Time', desc: 'Groups activities into workstations and computes takt time and balance loss per station, live as you edit.' },
-          { icon: 'health_and_safety', title: 'R&PV Allowance Scoring', desc: "Scores each activity's rest & personal allowance against the published BSI-3375 standard, instead of a flat guessed percentage." },
           { icon: 'payments', title: 'Full Costing Engine', desc: 'Turns the balanced line directly into a personnel/machine/material cost model and a sales price, per unit, pack, or carton.' },
           { icon: 'fact_check', title: 'Work Instructions', desc: 'Publishes the result as reorderable, media-rich, operator-facing work instructions exportable to PDF for the shop floor.' }
         ],
@@ -548,7 +547,6 @@ export class TranslationService {
         features: [
           { icon: 'bar_chart', title: 'Station Balance & Takt Time', desc: 'A live bar chart of every station against the takt line, color-coded by balance-loss severity. Models helpers sharing a task, named operators working in parallel, and fully duplicated parallel lines as three distinct, separately-calculated scenarios.' },
           { icon: 'library_books', title: 'Predetermined Time Study Library', desc: 'A reusable library of standardized work elements, motion categories, and predefined time values for consistent time-study analysis. Elements can be combined into complete operations and reused across different studies.' },
-          { icon: 'health_and_safety', title: 'R&PV Allowance Engine (BSI-3375)', desc: 'Score force, posture, temperature, and monotony factors from the BSI-3375-5 / ILO point tables, and the system looks up the correct rest-and-personal allowance automatically.' },
           { icon: 'payments', title: 'Full Costing Engine', desc: 'Personnel, machine, and material costs roll up from the same balanced-line data. Personnel cost splits into productive and paid balance-loss time, reconciling exactly with the total norm time per unit.' },
           { icon: 'fact_check', title: 'Work Instructions & PDF Export', desc: 'Drag-and-drop to reorder instruction groups and steps, attach images/videos/PDFs per step, and export a real standalone PDF not a print-to-PDF hack. A lightweight Operator app confirms completion on the floor.' },
           { icon: 'call_split', title: 'Variants & Multi-Model Lines', desc: 'Model optional build options as variants with their own occurrence %, and sequence a real production mix to see whether a high-time variant gets absorbed before it stalls the line.' },
@@ -559,7 +557,6 @@ export class TranslationService {
         diff_title1: 'Three things',
         diff_title2: 'competitors get wrong.',
         diff: [
-          { icon: 'verified', title: 'Standards-based allowances, not guesses', desc: 'The R&PV / BSI-3375 scoring engine is a real, auditable ergonomic standard. Most competing tools use a flat guessed percentage instead.' },
           { icon: 'hub', title: 'One system, not three spreadsheets', desc: 'Time study, line balance, cost, and work instructions all share one activity dataset. Change an activity once takt, cost, and the printed instruction all update together.' },
           { icon: 'precision_manufacturing', title: 'Real shop-floor scenarios, modeled correctly', desc: 'Helpers sharing a task, genuinely different operators on one station, and fully duplicated parallel lines are three different situations with three different formulas Time Study tells them apart.' }
         ],
@@ -1176,7 +1173,6 @@ export class TranslationService {
         what_desc: 'Time Study is waar een industrieel ingenieur een studie activiteit per activiteit opbouwt, met een herbruikbare, gestandaardiseerde tijdcodebibliotheek. Pas één activiteit aan, en alles stroomafwaarts werkt automatisch mee.',
         what_points: [
           { icon: 'bar_chart', title: 'Lijnbalancering & Takttijd', desc: 'Groepeert activiteiten in werkstations en berekent takttijd en balansverlies per station, live tijdens het bewerken.' },
-          { icon: 'health_and_safety', title: 'R&PV Toeslagberekening', desc: 'Scoort de rust- en persoonlijke toeslag van elke activiteit tegen de gepubliceerde BSI-3375-norm, in plaats van een geraden vast percentage.' },
           { icon: 'payments', title: 'Volledige Kostprijsmotor', desc: 'Zet de gebalanceerde lijn rechtstreeks om in een personeels-/machine-/materiaalkostmodel en een verkoopprijs, per eenheid, pack of karton.' },
           { icon: 'fact_check', title: 'Werkinstructies', desc: 'Publiceert het resultaat als herordenbare, mediarijke werkinstructies voor de operator exporteerbaar naar PDF voor de werkvloer.' }
         ],
@@ -1186,7 +1182,7 @@ export class TranslationService {
         features_desc: 'Elke functie hieronder is echt en operationeel kies de functies die voor uw lijn belangrijk zijn.',
         features: [
           { icon: 'bar_chart', title: 'Lijnbalancering & Takttijd', desc: 'Een live staafdiagram van elk station tegenover de taktlijn, kleurgecodeerd op ernst van balansverlies. Modelleert helpers die een taak delen, verschillende operatoren die parallel werken, en volledig gedupliceerde parallelle lijnen als drie afzonderlijke, apart berekende scenario\'s.' },
-          { icon: 'library_books', title: 'Bibliotheek voor Vooraf Bepaalde Tijden', desc: 'Een herbruikbare bibliotheek van gestandaardiseerde werkelementen en vooraf bepaalde tijdswaarden voor consistente tijdstudies. Elementen zoals lopen, bukken en zitten kunnen worden gecombineerd tot complete bewerkingen. Hetzelfde element heeft in elke studie dezelfde tijdswaarde.' }, { icon: 'health_and_safety', title: 'R&PV Toeslagmotor (BSI-3375)', desc: 'Score kracht-, houding-, temperatuur- en monotoniefactoren uit de BSI-3375-5 / ILO-puntentabellen, en het systeem zoekt automatisch de correcte rust- en persoonlijke toeslag op.' },
+          { icon: 'library_books', title: 'Bibliotheek voor Vooraf Bepaalde Tijden', desc: 'Een herbruikbare bibliotheek van gestandaardiseerde werkelementen en vooraf bepaalde tijdswaarden voor consistente tijdstudies. Elementen zoals lopen, bukken en zitten kunnen worden gecombineerd tot complete bewerkingen. Hetzelfde element heeft in elke studie dezelfde tijdswaarde.' },
           { icon: 'payments', title: 'Volledige Kostprijsmotor', desc: 'Personeels-, machine- en materiaalkosten rollen op uit dezelfde gebalanceerde-lijndata. Personeelskost splitst zich in productieve tijd en betaalde balansverlies-tijd, die exact aansluit op de totale normtijd per eenheid.' },
           { icon: 'fact_check', title: 'Werkinstructies & PDF-export', desc: 'Sleep instructiegroepen en stappen in de juiste volgorde, voeg per stap afbeeldingen/video\'s/PDF\'s toe, en exporteer een echt zelfstandig PDF-document geen print-naar-PDF-truc. Een lichte Operator-app bevestigt de uitvoering op de vloer.' },
           { icon: 'call_split', title: 'Varianten & Multi-Model Lijnen', desc: 'Modelleer optionele bouwopties als varianten met hun eigen voorkomstpercentage, en sequenceer een echte productiemix om te zien of een variant met hoge tijd wordt opgevangen voordat de lijn stilvalt.' },
