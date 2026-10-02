@@ -554,7 +554,7 @@ export class TranslationService {
           { icon: 'compare_arrows', title: 'Compare Studies', desc: 'Put two balance studies side by side to evaluate a proposed change before rolling it out on the floor.' }
         ],
         diff_tag: "Why We're Different",
-        diff_title1: 'Three things',
+        diff_title1: 'Two things',
         diff_title2: 'competitors get wrong.',
         diff: [
           { icon: 'hub', title: 'One system, not three spreadsheets', desc: 'Time study, line balance, cost, and work instructions all share one activity dataset. Change an activity once takt, cost, and the printed instruction all update together.' },
@@ -1190,10 +1190,9 @@ export class TranslationService {
           { icon: 'compare_arrows', title: 'Studies Vergelijken', desc: 'Zet twee balansstudies naast elkaar om een voorgestelde wijziging te evalueren voordat u ze op de vloer uitrolt.' }
         ],
         diff_tag: 'Waarom Wij Anders Zijn',
-        diff_title1: 'Drie dingen die',
+        diff_title1: 'Twee dingen die',
         diff_title2: 'concurrenten fout doen.',
         diff: [
-          { icon: 'verified', title: 'Op normen gebaseerde toeslagen, geen giswerk', desc: 'De R&PV/BSI-3375-scoringsmotor is een echte, controleerbare ergonomische norm. De meeste concurrerende tools gebruiken in plaats daarvan een geraden vast percentage.' },
           { icon: 'hub', title: 'Eén systeem, geen drie spreadsheets', desc: 'Tijdstudie, lijnbalancering, kostprijs en werkinstructies delen allemaal één activiteitendataset. Pas één activiteit aan takt, kostprijs en de afgedrukte instructie werken allemaal automatisch mee.' },
           { icon: 'precision_manufacturing', title: 'Echte scenario\'s van de werkvloer, correct gemodelleerd', desc: 'Helpers die een taak delen, echt verschillende operatoren op één station, en volledig gedupliceerde parallelle lijnen zijn drie verschillende situaties met drie verschillende formules Time Study maakt het onderscheid.' }
         ],
