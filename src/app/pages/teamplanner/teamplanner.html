@@ -1,160 +1,287 @@
 <main class="animate-fade-in bg-white">
-  <!-- Hero Section -->
-  <section class="relative min-h-[70vh] flex items-center overflow-hidden py-24 px-8 border-b border-zinc-50">
-    <div class="absolute inset-0 z-0">
-      <div class="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-primary/5"></div>
-      <div class="absolute top-0 right-0 w-2/3 h-full opacity-[0.03] grayscale pointer-events-none">
-        <img fetchpriority="high" width="1920" height="1282" src="crossroads-room.webp" class="w-full h-full object-cover" alt="Field crew scheduling">
-      </div>
-    </div>
-
-    <div class="max-w-7xl mx-auto w-full relative z-10">
-      <div class="max-w-3xl animate-slide-up">
+  <!-- Hero -->
+  <section class="relative overflow-hidden pt-28 pb-20 px-6 md:px-8 border-b border-zinc-50">
+    <div class="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-primary/5 pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+      <div class="animate-slide-up">
         <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-8">
           <span class="material-symbols-outlined text-primary text-sm">groups</span>
-          <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">{{ t().teamplanner_page.tag }}</span>
+          <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">{{ c().tag }}</span>
         </div>
-
-        <h1 class="text-5xl md:text-7xl font-black text-zinc-900 leading-[0.95] tracking-tighter mb-10">
-          {{ t().teamplanner_page.title1 }}<br />
-          <span class="text-primary">{{ t().teamplanner_page.title2 }}</span><br />
-          {{ t().teamplanner_page.title3 }}
+        <h1 class="text-4xl md:text-5xl xl:text-6xl font-black text-zinc-900 leading-[1.02] tracking-tighter mb-8">
+          {{ c().title1 }}<br /><span class="text-primary">{{ c().title2 }}</span>
         </h1>
-
-        <p class="text-xl md:text-2xl text-zinc-500 max-w-xl mb-12 leading-relaxed font-label">
-          {{ t().teamplanner_page.desc }}
-        </p>
-
+        <p class="text-lg md:text-xl text-zinc-500 max-w-xl mb-10 leading-relaxed font-label">{{ c().desc }}</p>
         <div class="flex flex-wrap gap-4 items-center">
-          <button (click)="navigateToContact()" class="premium-gradient-btn !px-10 !py-5 !text-lg shadow-2xl shadow-primary/20">
-            {{ t().teamplanner_page.cta1 }}
-          </button>
-          <button (click)="navigateToContact()"
-            class="flex items-center gap-2 px-8 py-5 rounded-full border border-zinc-200 font-label font-bold text-zinc-700 hover:border-primary hover:text-primary transition-all cursor-pointer">
-            {{ t().teamplanner_page.cta2 }}
-          </button>
-        </div>
-
-        <div class="flex items-center gap-3 mt-10">
-          <span class="material-symbols-outlined text-primary text-lg">public</span>
-          <span class="text-sm font-label font-bold text-zinc-500">{{ t().teamplanner_page.trust }}</span>
+          <button (click)="navigateToContact()" class="premium-gradient-btn !px-10 !py-5 !text-lg shadow-2xl shadow-primary/20">{{ c().cta1 }}</button>
+          <a href="/teamplanner#card"
+            class="flex items-center gap-2 px-8 py-5 rounded-full border border-zinc-200 font-label font-bold text-zinc-700 hover:border-primary hover:text-primary transition-all">
+            <span class="material-symbols-outlined text-lg">arrow_downward</span>{{ c().cta2 }}
+          </a>
         </div>
       </div>
+      <figure class="relative">
+        <div class="absolute -inset-6 bg-primary/10 blur-3xl rounded-full opacity-40 pointer-events-none"></div>
+        <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl shadow-zinc-300/50 border border-zinc-100 bg-white max-h-[560px]">
+          <img fetchpriority="high" [src]="c().hero_shot.src" [width]="c().hero_shot.w" [height]="c().hero_shot.h" [alt]="c().hero_shot.alt" class="w-full object-cover object-top">
+        </div>
+        <figcaption class="relative z-10 text-sm text-zinc-500 font-label mt-4 text-center">{{ c().hero_caption }}</figcaption>
+      </figure>
     </div>
   </section>
 
-  <!-- What It Is -->
-  <section class="section-padding bg-zinc-50/30">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div>
-          <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-6">
-            <span class="text-primary font-label text-[10px] font-black tracking-widest uppercase">{{ t().teamplanner_page.what_tag }}</span>
-          </div>
-          <h2 class="text-4xl md:text-5xl font-black text-zinc-900 leading-tight mb-6">
-            {{ t().teamplanner_page.what_title1 }}<br />
-            <span class="text-primary">{{ t().teamplanner_page.what_title2 }}</span>
-          </h2>
-          <p class="text-lg text-zinc-600 leading-relaxed">
-            {{ t().teamplanner_page.what_desc }}
-          </p>
-        </div>
-        <div class="relative group">
-          <div class="absolute inset-0 bg-primary/20 blur-3xl rounded-full opacity-20 pointer-events-none group-hover:opacity-40 transition-opacity"></div>
-          <img loading="lazy" decoding="async" width="1920" height="1282" src="crossroads-room.webp" class="relative z-10 w-full rounded-3xl shadow-2xl border border-zinc-100" alt="TeamPlanner board">
-        </div>
+  <!-- Film (frame stays empty until the film is approved) -->
+  <section id="film" class="section-padding bg-white">
+    <div class="max-w-5xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-6">
+        <span class="text-primary font-label text-[10px] font-black tracking-widest uppercase">{{ c().film_tag }}</span>
       </div>
-    </div>
-  </section>
-
-  <!-- Who It's For -->
-  <section class="section-padding bg-white">
-    <div class="max-w-7xl mx-auto">
-      <div class="max-w-2xl mb-16">
-        <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-6">
-          <span class="text-primary font-label text-[10px] font-black tracking-widest uppercase">{{ t().teamplanner_page.who_tag }}</span>
-        </div>
-        <h2 class="text-4xl md:text-5xl font-black text-zinc-900 leading-tight">{{ t().teamplanner_page.who_title }}</h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        @for (person of t().teamplanner_page.who; track person.title) {
-          <div class="p-8 bg-zinc-50/50 rounded-2xl border border-zinc-100 hover:border-primary/20 transition-all">
-            <span class="material-symbols-outlined text-primary mb-5 text-3xl block">{{ person.icon }}</span>
-            <h4 class="font-black text-lg mb-2 text-zinc-900">{{ person.title }}</h4>
-            <p class="text-sm text-zinc-500 leading-relaxed">{{ person.desc }}</p>
+      <h2 class="text-3xl md:text-5xl font-black text-zinc-900 leading-tight mb-12">{{ c().film_title }}</h2>
+      <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-zinc-300/40 border border-zinc-100 bg-zinc-100" style="padding-top: 56.25%;">
+        @if (filmUrl) {
+          <iframe [src]="filmUrl" loading="lazy" class="absolute inset-0 w-full h-full" title="TeamPlanner film" frameborder="0"
+            referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            allowfullscreen></iframe>
+        } @else {
+          <div class="absolute inset-0 flex items-center justify-center" aria-hidden="true">
+            <span class="material-symbols-outlined text-zinc-300 text-7xl">play_circle</span>
           </div>
         }
       </div>
     </div>
   </section>
 
-  <!-- Differentiators -->
+  <!-- Blocks vs people -->
   <section class="section-padding bg-zinc-50/30">
-    <div class="max-w-7xl mx-auto">
-      <div class="max-w-2xl mb-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
         <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-6">
-          <span class="text-primary font-label text-[10px] font-black tracking-widest uppercase">{{ t().teamplanner_page.features_tag }}</span>
+          <span class="text-primary font-label text-[10px] font-black tracking-widest uppercase">{{ c().contrast_tag }}</span>
         </div>
         <h2 class="text-4xl md:text-5xl font-black text-zinc-900 leading-tight">
-          {{ t().teamplanner_page.features_title1 }} <span class="text-primary">{{ t().teamplanner_page.features_title2 }}</span>
+          {{ c().contrast_title1 }}<br /><span class="text-primary">{{ c().contrast_title2 }}</span>
         </h2>
       </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        @for (f of t().teamplanner_page.features; track f.title) {
-          <div class="p-10 bg-white rounded-3xl border border-zinc-100 hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/5 transition-all group">
-            <span class="material-symbols-outlined text-primary text-4xl mb-6 block">{{ f.icon }}</span>
-            <h3 class="text-xl font-black mb-3 text-zinc-900">{{ f.title }}</h3>
-            <p class="text-zinc-500 font-label text-sm leading-relaxed">{{ f.desc }}</p>
-          </div>
-        }
+      <div class="overflow-x-auto rounded-3xl border border-zinc-100 bg-white shadow-xl shadow-zinc-200/40">
+        <table class="w-full text-left text-sm md:text-base">
+          <thead>
+            <tr class="border-b border-zinc-100">
+              <th scope="col" class="p-3 md:p-6 text-sm font-label uppercase tracking-widest text-zinc-400 w-1/2">{{ c().contrast_left }}</th>
+              <th scope="col" class="p-3 md:p-6 text-sm font-label uppercase tracking-widest text-primary w-1/2 bg-primary/5">{{ c().contrast_right }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (row of c().contrast; track row[0]) {
+              <tr class="border-b border-zinc-50 last:border-0">
+                <td class="p-3 md:p-6 text-zinc-400">{{ row[0] }}</td>
+                <td class="p-3 md:p-6 font-bold text-zinc-900 bg-primary/5">{{ row[1] }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
 
-  <!-- Rule Engine Checks -->
-  <section class="section-padding bg-white">
-    <div class="max-w-7xl mx-auto">
-      <div class="max-w-3xl mx-auto text-center mb-16">
+  <!-- One card -->
+  <section id="card" class="section-padding bg-white scroll-mt-24">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+      <figure class="order-2 lg:order-1">
+        <img loading="lazy" decoding="async" [src]="c().card_shot.src" [width]="c().card_shot.w" [height]="c().card_shot.h" [alt]="c().card_shot.alt"
+          class="w-full max-w-lg mx-auto rounded-2xl shadow-2xl shadow-zinc-300/50 border border-zinc-100">
+      </figure>
+      <div class="order-1 lg:order-2">
         <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-6">
-          <span class="text-primary font-label text-[10px] font-black tracking-widest uppercase">{{ t().teamplanner_page.checks_tag }}</span>
+          <span class="text-primary font-label text-[10px] font-black tracking-widest uppercase">{{ c().card_tag }}</span>
         </div>
-        <h2 class="text-4xl md:text-5xl font-black text-zinc-900 leading-tight">{{ t().teamplanner_page.checks_title }}</h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-        @for (c of t().teamplanner_page.checks; track c.name; let i = $index) {
-          <div class="p-6 bg-zinc-900 rounded-2xl relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
-            <div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div class="relative z-10">
-              <span class="text-3xl font-black text-primary block mb-3">0{{ i + 1 }}</span>
-              <h4 class="font-black text-sm mb-2 text-white uppercase tracking-wide">{{ c.name }}</h4>
-              <p class="text-xs text-zinc-400 leading-relaxed">{{ c.desc }}</p>
-            </div>
-          </div>
-        }
+        <h2 class="text-4xl md:text-5xl font-black text-zinc-900 leading-tight mb-5">{{ c().card_title }}</h2>
+        <p class="text-lg text-zinc-600 leading-relaxed mb-8">{{ c().card_desc }}</p>
+        <ul class="space-y-3">
+          @for (p of c().card_points; track p) {
+            <li class="flex gap-3 text-zinc-700">
+              <span class="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span><span>{{ p }}</span>
+            </li>
+          }
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- How It Works -->
+  <!-- Drag, drop, done -->
   <section class="section-padding bg-zinc-50/30">
     <div class="max-w-7xl mx-auto">
-      <div class="max-w-2xl mb-16">
+      <div class="max-w-3xl mb-14">
         <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-6">
-          <span class="text-primary font-label text-[10px] font-black tracking-widest uppercase">{{ t().teamplanner_page.how_tag }}</span>
+          <span class="text-primary font-label text-[10px] font-black tracking-widest uppercase">{{ c().drag_tag }}</span>
         </div>
-        <h2 class="text-4xl md:text-5xl font-black text-zinc-900 leading-tight">{{ t().teamplanner_page.how_title }}</h2>
+        <h2 class="text-4xl md:text-5xl font-black text-zinc-900 leading-tight mb-4">{{ c().drag_title }}</h2>
+        <p class="text-lg text-zinc-500 font-label">{{ c().drag_desc }}</p>
       </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        @for (d of c().drag; track d.title) {
+          <article class="bg-white rounded-3xl border border-zinc-100 overflow-hidden hover:shadow-2xl hover:shadow-primary/5 hover:border-primary/20 transition-all">
+            <div class="aspect-[16/10] overflow-hidden bg-zinc-50 border-b border-zinc-100">
+              <img loading="lazy" decoding="async" [src]="d.shot.src" [width]="d.shot.w" [height]="d.shot.h" [alt]="d.shot.alt" class="w-full h-full object-cover object-left-top">
+            </div>
+            <div class="p-8">
+              <span class="material-symbols-outlined text-primary text-3xl mb-4 block">{{ d.icon }}</span>
+              <h3 class="text-xl font-black text-zinc-900 mb-2">{{ d.title }}</h3>
+              <p class="text-sm text-zinc-500 leading-relaxed">{{ d.text }}</p>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
 
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        @for (step of t().teamplanner_page.how; track step.title) {
-          <div class="relative">
-            <span class="text-6xl font-black text-primary/10 block mb-4">{{ step.step }}</span>
-            <h4 class="font-black text-lg mb-2 text-zinc-900">{{ step.title }}</h4>
-            <p class="text-sm text-zinc-500 leading-relaxed">{{ step.desc }}</p>
-          </div>
+  <!-- Warnings -->
+  <section class="section-padding bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-3xl mb-16">
+        <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-6">
+          <span class="text-primary font-label text-[10px] font-black tracking-widest uppercase">{{ c().warn_tag }}</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-black text-zinc-900 leading-tight mb-4">{{ c().warn_title }}</h2>
+        <p class="text-lg text-zinc-500 font-label">{{ c().warn_desc }}</p>
+      </div>
+      <div class="space-y-20">
+        @for (w of c().warn; track w.title; let odd = $odd) {
+          <article class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div class="lg:col-span-5" [class.lg:order-2]="odd">
+              <span class="material-symbols-outlined text-primary text-4xl mb-4 block">{{ w.icon }}</span>
+              <h3 class="text-2xl md:text-3xl font-black text-zinc-900 mb-4">{{ w.title }}</h3>
+              <p class="text-lg text-zinc-600 leading-relaxed">{{ w.text }}</p>
+            </div>
+            <figure class="lg:col-span-7" [class.lg:order-1]="odd">
+              <img loading="lazy" decoding="async" [src]="w.shot.src" [width]="w.shot.w" [height]="w.shot.h" [alt]="w.shot.alt"
+                class="w-full rounded-2xl shadow-2xl shadow-zinc-300/50 border border-zinc-100 bg-white" [class.max-w-md]="w.shot.w < 800" [class.mx-auto]="w.shot.w < 800">
+            </figure>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Real crews -->
+  <section class="section-padding bg-zinc-50/30">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-3xl mb-14">
+        <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-6">
+          <span class="text-primary font-label text-[10px] font-black tracking-widest uppercase">{{ c().crews_tag }}</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-black text-zinc-900 leading-tight">{{ c().crews_title }}</h2>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        @for (x of c().crews; track x.title) {
+          <article class="bg-white rounded-3xl border border-zinc-100 overflow-hidden">
+            <div class="aspect-[16/10] overflow-hidden bg-zinc-50 border-b border-zinc-100">
+              <img loading="lazy" decoding="async" [src]="x.shot.src" [width]="x.shot.w" [height]="x.shot.h" [alt]="x.shot.alt" class="w-full h-full object-cover object-left-top">
+            </div>
+            <div class="p-8">
+              <span class="material-symbols-outlined text-primary text-3xl mb-4 block">{{ x.icon }}</span>
+              <h3 class="text-xl font-black text-zinc-900 mb-2">{{ x.title }}</h3>
+              <p class="text-sm text-zinc-500 leading-relaxed">{{ x.text }}</p>
+            </div>
+          </article>
+        }
+      </div>
+      <p class="text-zinc-600 mt-10 text-lg">{{ c().crews_extra }}</p>
+    </div>
+  </section>
+
+  <!-- Plan to invoice -->
+  <section class="section-padding bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-3xl mb-14">
+        <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-6">
+          <span class="text-primary font-label text-[10px] font-black tracking-widest uppercase">{{ c().invoice_tag }}</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-black text-zinc-900 leading-tight">{{ c().invoice_title }}</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        @for (x of c().invoice; track x.title) {
+          <article class="rounded-3xl border border-zinc-100 overflow-hidden bg-zinc-50/40">
+            <div class="aspect-[16/8] overflow-hidden bg-white border-b border-zinc-100">
+              <img loading="lazy" decoding="async" [src]="x.shot.src" [width]="x.shot.w" [height]="x.shot.h" [alt]="x.shot.alt" class="w-full h-full object-cover object-left-top">
+            </div>
+            <div class="p-8">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="material-symbols-outlined text-primary text-3xl">{{ x.icon }}</span>
+                <h3 class="text-xl font-black text-zinc-900">{{ x.title }}</h3>
+              </div>
+              <p class="text-zinc-500 leading-relaxed">{{ x.text }}</p>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Built around you -->
+  <section class="section-padding bg-zinc-900 text-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-3xl mb-14">
+        <span class="text-primary font-label text-xs font-black tracking-widest uppercase">{{ c().you_tag }}</span>
+        <h2 class="text-4xl md:text-5xl font-black leading-tight mt-4">{{ c().you_title }}</h2>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+        @for (x of c().you; track x.title) {
+          <article class="rounded-3xl border border-white/10 bg-white/5 overflow-hidden">
+            <div class="aspect-[16/10] overflow-hidden bg-white">
+              <img loading="lazy" decoding="async" [src]="x.shot.src" [width]="x.shot.w" [height]="x.shot.h" [alt]="x.shot.alt" class="w-full h-full object-cover object-left-top">
+            </div>
+            <div class="p-8">
+              <span class="material-symbols-outlined text-primary text-3xl mb-4 block">{{ x.icon }}</span>
+              <h3 class="text-xl font-black mb-2">{{ x.title }}</h3>
+              <p class="text-sm text-zinc-400 leading-relaxed">{{ x.text }}</p>
+            </div>
+          </article>
+        }
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <h3 class="text-2xl font-black mb-6">{{ c().roles_title }}</h3>
+          <dl class="divide-y divide-white/10 border-y border-white/10">
+            @for (r of c().roles; track r[0]) {
+              <div class="flex gap-6 py-4">
+                <dt class="font-black w-24 shrink-0 text-primary">{{ r[0] }}</dt>
+                <dd class="text-zinc-300">{{ r[1] }}</dd>
+              </div>
+            }
+          </dl>
+        </div>
+        <div>
+          <h3 class="text-2xl font-black mb-6">{{ c().timeline_title }}</h3>
+          <ol class="border-l border-white/20 pl-6 space-y-6">
+            @for (t of c().timeline; track t[0]) {
+              <li class="relative">
+                <span class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-primary"></span>
+                <p class="font-black text-primary text-sm uppercase tracking-widest">{{ t[0] }}</p>
+                <p class="text-zinc-300 mt-1">{{ t[1] }}</p>
+              </li>
+            }
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-padding bg-white">
+    <div class="max-w-4xl mx-auto">
+      <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-6">
+        <span class="text-primary font-label text-[10px] font-black tracking-widest uppercase">{{ c().faq_tag }}</span>
+      </div>
+      <h2 class="text-3xl md:text-5xl font-black text-zinc-900 leading-tight mb-10">{{ c().faq_title }}</h2>
+      <div class="divide-y divide-zinc-100 border-y border-zinc-100">
+        @for (item of c().faq; track item.q; let i = $index) {
+          <details class="group py-6" [open]="i === openFaq">
+            <summary class="flex justify-between items-center gap-6 cursor-pointer list-none">
+              <h3 class="text-lg md:text-xl font-bold text-zinc-900">{{ item.q }}</h3>
+              <span class="material-symbols-outlined text-primary transition-transform group-open:rotate-45">add</span>
+            </summary>
+            <p class="text-zinc-600 leading-relaxed mt-4">{{ item.a }}</p>
+          </details>
         }
       </div>
     </div>
@@ -167,11 +294,10 @@
   <section class="py-12 px-8 bg-zinc-50/30 border-y border-zinc-100">
     <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
       <p class="text-zinc-600 font-label">
-        <span class="material-symbols-outlined text-primary align-middle text-lg mr-2">timer</span>
-        {{ t().teamplanner_page.cross_link_text }}
+        <span class="material-symbols-outlined text-primary align-middle text-lg mr-2">timer</span>{{ c().cross_link_text }}
       </p>
-      <a (click)="navigateToTimeStudy()" class="text-primary font-bold flex items-center gap-2 hover:gap-4 transition-all cursor-pointer">
-        {{ t().teamplanner_page.cross_link_cta }} <span class="material-symbols-outlined">arrow_forward</span>
+      <a href="/time-study" (click)="$event.preventDefault(); navigateToTimeStudy()" class="text-primary font-bold flex items-center gap-2 hover:gap-4 transition-all">
+        {{ c().cross_link_cta }} <span class="material-symbols-outlined">arrow_forward</span>
       </a>
     </div>
   </section>
@@ -181,15 +307,13 @@
     <div class="absolute inset-0 opacity-5">
       <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary rounded-full blur-[120px]"></div>
     </div>
-
     <div class="max-w-4xl mx-auto text-center relative z-10">
-      <h2 class="text-5xl md:text-7xl font-black tracking-tighter mb-8 italic">{{ t().teamplanner_page.final_cta_title }}</h2>
-      <p class="text-xl text-zinc-500 mb-12 max-w-2xl mx-auto font-label">
-        {{ t().teamplanner_page.final_cta_desc }}
-      </p>
+      <h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-8 italic">{{ c().final_cta_title }}</h2>
+      <p class="text-xl text-zinc-500 mb-10 max-w-2xl mx-auto font-label">{{ c().final_cta_desc }}</p>
       <button (click)="navigateToContact()" class="premium-gradient-btn !px-12 !py-6 !text-xl shadow-2xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all">
-        {{ t().teamplanner_page.final_cta_button }}
+        {{ c().final_cta_button }}
       </button>
+      <p class="text-zinc-500 font-label mt-8">{{ c().contact_line }}</p>
     </div>
   </section>
 </main>
