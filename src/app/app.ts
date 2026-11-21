@@ -13,35 +13,64 @@ import { SeoService } from './core/services/seo.service';
 import { TranslationService } from './core/services/translation.service';
 import { effect } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TIME_STUDY_CONTENT } from './pages/time-study/time-study.content';
+import { TEAMPLANNER_CONTENT } from './pages/teamplanner/teamplanner.content';
+
+const ORG_REF = { '@type': 'Organization', '@id': 'https://www.p41.be/#organization', name: 'P41 Industrial Intelligence', url: 'https://www.p41.be' };
+const faqPage = (url: string, items: { q: string; a: string }[]) => ({
+  '@type': 'FAQPage',
+  '@id': url + '#faq',
+  mainEntity: items.map(i => ({ '@type': 'Question', name: i.q, acceptedAnswer: { '@type': 'Answer', text: i.a } }))
+});
+const TS = TIME_STUDY_CONTENT.en;
+const TP = TEAMPLANNER_CONTENT.en;
 
 // Page-specific structured data (schema.org). Keyed by route `seoKey`.
 // Kept language-neutral and centralized so it survives the NavigationEnd re-sync in updateSeo().
 const JSON_LD_BY_SEO_KEY: Record<string, any> = {
   timeStudy: {
     '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: 'Time Study',
-    applicationCategory: 'BusinessApplication',
-    applicationSubCategory: 'Industrial Engineering / Lean Manufacturing Software',
-    operatingSystem: 'Web',
-    description: 'Line-balancing, time-study, and production-costing workbench that turns a station-by-station work breakdown into takt time, balance loss %, and unit cost.',
-    url: 'https://www.p41.be/time-study',
-    image: 'https://www.p41.be/og-image.jpg',
-    brand: { '@type': 'Brand', name: 'P41 Industrial Intelligence' },
-    provider: { '@type': 'Organization', '@id': 'https://www.p41.be/#organization', name: 'P41 Industrial Intelligence', url: 'https://www.p41.be' }
+    '@graph': [
+      {
+        '@type': 'SoftwareApplication',
+        '@id': 'https://www.p41.be/time-study#software',
+        name: 'Time Study',
+        applicationCategory: 'BusinessApplication',
+        applicationSubCategory: 'Time study and line balancing software',
+        operatingSystem: 'Web',
+        description: TS.desc,
+        url: 'https://www.p41.be/time-study',
+        image: 'https://www.p41.be/time-study/station-balance-chart.webp',
+        screenshot: TS.features.map(f => 'https://www.p41.be' + f.shot.src),
+        featureList: TS.features.map(f => f.title),
+        inLanguage: ['en', 'nl'],
+        brand: { '@type': 'Brand', name: 'P41 Industrial Intelligence' },
+        provider: ORG_REF
+      },
+      faqPage('https://www.p41.be/time-study', TS.faq)
+    ]
   },
   teamPlanner: {
     '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: 'TeamPlanner',
-    applicationCategory: 'BusinessApplication',
-    applicationSubCategory: 'Field Service & Workforce Scheduling Software',
-    operatingSystem: 'Web',
-    description: 'Workforce scheduling for field crews plan jobs, staff them with the right people and vehicles, track attendance, and invoice real cost, all from one board.',
-    url: 'https://www.p41.be/teamplanner',
-    image: 'https://www.p41.be/og-image.jpg',
-    brand: { '@type': 'Brand', name: 'P41 Industrial Intelligence' },
-    provider: { '@type': 'Organization', '@id': 'https://www.p41.be/#organization', name: 'P41 Industrial Intelligence', url: 'https://www.p41.be' }
+    '@graph': [
+      {
+        '@type': 'SoftwareApplication',
+        '@id': 'https://www.p41.be/teamplanner#software',
+        name: 'TeamPlanner',
+        applicationCategory: 'BusinessApplication',
+        applicationSubCategory: 'Field crew and workforce scheduling software',
+        operatingSystem: 'Web',
+        description: TP.desc,
+        url: 'https://www.p41.be/teamplanner',
+        image: 'https://www.p41.be' + TP.hero_shot.src,
+        screenshot: [TP.hero_shot, TP.card_shot, ...TP.warn.map(w => w.shot)].map(x => 'https://www.p41.be' + x.src),
+        featureList: [...TP.drag, ...TP.warn, ...TP.invoice].map(x => x.title),
+        inLanguage: ['en', 'nl'],
+        brand: { '@type': 'Brand', name: 'P41 Industrial Intelligence' },
+        provider: ORG_REF
+      },
+      faqPage('https://www.p41.be/teamplanner', TP.faq)
+    ]
   }
 };
 

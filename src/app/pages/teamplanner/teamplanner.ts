@@ -1,8 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { TranslationService } from '../../core/services/translation.service';
 import { WhyChooseComponent } from '../home/sections/why-choose/why-choose';
+import { TEAMPLANNER_CONTENT } from './teamplanner.content';
 
 @Component({
   selector: 'app-teamplanner',
@@ -14,10 +15,11 @@ export class TeamPlannerComponent {
   private translationService = inject(TranslationService);
   private router = inject(Router);
 
-  t = this.translationService.t;
+  c = computed(() => TEAMPLANNER_CONTENT[this.translationService.lang()]);
+  openFaq = 0;
 
   private scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   navigateToContact() {

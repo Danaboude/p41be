@@ -99,14 +99,24 @@ export class SeoService {
           'width': 210,
           'height': 375
         },
-        'founder': { '@type': 'Person', 'name': 'Ives De Saeger', 'url': 'https://www.p41.be/about' },
+        'founder': { '@type': 'Person', 'name': 'Ives De Saeger', 'url': 'https://www.p41.be/about', 'sameAs': ['https://www.linkedin.com/in/ivesdesaeger/'] },
+        'address': {
+          '@type': 'PostalAddress',
+          'streetAddress': 'Frans Blocklaan 14',
+          'postalCode': '2620',
+          'addressLocality': 'Hemiksem',
+          'addressCountry': 'BE'
+        },
         'sameAs': [
           'https://www.linkedin.com/company/p41-partners-in-process-innovation/'
         ],
         'contactPoint': {
           '@type': 'ContactPoint',
           'email': 'ives@p41.be',
-          'contactType': 'customer service'
+          'telephone': '+32 496 16 65 54',
+          'contactType': 'sales',
+          'areaServed': 'BE',
+          'availableLanguage': ['en', 'nl']
         }
       });
     }
