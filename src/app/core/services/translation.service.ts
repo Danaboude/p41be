@@ -626,12 +626,12 @@ export class TranslationService {
           description: 'Time study and error analysis for your shop floor. P41 helps identify at least 10% efficiency gains within 3 months. More than 100 companies helped since 1995.'
         },
         about: {
-          title: 'About P41 | Our Vision & Methods',
+          title: 'About P41 | Founder Ives De Saeger & Our Method',
           description: 'Learn about P41\'s mission to bridge the gap between industrial heritage and digital management. Meet our founder Ives De Saeger.'
         },
         consultancy: {
-          title: 'Industrial Consultancy | P41 Services',
-          description: 'Strategic navigation through digital transformation for production assets and supply chain logistics.'
+          title: 'Time Study & Error Analysis Consultancy | P41',
+          description: 'Time study, error analysis and practical improvements on your shop floor, without big investments. Find where your production loses time and money.'
         },
         academy: {
           title: 'P41 Academy | Online Industrial Training',
@@ -642,7 +642,7 @@ export class TranslationService {
           description: 'Latest insights, trends, and case studies on Industry 4.0, digital transformation, and industrial efficiency.'
         },
         contact: {
-          title: 'Contact P41 | Book a Free Talk',
+          title: 'Contact P41 | Book a Free Talk About Your Shop Floor',
           description: 'Connect with our experts for a free talk about your operations or any industrial inquiries. Let\'s optimize your flow.'
         },
         privacy: {
@@ -650,12 +650,12 @@ export class TranslationService {
           description: 'Our commitment to protecting your privacy and managing your data securely.'
         },
         timeStudy: {
-          title: 'Time Study Software | Line Balancing, Takt Time & Costing | P41',
-          description: 'Time Study is an industrial engineering workbench for line balancing, BSI-3375 allowance scoring, production costing, and work instructions all from one activity dataset.'
+          title: 'Time Study Software: Line Balancing & Costing | P41',
+          description: 'Industrial engineering workbench for line balancing, BSI-3375 allowance scoring, production costing and work instructions, all from one dataset.'
         },
         teamPlanner: {
-          title: 'TeamPlanner | Field Crew Scheduling & Workforce Planning Software | P41',
-          description: 'TeamPlanner is workforce scheduling built for field crews: plan jobs, staff them with a 5-dimension rule engine, track attendance live, and invoice real cost all from one board.'
+          title: 'TeamPlanner | Field Crew Scheduling Software | P41',
+          description: 'Workforce scheduling for field crews: plan jobs, staff them with a 5-dimension rule engine, track attendance live and invoice real cost.'
         }
       }
     },
@@ -1263,12 +1263,12 @@ export class TranslationService {
           description: 'Tijdstudie en foutanalyse op uw werkvloer. P41 toont waar u minstens 10% wint binnen 3 maanden. Meer dan 100 bedrijven geholpen sinds 1995.'
         },
         about: {
-          title: 'Over P41 | Onze Visie & Methoden',
+          title: 'Over P41 | Oprichter Ives De Saeger & Onze Methode',
           description: 'Lees meer over de missie van P41 om de kloof te overbruggen tussen industrieel erfgoed en digitaal management. Maak kennis met onze oprichter Ives De Saeger.'
         },
         consultancy: {
-          title: 'Industriële Consultancy | P41 Diensten',
-          description: 'Strategische navigatie door digitale transformatie voor productiemiddelen en supply chain logistiek.'
+          title: 'Consultancy Tijdstudie & Foutanalyse | P41',
+          description: 'Tijdstudie, foutanalyse en praktische verbeteringen op uw werkvloer, zonder grote investeringen. Ontdek waar uw productie tijd en geld verliest.'
         },
         academy: {
           title: 'P41 Academie | Online Industriële Training',
@@ -1287,12 +1287,12 @@ export class TranslationService {
           description: 'Onze toewijding aan het beschermen van uw privacy en het veilig beheren van uw gegevens.'
         },
         timeStudy: {
-          title: 'Time Study Software | Lijnbalancering, Takttijd & Kostprijs | P41',
-          description: 'Time Study is een workbench voor industrieel ingenieurs voor lijnbalancering, BSI-3375 toeslagberekening, productiekostprijs en werkinstructies alles vanuit één activiteitendataset.'
+          title: 'Time Study Software: Lijnbalancering & Kostprijs | P41',
+          description: 'Workbench voor industrieel ingenieurs: lijnbalancering, BSI-3375 toeslagen, productiekostprijs en werkinstructies, alles vanuit één dataset.'
         },
         teamPlanner: {
-          title: 'TeamPlanner | Planningssoftware voor Veldploegen & Personeel | P41',
-          description: 'TeamPlanner is workforce scheduling gebouwd voor veldploegen: plan jobs, bemand ze met een regelmotor op 5 dimensies, volg aanwezigheid live op en factureer de echte kost alles vanaf één bord.'
+          title: 'TeamPlanner | Planningssoftware voor Veldploegen | P41',
+          description: 'Planning voor veldploegen: plan jobs, bemand ze met een regelmotor op 5 dimensies, volg aanwezigheid live op en factureer de echte kost.'
         }
       }
     }

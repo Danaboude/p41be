@@ -66,7 +66,7 @@ export class BlogDetailComponent implements OnInit {
     this.post = null;
     this.video = null;
     this.videoPlaying = false;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
 
 
     this.dataService.getBlogPost(slug).subscribe({
@@ -103,7 +103,7 @@ export class BlogDetailComponent implements OnInit {
               image, url, mainEntityOfPage: url,
               ...(publishedDate ? { datePublished: publishedDate } : {}),
               author: { '@type': 'Person', name: 'Ives De Saeger', url: 'https://www.p41.be/about' },
-              publisher: { '@type': 'Organization', name: 'P41', url: 'https://www.p41.be' }
+              publisher: { '@type': 'Organization', '@id': 'https://www.p41.be/#organization', name: 'P41 Industrial Intelligence', url: 'https://www.p41.be', logo: 'https://www.p41.be/logo.jpg' }
             }
           });
         }

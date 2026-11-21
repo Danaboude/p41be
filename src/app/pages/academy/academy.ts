@@ -42,8 +42,6 @@ export class AcademyComponent implements OnInit {
     this.seoService.updateSeoTags({
       title: 'P41 Academy - Lean, Six Sigma & Industry 4.0 Training',
       description: 'Boost your career with our professional training courses in Lean Manufacturing, Six Sigma, Change Management, and Industry 4.0. Practical, expert-led sessions.',
-      url: 'https://p41.be/academy',
-      image: 'https://www.blomconsultancy.nl/wp-content/uploads/2016/09/Makigami_brown-paper-768x576.png'
     });
     this.dataService.getCourses().subscribe({
       next: (data) => {

@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /api
+Disallow: /academy/access/
 
 Sitemap: https://www.p41.be/sitemap.xml

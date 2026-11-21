@@ -56,7 +56,7 @@
             <!-- Conference/Audience Image (CrossRoads) -->
             <div class="relative animate-slide-up" style="animation-delay: 0.2s">
               <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white">
-                <img src="CrossRoads-22-1-scaled-1.jpg"
+                <img fetchpriority="high" width="1920" height="1282" src="crossroads-stage.webp"
                   class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Conference">
               </div>
               <div class="absolute -bottom-4 -right-4 bg-white p-4 rounded-2xl shadow-xl">
@@ -70,7 +70,7 @@
             <!-- Ives De Saeger Image -->
             <div class="relative animate-slide-up" style="animation-delay: 0.4s">
               <div class="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl bg-zinc-50">
-                <img src="ives_with_mic_hero.png"
+                <img width="1078" height="1251" src="ives-with-mic.webp"
                   class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
                   alt="Ives De Saeger">
               </div>
@@ -145,7 +145,7 @@
     <div class="max-w-7xl mx-auto px-8">
       <div
         class="flex flex-wrap items-center justify-center gap-12 md:gap-24 opacity-30 grayscale hover:opacity-60 transition-all duration-500">
-        <img *ngFor="let client of clients" [src]="client.logo" [alt]="client.name" class="h-16 md:h-20 object-contain">
+        <img loading="lazy" decoding="async" *ngFor="let client of clients" [src]="client.logo" [alt]="client.name" class="h-16 md:h-20 object-contain">
       </div>
     </div>
   </section>
@@ -176,7 +176,7 @@
           <div
             class="absolute -inset-4 bg-primary/5 rounded-3xl translate-x-4 translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-700">
           </div>
-          <img src="ives-microfoon-334x500-1.jpg"
+          <img loading="lazy" decoding="async" width="334" height="375" src="ives-microfoon.webp"
             class="relative z-10 w-full h-auto rounded-2xl shadow-2xl transition-all duration-700" alt="Vision">
         </div>
       </div>

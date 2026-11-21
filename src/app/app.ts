@@ -26,10 +26,9 @@ const JSON_LD_BY_SEO_KEY: Record<string, any> = {
     operatingSystem: 'Web',
     description: 'Line-balancing, time-study, and production-costing workbench that turns a station-by-station work breakdown into takt time, balance loss %, and unit cost.',
     url: 'https://www.p41.be/time-study',
-    image: 'https://www.p41.be/banner.jpg',
+    image: 'https://www.p41.be/og-image.jpg',
     brand: { '@type': 'Brand', name: 'P41 Industrial Intelligence' },
-    offers: { '@type': 'Offer', priceCurrency: 'EUR', availability: 'https://schema.org/InStock', url: 'https://www.p41.be/time-study' },
-    provider: { '@type': 'Organization', name: 'P41 Industrial Intelligence', url: 'https://www.p41.be' }
+    provider: { '@type': 'Organization', '@id': 'https://www.p41.be/#organization', name: 'P41 Industrial Intelligence', url: 'https://www.p41.be' }
   },
   teamPlanner: {
     '@context': 'https://schema.org',
@@ -40,10 +39,9 @@ const JSON_LD_BY_SEO_KEY: Record<string, any> = {
     operatingSystem: 'Web',
     description: 'Workforce scheduling for field crews plan jobs, staff them with the right people and vehicles, track attendance, and invoice real cost, all from one board.',
     url: 'https://www.p41.be/teamplanner',
-    image: 'https://www.p41.be/banner.jpg',
+    image: 'https://www.p41.be/og-image.jpg',
     brand: { '@type': 'Brand', name: 'P41 Industrial Intelligence' },
-    offers: { '@type': 'Offer', priceCurrency: 'EUR', availability: 'https://schema.org/InStock', url: 'https://www.p41.be/teamplanner' },
-    provider: { '@type': 'Organization', name: 'P41 Industrial Intelligence', url: 'https://www.p41.be' }
+    provider: { '@type': 'Organization', '@id': 'https://www.p41.be/#organization', name: 'P41 Industrial Intelligence', url: 'https://www.p41.be' }
   }
 };
 
@@ -97,8 +95,10 @@ export class App {
     }
 
     this.document.documentElement.lang = this.translationService.lang();
-    const isAdmin = this.router.url.startsWith('/admin');
-    this.meta.updateTag({ name: 'robots', content: isAdmin ? 'noindex, nofollow' : 'index, follow' });
+    const url = this.router.url;
+    const isPrivate = url.startsWith('/admin') || url.startsWith('/academy/access') || !!route?.snapshot.data['noindex'];
+    this.meta.updateTag({ name: 'robots', content: isPrivate ? 'noindex, nofollow' : 'index, follow' });
+    if (isPrivate) return;
     if (route?.snapshot.paramMap.has('slug')) return;
     const seoKey = route?.snapshot.data['seoKey'];
     if (seoKey && t.seo && t.seo[seoKey]) {

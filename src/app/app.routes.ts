@@ -24,7 +24,7 @@ export const routes: Routes = [
   { path: 'contact', component: ContactComponent, data: { seoKey: 'contact' } },
   { path: 'academy', component: AcademyComponent, data: { seoKey: 'academy' } },
   { path: 'academy/:courseId', component: CourseDetailComponent, data: { seoKey: 'academy' } },
-  { path: 'academy/access/:purchaseId', component: CourseAccessComponent },
+  { path: 'academy/access/:purchaseId', component: CourseAccessComponent, data: { noindex: true } },
   { path: 'blog', component: BlogComponent, data: { seoKey: 'blog' } },
   { path: 'blog/:slug', component: BlogDetailComponent, data: { seoKey: 'blog' } },
   { path: 'privacy', loadComponent: () => import('./pages/privacy/privacy').then(m => m.PrivacyComponent), data: { seoKey: 'privacy' } },
@@ -48,5 +48,6 @@ export const routes: Routes = [
     ]
   },
 
-  { path: '**', redirectTo: '' }
+  { path: '404', loadComponent: () => import('./pages/not-found/not-found').then(m => m.NotFoundComponent), data: { noindex: true } },
+  { path: '**', loadComponent: () => import('./pages/not-found/not-found').then(m => m.NotFoundComponent), data: { noindex: true } }
 ];
