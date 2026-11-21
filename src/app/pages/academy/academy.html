@@ -3,7 +3,7 @@
   <!-- Hero Section -->
   <section class="relative min-h-[95vh] flex items-center overflow-hidden section-padding">
     <div class="absolute inset-0 z-0">
-      <img src="hero_backgournd.jpg" class="w-full h-full object-cover opacity-10 grayscale" alt="Academy background">
+      <img fetchpriority="high" width="1920" height="1093" src="hero-background.webp" class="w-full h-full object-cover opacity-10 grayscale" alt="Academy background">
       <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent"></div>
     </div>
 
@@ -15,12 +15,12 @@
         <div class="animate-slide-up">
           <div class="inline-flex items-center gap-2 bg-[#D4A843]/10 px-4 py-1.5 rounded-sm mb-8">
             <span class="material-symbols-outlined text-[#D4A843] text-sm">workspace_premium</span>
-            <span class="text-[#D4A843] font-label text-xs font-bold tracking-widest uppercase">Premium Education</span>
+            <h1 class="text-[#D4A843] font-label text-xs font-bold tracking-widest uppercase">P41 Academy: Professional Training</h1>
           </div>
 
-          <h1 class="text-6xl md:text-8xl font-black leading-[0.9] mb-8">
+          <h2 class="text-6xl md:text-8xl font-black leading-[0.9] mb-8">
             {{ featuredCourse.title }}
-          </h1>
+          </h2>
 
           <p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed mb-12">
             {{ featuredCourse.description }}
@@ -212,7 +212,7 @@
         <!-- Image -->
         <div class="relative group">
           <div class="absolute -inset-4 bg-[#D4A843]/10 rounded-sm translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500"></div>
-          <img src="ives front look.jpg" class="relative z-10 w-full rounded-sm shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-700" alt="Ives De Saeger">
+          <img loading="lazy" decoding="async" width="1000" height="1346" src="ives-de-saeger.webp" class="relative z-10 w-full rounded-sm shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-700" alt="Ives De Saeger">
           <div class="absolute bottom-8 left-8 z-20 bg-[#D4A843] p-6 text-white max-w-xs shadow-2xl">
             <p class="text-sm font-label uppercase tracking-widest font-bold opacity-80 mb-2">Your Instructor</p>
             <p class="text-2xl font-black font-headline">Ives De Saeger</p>

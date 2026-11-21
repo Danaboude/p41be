@@ -32,7 +32,7 @@ export class SeoService {
       title,
       description,
       keywords,
-      image = 'https://www.p41.be/banner.jpg',
+      image = 'https://www.p41.be/og-image.jpg',
       url = new URL(this.document.location.pathname, this.baseUrl).href,
       type = 'website',
       author = 'P41 Industrial Intelligence',
@@ -90,9 +90,16 @@ export class SeoService {
       this.setJsonLd({
         '@context': 'https://schema.org',
         '@type': 'Organization',
+        '@id': 'https://www.p41.be/#organization',
         'name': 'P41 Industrial Intelligence',
         'url': 'https://www.p41.be',
-        'logo': 'https://www.p41.be/logo.jpg',
+        'logo': {
+          '@type': 'ImageObject',
+          'url': 'https://www.p41.be/logo.jpg',
+          'width': 210,
+          'height': 375
+        },
+        'founder': { '@type': 'Person', 'name': 'Ives De Saeger', 'url': 'https://www.p41.be/about' },
         'sameAs': [
           'https://www.linkedin.com/company/p41-partners-in-process-innovation/'
         ],

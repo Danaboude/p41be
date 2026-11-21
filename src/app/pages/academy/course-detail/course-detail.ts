@@ -112,8 +112,9 @@ export class CourseDetailComponent implements OnInit {
               'description': found.description || found.shortDescription,
               'provider': {
                 '@type': 'Organization',
-                'name': 'P41 Academy',
-                'sameAs': 'https://www.p41.be'
+                '@id': 'https://www.p41.be/#organization',
+                'name': 'P41 Industrial Intelligence',
+                'url': 'https://www.p41.be'
               }
             }
           });

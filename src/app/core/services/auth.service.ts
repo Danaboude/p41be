@@ -21,11 +21,12 @@ export class AuthService {
   private router = inject(Router);
 
   currentUser = signal<User | null>(this.getStoredUser());
-  token = signal<string | null>(localStorage.getItem('p41_token'));
+  token = signal<string | null>(typeof localStorage !== 'undefined' ? localStorage.getItem('p41_token') : null);
 
   isAuthenticated = signal<boolean>(!!this.token());
 
   private getStoredUser(): User | null {
+    if (typeof localStorage === 'undefined') return null;
     const userJson = localStorage.getItem('p41_user');
     return userJson ? JSON.parse(userJson) : null;
   }
