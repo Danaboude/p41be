@@ -22,7 +22,7 @@ export class TimeStudyComponent {
   openFaq = 0;
 
   videoUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-    'https://player.vimeo.com/video/1186302296?h=424166036c'
+    'https://player.vimeo.com/video/1186302296?h=424166036c&title=0&byline=0&portrait=0&badge=0&dnt=1'
   );
 
   private scrollToTop() {

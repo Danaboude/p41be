@@ -30,6 +30,27 @@
     </div>
   </section>
 
+  <!-- Film (frame stays empty until the film is approved) -->
+  <section id="film" class="section-padding bg-white">
+    <div class="max-w-5xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-6">
+        <span class="text-primary font-label text-[10px] font-black tracking-widest uppercase">{{ c().film_tag }}</span>
+      </div>
+      <h2 class="text-3xl md:text-5xl font-black text-zinc-900 leading-tight mb-12">{{ c().film_title }}</h2>
+      <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-zinc-300/40 border border-zinc-100 bg-zinc-100" style="padding-top: 56.25%;">
+        @if (filmUrl) {
+          <iframe [src]="filmUrl" loading="lazy" class="absolute inset-0 w-full h-full" title="TeamPlanner film" frameborder="0"
+            referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            allowfullscreen></iframe>
+        } @else {
+          <div class="absolute inset-0 flex items-center justify-center" aria-hidden="true">
+            <span class="material-symbols-outlined text-zinc-300 text-7xl">play_circle</span>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
   <!-- Blocks vs people -->
   <section class="section-padding bg-zinc-50/30">
     <div class="max-w-5xl mx-auto">
