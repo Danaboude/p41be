@@ -1,4 +1,5 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
+import { requestRebuild } from '../lib/rebuild';
 import prisma from '../lib/prisma';
 import jwt from 'jsonwebtoken';
 
@@ -43,6 +44,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     switch (method) {
       case 'POST':
         const newCourse = await prisma.course.create({ data: req.body });
+        await requestRebuild();
         return res.status(201).json(newCourse);
       
       case 'PUT':
@@ -51,11 +53,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           where: { id: String(updateId) },
           data: updateData
         });
+        await requestRebuild();
         return res.status(200).json(updatedCourse);
 
       case 'DELETE':
         const { id: deleteId } = req.query;
         await prisma.course.delete({ where: { id: String(deleteId) } });
+        await requestRebuild();
         return res.status(204).end();
 
       default:

@@ -33,7 +33,7 @@
         <a [routerLink]="['/blog', blog.slug || blog.id]" class="block flex-1 flex flex-col">
           <!-- Image -->
           <div class="aspect-[16/10] overflow-hidden relative" [class.bg-zinc-900]="blog.kind === 'LINKEDIN'">
-            <img [src]="blog.image" [alt]="blog.title"
+            <img width="640" height="400" loading="lazy" decoding="async" [src]="blog.image" [alt]="blog.title"
                  [class.object-cover]="blog.kind !== 'LINKEDIN'"
                  [class.object-contain]="blog.kind === 'LINKEDIN'"
                  class="w-full h-full group-hover:scale-110 transition-transform duration-700">

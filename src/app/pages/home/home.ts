@@ -27,12 +27,12 @@ export class HomeComponent implements OnDestroy {
   carouselPaused = signal(false);
 
   clients = [
-    { name: 'CNH', logo: 'logos clints/cnh.png' },
-    { name: 'Petersime', logo: 'logos clints/petersime.png' },
-    { name: 'RAL', logo: 'logos clints/ral.png' },
-    { name: 'Smart Logistics', logo: 'logos clints/smart logistics.png' },
-    { name: 'TML', logo: 'logos clints/tml.png' },
-    { name: 'Volvo', logo: 'logos clints/volvo.png' }
+    { name: 'CNH', logo: 'logos clints/cnh.png', w: 311, h: 191 },
+    { name: 'Petersime', logo: 'logos clints/petersime.png', w: 197, h: 182 },
+    { name: 'RAL', logo: 'logos clints/ral.png', w: 151, h: 92 },
+    { name: 'Smart Logistics', logo: 'logos clints/smart logistics.png', w: 200, h: 201 },
+    { name: 'TML', logo: 'logos clints/tml.png', w: 282, h: 278 },
+    { name: 'Volvo', logo: 'logos clints/volvo.png', w: 721, h: 678 }
   ];
 
   videos = [

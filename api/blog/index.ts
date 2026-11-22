@@ -1,4 +1,5 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
+import { requestRebuild } from '../lib/rebuild';
 import prisma from '../lib/prisma';
 import jwt from 'jsonwebtoken';
 import { publicationDate, linkedinUrl, videoEmbedUrl } from '../../src/app/core/blog-utils';
@@ -51,14 +52,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     if (req.method === 'DELETE') {
       if (typeof req.query['id'] !== 'string' || !req.query['id']) return res.status(400).json({ message: 'Post ID required.' });
       await prisma.blogPost.delete({ where: { id: req.query['id'] } });
+      await requestRebuild();
       return res.status(204).end();
     }
     let data;
     try { data = validatePost(req.body); }
     catch (error: any) { return res.status(400).json({ message: error.message }); }
-    if (req.method === 'POST') return res.status(201).json(await prisma.blogPost.create({ data }));
+    if (req.method === 'POST') {
+      const created = await prisma.blogPost.create({ data });
+      await requestRebuild();
+      return res.status(201).json(created);
+    }
     if (typeof req.body.id !== 'string' || !req.body.id) return res.status(400).json({ message: 'Post ID required.' });
-    return res.status(200).json(await prisma.blogPost.update({ where: { id: req.body.id }, data }));
+    const updated = await prisma.blogPost.update({ where: { id: req.body.id }, data });
+    await requestRebuild();
+    return res.status(200).json(updated);
   } catch (error: any) {
     if (error.code === 'P2002') return res.status(409).json({ message: 'That URL slug is already in use.' });
     if (error.code === 'P2025') return res.status(404).json({ message: 'Post not found.' });

@@ -521,7 +521,7 @@ export class TranslationService {
       },
       seo: {
         home: {
-          title: 'P41 Industrial Intelligence | Industry 4.0 Leader',
+          title: 'P41 | Time Study, Line Balancing & Shop Floor Consultancy',
           description: 'Time study and error analysis for your shop floor. P41 helps identify at least 10% efficiency gains within 3 months. More than 100 companies helped since 1995.'
         },
         about: {
@@ -1056,7 +1056,7 @@ export class TranslationService {
       },
       seo: {
         home: {
-          title: 'P41 Industriële Intelligentie | Leider in Industrie 4.0',
+          title: 'P41 | Tijdstudie, Lijnbalancering & Advies op de Werkvloer',
           description: 'Tijdstudie en foutanalyse op uw werkvloer. P41 toont waar u minstens 10% wint binnen 3 maanden. Meer dan 100 bedrijven geholpen sinds 1995.'
         },
         about: {
