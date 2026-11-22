@@ -1,6 +1,7 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import jwt from 'jsonwebtoken';
 import { Resend } from 'resend';
+import { SITE_URL } from '../../lib/site-url';
 
 const JWT_SECRET = process.env['JWT_SECRET'] || 'default-secret';
 const resend = process.env['RESEND_API_KEY'] ? new Resend(process.env['RESEND_API_KEY']) : null;
@@ -35,7 +36,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
          return res.status(500).json({ error: 'Resend API key missing' });
        }
 
-       const baseUrl = process.env['VERCEL_URL'] ? `https://${process.env['VERCEL_URL']}` : 'https://p41.be';
+       const baseUrl = SITE_URL;
 
        const response = await resend.emails.send({
            from: `${process.env['FROM_NAME'] || 'P41 Academy'} <${process.env['FROM_EMAIL'] || 'ives@p41.be'}>`,

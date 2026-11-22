@@ -43,7 +43,7 @@
         <!-- Featured Course Card -->
         <div class="featured-card animate-scale-in hidden lg:block">
           <div class="relative aspect-[4/3] overflow-hidden bg-zinc-100 bg-center bg-no-repeat" style="background-image:url('logo-Y.jpg'); background-size: 15%;">
-            <img [src]="featuredCourse.image" [alt]="featuredCourse.title" loading="lazy" decoding="async"
+            <img width="800" height="600" [src]="featuredCourse.image" [alt]="featuredCourse.title" loading="lazy" decoding="async"
                  (load)="onImgLoad($event)"
                  class="w-full h-full object-cover opacity-0 group-hover:scale-105 transition-all duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
@@ -99,7 +99,7 @@
 
           <!-- Image -->
           <div class="course-card-image bg-zinc-100 bg-center bg-no-repeat" style="background-image:url('logo-Y.jpg'); background-size: 26%;">
-            <img [src]="course.image" [alt]="course.title" loading="lazy" decoding="async"
+            <img width="800" height="600" [src]="course.image" [alt]="course.title" loading="lazy" decoding="async"
                  (load)="onImgLoad($event)"
                  class="w-full h-full object-cover opacity-0 transition-opacity duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent pointer-events-none"></div>

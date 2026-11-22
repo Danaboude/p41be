@@ -2,9 +2,11 @@ import { VercelRequest, VercelResponse } from '@vercel/node';
 import prisma from '../../lib/prisma';
 import { createMollieClient } from '@mollie/api-client';
 import { Resend } from 'resend';
+import { SITE_URL } from '../../lib/site-url';
 
 const mollieClient = process.env['MOLLIE_API_KEY'] ? createMollieClient({ apiKey: process.env['MOLLIE_API_KEY'] }) : null;
 const resend = process.env['RESEND_API_KEY'] ? new Resend(process.env['RESEND_API_KEY']) : null;
+const baseUrl = SITE_URL;
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const method = req.method;
@@ -14,6 +16,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       // WEBHOOK HANDLING
       if (req.body && req.body.id && req.headers['content-type'] === 'application/x-www-form-urlencoded') {
         const paymentId = req.body.id;
+        if (!mollieClient) return res.status(500).json({ error: 'Mollie is not configured' });
         console.log(`[Webhook] Received payment update for ID: ${paymentId}`);
         const payment = await mollieClient.payments.get(paymentId);
         if (payment.status === 'paid') {
@@ -101,8 +104,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
          parsedValue = parseFloat(rawPrice).toFixed(2);
       }
 
-      // Vercel deployment URL or localhost fallback
-      const baseUrl = process.env['VERCEL_URL'] ? `https://${process.env['VERCEL_URL']}` : 'http://localhost:3000';
 
       const isActuallyFree = course.isPaid === false || parsedValue === '0.00';
 

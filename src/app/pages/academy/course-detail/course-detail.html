@@ -3,7 +3,7 @@
   <!-- Hero Banner -->
   <section class="relative min-h-[55vh] flex items-end overflow-hidden">
     <div class="absolute inset-0 bg-zinc-800 bg-center bg-no-repeat" style="background-image:url('logo-Y.jpg'); background-size: 8%;">
-      <img [src]="course().image" [alt]="course().title" loading="lazy" decoding="async" (load)="onImgLoad($event)"
+      <img width="1200" height="675" [src]="course().image" [alt]="course().title" loading="lazy" decoding="async" (load)="onImgLoad($event)"
            class="w-full h-full object-cover opacity-0 transition-opacity duration-700">
       <div class="absolute inset-0 bg-gradient-to-t from-inverse-surface via-inverse-surface/70 to-inverse-surface/30">
       </div>
@@ -139,7 +139,7 @@
           <div class="sticky top-28 bg-white rounded-2xl border border-outline-variant/10 overflow-hidden shadow-2xl">
             <!-- Image -->
             <div class="aspect-video overflow-hidden bg-zinc-100 bg-center bg-no-repeat" style="background-image:url('logo-Y.jpg'); background-size: 20%;">
-              <img [src]="course().image" [alt]="course().title" loading="lazy" decoding="async" (load)="onImgLoad($event)"
+              <img width="1200" height="675" [src]="course().image" [alt]="course().title" loading="lazy" decoding="async" (load)="onImgLoad($event)"
                    class="w-full h-full object-cover opacity-0 transition-opacity duration-500">
             </div>
 
@@ -305,7 +305,7 @@
         <a *ngFor="let related of otherCourses()" [routerLink]="['/academy', related.id]"
           class="related-card group block">
           <div class="aspect-video overflow-hidden bg-zinc-100 bg-center bg-no-repeat" style="background-image:url('logo-Y.jpg'); background-size: 20%;">
-            <img [src]="related.image" [alt]="related.title" loading="lazy" decoding="async" (load)="onImgLoad($event)"
+            <img width="800" height="600" [src]="related.image" [alt]="related.title" loading="lazy" decoding="async" (load)="onImgLoad($event)"
               class="w-full h-full object-cover opacity-0 group-hover:scale-105 transition-all duration-500">
           </div>
           <div class="p-5">

@@ -4,7 +4,7 @@
   <section class="relative min-h-[55vh] flex items-end overflow-hidden">
     <!-- Background Image -->
     <div class="absolute inset-0">
-      <img [src]="post.image" [alt]="post.title" class="w-full h-full object-cover">
+      <img width="1200" height="675" fetchpriority="high" [src]="post.image" [alt]="post.title" class="w-full h-full object-cover">
       <div class="absolute inset-0 bg-gradient-to-t from-inverse-surface via-inverse-surface/70 to-inverse-surface/30">
       </div>
     </div>
@@ -105,7 +105,7 @@
         <a *ngFor="let related of otherPosts" [routerLink]="['/blog', related.slug || related.id]"
           class="group bg-white rounded-2xl overflow-hidden border border-outline-variant/10 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col">
           <div class="aspect-[16/9] overflow-hidden">
-            <img [src]="related.image" [alt]="related.title"
+            <img width="640" height="400" loading="lazy" decoding="async" [src]="related.image" [alt]="related.title"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
           </div>
           <div class="p-6">
