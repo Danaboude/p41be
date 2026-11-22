@@ -1,7 +1,6 @@
 import { Component, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { TranslationService } from '../../core/services/translation.service';
 import { WhyChooseComponent } from '../home/sections/why-choose/why-choose';
 import { TEAMPLANNER_CONTENT } from './teamplanner.content';
@@ -16,12 +15,8 @@ export class TeamPlannerComponent {
   private translationService = inject(TranslationService);
   private router = inject(Router);
 
-  private sanitizer = inject(DomSanitizer);
-
-  // Sales film: paste the Vimeo player URL here once approved, e.g.
-  // 'https://player.vimeo.com/video/<id>?h=<hash>&title=0&byline=0&portrait=0&badge=0&dnt=1'
-  private readonly filmSrc: string | null = null;
-  filmUrl: SafeResourceUrl | null = this.filmSrc ? this.sanitizer.bypassSecurityTrustResourceUrl(this.filmSrc) : null;
+  // Sales film, self-hosted in public/teamplanner (Dutch subtitles burned in).
+  film = { src: '/teamplanner/teamplanner-film-1080p.mp4', poster: '/teamplanner/teamplanner-film-poster.webp' };
 
   c = computed(() => TEAMPLANNER_CONTENT[this.translationService.lang()]);
   openFaq = 0;
