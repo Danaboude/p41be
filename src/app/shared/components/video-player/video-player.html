@@ -1,0 +1,81 @@
+<div #root class="vp group relative w-full overflow-hidden rounded-3xl bg-black shadow-2xl shadow-zinc-300/40 border border-zinc-100 select-none outline-none focus-visible:ring-4 focus-visible:ring-primary/40"
+  [class.vp--fullscreen]="fullscreen()"
+  [class.vp--idle]="!controlsVisible()"
+  tabindex="0" role="region" [attr.aria-label]="title() || t().playVideo"
+  (keydown)="onKey($event)" (mousemove)="poke()" (mouseleave)="playing() && controlsVisible.set(false)" (touchstart)="poke()">
+
+  <video #video class="block w-full h-auto" [width]="width()" [height]="height()" playsinline preload="metadata"
+    [poster]="poster()" [attr.aria-label]="title()"
+    (click)="togglePlay()" (play)="onPlay()" (pause)="onPause()" (ended)="onEnded()"
+    (timeupdate)="onTime()" (loadedmetadata)="onMeta()" (durationchange)="onMeta()"
+    (volumechange)="onVolume()" (progress)="onProgress()"
+    (waiting)="onWaiting(true)" (playing)="onWaiting(false)" (canplay)="onWaiting(false)">
+    <source [src]="src()" type="video/mp4">
+  </video>
+
+  <!-- Big play button on the poster and whenever paused -->
+  @if (!playing()) {
+    <button type="button" class="vp-big absolute inset-0 m-auto flex items-center justify-center rounded-full"
+      [attr.aria-label]="t().playVideo" (click)="togglePlay()">
+      <span class="material-symbols-outlined vp-big-icon" aria-hidden="true">play_arrow</span>
+    </button>
+    @if (!started() && posterDuration()) {
+      <span class="absolute top-4 right-4 rounded-full bg-black/60 px-3 py-1 text-xs font-bold text-white backdrop-blur-sm">{{ posterDuration() }}</span>
+    }
+  }
+
+  @if (waiting() && playing()) {
+    <div class="pointer-events-none absolute inset-0 flex items-center justify-center" aria-hidden="true">
+      <span class="vp-spinner"></span>
+    </div>
+  }
+
+  <!-- Control bar -->
+  @if (started()) {
+    <div class="vp-bar absolute inset-x-0 bottom-0 px-3 pb-3 pt-10 md:px-5 md:pb-4" (click)="$event.stopPropagation()">
+      <!-- Progress -->
+      <div class="vp-progress relative mb-2 h-4 flex items-center">
+        <div class="absolute inset-x-0 h-1.5 rounded-full bg-white/25 overflow-hidden">
+          <div class="absolute inset-y-0 left-0 bg-white/40" [style.width.%]="bufferedPct()"></div>
+          <div class="absolute inset-y-0 left-0 bg-primary-container" [style.width.%]="progress()"></div>
+        </div>
+        <input type="range" min="0" max="100" step="0.1" class="vp-range absolute inset-0 w-full"
+          [value]="progress()" (input)="seekTo($event)" [attr.aria-label]="t().seek"
+          [attr.aria-valuetext]="format(current()) + ' / ' + format(duration())">
+      </div>
+
+      <div class="flex items-center gap-1 md:gap-2 text-white">
+        <button type="button" class="vp-btn" (click)="togglePlay()" [attr.aria-label]="playing() ? t().pause : t().play">
+          <span class="material-symbols-outlined" aria-hidden="true">{{ playing() ? 'pause' : 'play_arrow' }}</span>
+        </button>
+        <button type="button" class="vp-btn" (click)="skip(-5)" [attr.aria-label]="t().back" [title]="t().back">
+          <span class="material-symbols-outlined" aria-hidden="true">replay_5</span>
+        </button>
+        <button type="button" class="vp-btn" (click)="skip(5)" [attr.aria-label]="t().forward" [title]="t().forward">
+          <span class="material-symbols-outlined" aria-hidden="true">forward_5</span>
+        </button>
+
+        <div class="flex items-center gap-1 group/vol">
+          <button type="button" class="vp-btn" (click)="toggleMute()" [attr.aria-label]="muted() ? t().unmute : t().mute">
+            <span class="material-symbols-outlined" aria-hidden="true">{{ muted() || volume() === 0 ? 'volume_off' : (volume() < 0.5 ? 'volume_down' : 'volume_up') }}</span>
+          </button>
+          <input type="range" min="0" max="1" step="0.05" class="vp-volume hidden sm:block"
+            [value]="muted() ? 0 : volume()" (input)="setVolume($event)" [attr.aria-label]="t().volume">
+        </div>
+
+        <span class="ml-1 text-xs md:text-sm font-label tabular-nums text-white/90 whitespace-nowrap">
+          {{ format(current()) }} <span class="text-white/50">/ {{ format(duration()) }}</span>
+        </span>
+
+        <span class="flex-1"></span>
+
+        <button type="button" class="vp-btn vp-speed" (click)="cycleSpeed()" [attr.aria-label]="t().speed + ' ' + speed() + 'x'" [title]="t().speed">
+          {{ speed() }}×
+        </button>
+        <button type="button" class="vp-btn" (click)="toggleFullscreen()" [attr.aria-label]="fullscreen() ? t().exitFullscreen : t().fullscreen">
+          <span class="material-symbols-outlined" aria-hidden="true">{{ fullscreen() ? 'fullscreen_exit' : 'fullscreen' }}</span>
+        </button>
+      </div>
+    </div>
+  }
+</div>

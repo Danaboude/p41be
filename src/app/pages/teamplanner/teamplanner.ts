@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { TranslationService } from '../../core/services/translation.service';
 import { WhyChooseComponent } from '../home/sections/why-choose/why-choose';
+import { VideoPlayerComponent } from '../../shared/components/video-player/video-player';
 import { TEAMPLANNER_CONTENT } from './teamplanner.content';
 
 @Component({
   selector: 'app-teamplanner',
   standalone: true,
-  imports: [CommonModule, WhyChooseComponent],
+  imports: [CommonModule, WhyChooseComponent, VideoPlayerComponent],
   templateUrl: './teamplanner.html'
 })
 export class TeamPlannerComponent {
