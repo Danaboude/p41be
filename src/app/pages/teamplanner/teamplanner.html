@@ -37,12 +37,7 @@
         <span class="text-primary font-label text-[10px] font-black tracking-widest uppercase">{{ c().film_tag }}</span>
       </div>
       <h2 class="text-3xl md:text-5xl font-black text-zinc-900 leading-tight mb-12">{{ c().film_title }}</h2>
-      <div class="rounded-3xl overflow-hidden shadow-2xl shadow-zinc-300/40 border border-zinc-100 bg-black">
-        <video class="block w-full h-auto" width="1920" height="1080" controls playsinline preload="none"
-          [poster]="film.poster" [attr.aria-label]="c().film_title">
-          <source [src]="film.src" type="video/mp4">
-        </video>
-      </div>
+      <app-video-player [src]="film.src" [poster]="film.poster" [title]="c().film_title" durationLabel="3:06" />
       <p class="text-sm text-zinc-500 font-label mt-4">{{ c().film_note }}</p>
     </div>
   </section>
