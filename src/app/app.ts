@@ -16,6 +16,7 @@ import { ActivatedRoute } from '@angular/router';
 import { TIME_STUDY_CONTENT } from './pages/time-study/time-study.content';
 import { TEAMPLANNER_CONTENT } from './pages/teamplanner/teamplanner.content';
 import { TEAMPLANNER_FILM_TRANSCRIPT } from './pages/teamplanner/teamplanner.film-transcript';
+import { LINEBALANCE_FILM_TRANSCRIPT } from './pages/time-study/time-study.film-transcript';
 
 const ORG_REF = { '@type': 'Organization', '@id': 'https://www.p41.be/#organization', name: 'P41 Industrial Intelligence', url: 'https://www.p41.be' };
 const faqPage = (url: string, items: { q: string; a: string }[]) => ({
@@ -47,6 +48,19 @@ const JSON_LD_BY_SEO_KEY: Record<string, any> = {
         inLanguage: ['en', 'nl'],
         brand: { '@type': 'Brand', name: 'P41 Industrial Intelligence' },
         provider: ORG_REF
+      },
+      {
+        '@type': 'VideoObject',
+        '@id': 'https://www.p41.be/time-study#film',
+        name: 'Where do the seconds go? A P41 line balancing story',
+        description: TS.video_desc,
+        thumbnailUrl: 'https://www.p41.be/time-study/linebalance-film-poster.jpg',
+        contentUrl: 'https://www.p41.be/time-study/linebalance-film-720p.mp4',
+        uploadDate: '2026-11-23',
+        duration: 'PT2M29S',
+        inLanguage: 'en',
+        transcript: LINEBALANCE_FILM_TRANSCRIPT,
+        publisher: ORG_REF
       },
       faqPage('https://www.p41.be/time-study', TS.faq)
     ]

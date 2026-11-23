@@ -16,6 +16,7 @@
   <!-- Big play button on the poster and whenever paused -->
   @if (!playing()) {
     <button type="button" class="vp-big absolute inset-0 m-auto flex items-center justify-center rounded-full"
+      [class.vp-big--lower]="playPosition() === 'lower' && !started()"
       [attr.aria-label]="t().playVideo" (click)="togglePlay()">
       <span class="material-symbols-outlined vp-big-icon" aria-hidden="true">play_arrow</span>
     </button>
