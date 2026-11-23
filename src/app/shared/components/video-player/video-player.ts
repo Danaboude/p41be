@@ -41,6 +41,8 @@ export class VideoPlayerComponent implements OnDestroy {
   height = input<number>(1080);
   /** Shown on the poster before the first play, e.g. "3:06". Falls back to the real duration once known. */
   durationLabel = input<string>('');
+  /** Where the big play button sits on the poster: 'center' (default) or 'lower' (use when the poster has a centred title). */
+  playPosition = input<'center' | 'lower'>('center');
 
   private video = viewChild.required<ElementRef<HTMLVideoElement>>('video');
   private root = viewChild.required<ElementRef<HTMLElement>>('root');

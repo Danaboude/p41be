@@ -124,6 +124,34 @@
     </div>
   </section>
 
+  <!-- The book: The Customer's Truffle -->
+  <section id="book" class="section-padding bg-zinc-50/40 border-b border-zinc-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-5">
+        <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-sm mb-6">
+          <span class="material-symbols-outlined text-primary text-sm">menu_book</span>
+          <span class="text-primary font-label text-xs font-bold tracking-widest uppercase">{{ book().tag }}</span>
+        </div>
+        <h2 class="text-3xl md:text-5xl font-black text-zinc-900 mb-6 leading-tight">{{ book().title }}</h2>
+        <p class="text-lg text-zinc-600 leading-relaxed mb-8">{{ book().text }}</p>
+        <div class="flex flex-wrap gap-4">
+          <a routerLink="/blog/the-customers-truffle" class="premium-gradient-btn !px-8 !py-4">{{ book().blog }}</a>
+          <a [href]="booksUrl" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-zinc-200 font-label font-bold text-zinc-700 hover:border-primary hover:text-primary transition-all">
+            {{ book().order }} <span class="material-symbols-outlined text-sm">open_in_new</span>
+          </a>
+        </div>
+      </div>
+      <div class="lg:col-span-7">
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-zinc-300/40 border border-zinc-100 bg-black" style="padding-top: 56.25%;">
+          <iframe [src]="bookVideo" loading="lazy" class="absolute inset-0 w-full h-full" [title]="book().title" frameborder="0"
+            referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Published Research -->
   <section class="section-padding bg-white relative overflow-hidden border-b border-zinc-50">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
