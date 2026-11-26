@@ -92,6 +92,12 @@
       <p class="text-lg text-zinc-500 max-w-2xl mx-auto mb-12 font-label">{{ c().video_desc }}</p>
       <app-video-player [src]="film.src" [poster]="film.poster" [title]="c().video_title" [width]="1280" [height]="720" durationLabel="2:29" playPosition="lower" />
       <p class="text-sm text-zinc-500 font-label mt-4">{{ c().video_note }}</p>
+      <details class="mt-6 text-left max-w-3xl mx-auto group">
+        <summary class="cursor-pointer list-none inline-flex items-center gap-2 text-primary font-bold">
+          <span class="material-symbols-outlined text-lg transition-transform group-open:rotate-90">chevron_right</span>{{ c().transcript_label }}
+        </summary>
+        <p class="mt-4 text-zinc-600 leading-relaxed">{{ transcripts().linebalance }}</p>
+      </details>
     </div>
   </section>
 
@@ -133,6 +139,25 @@
               <figcaption class="text-sm text-zinc-500 font-label mt-4">{{ f.shot.caption }}</figcaption>
             </figure>
           </article>
+          @if (f.film; as film) {
+            <section [id]="f.id + '-film'" class="max-w-5xl mx-auto -mt-8 md:-mt-12 scroll-mt-24" [attr.aria-label]="film.title">
+              <div class="text-center mb-8">
+                <h3 class="text-2xl md:text-3xl font-black text-zinc-900 mb-3 inline-flex items-center gap-3">
+                  <span class="material-symbols-outlined text-primary text-3xl">movie</span>{{ film.title }}
+                </h3>
+                <p class="text-zinc-500 font-label max-w-3xl mx-auto leading-relaxed">{{ film.desc }}</p>
+              </div>
+              <app-video-player [src]="film.src" [poster]="film.poster" [title]="film.title" [width]="1280" [height]="720"
+                [durationLabel]="film.duration" playPosition="lower" />
+              <p class="text-sm text-zinc-500 font-label mt-4 text-center">{{ c().film_note }}</p>
+              <details class="mt-6 max-w-3xl mx-auto group">
+                <summary class="cursor-pointer list-none inline-flex items-center gap-2 text-primary font-bold">
+                  <span class="material-symbols-outlined text-lg transition-transform group-open:rotate-90">chevron_right</span>{{ c().transcript_label }}
+                </summary>
+                <p class="mt-4 text-zinc-600 leading-relaxed">{{ transcripts()[film.key] }}</p>
+              </details>
+            </section>
+          }
         }
       </div>
 

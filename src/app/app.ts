@@ -16,7 +16,8 @@ import { ActivatedRoute } from '@angular/router';
 import { TIME_STUDY_CONTENT } from './pages/time-study/time-study.content';
 import { TEAMPLANNER_CONTENT } from './pages/teamplanner/teamplanner.content';
 import { TEAMPLANNER_FILM_TRANSCRIPT } from './pages/teamplanner/teamplanner.film-transcript';
-import { LINEBALANCE_FILM_TRANSCRIPT } from './pages/time-study/time-study.film-transcript';
+import { FILM_TRANSCRIPTS } from './pages/time-study/time-study.film-transcript';
+import { SITE_FILMS, SITE_ORIGIN, isoDuration } from './core/films';
 
 const ORG_REF = { '@type': 'Organization', '@id': 'https://www.p41.be/#organization', name: 'P41 Industrial Intelligence', url: 'https://www.p41.be' };
 const faqPage = (url: string, items: { q: string; a: string }[]) => ({
@@ -24,6 +25,26 @@ const faqPage = (url: string, items: { q: string; a: string }[]) => ({
   '@id': url + '#faq',
   mainEntity: items.map(i => ({ '@type': 'Question', name: i.q, acceptedAnswer: { '@type': 'Answer', text: i.a } }))
 });
+const TRANSCRIPTS: Record<string, string> = {
+  linebalance: FILM_TRANSCRIPTS.linebalance.en,
+  price: FILM_TRANSCRIPTS.price.en,
+  firstday: FILM_TRANSCRIPTS.firstday.en,
+  teamplanner: TEAMPLANNER_FILM_TRANSCRIPT
+};
+const videoObjects = (page: string) => SITE_FILMS.filter(f => f.page === page).map(f => ({
+  '@type': 'VideoObject',
+  '@id': `${SITE_ORIGIN}${f.page}#${f.anchor}`,
+  name: f.name,
+  description: f.description,
+  thumbnailUrl: SITE_ORIGIN + f.poster,
+  contentUrl: SITE_ORIGIN + f.file,
+  uploadDate: f.uploadDate,
+  duration: isoDuration(f.durationSec),
+  inLanguage: 'en',
+  isFamilyFriendly: true,
+  transcript: TRANSCRIPTS[f.id],
+  publisher: ORG_REF
+}));
 const TS = TIME_STUDY_CONTENT.en;
 const TP = TEAMPLANNER_CONTENT.en;
 
@@ -49,19 +70,7 @@ const JSON_LD_BY_SEO_KEY: Record<string, any> = {
         brand: { '@type': 'Brand', name: 'P41 Industrial Intelligence' },
         provider: ORG_REF
       },
-      {
-        '@type': 'VideoObject',
-        '@id': 'https://www.p41.be/time-study#film',
-        name: 'Where do the seconds go? A P41 line balancing story',
-        description: TS.video_desc,
-        thumbnailUrl: 'https://www.p41.be/time-study/linebalance-film-poster.jpg',
-        contentUrl: 'https://www.p41.be/time-study/linebalance-film-720p.mp4',
-        uploadDate: '2026-11-23',
-        duration: 'PT2M29S',
-        inLanguage: 'en',
-        transcript: LINEBALANCE_FILM_TRANSCRIPT,
-        publisher: ORG_REF
-      },
+      ...videoObjects('/time-study'),
       faqPage('https://www.p41.be/time-study', TS.faq)
     ]
   },
@@ -84,19 +93,7 @@ const JSON_LD_BY_SEO_KEY: Record<string, any> = {
         brand: { '@type': 'Brand', name: 'P41 Industrial Intelligence' },
         provider: ORG_REF
       },
-      {
-        '@type': 'VideoObject',
-        '@id': 'https://www.p41.be/teamplanner#film',
-        name: 'TeamPlanner: plan people, not blocks',
-        description: TP.film_title + ' ' + TP.desc,
-        thumbnailUrl: 'https://www.p41.be/teamplanner/teamplanner-film-poster.jpg',
-        contentUrl: 'https://www.p41.be/teamplanner/teamplanner-film-1080p.mp4',
-        uploadDate: '2026-11-22',
-        duration: 'PT3M6S',
-        inLanguage: 'en',
-        transcript: TEAMPLANNER_FILM_TRANSCRIPT,
-        publisher: ORG_REF
-      },
+      ...videoObjects('/teamplanner'),
       faqPage('https://www.p41.be/teamplanner', TP.faq)
     ]
   }
