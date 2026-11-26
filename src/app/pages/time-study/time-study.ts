@@ -5,6 +5,7 @@ import { TranslationService } from '../../core/services/translation.service';
 import { WhyChooseComponent } from '../home/sections/why-choose/why-choose';
 import { VideoPlayerComponent } from '../../shared/components/video-player/video-player';
 import { TIME_STUDY_CONTENT, TIME_STUDY_SHOTS } from './time-study.content';
+import { FILM_TRANSCRIPTS } from './time-study.film-transcript';
 
 @Component({
   selector: 'app-time-study',
@@ -18,6 +19,10 @@ export class TimeStudyComponent {
 
   c = computed(() => TIME_STUDY_CONTENT[this.translationService.lang()]);
   shots = TIME_STUDY_SHOTS;
+  transcripts = computed(() => {
+    const l = this.translationService.lang();
+    return { linebalance: FILM_TRANSCRIPTS.linebalance[l], price: FILM_TRANSCRIPTS.price[l], firstday: FILM_TRANSCRIPTS.firstday[l] };
+  });
   openFaq = 0;
 
   // Line balance film, self-hosted in public/time-study (Dutch subtitles burned in).

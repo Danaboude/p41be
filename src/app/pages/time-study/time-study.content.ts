@@ -3,9 +3,15 @@
 // Never name or show licensed standards or their code tables.
 
 export interface TsShot { src: string; w: number; h: number; alt: string; caption: string; }
-export interface TsFeature { id: string; icon: string; tag: string; title: string; text: string; points: string[]; shot: TsShot; }
+export interface TsFilm { key: 'price' | 'firstday'; src: string; poster: string; duration: string; title: string; desc: string; }
+export interface TsFeature { id: string; icon: string; tag: string; title: string; text: string; points: string[]; shot: TsShot; film?: TsFilm; }
 
 const img = (src: string, w: number, h: number) => ({ src: `/time-study/${src}.webp`, w, h });
+
+const FILMS = {
+  price: { key: 'price' as const, src: '/time-study/price-film-720p.mp4', poster: '/time-study/price-film-poster.webp', duration: '2:17' },
+  firstday: { key: 'firstday' as const, src: '/time-study/firstday-film-720p.mp4', poster: '/time-study/firstday-film-poster.webp', duration: '2:08' }
+};
 
 const SHOTS = {
   chart: img('station-balance-chart', 960, 675),
@@ -35,6 +41,8 @@ const en = {
   video_tag: 'A P41 story',
   video_title: 'Where do the seconds go?',
   video_desc: '48,000 bike lights, 20 working days, seven people. Watch how a time study and a balanced line take the takt time from 11.3 to 7.2 seconds, with the same people and the same tasks.',
+  transcript_label: 'Read the transcript',
+  film_note: 'English voice-over with Dutch subtitles. Illustrative simulation with a fictional company and figures from a demo study in the software.',
   video_note: 'English voice-over with Dutch subtitles. Illustrative simulation of a fictional line; the figures come from a demo study in the software.',
   how_tag: 'How it works',
   how_title1: 'Three parts that',
@@ -63,7 +71,8 @@ const en = {
       title: 'From time to cost price and selling price per unit',
       text: 'Personnel, machines and materials come from the same study. Personnel cost is split into productive time and paid idle time from balance loss, so the cost matches the norm time.',
       points: ['Rest and personal allowance per activity, scored on physical load, mental load and environment', 'Overhead and margin on top of the direct cost', 'Compare the study with another balance before you decide'],
-      shot: { ...SHOTS.cost, alt: 'Cost price per unit: personnel, machines, materials, overhead, margin and selling price', caption: 'Demo line: direct cost €0.98, selling price €1.18 per unit.' }
+      shot: { ...SHOTS.cost, alt: 'Cost price per unit: personnel, machines, materials, overhead, margin and selling price', caption: 'Demo line: direct cost €0.98, selling price €1.18 per unit.' },
+      film: { ...FILMS.price, title: 'Film: The price by tomorrow', desc: 'A buyer wants 48,000 lights, four in ten with a USB cable, and a price by tomorrow. See how the study turns every second into a price of €1.17 per light, and why paid waiting time from balance loss is real money: 11 cents per light on the balanced line, 39 cents before.' }
     },
     {
       id: 'gantt', icon: 'view_timeline', tag: 'Gantt',
@@ -91,7 +100,8 @@ const en = {
       title: 'The study becomes the work instruction',
       text: 'Each station becomes a page with the steps in order, with room for photos and video. The operator follows it on a tablet or screen at the line and marks each step as done.',
       points: ['Safety, learning points and quality notes per step', 'Open a station by QR code on the shop floor', 'Export the instructions as a PDF'],
-      shot: { ...SHOTS.operator, alt: 'Operator screen with the steps for one workstation and safety and quality notes', caption: 'Operator screen for one workstation.' }
+      shot: { ...SHOTS.operator, alt: 'Operator screen with the steps for one workstation and safety and quality notes', caption: 'Operator screen for one workstation.' },
+      film: { ...FILMS.firstday, title: 'Film: First day on the line', desc: 'A new operator on her first day. Instead of an outdated binder, she scans a QR code and follows the steps from the balanced study, with a photo of what good looks like. Her remark goes straight to the engineer, and the instruction updates everywhere.' }
     }
   ] as TsFeature[],
   more_title: 'And more',
@@ -150,6 +160,8 @@ const nl: TsContent = {
   video_tag: 'Een P41-verhaal',
   video_title: 'Waar gaan de seconden naartoe?',
   video_desc: '48.000 fietslampen, 20 werkdagen, zeven mensen. Zie hoe een tijdstudie en een gebalanceerde lijn de takttijd van 11,3 naar 7,2 seconden brengen, met dezelfde mensen en dezelfde taken.',
+  transcript_label: 'Lees de transcriptie',
+  film_note: 'Engelse voice-over met Nederlandse ondertitels. Illustratieve simulatie met een fictief bedrijf en cijfers uit een demostudie in de software.',
   video_note: 'Engelse voice-over met Nederlandse ondertitels. Illustratieve simulatie van een fictieve lijn; de cijfers komen uit een demostudie in de software.',
   how_tag: 'Hoe het werkt',
   how_title1: 'Drie delen die',
@@ -178,7 +190,8 @@ const nl: TsContent = {
       title: 'Van tijd naar kostprijs en verkoopprijs per eenheid',
       text: 'Personeel, machines en materialen komen uit dezelfde studie. De personeelskost wordt gesplitst in productieve tijd en betaalde wachttijd door balansverlies, zodat de kost aansluit op de normtijd.',
       points: ['Rust- en persoonlijke toeslag per activiteit, gescoord op fysieke belasting, mentale belasting en omgeving', 'Overhead en marge bovenop de directe kost', 'Vergelijk de studie met een andere balans voor u beslist'],
-      shot: { ...SHOTS.cost, alt: 'Kostprijs per eenheid: personeel, machines, materialen, overhead, marge en verkoopprijs', caption: 'Demolijn: directe kost € 0,98, verkoopprijs € 1,18 per eenheid.' }
+      shot: { ...SHOTS.cost, alt: 'Kostprijs per eenheid: personeel, machines, materialen, overhead, marge en verkoopprijs', caption: 'Demolijn: directe kost € 0,98, verkoopprijs € 1,18 per eenheid.' },
+      film: { ...FILMS.price, title: 'Film: De prijs tegen morgen', desc: 'Een koper wil 48.000 lampen, vier op tien met een USB-kabel, en een prijs tegen morgen. Zie hoe de studie elke seconde omzet in een prijs van € 1,17 per lamp, en waarom betaalde wachttijd door balansverlies echt geld is: 11 cent per lamp op de gebalanceerde lijn, 39 cent ervoor.' }
     },
     {
       id: 'gantt', icon: 'view_timeline', tag: 'Gantt',
@@ -206,7 +219,8 @@ const nl: TsContent = {
       title: 'De studie wordt de werkinstructie',
       text: 'Elk station wordt een pagina met de stappen in volgorde, met ruimte voor foto\'s en video. De operator volgt ze op een tablet of scherm aan de lijn en vinkt elke stap af.',
       points: ['Veiligheid, leerpunten en kwaliteit per stap', 'Open een station met een QR-code op de werkvloer', 'Exporteer de instructies als PDF'],
-      shot: { ...SHOTS.operator, alt: 'Operatorscherm met de stappen van één werkstation en veiligheids- en kwaliteitsnotities', caption: 'Operatorscherm voor één werkstation.' }
+      shot: { ...SHOTS.operator, alt: 'Operatorscherm met de stappen van één werkstation en veiligheids- en kwaliteitsnotities', caption: 'Operatorscherm voor één werkstation.' },
+      film: { ...FILMS.firstday, title: 'Film: Eerste dag aan de lijn', desc: 'Een nieuwe operator op haar eerste dag. In plaats van een verouderde map scant ze een QR-code en volgt ze de stappen uit de gebalanceerde studie, met een foto van hoe het goed moet. Haar opmerking gaat meteen naar de engineer, en de instructie past zich overal aan.' }
     }
   ],
   more_title: 'En meer',
@@ -247,3 +261,4 @@ const nl: TsContent = {
 
 export const TIME_STUDY_CONTENT = { en, nl };
 export const TIME_STUDY_SHOTS = SHOTS;
+export const TIME_STUDY_FILMS = FILMS;
