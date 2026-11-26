@@ -1,6 +1,6 @@
 import { Component, inject, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { filter, map } from 'rxjs';
 import { TranslationService } from '../../../core/services/translation.service';
@@ -8,7 +8,7 @@ import { TranslationService } from '../../../core/services/translation.service';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './header.html',
   styleUrls: ['./header.css']
 })
@@ -32,6 +32,9 @@ export class HeaderComponent {
     ),
     { initialValue: this.router.url }
   );
+
+  /** True only on the homepage */
+  isHome = computed(() => this.currentUrl().split(/[?#]/)[0] === '/' || this.currentUrl().split(/[?#]/)[0] === '');
 
   /** True when on any /academy route */
   isAcademy = computed(() => this.currentUrl().startsWith('/academy'));
@@ -63,8 +66,13 @@ export class HeaderComponent {
   }
 
   private scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
     this.isMobileMenuOpen.set(false);
+  }
+
+  /** Runs after a menu link is clicked: close the mobile menu and go to the top. */
+  afterNav() {
+    this.scrollToTop();
   }
 
   navigateToConsultancy() {

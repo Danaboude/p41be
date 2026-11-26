@@ -2,17 +2,17 @@
   [class]="'relative z-[60] px-6 py-3 flex justify-between items-center max-w-[96%] mx-auto my-3 rounded-2xl animate-fade-in border border-white/30 backdrop-blur-2xl shadow-[0_4px_40px_rgba(33,85,157,0.08)] ' + 
   (isBlog() ? 'bg-white/90' : 'bg-white/75')">
   
-  <div class="flex items-center gap-2 cursor-pointer group relative z-10" (click)="navigateHome()">
+  <a routerLink="/" (click)="afterNav()" aria-label="P41 home" class="flex items-center gap-2 cursor-pointer group relative z-10">
     <div
       class="bg-white/50 p-1 rounded-lg backdrop-blur-sm border border-white/20 group-hover:border-primary/30 transition-all duration-500">
       <img width="210" height="375" [src]="isAcademy() ? 'logo-Y.jpg' : (isBlog() ? 'logo-R.jpg' : 'logo.jpg')" alt="P41 Logo"
         class="h-10 w-auto group-hover:scale-110 transition-transform duration-500">
     </div>
-  </div>
+  </a>
 
   <div class="hidden md:flex items-center gap-10 relative z-10">
-    <a (click)="navigateHome()"
-      [class]="(!isAcademy() && !isBlog())
+    <a routerLink="/" (click)="afterNav()"
+      [class]="isHome()
       ? 'text-primary border-b-2 border-primary pb-1 font-label font-bold tracking-tight hover:opacity-80 transition-all cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-primary after:scale-x-100'
       : 'text-on-surface-variant font-label font-bold transition-all hover:-translate-y-0.5 cursor-pointer ' + 
         (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{
@@ -31,7 +31,7 @@
       <div
         class="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-64 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-20">
         <div class="bg-white rounded-2xl shadow-2xl shadow-zinc-300/40 border border-zinc-100 overflow-hidden p-2">
-          <a (click)="navigateToTimeStudy()"
+          <a routerLink="/time-study" (click)="afterNav()"
             [class]="'flex items-start gap-3 rounded-xl p-3 cursor-pointer transition-colors ' + (isTimeStudy() ? 'bg-primary/5' : 'hover:bg-zinc-50')">
             <span class="material-symbols-outlined text-primary text-xl mt-0.5">timer</span>
             <span class="flex flex-col">
@@ -39,7 +39,7 @@
               <span class="text-xs text-zinc-500">{{ t().nav.timeStudyTagline }}</span>
             </span>
           </a>
-          <a (click)="navigateToTeamPlanner()"
+          <a routerLink="/teamplanner" (click)="afterNav()"
             [class]="'flex items-start gap-3 rounded-xl p-3 cursor-pointer transition-colors ' + (isTeamPlanner() ? 'bg-primary/5' : 'hover:bg-zinc-50')">
             <span class="material-symbols-outlined text-primary text-xl mt-0.5">groups</span>
             <span class="flex flex-col">
@@ -51,31 +51,31 @@
       </div>
     </div>
 
-    <a (click)="navigateToConsultancy()"
+    <a routerLink="/consultancy" (click)="afterNav()"
       [class]="isConsultancy()
       ? 'text-primary border-b-2 border-primary pb-1 font-label font-bold tracking-tight hover:opacity-80 transition-all cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-primary after:scale-x-100'
       : 'text-on-surface-variant font-label font-bold transition-all hover:-translate-y-0.5 cursor-pointer ' + 
         (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{
       t().nav.consultancy
       }}</a>
-    <a (click)="navigateToAcademy()"
+    <a routerLink="/academy" (click)="afterNav()"
       [class]="isAcademy()
       ? 'text-[#D4A843] border-b-2 border-[#D4A843] pb-1 font-label font-bold tracking-tight hover:opacity-80 transition-all cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#D4A843] after:scale-x-100'
       : 'text-on-surface-variant font-label font-bold transition-all hover:-translate-y-0.5 cursor-pointer ' + 
         (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary')">{{ t().nav.academy
       }}</a>
-    <a (click)="navigateToBlog()"
+    <a routerLink="/blog" (click)="afterNav()"
       [class]="isBlog()
       ? 'text-[#E53935] border-b-2 border-[#E53935] pb-1 font-label font-bold tracking-tight hover:opacity-80 transition-all cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#E53935] after:scale-x-100'
       : 'text-on-surface-variant font-label font-bold transition-all hover:-translate-y-0.5 cursor-pointer ' + 
         (isAcademy() ? 'hover:text-[#D4A843]' : 'hover:text-[#E53935]')">{{ t().nav.blog
       }}</a>
-    <a (click)="navigateToAbout()" [class]="isAbout()
+    <a routerLink="/about" (click)="afterNav()" [class]="isAbout()
       ? 'text-primary border-b-2 border-primary pb-1 font-label font-bold tracking-tight hover:opacity-80 transition-all cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-primary after:scale-x-100'
       : 'text-on-surface-variant font-label font-bold transition-all hover:-translate-y-0.5 cursor-pointer ' + 
         (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{ t().nav.about
       }}</a>
-    <a (click)="navigateToContact()" [class]="isContact()
+    <a routerLink="/contact" (click)="afterNav()" [class]="isContact()
       ? 'text-primary border-b-2 border-primary pb-1 font-label font-bold tracking-tight hover:opacity-80 transition-all cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-primary after:scale-x-100'
       : 'text-on-surface-variant font-label font-bold transition-all hover:-translate-y-0.5 cursor-pointer ' + 
         (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{ t().nav.contact
@@ -107,16 +107,16 @@
 <!-- Mobile Menu Overlay -->
 <div *ngIf="isMobileMenuOpen()" class="md:hidden fixed inset-0 z-50 bg-white/95 backdrop-blur-md pt-24 px-6 overflow-y-auto">
   <div class="flex flex-col gap-6 items-center text-xl mt-12 pb-12">
-    <a (click)="navigateHome()" class="font-label font-bold text-zinc-900 cursor-pointer">{{ t().nav.home }}</a>
+    <a routerLink="/" (click)="afterNav()" class="font-label font-bold text-zinc-900 cursor-pointer">{{ t().nav.home }}</a>
     <div class="flex flex-col items-center gap-4">
       <span class="font-label font-bold text-zinc-500">{{ t().nav.products }}</span>
-      <a (click)="navigateToTimeStudy()" class="font-label text-zinc-900 cursor-pointer">{{ t().nav.timeStudy }}</a>
-      <a (click)="navigateToTeamPlanner()" class="font-label text-zinc-900 cursor-pointer">{{ t().nav.teamPlanner }}</a>
+      <a routerLink="/time-study" (click)="afterNav()" class="font-label text-zinc-900 cursor-pointer">{{ t().nav.timeStudy }}</a>
+      <a routerLink="/teamplanner" (click)="afterNav()" class="font-label text-zinc-900 cursor-pointer">{{ t().nav.teamPlanner }}</a>
     </div>
-    <a (click)="navigateToConsultancy()" class="font-label font-bold text-zinc-900 cursor-pointer">{{ t().nav.consultancy }}</a>
-    <a (click)="navigateToAcademy()" class="font-label font-bold text-zinc-900 cursor-pointer">{{ t().nav.academy }}</a>
-    <a (click)="navigateToBlog()" class="font-label font-bold text-zinc-900 cursor-pointer">{{ t().nav.blog }}</a>
-    <a (click)="navigateToAbout()" class="font-label font-bold text-zinc-900 cursor-pointer">{{ t().nav.about }}</a>
-    <a (click)="navigateToContact()" class="font-label font-bold text-zinc-900 cursor-pointer">{{ t().nav.contact }}</a>
+    <a routerLink="/consultancy" (click)="afterNav()" class="font-label font-bold text-zinc-900 cursor-pointer">{{ t().nav.consultancy }}</a>
+    <a routerLink="/academy" (click)="afterNav()" class="font-label font-bold text-zinc-900 cursor-pointer">{{ t().nav.academy }}</a>
+    <a routerLink="/blog" (click)="afterNav()" class="font-label font-bold text-zinc-900 cursor-pointer">{{ t().nav.blog }}</a>
+    <a routerLink="/about" (click)="afterNav()" class="font-label font-bold text-zinc-900 cursor-pointer">{{ t().nav.about }}</a>
+    <a routerLink="/contact" (click)="afterNav()" class="font-label font-bold text-zinc-900 cursor-pointer">{{ t().nav.contact }}</a>
   </div>
 </div>
