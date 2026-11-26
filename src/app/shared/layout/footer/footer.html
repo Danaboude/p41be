@@ -9,11 +9,11 @@
   <div class="max-w-7xl mx-auto relative z-10">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-16">
       <div class="col-span-1 md:col-span-1">
-        <div class="flex items-center gap-3 mb-8 group cursor-pointer" (click)="navigateHome()">
+        <a routerLink="/" (click)="afterNav()" aria-label="P41 home" class="flex items-center gap-3 mb-8 group cursor-pointer w-fit">
           <div class="bg-white p-1 rounded-sm border border-zinc-100">
             <img width="210" height="375" [src]="isAcademy() ? 'logo-Y.jpg' : (isBlog() ? 'logo-R.jpg' : 'logo.jpg')" alt="P41 Logo" class="h-10 w-auto">
           </div>
-        </div>
+        </a>
         <p class="text-on-surface-variant font-body leading-relaxed mb-10 text-sm">
           {{ t().footer.desc }}
         </p>
@@ -44,11 +44,11 @@
           ? 'font-label font-bold uppercase tracking-widest text-[#D4A843] mb-10 text-[11px]'
           : (isBlog() ? 'font-label font-bold uppercase tracking-widest text-[#E53935] mb-10 text-[11px]' : 'font-label font-bold uppercase tracking-widest text-primary mb-10 text-[11px]')">{{ t().footer.nav }}</h5>
         <ul class="space-y-5">
-          <li><a (click)="navigateToConsultancy()" [class]="'text-on-surface-variant transition-all font-label text-sm cursor-pointer ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{
+          <li><a routerLink="/consultancy" (click)="afterNav()" [class]="'text-on-surface-variant transition-all font-label text-sm cursor-pointer ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{
               t().nav.consultancy }}</a></li>
-          <li><a (click)="navigateToAcademy()" [class]="'text-on-surface-variant transition-all font-label text-sm cursor-pointer ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{
+          <li><a routerLink="/academy" (click)="afterNav()" [class]="'text-on-surface-variant transition-all font-label text-sm cursor-pointer ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{
               t().nav.academy }}</a></li>
-          <li><a (click)="navigateToBlog()" [class]="'text-on-surface-variant transition-all font-label text-sm cursor-pointer ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{ t().nav.blog
+          <li><a routerLink="/blog" (click)="afterNav()" [class]="'text-on-surface-variant transition-all font-label text-sm cursor-pointer ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{ t().nav.blog
               }}</a></li>
         </ul>
       </div>
@@ -58,11 +58,11 @@
           ? 'font-label font-bold uppercase tracking-widest text-[#D4A843] mb-10 text-[11px]'
           : (isBlog() ? 'font-label font-bold uppercase tracking-widest text-[#E53935] mb-10 text-[11px]' : 'font-label font-bold uppercase tracking-widest text-primary mb-10 text-[11px]')">{{ t().footer.company }}</h5>
         <ul class="space-y-5">
-          <li><a (click)="navigateToAbout()" [class]="'text-on-surface-variant transition-all font-label text-sm cursor-pointer ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{ t().nav.about
+          <li><a routerLink="/about" (click)="afterNav()" [class]="'text-on-surface-variant transition-all font-label text-sm cursor-pointer ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{ t().nav.about
               }}</a></li>
-          <li><a (click)="navigateToContact()" [class]="'text-on-surface-variant transition-all font-label text-sm cursor-pointer ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{ t().nav.contact
+          <li><a routerLink="/contact" (click)="afterNav()" [class]="'text-on-surface-variant transition-all font-label text-sm cursor-pointer ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">{{ t().nav.contact
               }}</a></li>
-          <li><a (click)="navigateToPrivacy()" [class]="'text-on-surface-variant transition-all font-label text-sm cursor-pointer ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">Privacy
+          <li><a routerLink="/privacy" (click)="afterNav()" [class]="'text-on-surface-variant transition-all font-label text-sm cursor-pointer ' + (isAcademy() ? 'hover:text-[#D4A843]' : (isBlog() ? 'hover:text-[#E53935]' : 'hover:text-primary'))">Privacy
               Policy</a></li>
         </ul>
       </div>

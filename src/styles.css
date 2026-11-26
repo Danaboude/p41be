@@ -155,5 +155,14 @@
   .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     vertical-align: middle;
+    /* Fixed 1em box: before the icon font loads, the icon name ("workspace_premium") is shown
+       as text and would be much wider, which shifts the layout when the font arrives. */
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 }
